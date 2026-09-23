@@ -1,0 +1,32 @@
+name: Zahlen
+
+# Jeden Sonntag gegen 17/18 Uhr: Follower, Reichweite, Profilaufrufe nach stats/zahlen.csv.
+on:
+  schedule:
+    - cron: '0 16 * * 0'
+  workflow_dispatch:
+
+concurrency:
+  group: autopost
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  zahlen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Zahlen abrufen
+        working-directory: scripts
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_API_VERSION: ${{ vars.IG_API_VERSION }}
+        run: python stats.py
+      - name: Speichern
+        run: sh scripts/commit.sh "Wochenzahlen"

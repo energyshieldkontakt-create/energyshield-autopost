@@ -1,0 +1,105 @@
+/* EnergyShield Markenrahmen – Werte aus Content/Canva-Briefing.md */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+  --bg: #0A0F1C;
+  --blau: #1B4DFF;
+  --akzent: #4FC3FF;
+  --text: #F4F6FB;
+  --fein: #8A93A8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: var(--w);
+  height: var(--h);
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+}
+
+body.transparent { background: transparent; }
+
+.bg {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10,15,28,.55) 0%, rgba(10,15,28,.25) 40%, rgba(10,15,28,.9) 100%);
+}
+
+.glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--akzent) 22%, transparent) 0%, transparent 60%);
+}
+
+/* Der Frame: dünne Linie in Primärblau + zwei Klammer-Ecken in Akzentfarbe */
+.frame {
+  position: absolute; inset: 24px;
+  border: 4px solid var(--blau);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--akzent) 45%, transparent);
+}
+.ecke {
+  position: absolute; width: 90px; height: 90px;
+  border-color: var(--akzent); border-style: solid; border-width: 0;
+}
+.ecke.ol { top: 14px; left: 14px; border-top-width: 6px; border-left-width: 6px; }
+.ecke.ur { bottom: 14px; right: 14px; border-bottom-width: 6px; border-right-width: 6px; }
+
+.logo {
+  position: absolute; top: 70px; left: 70px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 44px; letter-spacing: 6px;
+}
+.logo img { height: 70px; }
+
+main {
+  position: absolute; left: 80px; right: 80px; top: 50%;
+  transform: translateY(-50%);
+}
+
+.kicker {
+  font-weight: 700; font-size: 36px; letter-spacing: 8px;
+  color: var(--akzent); text-transform: uppercase; margin-bottom: 18px;
+}
+
+h1 {
+  font-family: 'Bebas Neue', sans-serif; font-weight: 400;
+  font-size: 160px; line-height: 1; letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 0 30px color-mix(in srgb, var(--akzent) 35%, transparent);
+}
+
+.text {
+  font-size: 34px; line-height: 1.25; margin-top: 28px; max-width: 900px;
+}
+
+footer {
+  position: absolute; left: 80px; right: 80px; bottom: 80px;
+  font-size: 23px; font-weight: 600; letter-spacing: 2px;
+  color: var(--fein); text-transform: uppercase; line-height: 1.5;
+}
+
+:empty:not(.bg):not(.scrim):not(.glow):not(.frame):not(.ecke) { display: none; }
+
+/* Countdown: riesige Zahl */
+.countdown main { text-align: center; }
+.countdown h1 { font-size: 520px; color: var(--akzent); }
+
+/* Line-up: Name unten über dem Foto */
+.lineup main { top: auto; bottom: 170px; transform: none; }
+
+/* Reel-Overlay: Hook im oberen Drittel, kein Hintergrund */
+.overlay main { top: 22%; transform: none; text-align: center; }
+.overlay h1 { font-size: 140px; text-shadow: 0 4px 24px rgba(0,0,0,.85), 0 0 30px color-mix(in srgb, var(--akzent) 50%, transparent); }
+.overlay .kicker { text-shadow: 0 2px 12px rgba(0,0,0,.9); }
+.overlay .logo { top: auto; bottom: 90px; left: 0; right: 0; text-align: center; text-shadow: 0 2px 12px rgba(0,0,0,.9); }

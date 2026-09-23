@@ -1,0 +1,12 @@
+{
+  "publish_at": "2026-01-01T00:00:00+01:00",
+  "erstellt_am": "2026-01-01T00:00:00+01:00",
+  "typ": "karussell",
+  "status": "test",
+  "caption": "Testpost – wird nur gerendert, nie veröffentlicht.",
+  "slides": [
+    { "vorlage": "feed", "kicker": "Save the Date", "titel": "30.01.\nBastion", "text": "Das EnergyShield Club-Debut.", "fuss": "EVENT" },
+    { "vorlage": "lineup", "kicker": "Line-up", "titel": "DJ Name", "text": "Neurofunk / Jump-Up", "akzent": "neuro", "fuss": "EVENT" },
+    { "vorlage": "feed", "kicker": "Liquid Session", "titel": "Vom Flow\nin den Druck", "akzent": "liquid" }
+  ]
+}

@@ -1,0 +1,36 @@
+name: Rendern
+
+# Baut Grafiken und Reels, sobald neue oder geänderte Posts hochgeladen werden.
+on:
+  push:
+    branches: [main]
+    paths: ['queue/**', 'templates/**', 'brand/**']
+  workflow_dispatch:
+
+concurrency:
+  group: autopost
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  rendern:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Werkzeuge installieren
+        run: |
+          pip install playwright pillow
+          python -m playwright install --with-deps chromium
+          command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+      - name: Rendern
+        working-directory: scripts
+        run: python render.py
+      - name: Speichern
+        if: always()
+        run: sh scripts/commit.sh "Medien gerendert"

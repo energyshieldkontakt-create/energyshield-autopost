@@ -1,0 +1,9 @@
+{
+  "publish_at": "2026-01-01T00:01:00+01:00",
+  "erstellt_am": "2026-01-01T00:00:00+01:00",
+  "typ": "story",
+  "status": "test",
+  "slides": [
+    { "vorlage": "countdown", "kicker": "Noch", "titel": "7", "text": "Tage bis zum Club-Debut", "fuss": "EVENT" }
+  ]
+}

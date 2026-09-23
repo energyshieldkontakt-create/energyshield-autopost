@@ -1,0 +1,41 @@
+name: Posten
+
+# Prüft alle 15 Minuten, ob Posts fällig sind, und veröffentlicht sie.
+# GitHub startet geplante Läufe manchmal 5–20 Minuten später.
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      testlauf:
+        description: 'Nur testen (nichts wird gepostet)'
+        type: boolean
+        default: true
+
+concurrency:
+  group: autopost
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  posten:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fällige Posts veröffentlichen
+        working-directory: scripts
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_API_VERSION: ${{ vars.IG_API_VERSION }}
+          DRY_RUN: ${{ inputs.testlauf && '1' || '0' }}
+        run: python publish.py
+      - name: Speichern
+        if: always()
+        run: sh scripts/commit.sh "Posting-Status aktualisiert"
