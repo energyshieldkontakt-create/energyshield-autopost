@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 24.09.2026 13:04. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 24.09.2026 13:24. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -37,5 +37,23 @@ Status: **test**
 <img src="queue/2026-01-01_0002_testreel/media/vorschau.jpg" width="240">
 
 [Reel ansehen](queue/2026-01-01_0002_testreel/media/reel.mp4) · [post.json bearbeiten](queue/2026-01-01_0002_testreel/post.json)
+
+---
+
+## Do 01.01. 00:03 · karussell · `2026-01-01_0003_vorschau-kw41-karussell`
+
+Status: **test**
+
+> Falls wir uns noch nicht kennen: EnergyShield ist ein Drum & Bass-Kollektiv – Veranstalter, Label, Crew und Community in einem. 🛡️⚡
+> 
+> Liquid, Deep, Neurofunk, Jump-Up – wir feiern die ganze Bandbreite.
+> 
+> Was 2027 ansteht, verraten wir bald. Folgt uns, damit ihr's zuerst erfahrt.
+> 
+> #drumandbass #dnb #dnbgermany #kirchheimteck #stuttgartdnb #liquiddnb #jumpup
+
+<img src="queue/2026-01-01_0003_vorschau-kw41-karussell/media/1.jpg" width="240"> <img src="queue/2026-01-01_0003_vorschau-kw41-karussell/media/2.jpg" width="240"> <img src="queue/2026-01-01_0003_vorschau-kw41-karussell/media/3.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-01-01_0003_vorschau-kw41-karussell/post.json)
 
 ---
