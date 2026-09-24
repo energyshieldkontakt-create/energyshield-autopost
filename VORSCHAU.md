@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 24.09.2026 19:14. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 24.09.2026 19:48. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -67,5 +67,17 @@ Status: **test**
 <img src="queue/2026-01-01_0004_testfoto/media/1.jpg" width="240"> <img src="queue/2026-01-01_0004_testfoto/media/2.jpg" width="240">
 
 [post.json bearbeiten](queue/2026-01-01_0004_testfoto/post.json)
+
+---
+
+## Do 01.01. 00:05 · karussell · `2026-01-01_0005_test-shield-sessions`
+
+Status: **test**
+
+> Test: Shield-Sessions-Cover in allen Stil-Farben.
+
+<img src="queue/2026-01-01_0005_test-shield-sessions/media/1.jpg" width="240"> <img src="queue/2026-01-01_0005_test-shield-sessions/media/2.jpg" width="240"> <img src="queue/2026-01-01_0005_test-shield-sessions/media/3.jpg" width="240"> <img src="queue/2026-01-01_0005_test-shield-sessions/media/4.jpg" width="240"> <img src="queue/2026-01-01_0005_test-shield-sessions/media/soundcloud.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-01-01_0005_test-shield-sessions/post.json)
 
 ---
