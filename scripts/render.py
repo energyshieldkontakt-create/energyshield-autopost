@@ -77,7 +77,8 @@ def baue_html(ordner, slide):
     if bild and not (ordner / bild).exists():
         raise FileNotFoundError(f"Bild '{bild}' fehlt im Post-Ordner")
     logo_datei = BRAND / "logo.png"
-    logo = f'<img src="{relativ(logo_datei, ordner)}">' if logo_datei.exists() else ""
+    logo_src = relativ(logo_datei, ordner) if logo_datei.exists() else ""
+    logo = f'<img src="{logo_src}">' if logo_src else ""
     if slide.get("fuss") == "EVENT":
         fuss = FUSS_EVENT
     elif slide.get("fuss"):
@@ -88,6 +89,8 @@ def baue_html(ordner, slide):
     deko = "" if transparent else (
         '<div class="punkte"></div>' + ornament.replace("{{ecke}}", "ol") + ornament.replace("{{ecke}}", "ur")
     )
+    if logo_src and not bild and not transparent:
+        deko += f'<img class="wasserzeichen" src="{logo_src}">'
     akzent = AKZENTE.get(slide.get("akzent", "blau"), AKZENTE["blau"])
     werte = {
         "css": relativ(TEMPLATES / "base.css", ordner),

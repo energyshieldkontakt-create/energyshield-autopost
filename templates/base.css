@@ -53,7 +53,13 @@ body.transparent { background: transparent; }
   color: color-mix(in srgb, var(--akzent) 25%, white);
   text-shadow: 0 0 10px var(--akzent), 0 0 28px color-mix(in srgb, var(--akzent) 70%, transparent);
 }
-.marke img { height: 74px; filter: drop-shadow(0 0 10px color-mix(in srgb, var(--akzent) 70%, transparent)); }
+.marke img { height: 78px; filter: brightness(0) invert(1) drop-shadow(0 0 8px var(--akzent)) drop-shadow(0 0 20px color-mix(in srgb, var(--akzent) 70%, transparent)); }
+
+/* E/S-Symbol groß und dezent hinter dem Inhalt */
+.wasserzeichen {
+  position: absolute; left: 50%; top: 50%; height: 68%; transform: translate(-50%, -50%);
+  opacity: .07; filter: brightness(0) invert(1) drop-shadow(0 0 30px var(--akzent));
+}
 
 /* Hauptblock mit leuchtenden Trennlinien */
 main { position: absolute; left: 70px; right: 70px; top: 50%; transform: translateY(-50%); }
