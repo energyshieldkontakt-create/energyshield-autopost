@@ -257,3 +257,30 @@ body.cover {
 }
 .vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(0,0,0,.8) 100%); pointer-events: none; }
 
+
+/* Shield Sessions: Hörproben-Video (Hintergrund; Wellenform und Abspielkopf setzt ffmpeg in .hp-welle) */
+.hp-kopf { position: absolute; top: 96px; left: 70px; right: 70px; display: flex; gap: 40px; align-items: center; text-align: left; }
+.hp-cover { width: 300px; height: 300px; border: 3px solid var(--akzent); box-shadow: 0 0 22px color-mix(in srgb, var(--akzent) 60%, transparent); }
+.hp-info { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.hp-von { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: 6px; text-transform: uppercase; color: #8a97a6; }
+.hp-titel { font-family: 'Bebas Neue', sans-serif; font-size: 62px; letter-spacing: 6px; line-height: 1; text-transform: uppercase;
+  color: color-mix(in srgb, var(--akzent) 40%, white); text-shadow: 0 0 12px var(--akzent); }
+.hp-dj { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 64px; letter-spacing: 3px; line-height: 1.05; text-transform: uppercase;
+  color: #fff; text-shadow: 0 0 14px color-mix(in srgb, var(--akzent) 80%, transparent); white-space: nowrap; }
+.hp-stil .stil-text { font-size: 20px; letter-spacing: 5px; padding: 10px 24px; }
+.hp-mitte { position: absolute; top: 450px; left: 0; right: 0; display: flex; justify-content: center; align-items: baseline; gap: 34px; }
+.hp-highlight { font-family: 'Bebas Neue', sans-serif; font-size: 108px; letter-spacing: 10px; line-height: 1; text-transform: uppercase;
+  color: color-mix(in srgb, var(--akzent) 45%, white); text-shadow: 0 0 16px var(--akzent), 0 0 44px color-mix(in srgb, var(--akzent) 55%, transparent); }
+.hp-zeit { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 48px; letter-spacing: 3px; color: #fff; text-shadow: 0 0 12px var(--akzent); }
+.hp-welle { position: absolute; left: 60px; top: 616px; width: 960px; height: 228px; background: #000;
+  border: 2px solid color-mix(in srgb, var(--akzent) 45%, transparent); box-shadow: 0 0 18px color-mix(in srgb, var(--akzent) 30%, transparent); }
+.hp-zeiten { position: absolute; top: 858px; left: 64px; right: 64px; display: flex; justify-content: space-between;
+  font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 3px; color: color-mix(in srgb, var(--akzent) 60%, white); }
+.hp-fuss { position: absolute; top: 918px; left: 0; right: 0; display: flex; justify-content: center; }
+.hp-fuss .stil-text { font-size: 24px; letter-spacing: 5px; }
+.hoerprobe .scan, .hoerprobe .vignette { z-index: 0; }
+
+/* Quadratische Karussell-Slides (Shield Sessions, 1080 x 1080) */
+.quadrat h1 { font-size: 150px; }
+.quadrat .marke { top: 50px; font-size: 56px; }
+.quadrat .text { font-size: 32px; }

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{{css}}">
+<style>:root { --w: {{w}}px; --h: {{h}}px; {{akzent_css}} }</style>
+</head>
+<body class="cover hoerprobe">
+  <div class="strahlen"></div>
+  {{deko}}
+  <div class="hud">
+    <span class="ecke e1"></span><span class="ecke e2"></span><span class="ecke e3"></span><span class="ecke e4"></span>
+    <span class="hud-t t1">ES // Shield Sessions</span>
+    <span class="hud-t t2">SSN-{{vol}} // Highlight {{nr}}/{{anzahl}}</span>
+    <span class="hud-t t3">48.648°N · 9.451°E</span>
+    <span class="hud-t t4">Drum &amp; Bass</span>
+  </div>
+  <div class="hp-kopf">
+    <img class="hp-cover" src="{{cover}}">
+    <div class="hp-info">
+      <div class="hp-von">EnergyShield</div>
+      <div class="hp-titel">Shield Sessions Vol. {{vol}}</div>
+      <div class="hp-dj">{{dj}}</div>
+      <div class="hp-stil"><span class="stil-text">{{stil}}</span></div>
+    </div>
+  </div>
+  <div class="hp-mitte">
+    <div class="hp-highlight">Highlight {{nr}}/{{anzahl}}</div>
+    <div class="hp-zeit">@ {{zeit}}</div>
+  </div>
+  <div class="hp-welle"></div>
+  <div class="hp-zeiten"><span>{{zeit}}</span><span>{{zeit_ende}}</span></div>
+  <div class="hp-fuss"><span class="stil-text">&#9654; Voller Mix auf SoundCloud · Link in Bio</span></div>
+  <div class="scan"></div>
+  <div class="grain"></div>
+  <div class="vignette"></div>
+</body>
+</html>

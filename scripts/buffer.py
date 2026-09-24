@@ -109,8 +109,9 @@ def an_buffer(kanal, ordner, daten, geplant, versuch=1):
             video["metadata"] = {"thumbnailOffset": int(float(sekunde) * 1000)}
         assets = [{"video": video}]
     else:
-        bilder = sorted((b for b in media.glob("*.jpg") if b.stem.isdigit()), key=lambda b: int(b.stem))
-        assets = [{"image": {"url": cdn_url(ordner, b.name)}} for b in bilder]
+        # Slides in Reihenfolge 1, 2, 3 …; Bilder (.jpg) und Video-Slides (.mp4, z. B. Hörproben) gemischt
+        teile = sorted((m for m in media.iterdir() if m.stem.isdigit() and m.suffix in (".jpg", ".mp4")), key=lambda m: int(m.stem))
+        assets = [{"video" if m.suffix == ".mp4" else "image": {"url": cdn_url(ordner, m.name)}} for m in teile]
     ig_typ = INSTAGRAM_TYP[typ]
     eingabe = {
         "channelId": kanal,

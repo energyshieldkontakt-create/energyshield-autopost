@@ -25,6 +25,7 @@ FORMATE = {
     "countdown": (1080, 1920, "countdown"),
     "overlay": (1080, 1920, "overlay transparent"),
     "cover": (1080, 1080, "cover"),  # Shield-Sessions-Cover, eigene Vorlage cover.html
+    "quadrat": (1080, 1080, "feed quadrat"),  # quadratische Slide, z. B. DJ-Vorstellung im Shield-Sessions-Karussell
 }
 # Farben aus den bisherigen Flyern: Cyan-Neon (Standard), Mint (Talent Night), Violett; dazu Orange und Pink
 AKZENTE = {"blau": "#2EE6F5", "liquid": "#6FF5C2", "neuro": "#9D7BFF", "jumpup": "#FF9A3C", "halftime": "#FF4FA3"}
@@ -257,6 +258,102 @@ def render_reel(ordner, reel, overlay, ziel):
         raise ValueError(f"Video ist {groesse:.1f} MB groß, maximal 19 MB möglich – Reel kürzen")
 
 
+def mmss(sekunden):
+    sekunden = int(round(sekunden))
+    return f"{sekunden // 3600}:{sekunden % 3600 // 60:02d}:{sekunden % 60:02d}" if sekunden >= 3600 else f"{sekunden // 60}:{sekunden % 60:02d}"
+
+
+def audio_laenge(datei):
+    ergebnis = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(datei)],
+                              capture_output=True, text=True, check=True)
+    return float(ergebnis.stdout.strip())
+
+
+def baue_hoerprobe(ordner, cover, hp, nr, anzahl, dauer):
+    """Hintergrund eines Hörproben-Videos im SoundCloud-Look (Wellenform kommt danach per ffmpeg)."""
+    stile = [s.strip() for s in str(cover["stil"]).replace("·", ",").split(",") if s.strip()]
+    akzent = cover.get("akzent") or STIL_AKZENT.get(stile[0].lower(), "blau")
+    ornament = (TEMPLATES / "ornament.svg").read_text(encoding="utf-8")
+    im_mix = hp.get("im_mix")  # Stelle im ganzen Mix, z. B. "23:41" (nur Anzeige)
+    if im_mix:
+        teile = [int(t) for t in str(im_mix).split(":")]
+        ab = sum(t * 60 ** i for i, t in enumerate(reversed(teile)))
+        von, bis = mmss(ab), mmss(ab + dauer)
+    else:
+        von, bis = "0:00", mmss(dauer)
+    werte = {
+        "css": relativ(TEMPLATES / "base.css", ordner),
+        "w": "1080", "h": "1080",
+        "akzent_css": f"--akzent: {AKZENTE.get(akzent, AKZENTE['blau'])};",
+        "deko": '<div class="punkte"></div>' + "".join(ornament.replace("{{ecke}}", e) for e in ("ol", "ur", "ul", "ur2")),
+        "cover": "media/1.jpg",
+        "vol": f"{int(cover['vol']):02d}",
+        "dj": feld(cover["dj"]),
+        "stil": " · ".join(feld(s) for s in stile),
+        "nr": str(nr), "anzahl": str(anzahl),
+        "zeit": von, "zeit_ende": bis,
+    }
+    inhalt = (TEMPLATES / "hoerprobe.html").read_text(encoding="utf-8")
+    for schluessel, wert in werte.items():
+        inhalt = inhalt.replace("{{" + schluessel + "}}", wert)
+    return inhalt, AKZENTE.get(akzent, AKZENTE["blau"])
+
+
+def render_hoerprobe(page, ordner, cover, hp, nr, anzahl, ziel):
+    """Video-Slide: Hintergrund + Wellenform (gespielt = Akzent, offen = grau) + Abspielkopf + Ton."""
+    audio = ordner / hp["audio"]
+    if hp["audio"] == "__testton__":  # nur für Tests: Kick + Hi-Hat bei 174 BPM
+        audio = ziel.parent / "_testton.wav"
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i",
+                        "aevalsrc='0.7*sin(2*PI*50*t)*exp(-9*mod(t,0.345))*(0.6+0.4*sin(2*PI*t/8))"
+                        "+0.25*(random(0)-0.5)*exp(-30*mod(t+0.1725,0.345))':s=44100:d=30",
+                        str(audio)], check=True)
+    if not audio.exists():
+        raise FileNotFoundError(f"Hörprobe '{hp['audio']}' fehlt im Post-Ordner")
+    start = float(hp.get("start", 0))
+    dauer = min(float(hp.get("dauer", 30)), audio_laenge(audio) - start, 59)
+    if dauer < 5:
+        raise ValueError(f"Hörprobe '{hp['audio']}' ist kürzer als 5 Sekunden")
+    inhalt, farbe = baue_hoerprobe(ordner, cover, hp, nr, anzahl, dauer)
+    tmp, bg = ordner / "_render.html", ziel.parent / "_hp_bg.png"
+    tmp.write_text(inhalt, encoding="utf-8")
+    try:
+        page.set_viewport_size({"width": 1080, "height": 1080})
+        page.goto(tmp.as_uri(), wait_until="networkidle")
+        page.evaluate("document.fonts.ready.then(() => true)")
+        page.screenshot(path=str(bg))
+    finally:
+        tmp.unlink(missing_ok=True)
+    wellen = []
+    for name, f in (("grau", "0x3A4552"), ("akzent", "0x" + farbe.lstrip("#"))):
+        w = ziel.parent / f"_hp_{name}.png"
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(start), "-t", str(dauer), "-i", str(audio),
+                        "-filter_complex", f"aformat=channel_layouts=mono,showwavespic=s=940x200:colors={f}:scale=sqrt",
+                        "-frames:v", "1", str(w)], check=True)
+        wellen.append(w)
+    d = f"{dauer:.3f}"
+    filter_v = (
+        "[1:v]format=gbrp[g];[2:v]format=gbrp[a];"
+        f"[g][a]blend=all_expr='if(lt(mod(X,8),5),if(gte(X,W*T/{d}),A,B),0)',format=rgba,colorkey=0x000000:0.08:0.02[w];"
+        "color=c=white:s=4x216:r=30[k];"
+        "[0:v][w]overlay=70:630[b];"
+        f"[b][k]overlay=x='70+936*t/{d}':y=622:eval=frame:shortest=1,format=yuv420p[v];"
+        f"[3:a]afade=t=in:d=0.4,afade=t=out:st={max(dauer - 0.8, 0):.3f}:d=0.8,aresample=48000[au]"
+    )
+    subprocess.run([
+        "ffmpeg", "-y", "-loglevel", "error",
+        "-loop", "1", "-framerate", "30", "-t", d, "-i", str(bg),
+        "-loop", "1", "-framerate", "30", "-t", d, "-i", str(wellen[0]),
+        "-loop", "1", "-framerate", "30", "-t", d, "-i", str(wellen[1]),
+        "-ss", str(start), "-t", d, "-i", str(audio),
+        "-filter_complex", filter_v, "-map", "[v]", "-map", "[au]",
+        "-c:v", "libx264", "-preset", "medium", "-profile:v", "high", "-pix_fmt", "yuv420p", "-b:v", "3000k",
+        "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", "-movflags", "+faststart", "-t", d, str(ziel),
+    ], check=True)
+    for datei in (bg, *wellen, ziel.parent / "_testton.wav"):
+        datei.unlink(missing_ok=True)
+
+
 def rendere_post(page, page_hd, ordner, daten):
     typ = daten.get("typ")
     if typ not in TYPEN:
@@ -264,8 +361,11 @@ def rendere_post(page, page_hd, ordner, daten):
     zeit(daten["publish_at"])  # prüft das Zeitformat
     slides = daten.get("slides", [])
     reel = daten.get("reel")
-    if typ == "karussell" and not 2 <= len(slides) <= 10:
-        raise ValueError("Karussell braucht 2 bis 10 Slides")
+    hoerproben = daten.get("hoerproben", [])
+    if typ == "karussell" and not 2 <= len(slides) + len(hoerproben) <= 10:
+        raise ValueError("Karussell braucht 2 bis 10 Slides (inklusive Hörproben)")
+    if hoerproben and (typ != "karussell" or not slides or slides[0].get("vorlage") != "cover"):
+        raise ValueError("Hörproben gibt es nur im Karussell mit einem Cover als erster Slide")
     if typ == "reel" and not reel:
         raise ValueError("Reel ohne 'reel'-Block")
     if typ in ("bild", "story") and not slides and not reel:
@@ -279,6 +379,8 @@ def rendere_post(page, page_hd, ordner, daten):
         render_bild(page, ordner, slide, media / f"{i}.jpg")
         if slide.get("vorlage") == "cover":  # große Fassung für SoundCloud (ohne Ziffer, wird nicht gepostet)
             render_bild(page_hd, ordner, slide, media / "soundcloud.jpg")
+    for i, hp in enumerate(hoerproben, 1):
+        render_hoerprobe(page, ordner, slides[0], hp, i, len(hoerproben), media / f"{len(slides) + i}.mp4")
     if reel:
         overlay = None
         if reel.get("overlay"):
@@ -334,6 +436,9 @@ def schreibe_vorschau(posts):
         links = [f"[post.json bearbeiten]({rel}/post.json)"]
         if (media / "reel.mp4").exists():
             links.insert(0, f"[Reel ansehen]({rel}/media/reel.mp4)")
+        if media.exists():
+            videos = sorted((v for v in media.glob("*.mp4") if v.stem.isdigit()), key=lambda v: int(v.stem))
+            links[:0] = [f"[Video-Slide {v.stem} ansehen]({rel}/media/{v.name})" for v in videos]
         zeilen += [" · ".join(links), "", "---", ""]
     (ROOT / "VORSCHAU.md").write_text("\n".join(zeilen), encoding="utf-8")
 
