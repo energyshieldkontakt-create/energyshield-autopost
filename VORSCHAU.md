@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 24.09.2026 09:40. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 24.09.2026 09:42. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 **Einspruch:** Beim Post auf `post.json` tippen → Stift-Symbol → `"status": "geplant"` in `"status": "stop"` ändern → *Commit changes*. Oder den ganzen Ordner löschen.
 
