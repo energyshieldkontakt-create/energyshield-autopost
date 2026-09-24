@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 24.09.2026 20:27. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 24.09.2026 21:49. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -91,5 +91,26 @@ Status: **test**
 <img src="queue/2026-01-01_0006_test-shield-sessions-vol01/media/1.jpg" width="240"> <img src="queue/2026-01-01_0006_test-shield-sessions-vol01/media/2.jpg" width="240"> <img src="queue/2026-01-01_0006_test-shield-sessions-vol01/media/soundcloud.jpg" width="240">
 
 [Video-Slide 3 ansehen](queue/2026-01-01_0006_test-shield-sessions-vol01/media/3.mp4) · [Video-Slide 4 ansehen](queue/2026-01-01_0006_test-shield-sessions-vol01/media/4.mp4) · [Video-Slide 5 ansehen](queue/2026-01-01_0006_test-shield-sessions-vol01/media/5.mp4) · [post.json bearbeiten](queue/2026-01-01_0006_test-shield-sessions-vol01/post.json)
+
+---
+
+## So 04.10. 18:00 · karussell · `2026-10-04_1800_shield-sessions-vol01`
+
+Status: **geplant**
+
+> Shield Sessions VOL. 01 🛡️
+> 
+> Zum Start unserer Resident-Mix-Serie legt @kruxer.dnb vor: 30 Minuten Deep Drum & Bass.
+> 
+> Ab jetzt jeden Sonntag ein neuer Mix aus der Crew – mit @stone_d_97, @jhinx.dnb und @ranj.dnb.
+> 
+> 🔊 Wischen für 3 Highlights aus dem Set
+> 🎧 Voller Mix auf SoundCloud – Link in Bio
+> 
+> #drumandbass #dnb #deepdnb #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb
+
+<img src="queue/2026-10-04_1800_shield-sessions-vol01/media/1.jpg" width="240"> <img src="queue/2026-10-04_1800_shield-sessions-vol01/media/2.jpg" width="240"> <img src="queue/2026-10-04_1800_shield-sessions-vol01/media/soundcloud.jpg" width="240">
+
+[Video-Slide 3 ansehen](queue/2026-10-04_1800_shield-sessions-vol01/media/3.mp4) · [Video-Slide 4 ansehen](queue/2026-10-04_1800_shield-sessions-vol01/media/4.mp4) · [Video-Slide 5 ansehen](queue/2026-10-04_1800_shield-sessions-vol01/media/5.mp4) · [post.json bearbeiten](queue/2026-10-04_1800_shield-sessions-vol01/post.json)
 
 ---
