@@ -21,9 +21,20 @@ from common import POSTED, cdn_url, ist_aktuell, jetzt, lade_posts, speichere, z
 
 API = "https://api.buffer.com"
 KEY = os.environ.get("BUFFER_API_KEY", "").strip()
-if not KEY.isascii():
-    sys.exit("BUFFER_API_KEY enthält ungültige Zeichen – vermutlich wurde nicht der Schlüssel eingefügt. "
-             "Neu kopieren (Buffer → Settings → API) und das Secret bei GitHub aktualisieren.")
+
+
+def pruefe_schluessel():
+    """Bricht mit verständlicher Meldung ab, wenn der Schlüssel fehlt oder offensichtlich falsch ist.
+    Gibt nie den Schlüssel selbst aus, nur Länge, Sonderzeichen und die letzten 4 Zeichen
+    (die Buffer ohnehin offen anzeigt)."""
+    if not KEY:
+        sys.exit("BUFFER_API_KEY fehlt (GitHub → Settings → Secrets and variables → Actions).")
+    fremd = sorted({c for c in KEY if not c.isascii()})
+    if fremd:
+        ende = KEY[-4:] if KEY[-4:].isascii() else "?"
+        sys.exit(f"BUFFER_API_KEY enthält ungültige Zeichen {fremd} (Länge {len(KEY)}, endet auf '{ende}'). "
+                 "Vermutlich wurde die verdeckte Anzeige kopiert statt des Schlüssels. "
+                 "Neuen Schlüssel erstellen und direkt aus dem Erstell-Fenster kopieren.")
 KANAL = os.environ.get("BUFFER_CHANNEL_ID", "")
 DRY_RUN = os.environ.get("DRY_RUN") == "1"
 EINSPRUCH = timedelta(hours=24)
@@ -103,6 +114,7 @@ def an_buffer(kanal, ordner, daten, geplant):
 
 def main():
     if KEY and DRY_RUN:  # Testlauf mit Schlüssel = Verbindungstest
+        pruefe_schluessel()
         instagram_kanal()
     nun = jetzt()
     kanal = None
@@ -132,8 +144,7 @@ def main():
         print(f"{'[Testlauf] ' if DRY_RUN else ''}Übergebe {ordner.name} ({daten['typ']}) an Buffer …")
         if DRY_RUN:
             continue
-        if not KEY:  # erst prüfen, wenn wirklich etwas fällig ist
-            sys.exit("BUFFER_API_KEY fehlt (GitHub → Settings → Secrets and variables → Actions).")
+        pruefe_schluessel()  # erst prüfen, wenn wirklich etwas fällig ist
         try:
             kanal = kanal or instagram_kanal()
             buffer_id = an_buffer(kanal, ordner, daten, geplant)
