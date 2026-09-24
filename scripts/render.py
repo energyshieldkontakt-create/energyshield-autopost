@@ -25,12 +25,35 @@ FORMATE = {
     "countdown": (1080, 1920, "countdown"),
     "overlay": (1080, 1920, "overlay transparent"),
 }
-AKZENTE = {"blau": "#4FC3FF", "liquid": "#59E1C9", "neuro": "#A855F7"}
-# Geschützte Leerzeichen innerhalb der Angaben, damit nur an den Punkten umbrochen wird
-FUSS_EVENT = " · ".join(
-    teil.replace(" ", " ")
-    for teil in ["Sa 30.01.2027", "Club Bastion Kirchheim", "Nur Abendkasse", "Ab 18", "Nur 120 Plätze"]
+# Farben aus den bisherigen Flyern: Cyan-Neon (Standard), Mint (Talent Night), Violett
+AKZENTE = {"blau": "#2EE6F5", "liquid": "#6FF5C2", "neuro": "#9D7BFF"}
+# Fußbereich im Flyer-Stil: Info-Leiste, großes Datum, zwei Eck-Infos
+FUSS_EVENT = (
+    '<div class="pill"><span class="pill-l">Drum and Bass</span><span class="pill-r">Nur 120 Plätze</span></div>'
+    '<div class="datum">SA 30.01.27</div>'
+    '<div class="infozeile"><span>Club Bastion · Kirchheim</span><span>Abendkasse · Ab 18</span></div>'
 )
+# Verkleinert die Headline, bis sie in die Breite passt und weder Kopf noch Fuß berührt
+FIT_JS = """
+document.fonts.ready.then(() => {
+  const h1 = document.querySelector('h1[data-fit]');
+  const main = document.querySelector('main');
+  const kopf = document.querySelector('.marke');
+  const fuss = document.querySelector('footer');
+  if (!h1 || !h1.textContent.trim()) return true;
+  const zuGross = () => {
+    if (h1.scrollWidth > h1.clientWidth + 1) return true;
+    const m = main.getBoundingClientRect();
+    const k = kopf.getBoundingClientRect();
+    if (k.bottom < m.bottom && m.top < k.bottom + 30) return true;
+    if (fuss.offsetHeight && m.bottom > fuss.getBoundingClientRect().top - 30) return true;
+    return false;
+  };
+  let groesse = parseFloat(getComputedStyle(h1).fontSize);
+  while (zuGross() && groesse > 40) { groesse -= 4; h1.style.fontSize = groesse + 'px'; }
+  return true;
+})
+"""
 MAX_VIDEO_MB = 18  # jsDelivr liefert nur Dateien bis ca. 20 MB aus
 BERLIN = ZoneInfo("Europe/Berlin")
 WOCHENTAGE = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
@@ -54,8 +77,17 @@ def baue_html(ordner, slide):
     if bild and not (ordner / bild).exists():
         raise FileNotFoundError(f"Bild '{bild}' fehlt im Post-Ordner")
     logo_datei = BRAND / "logo.png"
-    logo = f'<img src="{relativ(logo_datei, ordner)}">' if logo_datei.exists() else "ENERGYSHIELD"
-    fuss = FUSS_EVENT if slide.get("fuss") == "EVENT" else slide.get("fuss", "")
+    logo = f'<img src="{relativ(logo_datei, ordner)}">' if logo_datei.exists() else ""
+    if slide.get("fuss") == "EVENT":
+        fuss = FUSS_EVENT
+    elif slide.get("fuss"):
+        fuss = f'<div class="pill"><span class="pill-r">{feld(slide["fuss"])}</span></div>'
+    else:
+        fuss = ""
+    ornament = (TEMPLATES / "ornament.svg").read_text(encoding="utf-8")
+    deko = "" if transparent else (
+        '<div class="punkte"></div>' + ornament.replace("{{ecke}}", "ol") + ornament.replace("{{ecke}}", "ur")
+    )
     akzent = AKZENTE.get(slide.get("akzent", "blau"), AKZENTE["blau"])
     werte = {
         "css": relativ(TEMPLATES / "base.css", ordner),
@@ -65,18 +97,16 @@ def baue_html(ordner, slide):
         "akzent_css": f"--akzent: {akzent};",
         "bild_style": f"background-image: url('{bild}')" if bild else "",
         "scrim": '<div class="scrim"></div>' if bild else "",
-        "frame": "" if transparent else '<div class="frame"></div><div class="ecke ol"></div><div class="ecke ur"></div>',
+        "deko": deko,
         "logo": logo,
         "kicker": feld(slide.get("kicker")),
         "titel": feld(slide.get("titel")),
         "text": feld(slide.get("text")),
-        "fuss": feld(fuss),
+        "fuss": fuss,
     }
     inhalt = (TEMPLATES / "layout.html").read_text(encoding="utf-8")
     for schluessel, wert in werte.items():
         inhalt = inhalt.replace("{{" + schluessel + "}}", wert)
-    if transparent:
-        inhalt = inhalt.replace('<div class="glow"></div>', "")
     return inhalt, w, h, transparent
 
 
@@ -88,7 +118,7 @@ def render_bild(page, ordner, slide, ziel):
     try:
         page.set_viewport_size({"width": w, "height": h})
         page.goto(tmp.as_uri(), wait_until="networkidle")
-        page.evaluate("document.fonts.ready.then(() => true)")
+        page.evaluate(FIT_JS)
         page.screenshot(path=str(png), omit_background=transparent)
     finally:
         tmp.unlink(missing_ok=True)

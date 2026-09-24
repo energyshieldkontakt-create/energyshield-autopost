@@ -1,105 +1,121 @@
-/* EnergyShield Markenrahmen – Werte aus Content/Canva-Briefing.md */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap');
+/* EnergyShield Look – abgeleitet aus den bisherigen Flyern (Talent Night 07.03.26, 1 Year 11.04.26) */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Montserrat:wght@500;600;700;800&family=Unbounded:wght@600;800&display=swap');
 
 :root {
-  --bg: #0A0F1C;
-  --blau: #1B4DFF;
-  --akzent: #4FC3FF;
-  --text: #F4F6FB;
-  --fein: #8A93A8;
+  --bg: #03070D;
+  --tiefblau: #0B3350;
+  --akzent: #2EE6F5;   /* Cyan-Neon; per Post überschreibbar (liquid = Mint, neuro = Violett) */
+  --text: #FFFFFF;
+  --fein: #A9BDD0;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html, body {
-  width: var(--w);
-  height: var(--h);
-  overflow: hidden;
-}
+html, body { width: var(--w); height: var(--h); overflow: hidden; }
 
 body {
-  background: var(--bg);
+  background:
+    radial-gradient(ellipse 85% 55% at 50% 38%, color-mix(in srgb, var(--akzent) 16%, var(--tiefblau)) 0%, #06121F 48%, var(--bg) 78%),
+    var(--bg);
   color: var(--text);
   font-family: 'Montserrat', sans-serif;
   position: relative;
+  text-align: center;
 }
-
 body.transparent { background: transparent; }
 
-.bg {
+/* Foto-Hintergrund (optional) */
+.bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3,7,13,.75) 0%, rgba(3,7,13,.35) 35%, rgba(3,7,13,.55) 60%, rgba(3,7,13,.95) 100%); }
+
+/* Punkteraster, zur Mitte hin ausgeblendet (wie 1-Year-Flyer) */
+.punkte {
   position: absolute; inset: 0;
-  background-size: cover;
-  background-position: center;
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--akzent) 60%, white) 1.7px, transparent 2.4px);
+  background-size: 36px 36px;
+  opacity: .55;
+  -webkit-mask-image: radial-gradient(ellipse 72% 62% at 50% 45%, transparent 40%, black 95%);
+          mask-image: radial-gradient(ellipse 72% 62% at 50% 45%, transparent 40%, black 95%);
 }
 
-.scrim {
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(10,15,28,.55) 0%, rgba(10,15,28,.25) 40%, rgba(10,15,28,.9) 100%);
-}
+/* Waben + Platinenlinien in den Ecken (wie Talent-Night-Flyer) */
+.orn { position: absolute; width: 330px; height: 330px; color: var(--akzent); opacity: .55;
+       filter: drop-shadow(0 0 6px color-mix(in srgb, var(--akzent) 70%, transparent)); }
+.orn.ol { top: 0; left: 0; }
+.orn.ur { bottom: 0; right: 0; transform: rotate(180deg); }
 
-.glow {
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--akzent) 22%, transparent) 0%, transparent 60%);
+/* Schriftzug oben */
+.marke {
+  position: absolute; top: 58px; left: 0; right: 0;
+  display: flex; align-items: center; justify-content: center; gap: 18px;
+  font-family: 'Unbounded', sans-serif; font-weight: 800;
+  font-size: 58px; letter-spacing: 1px;
+  color: color-mix(in srgb, var(--akzent) 25%, white);
+  text-shadow: 0 0 10px var(--akzent), 0 0 28px color-mix(in srgb, var(--akzent) 70%, transparent);
 }
+.marke img { height: 74px; filter: drop-shadow(0 0 10px color-mix(in srgb, var(--akzent) 70%, transparent)); }
 
-/* Der Frame: dünne Linie in Primärblau + zwei Klammer-Ecken in Akzentfarbe */
-.frame {
-  position: absolute; inset: 24px;
-  border: 4px solid var(--blau);
-  box-shadow: 0 0 18px color-mix(in srgb, var(--akzent) 45%, transparent);
+/* Hauptblock mit leuchtenden Trennlinien */
+main { position: absolute; left: 70px; right: 70px; top: 50%; transform: translateY(-50%); }
+main::before, main::after {
+  content: ""; display: block; height: 3px; margin: 0 auto;
+  background: linear-gradient(90deg, transparent, var(--akzent) 20%, var(--akzent) 80%, transparent);
+  box-shadow: 0 0 14px var(--akzent);
 }
-.ecke {
-  position: absolute; width: 90px; height: 90px;
-  border-color: var(--akzent); border-style: solid; border-width: 0;
-}
-.ecke.ol { top: 14px; left: 14px; border-top-width: 6px; border-left-width: 6px; }
-.ecke.ur { bottom: 14px; right: 14px; border-bottom-width: 6px; border-right-width: 6px; }
-
-.logo {
-  position: absolute; top: 70px; left: 70px;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 44px; letter-spacing: 6px;
-}
-.logo img { height: 70px; }
-
-main {
-  position: absolute; left: 80px; right: 80px; top: 50%;
-  transform: translateY(-50%);
-}
+main::before { margin-bottom: 44px; }
+main::after { margin-top: 44px; }
 
 .kicker {
-  font-weight: 700; font-size: 36px; letter-spacing: 8px;
-  color: var(--akzent); text-transform: uppercase; margin-bottom: 18px;
+  font-family: 'Bebas Neue', sans-serif; font-size: 70px; letter-spacing: 8px; line-height: 1;
+  color: color-mix(in srgb, var(--akzent) 60%, white);
+  text-shadow: 0 0 16px color-mix(in srgb, var(--akzent) 80%, transparent);
+  margin-bottom: 8px;
 }
 
 h1 {
-  font-family: 'Bebas Neue', sans-serif; font-weight: 400;
-  font-size: 160px; line-height: 1; letter-spacing: 3px;
-  text-transform: uppercase;
-  text-shadow: 0 0 30px color-mix(in srgb, var(--akzent) 35%, transparent);
+  font-family: 'Anton', sans-serif; font-weight: 400;
+  font-size: 190px; line-height: .98; text-transform: uppercase; white-space: nowrap;
+  color: color-mix(in srgb, var(--akzent) 40%, white);
+  text-shadow: 0 0 22px color-mix(in srgb, var(--akzent) 65%, transparent), 0 0 60px color-mix(in srgb, var(--akzent) 35%, transparent);
 }
 
-.text {
-  font-size: 34px; line-height: 1.25; margin-top: 28px; max-width: 900px;
+.text { font-size: 36px; font-weight: 600; line-height: 1.3; margin-top: 30px; color: rgba(255,255,255,.92); }
+
+/* Fußbereich */
+footer { position: absolute; left: 50px; right: 50px; bottom: 52px; }
+
+.pill {
+  display: inline-flex; align-items: stretch; border: 4px solid var(--akzent); border-radius: 60px;
+  overflow: hidden; font-weight: 800; font-size: 34px; text-transform: uppercase; letter-spacing: 2px;
+  box-shadow: 0 0 18px color-mix(in srgb, var(--akzent) 55%, transparent); margin-bottom: 26px;
+}
+.pill span { padding: 14px 34px; }
+.pill .pill-l { background: var(--akzent); color: var(--bg); }
+.pill .pill-r { color: #fff; }
+
+.datum {
+  font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 100px; line-height: 1.05;
+  color: color-mix(in srgb, var(--akzent) 35%, white);
+  text-shadow: 0 0 14px var(--akzent), 0 0 36px color-mix(in srgb, var(--akzent) 60%, transparent);
 }
 
-footer {
-  position: absolute; left: 80px; right: 80px; bottom: 80px;
-  font-size: 23px; font-weight: 600; letter-spacing: 2px;
-  color: var(--fein); text-transform: uppercase; line-height: 1.5;
+.infozeile {
+  display: flex; justify-content: space-between; margin-top: 18px;
+  font-weight: 700; font-size: 30px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: color-mix(in srgb, var(--akzent) 45%, white);
+  text-shadow: 0 0 12px color-mix(in srgb, var(--akzent) 80%, transparent);
 }
 
-.logo:empty, .kicker:empty, h1:empty, .text:empty, footer:empty { display: none; }
+.marke:empty, .kicker:empty, h1:empty, .text:empty, footer:empty { display: none; }
 
 /* Countdown: riesige Zahl */
-.countdown main { text-align: center; }
-.countdown h1 { font-size: 520px; color: var(--akzent); }
+.countdown h1 { font-size: 640px; line-height: .9; }
 
-/* Line-up: Name unten über dem Foto */
-.lineup main { top: auto; bottom: 170px; transform: none; }
+/* Line-up: DJ-Name breit wie die DJ-Logos auf den Flyern */
+.lineup h1 { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 150px; color: #fff; }
 
-/* Reel-Overlay: Hook im oberen Drittel, kein Hintergrund */
-.overlay main { top: 22%; transform: none; text-align: center; }
-.overlay h1 { font-size: 140px; text-shadow: 0 4px 24px rgba(0,0,0,.85), 0 0 30px color-mix(in srgb, var(--akzent) 50%, transparent); }
-.overlay .kicker { text-shadow: 0 2px 12px rgba(0,0,0,.9); }
-.overlay .logo { top: auto; bottom: 90px; left: 0; right: 0; text-align: center; text-shadow: 0 2px 12px rgba(0,0,0,.9); }
+/* Reel-Overlay: nur Text, kein Hintergrund */
+.overlay main { top: 20%; transform: none; }
+.overlay main::before, .overlay main::after { display: none; }
+.overlay h1, .overlay .kicker { text-shadow: 0 4px 22px rgba(0,0,0,.9), 0 0 26px color-mix(in srgb, var(--akzent) 70%, transparent); }
+.overlay .marke { top: auto; bottom: 100px; font-size: 46px; text-shadow: 0 2px 14px rgba(0,0,0,.9), 0 0 20px var(--akzent); }

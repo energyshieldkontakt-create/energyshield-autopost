@@ -1,0 +1,12 @@
+<svg class="orn {{ecke}}" viewBox="0 0 330 330" fill="none" stroke="currentColor" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="60,112 93,131 93,169 60,188 27,169 27,131"/>
+  <polygon points="93,55 126,74 126,112 93,131 60,112 60,74"/>
+  <polygon points="27,169 60,188 60,226 27,245 -6,226 -6,188"/>
+  <polygon points="159,55 192,74 192,112 159,131 126,112 126,74" opacity=".5"/>
+  <polyline points="0,26 190,26 230,-14"/>
+  <polyline points="26,330 26,250 60,226"/>
+  <polyline points="120,0 120,18 250,18"/>
+  <circle cx="190" cy="26" r="6" fill="currentColor"/>
+  <circle cx="26" cy="250" r="6" fill="currentColor"/>
+  <circle cx="250" cy="18" r="5" fill="currentColor"/>
+</svg>
