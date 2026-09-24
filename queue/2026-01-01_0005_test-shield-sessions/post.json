@@ -1,0 +1,13 @@
+{
+  "publish_at": "2026-01-01T00:05:00+01:00",
+  "erstellt_am": "2026-01-01T00:00:00+01:00",
+  "typ": "karussell",
+  "status": "test",
+  "caption": "Test: Shield-Sessions-Cover in allen Stil-Farben.",
+  "slides": [
+    { "vorlage": "cover", "dj": "Kruxer", "vol": 1, "stil": "Deep" },
+    { "vorlage": "cover", "dj": "Stone D", "vol": 2, "stil": "Halftime, Deep" },
+    { "vorlage": "cover", "dj": "Jhinx", "vol": 3, "stil": "Neurofunk" },
+    { "vorlage": "cover", "dj": "Ranj", "vol": 4, "stil": "Jump-Up, Neurofunk" }
+  ]
+}

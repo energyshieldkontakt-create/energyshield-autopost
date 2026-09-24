@@ -149,3 +149,41 @@ footer { position: absolute; left: 50px; right: 50px; bottom: 52px; z-index: 2; 
 .foto .scrim { background: linear-gradient(180deg, rgba(3,7,13,.7) 0%, rgba(3,7,13,.1) 22%, rgba(3,7,13,.15) 45%, rgba(3,7,13,.85) 70%, rgba(3,7,13,.97) 100%); }
 .foto main { top: auto; bottom: 360px; transform: none; }
 .foto h1 { font-size: 150px; }
+
+/* Shield Sessions: quadratisches Mix-Cover (SoundCloud + Instagram) */
+.cover .marke { top: 44px; font-size: 40px; letter-spacing: 2px; }
+.cover .serie {
+  position: absolute; top: 100px; left: 0; right: 0;
+  font-family: 'Bebas Neue', sans-serif; font-size: 86px; letter-spacing: 16px; line-height: 1; text-transform: uppercase;
+  color: color-mix(in srgb, var(--akzent) 45%, white);
+  text-shadow: 0 0 16px var(--akzent), 0 0 44px color-mix(in srgb, var(--akzent) 60%, transparent);
+}
+.schild { position: absolute; left: 50%; top: 206px; width: 380px; height: 449px; transform: translateX(-50%); }
+.schild svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.schild .aussen { stroke: var(--akzent); stroke-width: 7; filter: drop-shadow(0 0 10px var(--akzent)) drop-shadow(0 0 28px color-mix(in srgb, var(--akzent) 60%, transparent)); }
+.schild .innen { stroke: var(--akzent); stroke-width: 2.5; opacity: .55; }
+.schild .platine { fill: none; stroke: var(--akzent); stroke-width: 3; opacity: .6; }
+.schild .punkt { fill: var(--akzent); opacity: .8; }
+.schild-inhalt { position: absolute; left: 0; right: 0; top: 78px; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.schild-inhalt img { height: 170px; filter: brightness(0) invert(1) drop-shadow(0 0 10px var(--akzent)) drop-shadow(0 0 26px color-mix(in srgb, var(--akzent) 70%, transparent)); }
+.vol {
+  font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 50px; letter-spacing: 2px; text-transform: uppercase;
+  color: #fff; text-shadow: 0 0 12px var(--akzent), 0 0 30px color-mix(in srgb, var(--akzent) 60%, transparent);
+}
+.cover .dj {
+  position: absolute; top: 690px; left: 60px; right: 60px;
+  font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 124px; line-height: 1.1; color: #fff;
+  text-shadow: 0 0 18px color-mix(in srgb, var(--akzent) 70%, transparent), 0 0 50px color-mix(in srgb, var(--akzent) 35%, transparent);
+}
+.cover .stil {
+  position: absolute; top: 862px; left: 70px; right: 70px; display: flex; align-items: center; gap: 30px;
+  font-family: 'Bebas Neue', sans-serif; font-size: 58px; letter-spacing: 12px; line-height: 1; text-transform: uppercase;
+  color: color-mix(in srgb, var(--akzent) 55%, white); text-shadow: 0 0 14px var(--akzent);
+}
+.cover .stil::before, .cover .stil::after {
+  content: ""; flex: 1; height: 3px; box-shadow: 0 0 14px var(--akzent);
+  background: linear-gradient(90deg, transparent, var(--akzent));
+}
+.cover .stil::after { background: linear-gradient(270deg, transparent, var(--akzent)); }
+.cover .orn.ul { top: auto; bottom: 0; left: 0; transform: scaleY(-1); }
+.cover .orn.ur2 { top: auto; bottom: 0; right: 0; transform: scale(-1, -1); }

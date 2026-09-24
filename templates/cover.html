@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{{css}}">
+<style>:root { --w: {{w}}px; --h: {{h}}px; {{akzent_css}} }</style>
+</head>
+<body class="cover">
+  {{deko}}
+  <header class="marke">ENERGYSHIELD</header>
+  <div class="serie">Shield Sessions</div>
+  <div class="schild">
+    <svg viewBox="0 0 440 520" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="fuellung" cx="50%" cy="35%" r="70%">
+          <stop offset="0%" style="stop-color: var(--akzent); stop-opacity: .22"/>
+          <stop offset="100%" stop-color="#03070D" stop-opacity=".92"/>
+        </radialGradient>
+      </defs>
+      <path class="aussen" d="M20,44 Q220,4 420,44 V240 C420,382 322,462 220,508 C118,462 20,382 20,240 Z" fill="url(#fuellung)"/>
+      <path class="innen" d="M46,64 Q220,30 394,64 V240 C394,366 308,436 220,478 C132,436 46,366 46,240 Z" fill="none"/>
+      <polyline class="platine" points="46,300 110,300 140,330"/>
+      <polyline class="platine" points="394,300 330,300 300,330"/>
+      <circle class="punkt" cx="140" cy="330" r="5"/>
+      <circle class="punkt" cx="300" cy="330" r="5"/>
+    </svg>
+    <div class="schild-inhalt">
+      {{logo}}
+      <div class="vol">Vol. {{vol}}</div>
+    </div>
+  </div>
+  <h1 class="dj" data-fit>{{dj}}</h1>
+  <div class="stil">{{stil}}</div>
+</body>
+</html>

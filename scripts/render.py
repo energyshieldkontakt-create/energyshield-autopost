@@ -24,9 +24,13 @@ FORMATE = {
     "story": (1080, 1920, "story"),
     "countdown": (1080, 1920, "countdown"),
     "overlay": (1080, 1920, "overlay transparent"),
+    "cover": (1080, 1080, "cover"),  # Shield-Sessions-Cover, eigene Vorlage cover.html
 }
-# Farben aus den bisherigen Flyern: Cyan-Neon (Standard), Mint (Talent Night), Violett
-AKZENTE = {"blau": "#2EE6F5", "liquid": "#6FF5C2", "neuro": "#9D7BFF"}
+# Farben aus den bisherigen Flyern: Cyan-Neon (Standard), Mint (Talent Night), Violett; dazu Orange und Pink
+AKZENTE = {"blau": "#2EE6F5", "liquid": "#6FF5C2", "neuro": "#9D7BFF", "jumpup": "#FF9A3C", "halftime": "#FF4FA3"}
+# Shield Sessions: Akzentfarbe nach dem ersten Stil des Mixes
+STIL_AKZENT = {"deep": "blau", "liquid": "liquid", "neurofunk": "neuro", "neuro": "neuro",
+               "jump-up": "jumpup", "jumpup": "jumpup", "halftime": "halftime"}
 # Fußbereich im Flyer-Stil: Info-Leiste, darunter Datum und drei Infos, getrennt durch Leuchtlinien
 FUSS_EVENT = (
     '<div class="eventfuss">'
@@ -46,6 +50,11 @@ document.fonts.ready.then(() => {
   const kopf = document.querySelector('.marke');
   const fuss = document.querySelector('footer');
   if (!h1 || !h1.textContent.trim()) return true;
+  if (!main) {  // Cover: nur in die Breite einpassen
+    let g = parseFloat(getComputedStyle(h1).fontSize);
+    while (h1.scrollWidth > h1.clientWidth + 1 && g > 40) { g -= 4; h1.style.fontSize = g + 'px'; }
+    return true;
+  }
   // Hauptblock mittig in den freien Raum zwischen Schriftzug und Fuß setzen
   if (fuss.offsetHeight && !document.body.classList.contains('overlay')) {
     const kUnten = kopf.getBoundingClientRect().bottom, fOben = fuss.getBoundingClientRect().top;
@@ -83,6 +92,8 @@ def baue_html(ordner, slide):
     if vorlage not in FORMATE:
         raise ValueError(f"Unbekannte Vorlage '{vorlage}' (erlaubt: {', '.join(FORMATE)})")
     w, h, klasse = FORMATE[vorlage]
+    if vorlage == "cover":
+        return baue_cover(ordner, slide, w, h)
     transparent = "transparent" in klasse
     bild = slide.get("bild")
     if bild and not (ordner / bild).exists():
@@ -122,6 +133,33 @@ def baue_html(ordner, slide):
     for schluessel, wert in werte.items():
         inhalt = inhalt.replace("{{" + schluessel + "}}", wert)
     return inhalt, w, h, transparent
+
+
+def baue_cover(ordner, slide, w, h):
+    """Shield-Sessions-Cover: Schild-Emblem mit Logo und VOL.-Nummer, DJ-Name, Stil."""
+    for pflicht in ("dj", "vol", "stil"):
+        if not slide.get(pflicht):
+            raise ValueError(f"Cover braucht '{pflicht}'")
+    stile = [s.strip() for s in str(slide["stil"]).replace("·", ",").split(",") if s.strip()]
+    akzent = slide.get("akzent") or STIL_AKZENT.get(stile[0].lower(), "blau")
+    logo_datei = BRAND / "logo.png"
+    ornament = (TEMPLATES / "ornament.svg").read_text(encoding="utf-8")
+    deko = '<div class="punkte"></div>' + "".join(ornament.replace("{{ecke}}", e) for e in ("ol", "ur", "ul", "ur2"))
+    werte = {
+        "css": relativ(TEMPLATES / "base.css", ordner),
+        "w": str(w),
+        "h": str(h),
+        "akzent_css": f"--akzent: {AKZENTE.get(akzent, AKZENTE['blau'])};",
+        "deko": deko,
+        "logo": f'<img src="{relativ(logo_datei, ordner)}">' if logo_datei.exists() else "",
+        "vol": f"{int(slide['vol']):02d}",
+        "dj": feld(slide["dj"]),
+        "stil": " · ".join(feld(s) for s in stile),
+    }
+    inhalt = (TEMPLATES / "cover.html").read_text(encoding="utf-8")
+    for schluessel, wert in werte.items():
+        inhalt = inhalt.replace("{{" + schluessel + "}}", wert)
+    return inhalt, w, h, False
 
 
 def render_bild(page, ordner, slide, ziel):
@@ -210,7 +248,7 @@ def render_reel(ordner, reel, overlay, ziel):
         raise ValueError(f"Video ist {groesse:.1f} MB groß, maximal 19 MB möglich – Reel kürzen")
 
 
-def rendere_post(page, ordner, daten):
+def rendere_post(page, page_hd, ordner, daten):
     typ = daten.get("typ")
     if typ not in TYPEN:
         raise ValueError(f"Unbekannter Typ '{typ}' (erlaubt: {', '.join(sorted(TYPEN))})")
@@ -230,6 +268,8 @@ def rendere_post(page, ordner, daten):
     media.mkdir()
     for i, slide in enumerate(slides, 1):
         render_bild(page, ordner, slide, media / f"{i}.jpg")
+        if slide.get("vorlage") == "cover":  # große Fassung für SoundCloud (ohne Ziffer, wird nicht gepostet)
+            render_bild(page_hd, ordner, slide, media / "soundcloud.jpg")
     if reel:
         overlay = None
         if reel.get("overlay"):
@@ -297,10 +337,11 @@ def main():
         with sync_playwright() as p:
             browser = p.chromium.launch()
             page = browser.new_page()
+            page_hd = browser.new_page(device_scale_factor=2)  # SoundCloud-Cover in 2160 px
             for ordner, daten in zu_rendern:
                 print(f"Rendere {ordner.name} …")
                 try:
-                    rendere_post(page, ordner, daten)
+                    rendere_post(page, page_hd, ordner, daten)
                     if daten.pop("letzter_fehler", None):
                         speichere(ordner, daten)
                 except Exception as e:  # ein kaputter Post soll die anderen nicht blockieren
