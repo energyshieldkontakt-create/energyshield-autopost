@@ -1,6 +1,7 @@
 # Einrichtung Autopost mit Buffer (einmalig, ca. 15 Minuten)
 
-- ✅ Schritt 1–3 (GitHub-Konto, Repository, Hochladen) sind erledigt (24.9.2026).
+- ✅ **Alle Schritte sind erledigt und getestet (24.9.2026).** Kanal: @energy.shield.rave. Der Schlüssel ist gültig bis 24.9.2027.
+- ⚠️ Beim Erneuern des Schlüssels: Das Kopier-Symbol neben einem bestehenden Schlüssel kopiert nur „••••“. Den echten Schlüssel gibt es nur im Fenster direkt nach „+ New Key“.
 - ❌ Die Meta-Entwickler-App wird **nicht** gebraucht.
 
 Danach läuft alles von selbst:
@@ -34,6 +35,9 @@ Kosten: 0 €. Zugangsdaten gibst du immer selbst ein.
 3. Speichern.
 
 ## Schritt 7: Verbindungstest (2 Min)
+
+Zusätzlich gibt es die Option *Test-Posts in Buffer anlegen*. Sie legt die Testgrafiken 30 Tage in der Zukunft an und löscht sie sofort wieder.
+
 
 1. Im Repository **Actions → An Buffer senden → Run workflow** öffnen, den Haken bei *Nur testen* lassen und starten.
 2. Wenn der Lauf grün ist und im Log „Instagram-Kanal in Buffer: …" steht, steht die Verbindung.
