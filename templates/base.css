@@ -89,7 +89,7 @@ footer {
   color: var(--fein); text-transform: uppercase; line-height: 1.5;
 }
 
-:empty:not(.bg):not(.scrim):not(.glow):not(.frame):not(.ecke) { display: none; }
+.logo:empty, .kicker:empty, h1:empty, .text:empty, footer:empty { display: none; }
 
 /* Countdown: riesige Zahl */
 .countdown main { text-align: center; }

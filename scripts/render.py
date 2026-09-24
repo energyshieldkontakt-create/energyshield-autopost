@@ -26,7 +26,11 @@ FORMATE = {
     "overlay": (1080, 1920, "overlay transparent"),
 }
 AKZENTE = {"blau": "#4FC3FF", "liquid": "#59E1C9", "neuro": "#A855F7"}
-FUSS_EVENT = "Sa 30.01.2027 · Club Bastion Kirchheim · Nur Abendkasse · Ab 18 · Nur 120 Plätze"
+# Geschützte Leerzeichen innerhalb der Angaben, damit nur an den Punkten umbrochen wird
+FUSS_EVENT = " · ".join(
+    teil.replace(" ", " ")
+    for teil in ["Sa 30.01.2027", "Club Bastion Kirchheim", "Nur Abendkasse", "Ab 18", "Nur 120 Plätze"]
+)
 MAX_VIDEO_MB = 18  # jsDelivr liefert nur Dateien bis ca. 20 MB aus
 BERLIN = ZoneInfo("Europe/Berlin")
 WOCHENTAGE = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
