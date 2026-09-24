@@ -1,0 +1,16 @@
+{
+  "publish_at": "2026-10-04T18:00:00+02:00",
+  "erstellt_am": "2026-09-24T21:46:31+02:00",
+  "typ": "karussell",
+  "status": "geplant",
+  "caption": "Shield Sessions VOL. 01 🛡️\n\nZum Start unserer Resident-Mix-Serie legt @kruxer.dnb vor: 30 Minuten Deep Drum & Bass.\n\nAb jetzt jeden Sonntag ein neuer Mix aus der Crew – mit @stone_d_97, @jhinx.dnb und @ranj.dnb.\n\n🔊 Wischen für 3 Highlights aus dem Set\n🎧 Voller Mix auf SoundCloud – Link in Bio\n\n#drumandbass #dnb #deepdnb #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb",
+  "slides": [
+    { "vorlage": "cover", "dj": "KruXer", "vol": 1, "stil": "Deep" },
+    { "vorlage": "quadrat", "akzent": "blau", "kicker": "Resident · Vol. 01", "titel": "KruXer", "text": "Gründer von EnergyShield und Resident der ersten Stunde. Zum Auftakt der Serie: 30 Minuten Deep Drum & Bass.", "fuss": "Shield Sessions · Jeden Sonntag" }
+  ],
+  "hoerproben": [
+    { "audio": "hoerprobe-1.wav", "im_mix": "6:04", "dauer": 30 },
+    { "audio": "hoerprobe-2.wav", "im_mix": "16:02", "dauer": 30 },
+    { "audio": "hoerprobe-3.wav", "im_mix": "26:03", "dauer": 30 }
+  ]
+}
