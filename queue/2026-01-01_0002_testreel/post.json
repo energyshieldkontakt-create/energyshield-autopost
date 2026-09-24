@@ -1,0 +1,14 @@
+{
+  "publish_at": "2026-01-01T00:02:00+01:00",
+  "erstellt_am": "2026-01-01T00:00:00+01:00",
+  "typ": "reel",
+  "status": "test",
+  "caption": "Testreel – wird nur gerendert und in Buffer getestet, nie veröffentlicht.",
+  "reel": {
+    "clip": "__testbild__",
+    "dauer": 8,
+    "overlay": { "kicker": "Testlauf", "titel": "Vom Flow\nin den Druck", "akzent": "neuro" },
+    "hook_sekunden": 5,
+    "titelbild_sekunde": 1
+  }
+}

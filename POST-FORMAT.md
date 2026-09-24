@@ -62,7 +62,7 @@ Leere Felder werden einfach weggelassen. Frame und Logo kommen automatisch.
 
 | Feld | Bedeutung |
 |---|---|
-| `clip` | Videodatei im Post-Ordner. Wird automatisch auf 9:16 zugeschnitten |
+| `clip` | Videodatei im Post-Ordner. Wird automatisch auf 9:16 zugeschnitten. `"__testbild__"` erzeugt einen Testclip (nur für Tests) |
 | `start`, `dauer` | Ausschnitt in Sekunden. Dauer 5–90 s, empfohlen 7–30 s |
 | `audio`, `audio_start` | optional: eigener Track eines DJs (**nur mit Freigabe**). Ohne Angabe bleibt der Originalton |
 | `overlay` | optional: Texteinblendung (Hook) wie ein Slide, ohne Hintergrund |

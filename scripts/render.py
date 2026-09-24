@@ -105,8 +105,21 @@ def hat_audio(datei):
     return bool(ergebnis.stdout.strip())
 
 
+def testclip(ziel, dauer):
+    """Erzeugt einen Testclip (Farbbalken + Ton) für Tests ohne echtes Material."""
+    subprocess.run([
+        "ffmpeg", "-y", "-loglevel", "error",
+        "-f", "lavfi", "-i", f"testsrc2=size=1080x1920:rate=30:duration={dauer}",
+        "-f", "lavfi", "-i", f"sine=frequency=440:duration={dauer}",
+        "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac", "-shortest", str(ziel),
+    ], check=True)
+
+
 def render_reel(ordner, reel, overlay, ziel):
     clip = ordner / reel["clip"]
+    if reel["clip"] == "__testbild__":
+        clip = ziel.parent / "_testclip.mp4"
+        testclip(clip, float(reel.get("dauer", 15)))
     if not clip.exists():
         raise FileNotFoundError(f"Clip '{reel['clip']}' fehlt im Post-Ordner")
     dauer = float(reel.get("dauer", 15))
@@ -181,6 +194,11 @@ def rendere_post(page, ordner, daten):
         render_reel(ordner, reel, overlay, media / "reel.mp4")
         if overlay:
             overlay.unlink()
+        (media / "_testclip.mp4").unlink(missing_ok=True)
+        # Standbild für VORSCHAU.md (Name ohne Ziffer, wird also nie als Slide gepostet)
+        sekunde = float(reel.get("titelbild_sekunde", 1))
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(sekunde), "-i", str(media / "reel.mp4"),
+                        "-frames:v", "1", "-q:v", "3", str(media / "vorschau.jpg")], check=True)
     (media / ".hash").write_text(medien_hash(ordner, daten))
 
 
