@@ -1,5 +1,5 @@
 /* EnergyShield Look – abgeleitet aus den bisherigen Flyern (Talent Night 07.03.26, 1 Year 11.04.26) */
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Montserrat:wght@500;600;700;800&family=Unbounded:wght@600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Montserrat:wght@500;600;700;800&family=Orbitron:wght@700;900&family=Unbounded:wght@600;800&display=swap');
 
 :root {
   --bg: #03070D;
@@ -150,40 +150,110 @@ footer { position: absolute; left: 50px; right: 50px; bottom: 52px; z-index: 2; 
 .foto main { top: auto; bottom: 360px; transform: none; }
 .foto h1 { font-size: 150px; }
 
-/* Shield Sessions: quadratisches Mix-Cover (SoundCloud + Instagram) */
-.cover .marke { top: 44px; font-size: 40px; letter-spacing: 2px; }
-.cover .serie {
-  position: absolute; top: 100px; left: 0; right: 0;
-  font-family: 'Bebas Neue', sans-serif; font-size: 86px; letter-spacing: 16px; line-height: 1; text-transform: uppercase;
-  color: color-mix(in srgb, var(--akzent) 45%, white);
-  text-shadow: 0 0 16px var(--akzent), 0 0 44px color-mix(in srgb, var(--akzent) 60%, transparent);
+/* ===== Shield Sessions: quadratisches Mix-Cover (SoundCloud + Instagram), eigenes Schild je Resident ===== */
+body.cover {
+  background:
+    radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--akzent) 20%, #05080d) 0%, #04070b 38%, #010203 78%),
+    #010203;
 }
-.schild { position: absolute; left: 50%; top: 206px; width: 380px; height: 449px; transform: translateX(-50%); }
-.schild svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.schild .aussen { stroke: var(--akzent); stroke-width: 7; filter: drop-shadow(0 0 10px var(--akzent)) drop-shadow(0 0 28px color-mix(in srgb, var(--akzent) 60%, transparent)); }
-.schild .innen { stroke: var(--akzent); stroke-width: 2.5; opacity: .55; }
-.schild .platine { fill: none; stroke: var(--akzent); stroke-width: 3; opacity: .6; }
-.schild .punkt { fill: var(--akzent); opacity: .8; }
-.schild-inhalt { position: absolute; left: 0; right: 0; top: 78px; display: flex; flex-direction: column; align-items: center; gap: 22px; }
-.schild-inhalt img { height: 170px; filter: brightness(0) invert(1) drop-shadow(0 0 10px var(--akzent)) drop-shadow(0 0 26px color-mix(in srgb, var(--akzent) 70%, transparent)); }
-.vol {
-  font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 50px; letter-spacing: 2px; text-transform: uppercase;
-  color: #fff; text-shadow: 0 0 12px var(--akzent), 0 0 30px color-mix(in srgb, var(--akzent) 60%, transparent);
-}
-.cover .dj {
-  position: absolute; top: 690px; left: 60px; right: 60px;
-  font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 124px; line-height: 1.1; color: #fff;
-  text-shadow: 0 0 18px color-mix(in srgb, var(--akzent) 70%, transparent), 0 0 50px color-mix(in srgb, var(--akzent) 35%, transparent);
-}
-.cover .stil {
-  position: absolute; top: 862px; left: 70px; right: 70px; display: flex; align-items: center; gap: 30px;
-  font-family: 'Bebas Neue', sans-serif; font-size: 58px; letter-spacing: 12px; line-height: 1; text-transform: uppercase;
-  color: color-mix(in srgb, var(--akzent) 55%, white); text-shadow: 0 0 14px var(--akzent);
-}
-.cover .stil::before, .cover .stil::after {
-  content: ""; flex: 1; height: 3px; box-shadow: 0 0 14px var(--akzent);
-  background: linear-gradient(90deg, transparent, var(--akzent));
-}
-.cover .stil::after { background: linear-gradient(270deg, transparent, var(--akzent)); }
+.cover .punkte { opacity: .3; }
+.cover .orn { opacity: .28; width: 220px; height: 220px; }
 .cover .orn.ul { top: auto; bottom: 0; left: 0; transform: scaleY(-1); }
 .cover .orn.ur2 { top: auto; bottom: 0; right: 0; transform: scale(-1, -1); }
+/* Lichtstrahlen hinter dem Schild */
+.strahlen {
+  position: absolute; inset: 0;
+  background: repeating-conic-gradient(from 0deg at 50% 40%, color-mix(in srgb, var(--akzent) 16%, transparent) 0deg 2.5deg, transparent 2.5deg 11deg);
+  -webkit-mask-image: radial-gradient(circle at 50% 40%, black 0%, rgba(0,0,0,.5) 30%, transparent 62%);
+          mask-image: radial-gradient(circle at 50% 40%, black 0%, rgba(0,0,0,.5) 30%, transparent 62%);
+}
+/* HUD-Rahmen mit Eck-Klammern und Mikrotexten */
+.hud { position: absolute; inset: 26px; border: 1px solid color-mix(in srgb, var(--akzent) 22%, transparent); }
+.ecke { position: absolute; width: 46px; height: 46px; border: 0 solid var(--akzent); filter: drop-shadow(0 0 6px var(--akzent)); }
+.e1 { top: -3px; left: -3px; border-top-width: 4px; border-left-width: 4px; }
+.e2 { top: -3px; right: -3px; border-top-width: 4px; border-right-width: 4px; }
+.e3 { bottom: -3px; left: -3px; border-bottom-width: 4px; border-left-width: 4px; }
+.e4 { bottom: -3px; right: -3px; border-bottom-width: 4px; border-right-width: 4px; }
+.hud-t {
+  position: absolute; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 4px;
+  text-transform: uppercase; color: color-mix(in srgb, var(--akzent) 70%, white); opacity: .75;
+}
+.t1 { top: 16px; left: 60px; } .t2 { top: 16px; right: 60px; } .t3 { bottom: 16px; left: 60px; } .t4 { bottom: 16px; right: 60px; }
+/* Kopf */
+.cover .marke { top: 70px; font-size: 30px; letter-spacing: 10px; color: #fff; text-shadow: 0 0 10px var(--akzent); }
+.cover .serie {
+  position: absolute; top: 108px; left: 0; right: 0; display: flex; justify-content: center;
+  font-family: 'Bebas Neue', sans-serif; font-size: 84px; letter-spacing: 18px; line-height: 1; text-transform: uppercase;
+  color: color-mix(in srgb, var(--akzent) 40%, white);
+  text-shadow: 0 0 14px var(--akzent), 0 0 40px color-mix(in srgb, var(--akzent) 55%, transparent);
+}
+.cover .serie span { padding: 0 30px; position: relative; }
+.cover .serie span::before, .cover .serie span::after {
+  content: ""; position: absolute; top: 50%; width: 70px; height: 3px; background: var(--akzent); box-shadow: 0 0 10px var(--akzent);
+}
+.cover .serie span::before { right: 100%; } .cover .serie span::after { left: 100%; }
+/* Schild */
+.schild { position: absolute; left: 50%; top: 210px; width: 390px; height: 461px; transform: translateX(-50%); }
+.schild svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.s-koerper { fill: url(#metall); }
+.s-koerper.stein { fill: url(#stein); }
+.s-waben { fill: url(#waben); }
+.s-umriss { fill: none; stroke: var(--akzent); stroke-width: 6; stroke-linejoin: round;
+  filter: drop-shadow(0 0 8px var(--akzent)) drop-shadow(0 0 26px color-mix(in srgb, var(--akzent) 55%, transparent)); }
+.s-rim { fill: none; stroke: var(--akzent); stroke-width: 2; opacity: .45; stroke-dasharray: 14 6; }
+.s-ring { fill: none; stroke: var(--akzent); stroke-width: 2.5; stroke-dasharray: 5 9; opacity: .85; }
+.s-rund { fill: #020406; stroke: var(--akzent); stroke-width: 4; filter: drop-shadow(0 0 10px color-mix(in srgb, var(--akzent) 70%, transparent)); }
+.s-platte { fill: #020406; stroke: var(--akzent); stroke-width: 3; filter: drop-shadow(0 0 8px color-mix(in srgb, var(--akzent) 60%, transparent)); }
+.s-band { stroke: color-mix(in srgb, var(--akzent) 14%, #0e1620); stroke-width: 44; }
+.s-band-rand { stroke: color-mix(in srgb, var(--akzent) 70%, transparent); stroke-width: 50; }
+.s-kante { stroke: var(--akzent); stroke-width: 1.5; opacity: .35; }
+.s-nieten circle { fill: #0b1119; stroke: var(--akzent); stroke-width: 2.5; }
+.s-facetten polygon { fill: #fff; }
+.s-kanten polyline, .s-kanten line { fill: none; stroke: #c8d3de; stroke-width: 1.5; opacity: .22; }
+.s-risse polyline { fill: none; stroke: var(--akzent); stroke-width: 3.5; stroke-linejoin: round; stroke-linecap: round;
+  filter: drop-shadow(0 0 5px var(--akzent)) drop-shadow(0 0 14px var(--akzent)); }
+.s-leiter polyline, .s-leiter line { fill: none; stroke: var(--akzent); stroke-width: 3; opacity: .75; }
+.s-pins circle, .s-pins rect { fill: var(--akzent); filter: drop-shadow(0 0 4px var(--akzent)); }
+.s-glitch rect { fill: #010203; }
+.s-glitch-a rect { fill: var(--akzent); filter: drop-shadow(0 0 6px var(--akzent)); }
+.s-blitz { fill: var(--akzent); filter: drop-shadow(0 0 8px var(--akzent)) drop-shadow(0 0 22px color-mix(in srgb, var(--akzent) 60%, transparent)); }
+.s-chevron polyline { fill: none; stroke: var(--akzent); stroke-width: 6; stroke-linejoin: miter; filter: drop-shadow(0 0 6px var(--akzent)); }
+.s-speed line { stroke: var(--akzent); stroke-width: 3; opacity: .6; }
+.schild-inhalt { position: absolute; left: 0; right: 0; top: 116px; display: flex; flex-direction: column; align-items: center; gap: 53px; }
+.schild-inhalt img { height: 132px; filter: brightness(0) invert(1) drop-shadow(0 0 8px var(--akzent)) drop-shadow(0 0 22px color-mix(in srgb, var(--akzent) 70%, transparent)); }
+.vol {
+  font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 40px; letter-spacing: 4px; line-height: 1; text-transform: uppercase;
+  color: #fff; text-shadow: 0 0 10px var(--akzent), 0 0 26px color-mix(in srgb, var(--akzent) 60%, transparent);
+}
+/* DJ-Name: kantig, Metalloptik, Glitch-Versatz */
+.cover .dj {
+  position: absolute; top: 700px; left: 70px; right: 70px;
+  font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 112px; line-height: 1.1; letter-spacing: 6px;
+  color: transparent; text-shadow: none;
+  background: linear-gradient(180deg, #ffffff 0%, #eaf6ff 42%, color-mix(in srgb, var(--akzent) 45%, #5b6b7c) 52%, #ffffff 100%);
+  -webkit-background-clip: text; background-clip: text;
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--akzent) 80%, transparent)) drop-shadow(0 0 34px color-mix(in srgb, var(--akzent) 40%, transparent));
+}
+.cover .dj::before, .cover .dj::after {
+  content: attr(data-name); position: absolute; inset: 0; background: none; -webkit-background-clip: border-box; background-clip: border-box;
+}
+.cover .dj::before { color: var(--akzent); transform: translateX(-7px); clip-path: inset(18% 0 62% 0); opacity: .9; }
+.cover .dj::after { color: #fff; transform: translateX(6px); clip-path: inset(64% 0 20% 0); opacity: .55; }
+/* Stil als abgeschrägtes Tag */
+.cover .stil { position: absolute; top: 862px; left: 0; right: 0; display: flex; justify-content: center; }
+.stil-text {
+  font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 8px; line-height: 1; text-transform: uppercase;
+  color: #fff; padding: 16px 40px;
+  background: color-mix(in srgb, var(--akzent) 16%, #020406);
+  border: 2px solid var(--akzent);
+  clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);
+  text-shadow: 0 0 10px var(--akzent);
+}
+/* Oberflächen: Scanlines, Körnung, Vignette */
+.scan { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(0,0,0,.28) 0 2px, transparent 2px 5px); pointer-events: none; }
+.grain {
+  position: absolute; inset: 0; opacity: .22; mix-blend-mode: overlay; pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>");
+}
+.vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(0,0,0,.8) 100%); pointer-events: none; }
+

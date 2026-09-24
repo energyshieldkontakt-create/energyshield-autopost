@@ -1,0 +1,9 @@
+<!-- Standard-Schild für Gast-Mixe -->
+<clipPath id="clip"><path d="M20,44 Q220,4 420,44 V240 C420,382 322,462 220,508 C118,462 20,382 20,240 Z"/></clipPath>
+<path class="s-koerper" d="M20,44 Q220,4 420,44 V240 C420,382 322,462 220,508 C118,462 20,382 20,240 Z"/>
+<g clip-path="url(#clip)"><rect class="s-waben" x="0" y="0" width="440" height="520"/></g>
+<path class="s-rim" d="M46,64 Q220,30 394,64 V240 C394,366 308,436 220,478 C132,436 46,366 46,240 Z"/>
+<circle class="s-ring" cx="220" cy="205" r="106"/>
+<circle class="s-rund" cx="220" cy="205" r="92"/>
+<polygon class="s-platte" points="110,330 330,330 348,362 330,394 110,394 92,362"/>
+<path class="s-umriss" d="M20,44 Q220,4 420,44 V240 C420,382 322,462 220,508 C118,462 20,382 20,240 Z"/>

@@ -1,0 +1,28 @@
+<!-- Stone D: Monolith – facettierter Steinschild mit glühenden Rissen -->
+<path class="s-koerper stein" d="M40,64 L118,22 H322 L400,64 L414,262 L336,444 L220,508 L104,444 L26,262 Z"/>
+<g class="s-facetten">
+  <polygon points="118,22 322,22 220,120" opacity=".09"/>
+  <polygon points="40,64 118,22 220,120 150,250" opacity=".04"/>
+  <polygon points="322,22 400,64 290,250 220,120" opacity=".06"/>
+  <polygon points="26,262 40,64 150,250" opacity=".02"/>
+  <polygon points="414,262 400,64 290,250" opacity=".03"/>
+  <polygon points="26,262 150,250 220,420 104,444" opacity=".07"/>
+  <polygon points="414,262 290,250 220,420 336,444" opacity=".045"/>
+  <polygon points="104,444 220,420 336,444 220,508" opacity=".1"/>
+</g>
+<g class="s-kanten">
+  <polyline points="118,22 220,120 322,22"/><polyline points="40,64 150,250 26,262"/><polyline points="400,64 290,250 414,262"/>
+  <polyline points="150,250 220,420 290,250"/><polyline points="104,444 220,420 336,444"/><line x1="220" y1="120" x2="220" y2="420"/>
+</g>
+<g class="s-risse">
+  <polyline points="40,64 72,112 60,152 94,196"/><polyline points="72,112 104,120"/>
+  <polyline points="400,64 370,104 386,142 350,176"/>
+  <polyline points="104,444 142,404 126,374 162,344"/><polyline points="142,404 170,410"/>
+  <polyline points="336,444 298,408 318,374 284,352"/>
+  <polyline points="26,262 72,272 88,304"/><polyline points="414,262 372,276 380,300"/>
+  <polyline points="220,508 214,470 226,444"/>
+</g>
+<polygon class="s-ring" points="319,246 262,302 180,300 122,244 124,164 178,108 262,110 318,164"/>
+<polygon class="s-rund" points="312,243 258,296 182,298 128,242 128,166 182,113 258,112 312,168"/>
+<polygon class="s-platte" points="98,334 342,328 356,364 338,400 102,396 84,362"/>
+<path class="s-umriss" d="M40,64 L118,22 H322 L400,64 L414,262 L336,444 L220,508 L104,444 L26,262 Z"/>

@@ -31,6 +31,8 @@ AKZENTE = {"blau": "#2EE6F5", "liquid": "#6FF5C2", "neuro": "#9D7BFF", "jumpup":
 # Shield Sessions: Akzentfarbe nach dem ersten Stil des Mixes
 STIL_AKZENT = {"deep": "blau", "liquid": "liquid", "neurofunk": "neuro", "neuro": "neuro",
                "jump-up": "jumpup", "jumpup": "jumpup", "halftime": "halftime"}
+# Shield Sessions: jeder Resident hat ein eigenes Schild (templates/schilde/) und ein Kürzel; alle anderen bekommen "standard"
+RESIDENTS = {"kruxer": ("kruxer", "KRX"), "stone d": ("stoned", "STD"), "jhinx": ("jhinx", "JHX"), "ranj": ("ranj", "RNJ")}
 # Fußbereich im Flyer-Stil: Info-Leiste, darunter Datum und drei Infos, getrennt durch Leuchtlinien
 FUSS_EVENT = (
     '<div class="eventfuss">'
@@ -145,6 +147,8 @@ def baue_cover(ordner, slide, w, h):
     logo_datei = BRAND / "logo.png"
     ornament = (TEMPLATES / "ornament.svg").read_text(encoding="utf-8")
     deko = '<div class="punkte"></div>' + "".join(ornament.replace("{{ecke}}", e) for e in ("ol", "ur", "ul", "ur2"))
+    schild_name, code = RESIDENTS.get(str(slide["dj"]).strip().lower(), ("standard", str(slide["dj"])[:3].upper()))
+    schild = (TEMPLATES / "schilde" / f"{schild_name}.svg").read_text(encoding="utf-8")
     werte = {
         "css": relativ(TEMPLATES / "base.css", ordner),
         "w": str(w),
@@ -155,6 +159,9 @@ def baue_cover(ordner, slide, w, h):
         "vol": f"{int(slide['vol']):02d}",
         "dj": feld(slide["dj"]),
         "stil": " · ".join(feld(s) for s in stile),
+        "schild": schild,
+        "schild_klasse": f"schild-{schild_name}",
+        "resident_code": code,
     }
     inhalt = (TEMPLATES / "cover.html").read_text(encoding="utf-8")
     for schluessel, wert in werte.items():

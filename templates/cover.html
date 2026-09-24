@@ -6,30 +6,45 @@
 <style>:root { --w: {{w}}px; --h: {{h}}px; {{akzent_css}} }</style>
 </head>
 <body class="cover">
+  <div class="strahlen"></div>
   {{deko}}
+  <div class="hud">
+    <span class="ecke e1"></span><span class="ecke e2"></span><span class="ecke e3"></span><span class="ecke e4"></span>
+    <span class="hud-t t1">ES // Resident Mix Series</span>
+    <span class="hud-t t2">SSN-{{vol}} // {{resident_code}}</span>
+    <span class="hud-t t3">48.648°N · 9.451°E</span>
+    <span class="hud-t t4">Drum &amp; Bass</span>
+  </div>
   <header class="marke">ENERGYSHIELD</header>
-  <div class="serie">Shield Sessions</div>
-  <div class="schild">
+  <div class="serie"><span>Shield Sessions</span></div>
+  <div class="schild {{schild_klasse}}">
     <svg viewBox="0 0 440 520" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <radialGradient id="fuellung" cx="50%" cy="35%" r="70%">
-          <stop offset="0%" style="stop-color: var(--akzent); stop-opacity: .22"/>
-          <stop offset="100%" stop-color="#03070D" stop-opacity=".92"/>
-        </radialGradient>
+        <linearGradient id="metall" x1="0" y1="0" x2="0.35" y2="1">
+          <stop offset="0%" stop-color="#232e3d"/>
+          <stop offset="45%" stop-color="#0d141e"/>
+          <stop offset="100%" stop-color="#030508"/>
+        </linearGradient>
+        <linearGradient id="stein" x1="0" y1="0" x2="0.4" y2="1">
+          <stop offset="0%" stop-color="#2a2d33"/>
+          <stop offset="50%" stop-color="#15171b"/>
+          <stop offset="100%" stop-color="#060708"/>
+        </linearGradient>
+        <pattern id="waben" width="26" height="45" patternUnits="userSpaceOnUse">
+          <path d="M13,0 L26,7.5 V22.5 L13,30 L0,22.5 V7.5 Z M13,30 V45" fill="none" stroke-width="1" style="stroke: var(--akzent)" opacity=".22"/>
+        </pattern>
       </defs>
-      <path class="aussen" d="M20,44 Q220,4 420,44 V240 C420,382 322,462 220,508 C118,462 20,382 20,240 Z" fill="url(#fuellung)"/>
-      <path class="innen" d="M46,64 Q220,30 394,64 V240 C394,366 308,436 220,478 C132,436 46,366 46,240 Z" fill="none"/>
-      <polyline class="platine" points="96,392 150,392 176,418"/>
-      <polyline class="platine" points="344,392 290,392 264,418"/>
-      <circle class="punkt" cx="176" cy="418" r="5"/>
-      <circle class="punkt" cx="264" cy="418" r="5"/>
+      {{schild}}
     </svg>
     <div class="schild-inhalt">
       {{logo}}
       <div class="vol">Vol. {{vol}}</div>
     </div>
   </div>
-  <h1 class="dj" data-fit>{{dj}}</h1>
-  <div class="stil">{{stil}}</div>
+  <h1 class="dj" data-fit data-name="{{dj}}">{{dj}}</h1>
+  <div class="stil"><span class="stil-text">{{stil}}</span></div>
+  <div class="scan"></div>
+  <div class="grain"></div>
+  <div class="vignette"></div>
 </body>
 </html>

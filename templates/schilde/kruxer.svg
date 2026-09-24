@@ -1,0 +1,19 @@
+<!-- Kruxer: Kreuzschild – Metallplatte mit gekreuzten Streben und Nieten -->
+<clipPath id="clip"><path d="M30,44 L72,20 H368 L410,44 V250 C410,392 318,468 220,510 C122,468 30,392 30,250 Z"/></clipPath>
+<path class="s-koerper" d="M30,44 L72,20 H368 L410,44 V250 C410,392 318,468 220,510 C122,468 30,392 30,250 Z"/>
+<g clip-path="url(#clip)">
+  <rect class="s-waben" x="0" y="0" width="440" height="520"/>
+  <line class="s-band-rand" x1="20" y1="40" x2="420" y2="470"/><line class="s-band" x1="20" y1="40" x2="420" y2="470"/>
+  <line class="s-band-rand" x1="420" y1="40" x2="20" y2="470"/><line class="s-band" x1="420" y1="40" x2="20" y2="470"/>
+  <line class="s-kante" x1="30" y1="130" x2="410" y2="130"/>
+</g>
+<path class="s-rim" d="M52,58 L84,40 H356 L388,58 V250 C388,378 306,446 220,484 C134,446 52,378 52,250 Z"/>
+<g class="s-nieten">
+  <circle cx="68" cy="92" r="7"/><circle cx="372" cy="92" r="7"/><circle cx="300" cy="341" r="7"/><circle cx="140" cy="341" r="7"/>
+  <circle cx="372" cy="418" r="6"/><circle cx="68" cy="418" r="6"/><circle cx="96" cy="46" r="5"/><circle cx="344" cy="46" r="5"/>
+  <circle cx="220" cy="486" r="6"/><circle cx="46" cy="250" r="5"/><circle cx="394" cy="250" r="5"/>
+</g>
+<circle class="s-ring" cx="220" cy="205" r="106"/>
+<circle class="s-rund" cx="220" cy="205" r="92"/>
+<polygon class="s-platte" points="110,330 330,330 348,362 330,394 110,394 92,362"/>
+<path class="s-umriss" d="M30,44 L72,20 H368 L410,44 V250 C410,392 318,468 220,510 C122,468 30,392 30,250 Z"/>
