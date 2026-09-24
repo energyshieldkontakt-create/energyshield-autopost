@@ -4,7 +4,7 @@ name: Rendern
 on:
   push:
     branches: [main]
-    paths: ['queue/**', 'templates/**', 'brand/**']
+    paths: ['queue/**', 'templates/**', 'brand/**', 'scripts/render.py', 'scripts/common.py']
   workflow_dispatch:
 
 concurrency:

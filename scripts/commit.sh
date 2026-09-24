@@ -9,5 +9,6 @@ if git diff --cached --quiet; then
   exit 0
 fi
 git commit -m "$1"
-git pull --rebase
+# Neuere Medien gewinnen, falls ein anderer Lauf dieselben Dateien schon geschrieben hat
+git pull --rebase -X theirs
 git push
