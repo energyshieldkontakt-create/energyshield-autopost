@@ -1,0 +1,11 @@
+{
+  "publish_at": "2026-01-01T00:04:00+01:00",
+  "erstellt_am": "2026-01-01T00:00:00+01:00",
+  "typ": "karussell",
+  "status": "test",
+  "caption": "Test: Foto-Vorlage mit echten Bildern aus der Drive.",
+  "slides": [
+    { "vorlage": "feed", "bild": "pult.jpg", "kicker": "Save the Date", "titel": "Club-Debut", "fuss": "EVENT" },
+    { "vorlage": "feed", "bild": "rueckansicht.jpg", "kicker": "Drum & Bass Kollektiv", "titel": "Wir bringen\nden Druck.", "fuss": "Folgt @energy.shield.rave" }
+  ]
+}

@@ -96,7 +96,7 @@ def baue_html(ordner, slide):
         "css": relativ(TEMPLATES / "base.css", ordner),
         "w": str(w),
         "h": str(h),
-        "klasse": klasse,
+        "klasse": klasse + (" foto" if bild else ""),
         "akzent_css": f"--akzent: {akzent};",
         "bild_style": f"background-image: url('{bild}')" if bild else "",
         "scrim": '<div class="scrim"></div>' if bild else "",
