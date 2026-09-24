@@ -20,7 +20,10 @@ from datetime import timedelta, timezone
 from common import POSTED, cdn_url, ist_aktuell, jetzt, lade_posts, speichere, zeit
 
 API = "https://api.buffer.com"
-KEY = os.environ.get("BUFFER_API_KEY", "")
+KEY = os.environ.get("BUFFER_API_KEY", "").strip()
+if not KEY.isascii():
+    sys.exit("BUFFER_API_KEY enthält ungültige Zeichen – vermutlich wurde nicht der Schlüssel eingefügt. "
+             "Neu kopieren (Buffer → Settings → API) und das Secret bei GitHub aktualisieren.")
 KANAL = os.environ.get("BUFFER_CHANNEL_ID", "")
 DRY_RUN = os.environ.get("DRY_RUN") == "1"
 EINSPRUCH = timedelta(hours=24)
