@@ -52,9 +52,11 @@ document.fonts.ready.then(() => {
   const kopf = document.querySelector('.marke');
   const fuss = document.querySelector('footer');
   if (!h1 || !h1.textContent.trim()) return true;
+  // Breite nur des Textes messen (ohne Glitch-Pseudoelemente, die absichtlich überstehen)
+  const breit = () => { const r = document.createRange(); r.selectNodeContents(h1); return r.getBoundingClientRect().width > h1.clientWidth + 1; };
   if (!main) {  // Cover: nur in die Breite einpassen
     let g = parseFloat(getComputedStyle(h1).fontSize);
-    while (h1.scrollWidth > h1.clientWidth + 1 && g > 40) { g -= 4; h1.style.fontSize = g + 'px'; }
+    while (breit() && g > 40) { g -= 4; h1.style.fontSize = g + 'px'; }
     return true;
   }
   // Hauptblock mittig in den freien Raum zwischen Schriftzug und Fuß setzen
@@ -64,7 +66,7 @@ document.fonts.ready.then(() => {
     else main.style.top = ((kUnten + fOben) / 2) + 'px';
   }
   const zuGross = () => {
-    if (h1.scrollWidth > h1.clientWidth + 1) return true;
+    if (breit()) return true;
     const m = main.getBoundingClientRect();
     const k = kopf.getBoundingClientRect();
     if (k.bottom < m.bottom && m.top < k.bottom + 30) return true;

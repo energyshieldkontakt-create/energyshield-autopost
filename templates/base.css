@@ -180,7 +180,7 @@ body.cover {
 }
 .t1 { top: 16px; left: 60px; } .t2 { top: 16px; right: 60px; } .t3 { bottom: 16px; left: 60px; } .t4 { bottom: 16px; right: 60px; }
 /* Kopf */
-.cover .marke { top: 70px; font-size: 30px; letter-spacing: 10px; color: #fff; text-shadow: 0 0 10px var(--akzent); }
+.cover .marke { top: 62px; font-size: 30px; letter-spacing: 10px; color: #fff; text-shadow: 0 0 10px var(--akzent); }
 .cover .serie {
   position: absolute; top: 108px; left: 0; right: 0; display: flex; justify-content: center;
   font-family: 'Bebas Neue', sans-serif; font-size: 84px; letter-spacing: 18px; line-height: 1; text-transform: uppercase;
