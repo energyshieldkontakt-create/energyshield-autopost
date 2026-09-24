@@ -53,7 +53,6 @@ body.transparent { background: transparent; }
   color: color-mix(in srgb, var(--akzent) 25%, white);
   text-shadow: 0 0 10px var(--akzent), 0 0 28px color-mix(in srgb, var(--akzent) 70%, transparent);
 }
-.marke img { height: 78px; filter: brightness(0) invert(1) drop-shadow(0 0 8px var(--akzent)) drop-shadow(0 0 20px color-mix(in srgb, var(--akzent) 70%, transparent)); }
 
 /* E/S-Symbol groß und dezent hinter dem Inhalt */
 .wasserzeichen {
@@ -63,13 +62,20 @@ body.transparent { background: transparent; }
 
 /* Hauptblock mit leuchtenden Trennlinien */
 main { position: absolute; left: 70px; right: 70px; top: 50%; transform: translateY(-50%); }
-main::before, main::after {
-  content: ""; display: block; height: 3px; margin: 0 auto;
+main::after {
+  content: ""; display: block; height: 3px; margin: 44px auto 0;
   background: linear-gradient(90deg, transparent, var(--akzent) 20%, var(--akzent) 80%, transparent);
   box-shadow: 0 0 14px var(--akzent);
 }
-main::before { margin-bottom: 44px; }
-main::after { margin-top: 44px; }
+
+/* Obere Trennlinie mit dem E/S-Symbol in der Mitte */
+.trenner { display: flex; align-items: center; gap: 30px; margin-bottom: 40px; }
+.trenner::before, .trenner::after {
+  content: ""; flex: 1; height: 3px; box-shadow: 0 0 14px var(--akzent);
+  background: linear-gradient(90deg, transparent, var(--akzent) 40%);
+}
+.trenner::after { background: linear-gradient(270deg, transparent, var(--akzent) 40%); }
+.trenner img { height: 110px; filter: brightness(0) invert(1) drop-shadow(0 0 8px var(--akzent)) drop-shadow(0 0 22px color-mix(in srgb, var(--akzent) 70%, transparent)); }
 
 .kicker {
   font-family: 'Bebas Neue', sans-serif; font-size: 70px; letter-spacing: 8px; line-height: 1;
@@ -122,7 +128,7 @@ footer { position: absolute; left: 50px; right: 50px; bottom: 52px; z-index: 2; 
 
 /* Reel-Overlay: nur Text, kein Hintergrund */
 .overlay main { top: 20%; transform: none; }
-.overlay main::before, .overlay main::after { display: none; }
+.overlay .trenner, .overlay main::after { display: none; }
 .overlay h1, .overlay .kicker { text-shadow: 0 4px 22px rgba(0,0,0,.9), 0 0 26px color-mix(in srgb, var(--akzent) 70%, transparent); }
 .overlay .marke { top: auto; bottom: 100px; font-size: 46px; text-shadow: 0 2px 14px rgba(0,0,0,.9), 0 0 20px var(--akzent); }
 
@@ -130,5 +136,4 @@ footer { position: absolute; left: 50px; right: 50px; bottom: 52px; z-index: 2; 
 .foto .punkte { opacity: .25; }
 .foto .scrim { background: linear-gradient(180deg, rgba(3,7,13,.7) 0%, rgba(3,7,13,.1) 22%, rgba(3,7,13,.15) 45%, rgba(3,7,13,.85) 70%, rgba(3,7,13,.97) 100%); }
 .foto main { top: auto; bottom: 360px; transform: none; }
-.foto main::before { display: none; }
 .foto h1 { font-size: 150px; }
