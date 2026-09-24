@@ -284,3 +284,7 @@ body.cover {
 .quadrat h1 { font-size: 150px; }
 .quadrat .marke { top: 50px; font-size: 56px; }
 .quadrat .text { font-size: 32px; }
+/* Quadrat mit Foto: Bildausschnitt weiter oben (Gesicht frei), ohne Logo-Linie über dem Motiv */
+.quadrat .bg { background-position: 50% 12%; }
+.quadrat.foto .trenner { display: none; }
+.quadrat.foto .scrim { background: linear-gradient(180deg, rgba(3,7,13,.6) 0%, rgba(3,7,13,0) 18%, rgba(3,7,13,.05) 40%, rgba(3,7,13,.85) 66%, rgba(3,7,13,.97) 100%); }
