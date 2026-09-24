@@ -70,8 +70,14 @@ def git(*args):
 
 
 def cdn_url(ordner, datei):
-    """Öffentliche URL über jsDelivr (liefert korrekte Dateitypen, auch video/mp4)."""
+    """Öffentliche, unveränderliche URL (fester Commit).
+
+    Bilder direkt von GitHub (liefert image/jpeg sofort), Videos über jsDelivr,
+    weil GitHub Videos als application/octet-stream ausliefert.
+    """
     repo = os.environ["GITHUB_REPOSITORY"]
     sha = git("rev-parse", "HEAD")
     pfad = (ordner / "media" / datei).relative_to(ROOT).as_posix()
-    return f"https://cdn.jsdelivr.net/gh/{repo}@{sha}/{pfad}"
+    if datei.endswith(".mp4"):
+        return f"https://cdn.jsdelivr.net/gh/{repo}@{sha}/{pfad}"
+    return f"https://raw.githubusercontent.com/{repo}/{sha}/{pfad}"

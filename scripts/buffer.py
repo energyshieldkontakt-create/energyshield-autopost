@@ -13,6 +13,7 @@ import json
 import os
 import shutil
 import sys
+import time
 import urllib.error
 import urllib.request
 from datetime import timedelta, timezone
@@ -84,7 +85,21 @@ def instagram_kanal():
     return gefunden[0]["id"]
 
 
-def an_buffer(kanal, ordner, daten, geplant):
+def aufwaermen(url, max_sekunden=90):
+    """Ruft die Datei ab, bis sie erreichbar ist (jsDelivr lädt beim ersten Abruf erst von GitHub)."""
+    start = time.time()
+    while True:
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, method="GET"), timeout=60) as antwort:
+                antwort.read()
+                return
+        except (urllib.error.URLError, TimeoutError) as e:
+            if time.time() - start > max_sekunden:
+                raise RuntimeError(f"Datei nicht erreichbar: {url} ({e})") from None
+            time.sleep(5)
+
+
+def an_buffer(kanal, ordner, daten, geplant, versuch=1):
     typ = daten["typ"]
     media = ordner / "media"
     if (media / "reel.mp4").exists():
@@ -106,9 +121,15 @@ def an_buffer(kanal, ordner, daten, geplant):
         "assets": assets,
         "metadata": {"instagram": {"type": ig_typ, "shouldShareToFeed": ig_typ != "story"}},
     }
+    for asset in assets:
+        aufwaermen(next(iter(asset.values()))["url"])
     antwort = graphql(CREATE_POST, {"input": eingabe})["createPost"]
     if "post" not in antwort:
-        raise RuntimeError(f"Buffer: {antwort.get('message', 'unbekannter Fehler')}")
+        meldung = antwort.get("message", "unbekannter Fehler")
+        if "could not be read" in meldung and versuch < 2:
+            time.sleep(30)
+            return an_buffer(kanal, ordner, daten, geplant, versuch + 1)
+        raise RuntimeError(f"Buffer: {meldung}")
     return antwort["post"]["id"]
 
 
