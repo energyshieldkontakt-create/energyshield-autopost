@@ -1,0 +1,12 @@
+{
+  "publish_at": "2026-01-01T00:03:00+01:00",
+  "erstellt_am": "2026-01-01T00:00:00+01:00",
+  "typ": "karussell",
+  "status": "test",
+  "caption": "Falls wir uns noch nicht kennen: EnergyShield ist ein Drum & Bass-Kollektiv – Veranstalter, Label, Crew und Community in einem. 🛡️⚡\n\nLiquid, Deep, Neurofunk, Jump-Up – wir feiern die ganze Bandbreite.\n\nWas 2027 ansteht, verraten wir bald. Folgt uns, damit ihr's zuerst erfahrt.\n\n#drumandbass #dnb #dnbgermany #kirchheimteck #stuttgartdnb #liquiddnb #jumpup",
+  "slides": [
+    { "vorlage": "feed", "kicker": "Drum & Bass Kollektiv", "titel": "Wer ist\nEnergyShield?", "text": "Veranstalter, Label, Crew und Community in einem." },
+    { "vorlage": "feed", "kicker": "Unser Sound", "titel": "Liquid · Deep\nNeuro · Jump-Up", "text": "Vom Flow in den Druck. Die ganze Bandbreite.", "akzent": "liquid" },
+    { "vorlage": "feed", "kicker": "Bald mehr", "titel": "2027 wird\ngroß.", "text": "Folgt uns, damit ihr's zuerst erfahrt.", "akzent": "neuro" }
+  ]
+}
