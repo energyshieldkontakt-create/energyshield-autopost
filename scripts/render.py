@@ -181,8 +181,6 @@ def rendere_post(page, ordner, daten):
         render_reel(ordner, reel, overlay, media / "reel.mp4")
         if overlay:
             overlay.unlink()
-        if reel.get("cover"):
-            render_bild(page, ordner, {"vorlage": "story", **reel["cover"]}, media / "cover.jpg")
     (media / ".hash").write_text(medien_hash(ordner, daten))
 
 
@@ -193,8 +191,10 @@ def schreibe_vorschau(posts):
         "",
         f"Stand: {stand}. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.",
         "",
-        "**Einspruch:** Beim Post auf `post.json` tippen → Stift-Symbol → `\"status\": \"geplant\"` in `\"status\": \"stop\"` ändern → *Commit changes*. "
-        "Oder den ganzen Ordner löschen.",
+        "Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.",
+        "",
+        "**Einspruch:** Solange ein Post hier steht: auf `post.json` tippen → Stift-Symbol → `\"status\": \"geplant\"` in `\"status\": \"stop\"` ändern → *Commit changes*. "
+        "Danach: den Post in der **Buffer-App** löschen.",
         "",
     ]
     if not posts:

@@ -1,0 +1,40 @@
+name: An Buffer senden
+
+# Stündlich: Posts, die in den nächsten 4 Tagen dran sind (und deren 24-h-Einspruchsfrist
+# abgelaufen ist), an Buffer übergeben. Buffer veröffentlicht sie pünktlich auf Instagram.
+on:
+  schedule:
+    - cron: '7 * * * *'
+  workflow_dispatch:
+    inputs:
+      testlauf:
+        description: 'Nur testen (Verbindung prüfen, nichts übergeben)'
+        type: boolean
+        default: true
+
+concurrency:
+  group: autopost
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  senden:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fällige Posts an Buffer übergeben
+        working-directory: scripts
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_CHANNEL_ID: ${{ vars.BUFFER_CHANNEL_ID }}
+          DRY_RUN: ${{ inputs.testlauf && '1' || '0' }}
+        run: python buffer.py
+      - name: Speichern
+        if: always()
+        run: sh scripts/commit.sh "An Buffer übergeben"

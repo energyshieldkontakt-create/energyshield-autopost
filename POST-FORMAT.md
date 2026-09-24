@@ -26,7 +26,7 @@ Jeder Post ist ein Ordner in `queue/` mit einer `post.json` und den benötigten 
 | `typ` | ja | `bild`, `karussell`, `reel` oder `story` |
 | `status` | ja | `geplant` (wird gepostet), `stop` (Einspruch), `test` (wird nur gerendert) |
 | `caption` | nein | Text unter dem Post. Nicht bei Stories (die haben keine Caption) |
-| `collaborators` | nein | Bis zu 3 Instagram-Namen ohne @. Nicht bei Stories. Die Person bekommt eine Collab-Einladung |
+| `collaborators` | nein | Instagram-Namen ohne @. **Buffer kann keine Collab-Posts.** Der Post geht normal raus, danach lädt Volkan die Personen in Instagram als Mitwirkende ein. Deshalb jeden Collab-Post auch unter „Manuell für Volkan" notieren |
 | `slides` | bei bild/karussell/story | Liste von Grafiken (siehe unten). Karussell: 2–10 |
 | `reel` | bei reel, optional bei story | Video-Angaben (siehe unten) |
 
@@ -56,7 +56,7 @@ Leere Felder werden einfach weggelassen. Frame und Logo kommen automatisch.
   "audio": "track.mp3", "audio_start": 64,
   "overlay": { "kicker": "LIQUID", "titel": "VIER LEUTE.\nEIN SOUND.", "akzent": "liquid" },
   "hook_sekunden": 3,
-  "cover": { "kicker": "ENERGYSHIELD", "titel": "WER SIND WIR?" }
+  "titelbild_sekunde": 1.5
 }
 ```
 
@@ -67,11 +67,12 @@ Leere Felder werden einfach weggelassen. Frame und Logo kommen automatisch.
 | `audio`, `audio_start` | optional: eigener Track eines DJs (**nur mit Freigabe**). Ohne Angabe bleibt der Originalton |
 | `overlay` | optional: Texteinblendung (Hook) wie ein Slide, ohne Hintergrund |
 | `hook_sekunden` | optional: Overlay nur die ersten X Sekunden zeigen |
-| `cover` | optional: Titelbild des Reels (Story-Vorlage) |
+| `titelbild_sekunde` | optional: welcher Moment des Videos als Titelbild dient (eigene Titelbilder erlaubt Buffer nicht). Tipp: eine Sekunde wählen, in der das Hook-Overlay zu sehen ist |
 
 ## Grenzen
 
 - Story-Sticker (Countdown, Umfrage, Link) gehen **nicht** über die API. Solche Stories als Aufgabe für Volkan notieren.
 - Musik aus der Instagram-Bibliothek geht nicht. Ton muss im Clip oder als eigene Audiodatei vorliegen.
 - Dateien im Post-Ordner klein halten: Clips max. 50 MB, fertiges Reel max. 19 MB (wird automatisch komprimiert).
-- Max. 3 Collab-Partner pro Post.
+- Veröffentlicht wird über **Buffer (Gratis-Tarif)**: höchstens 10 geplante Posts gleichzeitig. Das System übergibt deshalb erst 4 Tage vorher. Mehr als ca. 2 Posts plus Stories pro Tag nicht einplanen.
+- Posts mindestens 2 Tage im Voraus anlegen: Übergabe frühestens 24 h nach `erstellt_am`, sonst Status `verpasst`.

@@ -1,12 +1,12 @@
 # EnergyShield Autopost
 
-Automatisches Posten auf Instagram für EnergyShield.
+Automatisches Posten auf Instagram für EnergyShield, über Buffer (Gratis-Tarif).
 
 ```
-Claude (Samstag)  →  queue/<post>/post.json + Rohmaterial  →  GitHub
-GitHub „Rendern"  →  Grafiken (HTML → JPEG) + Reels (ffmpeg)  →  VORSCHAU.md
-GitHub „Posten"   →  alle 15 Min: fällige Posts über die Instagram-API veröffentlichen  →  posted/
-GitHub „Zahlen"   →  sonntags Follower & Reichweite  →  stats/zahlen.csv
+Claude (Samstag)       →  queue/<post>/post.json + Rohmaterial  →  GitHub
+GitHub „Rendern"       →  Grafiken (HTML → JPEG) + Reels (ffmpeg)  →  VORSCHAU.md
+GitHub „An Buffer"     →  stündlich: Posts der nächsten 4 Tage an Buffer übergeben  →  posted/
+Buffer                 →  veröffentlicht pünktlich auf Instagram
 ```
 
 - Einrichtung: [EINRICHTUNG.md](EINRICHTUNG.md)
