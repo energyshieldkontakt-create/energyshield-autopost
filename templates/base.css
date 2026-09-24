@@ -31,7 +31,7 @@ body.transparent { background: transparent; }
 /* Punkteraster, zur Mitte hin ausgeblendet (wie 1-Year-Flyer) */
 .punkte {
   position: absolute; inset: 0;
-  background-image: radial-gradient(circle, color-mix(in srgb, var(--akzent) 60%, white) 1.7px, transparent 2.4px);
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--akzent) 55%, white) 2.4px, transparent 3.2px);
   background-size: 36px 36px;
   opacity: .55;
   -webkit-mask-image: radial-gradient(ellipse 72% 62% at 50% 45%, transparent 40%, black 95%);
@@ -39,10 +39,10 @@ body.transparent { background: transparent; }
 }
 
 /* Waben + Platinenlinien in den Ecken (wie Talent-Night-Flyer) */
-.orn { position: absolute; width: 330px; height: 330px; color: var(--akzent); opacity: .55;
+.orn { position: absolute; width: 270px; height: 270px; color: var(--akzent); opacity: .45;
        filter: drop-shadow(0 0 6px color-mix(in srgb, var(--akzent) 70%, transparent)); }
 .orn.ol { top: 0; left: 0; }
-.orn.ur { bottom: 0; right: 0; transform: rotate(180deg); }
+.orn.ur { top: 0; right: 0; transform: scaleX(-1); }
 
 /* Schriftzug oben */
 .marke {
@@ -79,10 +79,10 @@ h1 {
   text-shadow: 0 0 22px color-mix(in srgb, var(--akzent) 65%, transparent), 0 0 60px color-mix(in srgb, var(--akzent) 35%, transparent);
 }
 
-.text { font-size: 36px; font-weight: 600; line-height: 1.3; margin-top: 30px; color: rgba(255,255,255,.92); }
+.text { text-wrap: balance; font-size: 36px; font-weight: 600; line-height: 1.3; margin-top: 30px; color: rgba(255,255,255,.92); }
 
 /* Fußbereich */
-footer { position: absolute; left: 50px; right: 50px; bottom: 52px; }
+footer { position: absolute; left: 50px; right: 50px; bottom: 52px; z-index: 2; }
 
 .pill {
   display: inline-flex; align-items: stretch; border: 4px solid var(--akzent); border-radius: 60px;
