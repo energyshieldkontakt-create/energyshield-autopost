@@ -27,15 +27,15 @@ FORMATE = {
 }
 # Farben aus den bisherigen Flyern: Cyan-Neon (Standard), Mint (Talent Night), Violett
 AKZENTE = {"blau": "#2EE6F5", "liquid": "#6FF5C2", "neuro": "#9D7BFF"}
-# Fußbereich im Flyer-Stil: Info-Leiste und Raster aus Info-Kacheln
+# Fußbereich im Flyer-Stil: Info-Leiste, darunter Datum und drei Infos, getrennt durch Leuchtlinien
 FUSS_EVENT = (
     '<div class="eventfuss">'
     '<div class="pill"><span class="pill-l">Drum and Bass</span><span class="pill-r">Nur 120 Plätze</span></div>'
     '<div class="infogrid">'
-    '<div class="zelle breit"><span class="label">Datum</span><span class="datum">SA 30.01.27</span></div>'
-    '<div class="zelle"><span class="label">Location</span><span class="wert">Club Bastion<br>Kirchheim</span></div>'
-    '<div class="zelle"><span class="label">Tickets</span><span class="wert">Nur<br>Abendkasse</span></div>'
-    '<div class="zelle"><span class="label">Einlass</span><span class="wert">Ab 18<br>Jahren</span></div>'
+    '<div class="zelle breit"><span class="datum">SA 30.01.27</span></div>'
+    '<div class="zelle"><span class="wert">Club Bastion<br>Kirchheim</span></div>'
+    '<div class="zelle"><span class="wert">Nur<br>Abendkasse</span></div>'
+    '<div class="zelle"><span class="wert">Ab 18<br>Jahren</span></div>'
     '</div></div>'
 )
 # Verkleinert die Headline, bis sie in die Breite passt und weder Kopf noch Fuß berührt
