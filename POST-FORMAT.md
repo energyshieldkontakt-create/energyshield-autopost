@@ -43,7 +43,7 @@ Jeder Post ist ein Ordner in `queue/` mit einer `post.json` und den benötigten 
 | `titel` | Headline, wird automatisch GROSS geschrieben. `\n` = Zeilenumbruch. Max. ca. 12 Zeichen pro Zeile bei feed |
 | `text` | Fließtext, 1–2 kurze Sätze |
 | `fuss` | Kleingedrucktes unten. `"EVENT"` setzt automatisch: *Sa 30.01.2027 · Club Bastion Kirchheim · Nur Abendkasse · Ab 18 · Nur 120 Plätze* |
-| `bild` | optional: Foto im Post-Ordner als Hintergrund (wird abgedunkelt) |
+| `bild` | optional: Foto im Post-Ordner als Hintergrund. Mit Foto sitzt der Text unten über dem Fuß, das Motiv bleibt oben frei. Kurze Titel (1–2 Wörter pro Zeile) wirken am besten. Fotos kommen aus `Rohmaterial/fotos/` und werden in den Post-Ordner kopiert. |
 | `akzent` | `blau` (Standard), `liquid` (Türkis) oder `neuro` (Violett) |
 
 Leere Felder werden einfach weggelassen. Frame und Logo kommen automatisch.
