@@ -38,15 +38,36 @@ Jeder Post ist ein Ordner in `queue/` mit einer `post.json` und den benötigten 
 
 | Feld | Bedeutung |
 |---|---|
-| `vorlage` | `feed` (1080×1350), `lineup` (1080×1350, Name unten über Foto), `story` (1080×1920), `countdown` (1080×1920, riesige Zahl im `titel`) |
+| `vorlage` | `feed` (1080×1350), `lineup` (1080×1350, Name unten über Foto), `story` (1080×1920), `countdown` (1080×1920, riesige Zahl im `titel`), `quadrat` (1080×1080, wie feed, für Shield-Sessions-Karussells), `cover` (1080×1080, Shield-Sessions-Cover, siehe unten) |
 | `kicker` | kleine Zeile über der Headline, Akzentfarbe |
 | `titel` | Headline, wird automatisch GROSS geschrieben. `\n` = Zeilenumbruch. Max. ca. 12 Zeichen pro Zeile bei feed |
 | `text` | Fließtext, 1–2 kurze Sätze |
 | `fuss` | Kleingedrucktes unten. `"EVENT"` setzt automatisch: *Sa 30.01.2027 · Club Bastion Kirchheim · Nur Abendkasse · Ab 18 · Nur 120 Plätze* |
 | `bild` | optional: Foto im Post-Ordner als Hintergrund. Mit Foto sitzt der Text unten über dem Fuß, das Motiv bleibt oben frei. Kurze Titel (1–2 Wörter pro Zeile) wirken am besten. Fotos kommen aus `Rohmaterial/fotos/` und werden in den Post-Ordner kopiert. |
-| `akzent` | `blau` (Standard), `liquid` (Türkis) oder `neuro` (Violett) |
+| `akzent` | `blau` (Cyan, Standard, Deep), `liquid` (Mint), `neuro` (Violett, Neurofunk), `jumpup` (Orange), `halftime` (Pink) |
 
 Leere Felder werden einfach weggelassen. Frame und Logo kommen automatisch.
+
+## Shield Sessions (Mix-Serie, Karussell mit Hörproben)
+
+```json
+{
+  "typ": "karussell",
+  "slides": [
+    { "vorlage": "cover", "dj": "Kruxer", "vol": 1, "stil": "Deep" },
+    { "vorlage": "quadrat", "bild": "dj.jpg", "akzent": "blau", "kicker": "Resident · Vol. 01", "titel": "Kruxer", "text": "2–3 Sätze.", "fuss": "Shield Sessions · Jeden Sonntag" }
+  ],
+  "hoerproben": [
+    { "audio": "hoerprobe-1.mp3", "im_mix": "12:30", "dauer": 30 },
+    { "audio": "hoerprobe-2.mp3", "im_mix": "31:05", "dauer": 30 },
+    { "audio": "hoerprobe-3.mp3", "im_mix": "54:40", "dauer": 30 }
+  ]
+}
+```
+
+- `cover`: `dj`, `vol` (Zahl), `stil` (ein oder mehrere, mit Komma). Farbe kommt automatisch vom ersten Stil (Deep = Cyan, Halftime = Pink, Neurofunk = Violett, Jump-Up = Orange, Liquid = Mint). Kruxer, Stone D, Jhinx und Ranj haben je ein eigenes Schild, alle anderen das Standard-Schild. Zusätzlich entsteht `media/soundcloud.jpg` in 2160 px für SoundCloud (wird nicht gepostet).
+- `hoerproben`: MP3 im Post-Ordner, `start` (optional, Sekunden in der Datei), `dauer` (max. 30 empfohlen, höchstens 59), `im_mix` (nur Anzeige: Stelle im ganzen Mix). Werden zu Video-Slides nach den Bild-Slides (3.mp4, 4.mp4, 5.mp4). `"__testbild__"`-artig gibt es `"__testton__"` nur für Tests.
+- Alle Slides eines Shield-Sessions-Karussells sind quadratisch: nur `cover` und `quadrat` verwenden.
 
 ## Reel (Video)
 
