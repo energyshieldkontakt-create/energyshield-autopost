@@ -112,7 +112,49 @@ def an_buffer(kanal, ordner, daten, geplant):
     return antwort["post"]["id"]
 
 
+DELETE_POST = """
+mutation DeletePost($input: DeletePostInput!) {
+  deletePost(input: $input) {
+    ... on DeletePostSuccess { id }
+    ... on VoidMutationError { message }
+  }
+}
+"""
+
+
+def testpost():
+    """Legt die Test-Posts (status 'test') 30 Tage in der Zukunft in Buffer an und löscht sie sofort wieder."""
+    pruefe_schluessel()
+    kanal = instagram_kanal()
+    tests = [(o, d) for o, d in lade_posts() if d.get("status") == "test"]
+    if not tests:
+        sys.exit("Keine Test-Posts (status 'test') in queue/ gefunden.")
+    fehler = 0
+    for ordner, daten in tests:
+        if not ist_aktuell(ordner, daten):
+            print(f"::warning::{ordner.name}: Medien fehlen – erst 'Rendern' laufen lassen")
+            fehler += 1
+            continue
+        try:
+            buffer_id = an_buffer(kanal, ordner, daten, jetzt() + timedelta(days=30))
+            print(f"OK {ordner.name} ({daten['typ']}): in Buffer angelegt ({buffer_id})")
+        except Exception as e:
+            print(f"::error::{ordner.name} ({daten['typ']}): {e}")
+            fehler += 1
+            continue
+        antwort = graphql(DELETE_POST, {"input": {"id": buffer_id}})["deletePost"]
+        if "id" in antwort:
+            print(f"   … und wieder gelöscht.")
+        else:
+            print(f"::error::Test-Post {buffer_id} konnte nicht gelöscht werden: {antwort.get('message')} – bitte in Buffer löschen")
+            fehler += 1
+    if fehler:
+        sys.exit(1)
+
+
 def main():
+    if os.environ.get("TESTPOST") == "1":
+        return testpost()
     if KEY and DRY_RUN:  # Testlauf mit Schlüssel = Verbindungstest
         pruefe_schluessel()
         instagram_kanal()

@@ -11,6 +11,10 @@ on:
         description: 'Nur testen (Verbindung prüfen, nichts übergeben)'
         type: boolean
         default: true
+      testpost:
+        description: 'Test-Posts in Buffer anlegen (30 Tage in der Zukunft) und sofort wieder löschen'
+        type: boolean
+        default: false
 
 concurrency:
   group: autopost
@@ -34,6 +38,7 @@ jobs:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
           BUFFER_CHANNEL_ID: ${{ vars.BUFFER_CHANNEL_ID }}
           DRY_RUN: ${{ inputs.testlauf && '1' || '0' }}
+          TESTPOST: ${{ inputs.testpost && '1' || '0' }}
         run: python buffer.py
       - name: Speichern
         if: always()
