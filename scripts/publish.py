@@ -109,8 +109,6 @@ def veroeffentliche(ordner, daten):
 
 
 def main():
-    if not DRY_RUN and not (TOKEN and IG_ID):
-        sys.exit("IG_TOKEN und IG_USER_ID fehlen (GitHub → Settings → Secrets and variables → Actions).")
     nun = jetzt()
     fehler = 0
     for ordner, daten in lade_posts():
@@ -139,6 +137,8 @@ def main():
         print(f"{'[Testlauf] ' if DRY_RUN else ''}Poste {ordner.name} ({daten['typ']}) …")
         if DRY_RUN:
             continue
+        if not (TOKEN and IG_ID):  # erst prüfen, wenn wirklich etwas fällig ist
+            sys.exit("IG_TOKEN und IG_USER_ID fehlen (GitHub → Settings → Secrets and variables → Actions).")
         try:
             media_id, permalink = veroeffentliche(ordner, daten)
         except Exception as e:
