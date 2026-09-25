@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 24.09.2026 22:38. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 25.09.2026 09:28. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -100,11 +100,11 @@ Status: **geplant**
 
 > Shield Sessions VOL. 01 🛡️
 > 
-> Zum Start unserer Resident-Mix-Serie legt @kruxer.dnb vor: 30 Minuten Deep Drum & Bass.
+> Der Gründer eröffnet die Shield Sessions – und zieht dich direkt nach unten. @kruxer.dnb mit 30 Minuten Deep Drum & Bass: dunkel, rollend, gnadenlos tief.
 > 
 > Ab jetzt jeden Sonntag ein neuer Mix aus der Crew – mit @stone_d_97, @jhinx.dnb und @ranj.dnb.
 > 
-> 🔊 Wischen für 3 Highlights aus dem Set
+> 🔊 Wischen für 3 Hot Cues aus dem Set
 > 🎧 Voller Mix auf SoundCloud – Link in Bio
 > 
 > #drumandbass #dnb #deepdnb #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb
