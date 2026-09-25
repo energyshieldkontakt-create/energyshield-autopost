@@ -50,7 +50,8 @@ def medien_hash(ordner, daten):
     h = hashlib.sha256()
     relevant = {k: v for k, v in daten.items() if k not in ("status", "versuche", "letzter_fehler")}
     h.update(json.dumps(relevant, sort_keys=True, ensure_ascii=False).encode())
-    for datei in sorted(p for p in TEMPLATES.rglob("*") if p.is_file()):
+    render_code = [ROOT / "scripts" / n for n in ("render.py", "trackid.py")]
+    for datei in sorted(p for p in TEMPLATES.rglob("*") if p.is_file()) + render_code:
         h.update(datei.read_bytes())
     for datei in sorted(ordner.iterdir()):
         if datei.is_file() and datei.name != "post.json":
