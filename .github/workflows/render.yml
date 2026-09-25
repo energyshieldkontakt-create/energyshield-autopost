@@ -25,7 +25,7 @@ jobs:
           python-version: '3.12'
       - name: Werkzeuge installieren
         run: |
-          pip install playwright pillow
+          pip install playwright pillow shazamio
           python -m playwright install --with-deps chromium
           command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
       - name: Rendern

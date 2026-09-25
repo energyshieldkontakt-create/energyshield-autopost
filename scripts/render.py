@@ -18,6 +18,7 @@ from PIL import Image
 from playwright.sync_api import sync_playwright
 
 from common import BRAND, ROOT, TEMPLATES, TYPEN, ist_aktuell, lade_posts, medien_hash, speichere, zeit
+from trackid import UNBEKANNT, tracks_im_fenster, zeitleiste
 
 # Vorlage -> (Breite, Höhe, CSS-Klassen)
 FORMATE = {
@@ -82,6 +83,7 @@ document.fonts.ready.then(() => {
 })
 """
 MAX_VIDEO_MB = 18  # jsDelivr liefert nur Dateien bis ca. 20 MB aus
+TRENNER = ' <span class="x">X</span> '  # zwischen mehreren Track-IDs an einem Cue
 BERLIN = ZoneInfo("Europe/Berlin")
 WOCHENTAGE = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
 
@@ -294,7 +296,7 @@ def lade_mix(drive_id):
     return ziel
 
 
-def baue_hoerprobe(ordner, cover, nr, anzahl, dauer, ab):
+def baue_hoerprobe(ordner, cover, nr, anzahl, dauer, ab, tracks=None):
     """Hintergrund eines Hörproben-Videos: Cover, DJ, Stil, BPM, Hot-Cue-Pad (Wellenform kommt danach per ffmpeg)."""
     stile = [s.strip() for s in str(cover["stil"]).replace("·", ",").split(",") if s.strip()]
     akzent = cover.get("akzent") or STIL_AKZENT.get(stile[0].lower(), "blau")
@@ -313,6 +315,7 @@ def baue_hoerprobe(ordner, cover, nr, anzahl, dauer, ab):
         "cue": "ABCDEFGH"[nr - 1],
         "nr": str(nr), "anzahl": str(anzahl),
         "zeit": mmss(ab), "zeit_ende": mmss(ab + dauer),
+        "tracks": TRENNER.join(f'<span class="id">{feld(t)}</span>' if t == UNBEKANNT else feld(t) for t in (tracks or [UNBEKANNT])),
     }
     inhalt = (TEMPLATES / "hoerprobe.html").read_text(encoding="utf-8")
     for schluessel, wert in werte.items():
@@ -332,7 +335,7 @@ WELLE_FILTER = (
 )
 
 
-def render_hoerprobe(page, ordner, cover, hp, nr, anzahl, ziel, mix=None):
+def render_hoerprobe(page, ordner, cover, hp, nr, anzahl, ziel, mix=None, segmente=None):
     """Video-Slide: Hintergrund + CDJ-Wellenform (gespielt hell, offen abgedunkelt) + Abspielkopf + Ton."""
     if hp.get("audio") == "__testton__":  # nur für Tests: Kick + Hi-Hat bei 174 BPM
         audio, start = ziel.parent / "_testton.wav", 0.0
@@ -353,7 +356,8 @@ def render_hoerprobe(page, ordner, cover, hp, nr, anzahl, ziel, mix=None):
         raise ValueError(f"Hörprobe {nr} ist kürzer als 5 Sekunden (Zeitstempel hinter dem Mix-Ende?)")
     ab = sekunden(hp["im_mix"]) if hp.get("im_mix") else 0
     tmp, bg = ordner / "_render.html", ziel.parent / "_hp_bg.png"
-    tmp.write_text(baue_hoerprobe(ordner, cover, nr, anzahl, dauer, ab), encoding="utf-8")
+    tracks = hp.get("tracks") or (tracks_im_fenster(segmente, ab, dauer) if segmente else [UNBEKANNT])
+    tmp.write_text(baue_hoerprobe(ordner, cover, nr, anzahl, dauer, ab, tracks), encoding="utf-8")
     try:
         page.set_viewport_size({"width": 1080, "height": 1080})
         page.goto(tmp.as_uri(), wait_until="networkidle")
@@ -414,8 +418,18 @@ def rendere_post(page, page_hd, ordner, daten):
         if slide.get("vorlage") == "cover":  # große Fassung für SoundCloud (ohne Ziffer, wird nicht gepostet)
             render_bild(page_hd, ordner, slide, media / "soundcloud.jpg")
     mix = lade_mix(daten["mix_drive_id"]) if daten.get("mix_drive_id") and any(not hp.get("audio") for hp in hoerproben) else None
+    # Track-IDs: einmal pro Mix per Shazam + Tracklist ermitteln und in der post.json merken
+    segmente = daten.get("trackid")
+    if hoerproben and segmente is None and mix and not all(hp.get("tracks") for hp in hoerproben):
+        print(f"  Track-Erkennung für {ordner.name} …")
+        segmente = zeitleiste(mix, audio_laenge(mix), daten.get("tracklist"))
+        if any(name != UNBEKANNT for _, name in segmente):  # Fehlschläge nicht dauerhaft merken
+            daten["trackid"] = segmente
+            speichere(ordner, daten)
+    if segmente:  # Tracklist mit Zeitstempeln, z. B. für die SoundCloud-Beschreibung (wird nicht gepostet)
+        (media / "tracklist.txt").write_text("\n".join(f"{mmss(s)} {name}" for s, name in segmente) + "\n", encoding="utf-8")
     for i, hp in enumerate(hoerproben, 1):
-        render_hoerprobe(page, ordner, slides[0], hp, i, len(hoerproben), media / f"{len(slides) + i}.mp4", mix)
+        render_hoerprobe(page, ordner, slides[0], hp, i, len(hoerproben), media / f"{len(slides) + i}.mp4", mix, segmente)
     if reel:
         overlay = None
         if reel.get("overlay"):
