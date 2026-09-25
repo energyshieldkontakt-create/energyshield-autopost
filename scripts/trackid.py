@@ -7,6 +7,7 @@ und verbindet das Ergebnis mit der Tracklist des DJs (ohne Zeiten). Ergebnis: Ze
 - Wo nichts bekannt ist, steht „ID – ID“.
 """
 import asyncio
+import concurrent.futures
 import difflib
 import re
 import subprocess
@@ -54,7 +55,9 @@ def zeitleiste(mix, dauer, tracklist=None):
     """Liefert [(start, name), …] über den ganzen Mix, sortiert. Wirft keine Fehler nach außen."""
     tracklist = [t.strip() for t in (tracklist or []) if t.strip()]
     try:
-        treffer = asyncio.run(_scan(mix, dauer))
+        # eigener Thread, weil Playwright im Haupt-Thread schon eine Ereignisschleife betreibt
+        with concurrent.futures.ThreadPoolExecutor(1) as pool:
+            treffer = pool.submit(lambda: asyncio.run(_scan(mix, dauer))).result()
     except Exception as e:
         print(f"::warning::Track-Erkennung nicht möglich: {e}")
         treffer = []
