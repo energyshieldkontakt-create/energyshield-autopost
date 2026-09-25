@@ -315,6 +315,7 @@ def baue_hoerprobe(ordner, cover, nr, anzahl, dauer, ab, tracks=None):
         "cue": "ABCDEFGH"[nr - 1],
         "nr": str(nr), "anzahl": str(anzahl),
         "zeit": mmss(ab), "zeit_ende": mmss(ab + dauer),
+        "tracks_klasse": "viel" if len(tracks or []) >= 3 else "",
         "tracks": TRENNER.join(f'<span class="id">{feld(t)}</span>' if t == UNBEKANNT else feld(t) for t in (tracks or [UNBEKANNT])),
     }
     inhalt = (TEMPLATES / "hoerprobe.html").read_text(encoding="utf-8")
