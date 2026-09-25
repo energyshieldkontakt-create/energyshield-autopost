@@ -10,8 +10,8 @@
     { "vorlage": "quadrat", "bild": "dj.jpg", "akzent": "blau", "kicker": "Resident · Vol. 01", "titel": "KruXer", "fuss": "Shield Sessions · Jeden Sonntag" }
   ],
   "hoerproben": [
-    { "audio": "hoerprobe-1.wav", "im_mix": "3:05", "dauer": 30 },
-    { "audio": "hoerprobe-2.wav", "im_mix": "13:45", "dauer": 30 },
-    { "audio": "hoerprobe-3.wav", "im_mix": "21:45", "dauer": 30 }
+    { "im_mix": "3:05", "dauer": 30 },
+    { "im_mix": "13:45", "dauer": 30 },
+    { "im_mix": "21:45", "dauer": 30 }
   ]
 }
