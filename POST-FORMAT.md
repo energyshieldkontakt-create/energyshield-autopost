@@ -53,20 +53,21 @@ Leere Felder werden einfach weggelassen. Frame und Logo kommen automatisch.
 ```json
 {
   "typ": "karussell",
+  "mix_drive_id": "1xlrxP-yhGsg6F3V541URPrgLc_R2HPnQ",
   "slides": [
-    { "vorlage": "cover", "dj": "Kruxer", "vol": 1, "stil": "Deep" },
-    { "vorlage": "quadrat", "bild": "dj.jpg", "akzent": "blau", "kicker": "Resident · Vol. 01", "titel": "Kruxer", "text": "2–3 Sätze.", "fuss": "Shield Sessions · Jeden Sonntag" }
+    { "vorlage": "cover", "dj": "Kruxer", "vol": 1, "stil": "Deep", "bpm": 174 },
+    { "vorlage": "quadrat", "bild": "dj.jpg", "akzent": "blau", "kicker": "Resident · Vol. 01", "titel": "Kruxer", "fuss": "Shield Sessions · Jeden Sonntag" }
   ],
   "hoerproben": [
-    { "audio": "hoerprobe-1.mp3", "im_mix": "12:30", "dauer": 30 },
-    { "audio": "hoerprobe-2.mp3", "im_mix": "31:05", "dauer": 30 },
-    { "audio": "hoerprobe-3.mp3", "im_mix": "54:40", "dauer": 30 }
+    { "im_mix": "12:30", "dauer": 30 },
+    { "im_mix": "31:05", "dauer": 30 },
+    { "im_mix": "54:40", "dauer": 30 }
   ]
 }
 ```
 
 - `cover`: `dj`, `vol` (Zahl), `stil` (ein oder mehrere, mit Komma). Farbe kommt automatisch vom ersten Stil (Deep = Cyan, Halftime = Pink, Neurofunk = Violett, Jump-Up = Orange, Liquid = Mint). Kruxer, Stone D, Jhinx und Ranj haben je ein eigenes Schild, alle anderen das Standard-Schild. Zusätzlich entsteht `media/soundcloud.jpg` in 2160 px für SoundCloud (wird nicht gepostet).
-- `hoerproben`: MP3 im Post-Ordner, `start` (optional, Sekunden in der Datei), `dauer` (max. 30 empfohlen, höchstens 59), `im_mix` (nur Anzeige: Stelle im ganzen Mix). Werden zu Video-Slides nach den Bild-Slides (3.mp4, 4.mp4, 5.mp4). `"__testbild__"`-artig gibt es `"__testton__"` nur für Tests.
+- `hoerproben`: **Normalfall:** `{ "im_mix": "3:05", "dauer": 30 }` plus auf Post-Ebene `"mix_drive_id": "<Drive-ID des Mixes>"` – GitHub lädt den Mix aus der (per Link freigegebenen) Drive und schneidet ab `im_mix`. Alternativ `audio` (Datei im Post-Ordner, optional `start` in Sekunden); `im_mix` ist dann nur die Anzeige. `dauer` 30, höchstens 59. Design: Hot-Cue-Pad A/B/C, CDJ-Wellenform, BPM aus `"bpm"` im Cover-Slide, Stil-Tag. Werden zu Video-Slides nach den Bild-Slides (3.mp4, 4.mp4, 5.mp4). `"__testbild__"`-artig gibt es `"__testton__"` nur für Tests.
 - Alle Slides eines Shield-Sessions-Karussells sind quadratisch: nur `cover` und `quadrat` verwenden.
 
 ## Reel (Video)
