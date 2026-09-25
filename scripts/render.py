@@ -8,6 +8,8 @@ import html
 import os
 import shutil
 import subprocess
+import tempfile
+import urllib.request
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -269,18 +271,35 @@ def audio_laenge(datei):
     return float(ergebnis.stdout.strip())
 
 
-def baue_hoerprobe(ordner, cover, hp, nr, anzahl, dauer):
-    """Hintergrund eines Hörproben-Videos im SoundCloud-Look (Wellenform kommt danach per ffmpeg)."""
+def sekunden(zeitangabe):
+    """ "3:05" -> 185, "1:02:30" -> 3750"""
+    teile = [int(t) for t in str(zeitangabe).strip().split(":")]
+    return sum(t * 60 ** i for i, t in enumerate(reversed(teile)))
+
+
+MIX_URL = "https://drive.usercontent.google.com/download?id={}&export=download&confirm=t"
+
+
+def lade_mix(drive_id):
+    """Lädt den ganzen Mix aus der Google Drive. Der Ordner muss per Link freigegeben sein (Betrachter)."""
+    ziel = Path(tempfile.gettempdir()) / f"mix_{drive_id}"
+    if ziel.exists():
+        return ziel
+    anfrage = urllib.request.Request(MIX_URL.format(drive_id), headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(anfrage, timeout=900) as antwort:
+        if "text/html" in antwort.headers.get("Content-Type", ""):
+            raise RuntimeError("Mix nicht ladbar – ist der Drive-Ordner „Shield Sessions“ per Link freigegeben (Jeder mit dem Link: Betrachter)?")
+        with open(ziel, "wb") as f:
+            shutil.copyfileobj(antwort, f)
+    return ziel
+
+
+def baue_hoerprobe(ordner, cover, nr, anzahl, dauer, ab):
+    """Hintergrund eines Hörproben-Videos: Cover, DJ, Stil, BPM, Hot-Cue-Pad (Wellenform kommt danach per ffmpeg)."""
     stile = [s.strip() for s in str(cover["stil"]).replace("·", ",").split(",") if s.strip()]
     akzent = cover.get("akzent") or STIL_AKZENT.get(stile[0].lower(), "blau")
     ornament = (TEMPLATES / "ornament.svg").read_text(encoding="utf-8")
-    im_mix = hp.get("im_mix")  # Stelle im ganzen Mix, z. B. "23:41" (nur Anzeige)
-    if im_mix:
-        teile = [int(t) for t in str(im_mix).split(":")]
-        ab = sum(t * 60 ** i for i, t in enumerate(reversed(teile)))
-        von, bis = mmss(ab), mmss(ab + dauer)
-    else:
-        von, bis = "0:00", mmss(dauer)
+    bpm = cover.get("bpm")
     werte = {
         "css": relativ(TEMPLATES / "base.css", ordner),
         "w": "1080", "h": "1080",
@@ -290,33 +309,51 @@ def baue_hoerprobe(ordner, cover, hp, nr, anzahl, dauer):
         "vol": f"{int(cover['vol']):02d}",
         "dj": feld(cover["dj"]),
         "stil": " · ".join(feld(s) for s in stile),
+        "bpm": f'<span class="hp-bpm"><b>{feld(bpm)}</b>BPM</span>' if bpm else "",
+        "cue": "ABCDEFGH"[nr - 1],
         "nr": str(nr), "anzahl": str(anzahl),
-        "zeit": von, "zeit_ende": bis,
+        "zeit": mmss(ab), "zeit_ende": mmss(ab + dauer),
     }
     inhalt = (TEMPLATES / "hoerprobe.html").read_text(encoding="utf-8")
     for schluessel, wert in werte.items():
         inhalt = inhalt.replace("{{" + schluessel + "}}", wert)
-    return inhalt, AKZENTE.get(akzent, AKZENTE["blau"])
+    return inhalt
 
 
-def render_hoerprobe(page, ordner, cover, hp, nr, anzahl, ziel):
-    """Video-Slide: Hintergrund + Wellenform (gespielt = Akzent, offen = grau) + Abspielkopf + Ton."""
-    audio = ordner / hp["audio"]
-    if hp["audio"] == "__testton__":  # nur für Tests: Kick + Hi-Hat bei 174 BPM
-        audio = ziel.parent / "_testton.wav"
+# Wellenform im CDJ/rekordbox-Look: Bässe blau, Mitten orange, Höhen weiß; Feld 940 x 240 bei x 70 / y 584
+WELLE_X, WELLE_Y, WELLE_B, WELLE_H = 70, 584, 940, 240
+WELLE_FILTER = (
+    "[0:a]aformat=channel_layouts=mono,asplit=3[l][m][h];"
+    f"[l]lowpass=f=180,showwavespic=s={WELLE_B}x{WELLE_H}:colors=0x1F6FFF:scale=sqrt[wl];"
+    f"[m]highpass=f=180,lowpass=f=2500,showwavespic=s={WELLE_B}x{WELLE_H}:colors=0xFFA235:scale=sqrt[wm];"
+    f"[h]highpass=f=2500,showwavespic=s={WELLE_B}x{WELLE_H}:colors=0xF4F4F4:scale=sqrt[wh];"
+    f"color=c=black:s={WELLE_B}x{WELLE_H}:d=1[s];[s][wl]overlay[a1];[a1][wm]overlay[a2];[a2][wh]overlay,format=rgb24,split[voll][v2];"
+    "[v2]colorchannelmixer=rr=.3:gg=.3:bb=.3[dunkel]"
+)
+
+
+def render_hoerprobe(page, ordner, cover, hp, nr, anzahl, ziel, mix=None):
+    """Video-Slide: Hintergrund + CDJ-Wellenform (gespielt hell, offen abgedunkelt) + Abspielkopf + Ton."""
+    if hp.get("audio") == "__testton__":  # nur für Tests: Kick + Hi-Hat bei 174 BPM
+        audio, start = ziel.parent / "_testton.wav", 0.0
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i",
                         "aevalsrc='0.7*sin(2*PI*50*t)*exp(-9*mod(t,0.345))*(0.6+0.4*sin(2*PI*t/8))"
                         "+0.25*(random(0)-0.5)*exp(-30*mod(t+0.1725,0.345))':s=44100:d=30",
                         str(audio)], check=True)
+    elif hp.get("audio"):  # fertige Hörprobe im Post-Ordner
+        audio, start = ordner / hp["audio"], float(hp.get("start", 0))
+    elif mix:  # direkt aus dem ganzen Mix ab der Stelle "im_mix"
+        audio, start = mix, float(sekunden(hp["im_mix"]))
+    else:
+        raise ValueError("Hörprobe braucht 'audio' oder einen Mix ('mix_drive_id')")
     if not audio.exists():
-        raise FileNotFoundError(f"Hörprobe '{hp['audio']}' fehlt im Post-Ordner")
-    start = float(hp.get("start", 0))
+        raise FileNotFoundError(f"Hörprobe '{hp.get('audio')}' fehlt im Post-Ordner")
     dauer = min(float(hp.get("dauer", 30)), audio_laenge(audio) - start, 59)
     if dauer < 5:
-        raise ValueError(f"Hörprobe '{hp['audio']}' ist kürzer als 5 Sekunden")
-    inhalt, farbe = baue_hoerprobe(ordner, cover, hp, nr, anzahl, dauer)
+        raise ValueError(f"Hörprobe {nr} ist kürzer als 5 Sekunden (Zeitstempel hinter dem Mix-Ende?)")
+    ab = sekunden(hp["im_mix"]) if hp.get("im_mix") else 0
     tmp, bg = ordner / "_render.html", ziel.parent / "_hp_bg.png"
-    tmp.write_text(inhalt, encoding="utf-8")
+    tmp.write_text(baue_hoerprobe(ordner, cover, nr, anzahl, dauer, ab), encoding="utf-8")
     try:
         page.set_viewport_size({"width": 1080, "height": 1080})
         page.goto(tmp.as_uri(), wait_until="networkidle")
@@ -324,33 +361,30 @@ def render_hoerprobe(page, ordner, cover, hp, nr, anzahl, ziel):
         page.screenshot(path=str(bg))
     finally:
         tmp.unlink(missing_ok=True)
-    wellen = []
-    for name, f in (("grau", "0x3A4552"), ("akzent", "0x" + farbe.lstrip("#"))):
-        w = ziel.parent / f"_hp_{name}.png"
-        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(start), "-t", str(dauer), "-i", str(audio),
-                        "-filter_complex", f"aformat=channel_layouts=mono,showwavespic=s=940x200:colors={f}:scale=sqrt",
-                        "-frames:v", "1", str(w)], check=True)
-        wellen.append(w)
+    voll, dunkel = ziel.parent / "_hp_voll.png", ziel.parent / "_hp_dunkel.png"
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(start), "-t", str(dauer), "-i", str(audio),
+                    "-filter_complex", WELLE_FILTER, "-map", "[voll]", "-frames:v", "1", str(voll),
+                    "-map", "[dunkel]", "-frames:v", "1", str(dunkel)], check=True)
     d = f"{dauer:.3f}"
     filter_v = (
         "[1:v]format=gbrp[g];[2:v]format=gbrp[a];"
-        f"[g][a]blend=all_expr='if(lt(mod(X,8),5),if(gte(X,W*T/{d}),A,B),0)',format=rgba,colorkey=0x000000:0.08:0.02[w];"
-        "color=c=white:s=4x216:r=30[k];"
-        "[0:v][w]overlay=70:630[b];"
-        f"[b][k]overlay=x='70+936*t/{d}':y=622:eval=frame:shortest=1,format=yuv420p[v];"
+        f"[g][a]blend=all_expr='if(gte(X,W*T/{d}),A,B)',format=yuv420p[w];"
+        f"color=c=white:s=3x{WELLE_H + 16}:r=30[k];"
+        f"[0:v][w]overlay={WELLE_X}:{WELLE_Y}[b];"
+        f"[b][k]overlay=x='{WELLE_X}+{WELLE_B - 3}*t/{d}':y={WELLE_Y - 8}:eval=frame:shortest=1,format=yuv420p[v];"
         f"[3:a]afade=t=in:d=0.4,afade=t=out:st={max(dauer - 0.8, 0):.3f}:d=0.8,aresample=48000[au]"
     )
     subprocess.run([
         "ffmpeg", "-y", "-loglevel", "error",
         "-loop", "1", "-framerate", "30", "-t", d, "-i", str(bg),
-        "-loop", "1", "-framerate", "30", "-t", d, "-i", str(wellen[0]),
-        "-loop", "1", "-framerate", "30", "-t", d, "-i", str(wellen[1]),
+        "-loop", "1", "-framerate", "30", "-t", d, "-i", str(dunkel),
+        "-loop", "1", "-framerate", "30", "-t", d, "-i", str(voll),
         "-ss", str(start), "-t", d, "-i", str(audio),
         "-filter_complex", filter_v, "-map", "[v]", "-map", "[au]",
         "-c:v", "libx264", "-preset", "medium", "-profile:v", "high", "-pix_fmt", "yuv420p", "-b:v", "3000k",
         "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", "-movflags", "+faststart", "-t", d, str(ziel),
     ], check=True)
-    for datei in (bg, *wellen, ziel.parent / "_testton.wav"):
+    for datei in (bg, voll, dunkel, ziel.parent / "_testton.wav"):
         datei.unlink(missing_ok=True)
 
 
@@ -379,8 +413,9 @@ def rendere_post(page, page_hd, ordner, daten):
         render_bild(page, ordner, slide, media / f"{i}.jpg")
         if slide.get("vorlage") == "cover":  # große Fassung für SoundCloud (ohne Ziffer, wird nicht gepostet)
             render_bild(page_hd, ordner, slide, media / "soundcloud.jpg")
+    mix = lade_mix(daten["mix_drive_id"]) if daten.get("mix_drive_id") and any(not hp.get("audio") for hp in hoerproben) else None
     for i, hp in enumerate(hoerproben, 1):
-        render_hoerprobe(page, ordner, slides[0], hp, i, len(hoerproben), media / f"{len(slides) + i}.mp4")
+        render_hoerprobe(page, ordner, slides[0], hp, i, len(hoerproben), media / f"{len(slides) + i}.mp4", mix)
     if reel:
         overlay = None
         if reel.get("overlay"):

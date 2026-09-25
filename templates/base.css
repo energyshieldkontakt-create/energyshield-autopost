@@ -267,14 +267,25 @@ body.cover {
   color: color-mix(in srgb, var(--akzent) 40%, white); text-shadow: 0 0 12px var(--akzent); }
 .hp-dj { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 64px; letter-spacing: 3px; line-height: 1.05; text-transform: uppercase;
   color: #fff; text-shadow: 0 0 14px color-mix(in srgb, var(--akzent) 80%, transparent); white-space: nowrap; }
-.hp-stil .stil-text { font-size: 20px; letter-spacing: 5px; padding: 10px 24px; }
-.hp-mitte { position: absolute; top: 450px; left: 0; right: 0; display: flex; justify-content: center; align-items: baseline; gap: 34px; }
-.hp-highlight { font-family: 'Bebas Neue', sans-serif; font-size: 108px; letter-spacing: 10px; line-height: 1; text-transform: uppercase;
-  color: color-mix(in srgb, var(--akzent) 45%, white); text-shadow: 0 0 16px var(--akzent), 0 0 44px color-mix(in srgb, var(--akzent) 55%, transparent); }
-.hp-zeit { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 48px; letter-spacing: 3px; color: #fff; text-shadow: 0 0 12px var(--akzent); }
-.hp-welle { position: absolute; left: 60px; top: 616px; width: 960px; height: 228px; background: #000;
-  border: 2px solid color-mix(in srgb, var(--akzent) 45%, transparent); box-shadow: 0 0 18px color-mix(in srgb, var(--akzent) 30%, transparent); }
-.hp-zeiten { position: absolute; top: 858px; left: 64px; right: 64px; display: flex; justify-content: space-between;
+.hp-tags { display: flex; gap: 14px; align-items: center; }
+.hp-tags .stil-text { font-size: 20px; letter-spacing: 5px; padding: 10px 24px; }
+/* BPM im Display-Look (wie das Tempo-Feld am CDJ) */
+.hp-bpm { font-family: "Orbitron", sans-serif; font-weight: 700; font-size: 20px; letter-spacing: 3px; padding: 10px 16px;
+  color: #ffb347; background: #0a0703; border: 2px solid #5a3a12; text-shadow: 0 0 8px rgba(255,160,40,.8); }
+.hp-bpm b { font-weight: 900; font-size: 24px; margin-right: 6px; color: #ffc46b; }
+/* Hot-Cue-Zeile: leuchtendes Pad wie auf dem CDJ, Zeitstempel, Zähler */
+.hp-cue { position: absolute; top: 440px; left: 70px; right: 70px; display: flex; align-items: center; gap: 26px; text-align: left; }
+.hp-pad { width: 96px; height: 96px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
+  font-family: "Orbitron", sans-serif; font-weight: 900; font-size: 54px; color: #041014; background: var(--akzent);
+  box-shadow: 0 0 18px var(--akzent), 0 0 46px color-mix(in srgb, var(--akzent) 55%, transparent), inset 0 -6px 0 rgba(0,0,0,.25); }
+.hp-cue-text { display: flex; flex-direction: column; gap: 6px; }
+.hp-cue-label { font-family: "Orbitron", sans-serif; font-weight: 700; font-size: 20px; letter-spacing: 6px; text-transform: uppercase; color: #8a97a6; }
+.hp-cue-zeit { font-family: "Orbitron", sans-serif; font-weight: 900; font-size: 58px; line-height: 1; letter-spacing: 3px; color: #fff; text-shadow: 0 0 12px var(--akzent); }
+.hp-cue-nr { margin-left: auto; font-family: "Orbitron", sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 4px; color: color-mix(in srgb, var(--akzent) 60%, white); }
+/* Wellenform-Feld: ffmpeg setzt die CDJ-Wellenform (940 x 240) bei x 70 / y 584 ein */
+.hp-welle { position: absolute; left: 60px; top: 572px; width: 960px; height: 264px; background: #000;
+  border: 2px solid #1d2733; box-shadow: 0 0 18px color-mix(in srgb, var(--akzent) 25%, transparent); }
+.hp-zeiten { position: absolute; top: 848px; left: 64px; right: 64px; display: flex; justify-content: space-between;
   font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 3px; color: color-mix(in srgb, var(--akzent) 60%, white); }
 .hp-fuss { position: absolute; top: 918px; left: 0; right: 0; display: flex; justify-content: center; }
 .hp-fuss .stil-text { font-size: 24px; letter-spacing: 5px; }

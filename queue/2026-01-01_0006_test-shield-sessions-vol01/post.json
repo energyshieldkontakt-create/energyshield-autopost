@@ -5,7 +5,7 @@
   "status": "test",
   "caption": "TEST – Shield Sessions VOL. 01 mit Kruxer. Deep Drum & Bass. Voller Mix auf SoundCloud, Link in Bio.",
   "slides": [
-    { "vorlage": "cover", "dj": "Kruxer", "vol": 1, "stil": "Deep" },
+    { "vorlage": "cover", "dj": "Kruxer", "vol": 1, "stil": "Deep", "bpm": 174 },
     { "vorlage": "quadrat", "bild": "dj.jpg", "akzent": "blau", "kicker": "Resident · Vol. 01", "titel": "Kruxer", "text": "Testtext: zwei, drei Sätze über den DJ und den Mix.", "fuss": "Shield Sessions · Jeden Sonntag" }
   ],
   "hoerproben": [

@@ -11,7 +11,7 @@
   <div class="hud">
     <span class="ecke e1"></span><span class="ecke e2"></span><span class="ecke e3"></span><span class="ecke e4"></span>
     <span class="hud-t t1">ES // Shield Sessions</span>
-    <span class="hud-t t2">SSN-{{vol}} // Highlight {{nr}}/{{anzahl}}</span>
+    <span class="hud-t t2">SSN-{{vol}} // Cue {{cue}}</span>
     <span class="hud-t t3">48.648°N · 9.451°E</span>
     <span class="hud-t t4">Drum &amp; Bass</span>
   </div>
@@ -21,12 +21,13 @@
       <div class="hp-von">EnergyShield</div>
       <div class="hp-titel">Shield Sessions Vol. {{vol}}</div>
       <div class="hp-dj">{{dj}}</div>
-      <div class="hp-stil"><span class="stil-text">{{stil}}</span></div>
+      <div class="hp-tags"><span class="stil-text">{{stil}}</span>{{bpm}}</div>
     </div>
   </div>
-  <div class="hp-mitte">
-    <div class="hp-highlight">Highlight {{nr}}/{{anzahl}}</div>
-    <div class="hp-zeit">@ {{zeit}}</div>
+  <div class="hp-cue">
+    <span class="hp-pad">{{cue}}</span>
+    <span class="hp-cue-text"><span class="hp-cue-label">Hot Cue</span><span class="hp-cue-zeit">{{zeit}}</span></span>
+    <span class="hp-cue-nr">{{nr}}/{{anzahl}}</span>
   </div>
   <div class="hp-welle"></div>
   <div class="hp-zeiten"><span>{{zeit}}</span><span>{{zeit_ende}}</span></div>

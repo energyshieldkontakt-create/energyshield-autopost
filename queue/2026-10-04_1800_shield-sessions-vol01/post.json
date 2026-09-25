@@ -3,10 +3,11 @@
   "erstellt_am": "2026-09-24T21:46:31+02:00",
   "typ": "karussell",
   "status": "geplant",
-  "caption": "Shield Sessions VOL. 01 🛡️\n\nZum Start unserer Resident-Mix-Serie legt @kruxer.dnb vor: 30 Minuten Deep Drum & Bass.\n\nAb jetzt jeden Sonntag ein neuer Mix aus der Crew – mit @stone_d_97, @jhinx.dnb und @ranj.dnb.\n\n🔊 Wischen für 3 Highlights aus dem Set\n🎧 Voller Mix auf SoundCloud – Link in Bio\n\n#drumandbass #dnb #deepdnb #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb",
+  "caption": "Shield Sessions VOL. 01 🛡️\n\nDer Gründer eröffnet die Shield Sessions – und zieht dich direkt nach unten. @kruxer.dnb mit 30 Minuten Deep Drum & Bass: dunkel, rollend, gnadenlos tief.\n\nAb jetzt jeden Sonntag ein neuer Mix aus der Crew – mit @stone_d_97, @jhinx.dnb und @ranj.dnb.\n\n🔊 Wischen für 3 Hot Cues aus dem Set\n🎧 Voller Mix auf SoundCloud – Link in Bio\n\n#drumandbass #dnb #deepdnb #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb",
+  "mix_drive_id": "1xlrxP-yhGsg6F3V541URPrgLc_R2HPnQ",
   "slides": [
     { "vorlage": "cover", "dj": "KruXer", "vol": 1, "stil": "Deep" },
-    { "vorlage": "quadrat", "bild": "dj.jpg", "akzent": "blau", "kicker": "Resident · Vol. 01", "titel": "KruXer", "text": "Der Gründer eröffnet die Shield Sessions – und zieht dich direkt nach unten. 30 Minuten Deep Drum & Bass: dunkel, rollend, gnadenlos tief.", "fuss": "Shield Sessions · Jeden Sonntag" }
+    { "vorlage": "quadrat", "bild": "dj.jpg", "akzent": "blau", "kicker": "Resident · Vol. 01", "titel": "KruXer", "fuss": "Shield Sessions · Jeden Sonntag" }
   ],
   "hoerproben": [
     { "audio": "hoerprobe-1.wav", "im_mix": "3:05", "dauer": 30 },
@@ -14,4 +15,3 @@
     { "audio": "hoerprobe-3.wav", "im_mix": "21:45", "dauer": 30 }
   ]
 }
-
