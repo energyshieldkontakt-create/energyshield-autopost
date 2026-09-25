@@ -1,81 +1,71 @@
 {
-  "publish_at": "2026-10-04T18:00:00+02:00",
-  "erstellt_am": "2026-09-24T21:46:31+02:00",
-  "typ": "karussell",
-  "status": "geplant",
-  "caption": "Shield Sessions VOL. 01 🛡️\n\nDer Gründer eröffnet die Shield Sessions – und zieht dich direkt nach unten. @kruxer.dnb mit 30 Minuten Deep Drum & Bass: dunkel, rollend, gnadenlos tief.\n\nAb jetzt jeden Sonntag ein neuer Mix aus der Crew – mit @stone_d_97, @jhinx.dnb und @ranj.dnb.\n\n🔊 Wischen für 3 Hot Cues aus dem Set\n🎧 Voller Mix auf SoundCloud – Link in Bio\n\n#drumandbass #dnb #deepdnb #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb",
-  "mix_drive_id": "1xlrxP-yhGsg6F3V541URPrgLc_R2HPnQ",
-  "slides": [
-    {
-      "vorlage": "cover",
-      "dj": "KruXer",
-      "vol": 1,
-      "stil": "Deep",
-      "bpm": 180
-    },
-    {
-      "vorlage": "quadrat",
-      "bild": "dj.jpg",
-      "akzent": "blau",
-      "kicker": "Resident · Vol. 01",
-      "titel": "KruXer",
-      "fuss": "Shield Sessions · Jeden Sonntag"
-    }
-  ],
-  "hoerproben": [
-    {
-      "im_mix": "3:05",
-      "dauer": 30
-    },
-    {
-      "im_mix": "13:45",
-      "dauer": 30
-    },
-    {
-      "im_mix": "21:45",
-      "dauer": 30
-    }
-  ],
-  "trackid": [
-    [
-      0,
-      "ID – ID"
-    ],
-    [
-      280,
-      "QZB – Cope"
-    ],
-    [
-      412,
-      "ID – ID"
-    ],
-    [
-      720,
-      "Amoss – Powder"
-    ],
-    [
-      812,
-      "ID – ID"
-    ],
-    [
-      940,
-      "QZB – Mount Doom"
-    ],
-    [
-      1000,
-      "Para – Firepower"
-    ],
-    [
-      1052,
-      "ID – ID"
-    ],
-    [
-      1520,
-      "Calyx – Repercussion"
-    ],
-    [
-      1592,
-      "ID – ID"
-    ]
-  ]
+    "publish_at":  "2026-10-04T18:00:00+02:00",
+    "erstellt_am":  "2026-09-24T21:46:31+02:00",
+    "typ":  "karussell",
+    "status":  "geplant",
+    "caption":  "Shield Sessions VOL. 01 🛡️\n\nDer Gründer eröffnet die Shield Sessions – und zieht dich direkt nach unten. @kruxer.dnb mit 30 Minuten Deep Drum \u0026 Bass: dunkel, rollend, gnadenlos tief.\n\nAb jetzt jeden Sonntag ein neuer Mix aus der Crew – mit @stone_d_97, @jhinx.dnb und @ranj.dnb.\n\n🔊 Wischen für 3 Hot Cues aus dem Set\n🎧 Voller Mix auf SoundCloud – Link in Bio\n\n#drumandbass #dnb #deepdnb #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb",
+    "mix_drive_id":  "1xlrxP-yhGsg6F3V541URPrgLc_R2HPnQ",
+    "slides":  [
+                   {
+                       "vorlage":  "cover",
+                       "dj":  "KruXer",
+                       "vol":  1,
+                       "stil":  "Deep",
+                       "bpm":  180
+                   },
+                   {
+                       "vorlage":  "quadrat",
+                       "bild":  "dj.jpg",
+                       "akzent":  "blau",
+                       "kicker":  "Resident · Vol. 01",
+                       "titel":  "KruXer",
+                       "fuss":  "Shield Sessions · Jeden Sonntag"
+                   }
+               ],
+    "hoerproben":  [
+                       {
+                           "im_mix":  "3:05",
+                           "dauer":  30
+                       },
+                       {
+                           "im_mix":  "13:45",
+                           "dauer":  30
+                       },
+                       {
+                           "im_mix":  "21:45",
+                           "dauer":  30
+                       }
+                   ],
+    "tracklist":  [
+                      "Amoss – Frequency of the Universe",
+                      "Azrah \u0026 Kidsonic – Substrate",
+                      "Koax – Control",
+                      "Particle – No Mistakes VIP",
+                      "QZB – Cope",
+                      "Re:growth – Pluka",
+                      "Skeptical – Push Up",
+                      "Trail – Tenebris",
+                      "Alibi – Directions",
+                      "Alibi, Command Strange – Welcome to the Future",
+                      "Amoss – Powder",
+                      "Arkala Dre x Unknown Entity – Weaponize",
+                      "Monyu – Navigator",
+                      "Nelu – Withdrawal",
+                      "QZB – Mount Doom",
+                      "Para – Firepower",
+                      "Sorza – Does It Hurt Me (Rueben Remix)",
+                      "SpectraSoul – Organiser (Circuits Rewire)",
+                      "Alibi, En:vy – Forged",
+                      "Hood – Pressed",
+                      "Cauzer – Focal Point",
+                      "Monty – Magma",
+                      "Nautika – One",
+                      "Simula – Attack Mode",
+                      "Enei, QZB – Johannesburg",
+                      "Skeptical – Mechanism",
+                      "Calyx – Repercussion",
+                      "Calyx – Triple Shot",
+                      "GLXY – Rotor",
+                      "Kasra – Funktional"
+                  ]
 }
