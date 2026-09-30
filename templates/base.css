@@ -306,3 +306,18 @@ body.cover {
 .quadrat .bg { background-position: 50% 12%; }
 .quadrat.foto .trenner { display: none; }
 .quadrat.foto .scrim { background: linear-gradient(180deg, rgba(3,7,13,.6) 0%, rgba(3,7,13,0) 18%, rgba(3,7,13,.05) 40%, rgba(3,7,13,.85) 66%, rgba(3,7,13,.97) 100%); }
+
+/* Shield Sessions: Slides nach dem Cover in der Cover-Schrift (Orbitron + Schriftzug wie auf dem Cover, seit 30.9.2026) */
+.sessions .marke { top: 62px; font-size: 30px; letter-spacing: 10px; color: #fff; text-shadow: 0 0 10px var(--akzent); }
+.sessions .kicker {
+  font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 32px; letter-spacing: 8px; text-transform: uppercase;
+  color: color-mix(in srgb, var(--akzent) 60%, white); margin-bottom: 14px;
+}
+.sessions h1 {
+  font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 124px; line-height: 1.1; letter-spacing: 6px;
+  color: transparent; text-shadow: none;
+  background: linear-gradient(180deg, #ffffff 0%, #eaf6ff 42%, color-mix(in srgb, var(--akzent) 45%, #5b6b7c) 52%, #ffffff 100%);
+  -webkit-background-clip: text; background-clip: text;
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--akzent) 80%, transparent)) drop-shadow(0 0 34px color-mix(in srgb, var(--akzent) 40%, transparent));
+}
+.sessions .pill { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 5px; }

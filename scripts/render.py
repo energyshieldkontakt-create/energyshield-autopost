@@ -127,7 +127,7 @@ def baue_html(ordner, slide):
         "css": relativ(TEMPLATES / "base.css", ordner),
         "w": str(w),
         "h": str(h),
-        "klasse": klasse + (" foto" if bild else ""),
+        "klasse": klasse + (" foto" if bild else "") + (" sessions" if slide.get("_sessions") else ""),
         "akzent_css": f"--akzent: {akzent};",
         "bild_style": f"background-image: url('{bild}')" if bild else "",
         "scrim": '<div class="scrim"></div>' if bild else "",
@@ -414,7 +414,10 @@ def rendere_post(page, page_hd, ordner, daten):
     if media.exists():
         shutil.rmtree(media)
     media.mkdir()
+    sessions = bool(slides) and slides[0].get("vorlage") == "cover"
     for i, slide in enumerate(slides, 1):
+        if sessions and slide.get("vorlage") != "cover":  # Shield Sessions: Folgeslides in der Cover-Schrift
+            slide = {**slide, "_sessions": True}
         render_bild(page, ordner, slide, media / f"{i}.jpg")
         if slide.get("vorlage") == "cover":  # große Fassung für SoundCloud (ohne Ziffer, wird nicht gepostet)
             render_bild(page_hd, ordner, slide, media / "soundcloud.jpg")
