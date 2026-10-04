@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 04.10.2026 07:32. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 04.10.2026 08:23. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
