@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 04.10.2026 07:14. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 04.10.2026 07:26. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -94,23 +94,23 @@ Status: **test**
 
 ---
 
-## Di 06.10. 18:30 · karussell · `2026-10-06_1830_vier-leute-ein-sound`
+## Di 06.10. 18:30 · karussell · `2026-10-06_1830_wir-sind-zurueck`
 
 Status: **geplant**
 
 > Neuer Look, neue Posts, altes Feuer. 🛡️⚡
 > 
-> Wir sind EnergyShield – Liquid, Deep, Neurofunk, Jump-Up, alles unter einem Dach.
+> Falls wir uns noch nicht kennen: EnergyShield ist ein Drum & Bass-Kollektiv aus der Region – Veranstalter, Label, Crew und Community in einem. Liquid, Deep, Neurofunk, Jump-Up, alles unter einem Dach.
 > 
 > Ab jetzt jeden Sonntag um 18 Uhr ein Mix aus der Crew: die Shield Sessions. Und 2027 haben wir richtig was vor.
 > 
 > Folgt uns, wenn ihr dabei sein wollt.
 > 
-> #drumandbass #dnb #dnbfamily #kirchheimteck #stuttgartdnb #jungle #neurofunk
+> #drumandbass #dnb #dnbfamily #kirchheimteck #stuttgartdnb #neurofunk #liquiddnb
 
-<img src="queue/2026-10-06_1830_vier-leute-ein-sound/media/1.jpg" width="240"> <img src="queue/2026-10-06_1830_vier-leute-ein-sound/media/2.jpg" width="240"> <img src="queue/2026-10-06_1830_vier-leute-ein-sound/media/3.jpg" width="240">
+<img src="queue/2026-10-06_1830_wir-sind-zurueck/media/1.jpg" width="240"> <img src="queue/2026-10-06_1830_wir-sind-zurueck/media/2.jpg" width="240"> <img src="queue/2026-10-06_1830_wir-sind-zurueck/media/3.jpg" width="240">
 
-[post.json bearbeiten](queue/2026-10-06_1830_vier-leute-ein-sound/post.json)
+[post.json bearbeiten](queue/2026-10-06_1830_wir-sind-zurueck/post.json)
 
 ---
 
@@ -124,20 +124,22 @@ Status: **geplant**
 
 ---
 
-## Sa 10.10. 12:00 · karussell · `2026-10-10_1200_wer-ist-energyshield`
+## Sa 10.10. 12:00 · karussell · `2026-10-10_1200_rueckblick-1-year`
 
 Status: **geplant**
 
-> Falls wir uns noch nicht kennen: EnergyShield ist ein Drum & Bass-Kollektiv – Veranstalter, Label, Crew und Community in einem. 🛡️⚡
+> Ein Jahr EnergyShield. Eine Nacht, die wir nicht vergessen. 🛡️
 > 
-> Liquid, Deep, Neurofunk, Jump-Up – wir feiern die ganze Bandbreite.
+> Am 11. April haben wir unseren ersten Geburtstag gefeiert – Drum and Bass all night long, mit euch.
 > 
-> Was 2027 ansteht, verraten wir bald. Folgt uns, damit ihr's zuerst erfahrt.
+> Danke an alle, die dabei waren. Das nächste Kapitel schreiben wir 2027 – mehr verraten wir bald.
 > 
-> #drumandbass #dnb #dnbgermany #kirchheimteck #stuttgartdnb #liquiddnb #jumpup
+> Wer war dabei? Markiert euch. 👇
+> 
+> #drumandbass #dnb #dnbfamily #kirchheimteck #stuttgartdnb #dnbgermany #jungle
 
-<img src="queue/2026-10-10_1200_wer-ist-energyshield/media/1.jpg" width="240"> <img src="queue/2026-10-10_1200_wer-ist-energyshield/media/2.jpg" width="240"> <img src="queue/2026-10-10_1200_wer-ist-energyshield/media/3.jpg" width="240">
+<img src="queue/2026-10-10_1200_rueckblick-1-year/media/1.jpg" width="240"> <img src="queue/2026-10-10_1200_rueckblick-1-year/media/2.jpg" width="240"> <img src="queue/2026-10-10_1200_rueckblick-1-year/media/3.jpg" width="240"> <img src="queue/2026-10-10_1200_rueckblick-1-year/media/4.jpg" width="240">
 
-[post.json bearbeiten](queue/2026-10-10_1200_wer-ist-energyshield/post.json)
+[post.json bearbeiten](queue/2026-10-10_1200_rueckblick-1-year/post.json)
 
 ---
