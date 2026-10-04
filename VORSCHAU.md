@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 30.09.2026 17:12. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 04.10.2026 07:14. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -94,23 +94,50 @@ Status: **test**
 
 ---
 
-## So 04.10. 18:00 · karussell · `2026-10-04_1800_shield-sessions-vol01`
+## Di 06.10. 18:30 · karussell · `2026-10-06_1830_vier-leute-ein-sound`
 
 Status: **geplant**
 
-> Shield Sessions VOL. 01 🛡️
+> Neuer Look, neue Posts, altes Feuer. 🛡️⚡
 > 
-> Der Gründer eröffnet die Shield Sessions – und zieht dich direkt nach unten. @kruxer.dnb mit 30 Minuten Deep Drum & Bass: dunkel, rollend, gnadenlos tief.
+> Wir sind EnergyShield – Liquid, Deep, Neurofunk, Jump-Up, alles unter einem Dach.
 > 
-> Ab jetzt jeden Sonntag ein neuer Mix aus der Crew – mit @stone_d_97, @jhinx.dnb und @ranj.dnb.
+> Ab jetzt jeden Sonntag um 18 Uhr ein Mix aus der Crew: die Shield Sessions. Und 2027 haben wir richtig was vor.
 > 
-> 🔊 Wischen für 3 Hot Cues aus dem Set
-> 🎧 Voller Mix auf SoundCloud – Link in Bio
+> Folgt uns, wenn ihr dabei sein wollt.
 > 
-> #drumandbass #dnb #deepdnb #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb
+> #drumandbass #dnb #dnbfamily #kirchheimteck #stuttgartdnb #jungle #neurofunk
 
-<img src="queue/2026-10-04_1800_shield-sessions-vol01/media/1.jpg" width="240"> <img src="queue/2026-10-04_1800_shield-sessions-vol01/media/2.jpg" width="240"> <img src="queue/2026-10-04_1800_shield-sessions-vol01/media/soundcloud.jpg" width="240">
+<img src="queue/2026-10-06_1830_vier-leute-ein-sound/media/1.jpg" width="240"> <img src="queue/2026-10-06_1830_vier-leute-ein-sound/media/2.jpg" width="240"> <img src="queue/2026-10-06_1830_vier-leute-ein-sound/media/3.jpg" width="240">
 
-[Video-Slide 3 ansehen](queue/2026-10-04_1800_shield-sessions-vol01/media/3.mp4) · [Video-Slide 4 ansehen](queue/2026-10-04_1800_shield-sessions-vol01/media/4.mp4) · [Video-Slide 5 ansehen](queue/2026-10-04_1800_shield-sessions-vol01/media/5.mp4) · [post.json bearbeiten](queue/2026-10-04_1800_shield-sessions-vol01/post.json)
+[post.json bearbeiten](queue/2026-10-06_1830_vier-leute-ein-sound/post.json)
+
+---
+
+## Mi 07.10. 19:00 · story · `2026-10-07_1900_story-vol01-nachhoeren`
+
+Status: **geplant**
+
+<img src="queue/2026-10-07_1900_story-vol01-nachhoeren/media/1.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-10-07_1900_story-vol01-nachhoeren/post.json)
+
+---
+
+## Sa 10.10. 12:00 · karussell · `2026-10-10_1200_wer-ist-energyshield`
+
+Status: **geplant**
+
+> Falls wir uns noch nicht kennen: EnergyShield ist ein Drum & Bass-Kollektiv – Veranstalter, Label, Crew und Community in einem. 🛡️⚡
+> 
+> Liquid, Deep, Neurofunk, Jump-Up – wir feiern die ganze Bandbreite.
+> 
+> Was 2027 ansteht, verraten wir bald. Folgt uns, damit ihr's zuerst erfahrt.
+> 
+> #drumandbass #dnb #dnbgermany #kirchheimteck #stuttgartdnb #liquiddnb #jumpup
+
+<img src="queue/2026-10-10_1200_wer-ist-energyshield/media/1.jpg" width="240"> <img src="queue/2026-10-10_1200_wer-ist-energyshield/media/2.jpg" width="240"> <img src="queue/2026-10-10_1200_wer-ist-energyshield/media/3.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-10-10_1200_wer-ist-energyshield/post.json)
 
 ---
