@@ -1,0 +1,12 @@
+{
+  "publish_at": "2026-10-06T18:30:00+02:00",
+  "erstellt_am": "2026-10-04T07:23:56+02:00",
+  "typ": "karussell",
+  "status": "geplant",
+  "caption": "Neuer Look, neue Posts, altes Feuer. 🛡️⚡\n\nFalls wir uns noch nicht kennen: EnergyShield ist ein Drum & Bass-Kollektiv aus der Region – Veranstalter, Label, Crew und Community in einem. Liquid, Deep, Neurofunk, Jump-Up, alles unter einem Dach.\n\nAb jetzt jeden Sonntag um 18 Uhr ein Mix aus der Crew: die Shield Sessions. Und 2027 haben wir richtig was vor.\n\nFolgt uns, wenn ihr dabei sein wollt.\n\n#drumandbass #dnb #dnbfamily #kirchheimteck #stuttgartdnb #neurofunk #liquiddnb",
+  "slides": [
+    { "vorlage": "feed", "bild": "booth.jpg", "kicker": "Drum & Bass Kollektiv", "titel": "Wir sind\nzurück.", "akzent": "blau" },
+    { "vorlage": "feed", "bild": "pult.jpg", "kicker": "Liquid · Deep · Neuro · Jump-Up", "titel": "Ein\nSound.", "akzent": "neuro" },
+    { "vorlage": "feed", "bild": "sessions.jpg", "kicker": "Shield Sessions", "titel": "Jeden\nSonntag.", "text": "Ein Mix aus der Crew. 18 Uhr.", "fuss": "Folgt @energy.shield.rave", "akzent": "blau" }
+  ]
+}
