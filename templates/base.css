@@ -148,6 +148,9 @@ footer { position: absolute; left: 50px; right: 50px; bottom: 52px; z-index: 2; 
 .foto .punkte { opacity: .25; }
 .foto .scrim { background: linear-gradient(180deg, rgba(3,7,13,.7) 0%, rgba(3,7,13,.1) 22%, rgba(3,7,13,.15) 45%, rgba(3,7,13,.85) 70%, rgba(3,7,13,.97) 100%); }
 .foto main { top: auto; bottom: 360px; transform: none; }
+/* Ohne Event-Fuß den Text tiefer setzen, damit Gesichter in der Bildmitte frei bleiben */
+.foto:has(footer:empty) main { bottom: 120px; }
+.foto:has(footer > .pill) main { bottom: 170px; }
 .foto h1 { font-size: 150px; }
 
 /* ===== Shield Sessions: quadratisches Mix-Cover (SoundCloud + Instagram), eigenes Schild je Resident ===== */
