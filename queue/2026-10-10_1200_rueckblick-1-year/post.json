@@ -7,7 +7,7 @@
   "slides": [
     { "vorlage": "feed", "bild": "einjahr.jpg", "kicker": "11.04.2026 · Rückblick", "titel": "1 Year\nEnergyShield", "akzent": "halftime" },
     { "vorlage": "feed", "bild": "allnight.jpg", "kicker": "Drum and Bass", "titel": "All night\nlong.", "akzent": "neuro" },
-    { "vorlage": "feed", "bild": "danke.jpg", "kicker": "An alle, die da waren", "titel": "Danke.", "akzent": "blau" },
+    { "vorlage": "feed", "bild": "danke.jpg", "kicker": "An alle, die da waren", "titel": "Danke.", "akzent": "halftime" },
     { "vorlage": "feed", "kicker": "Bald mehr", "titel": "2027 wird\ngroß.", "text": "Folgt uns, damit ihr's zuerst erfahrt.", "fuss": "Folgt @energy.shield.rave", "akzent": "neuro" }
   ]
 }
