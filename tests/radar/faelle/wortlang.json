@@ -1,0 +1,12 @@
+{
+  "slides": [
+    { "vorlage": "radar-cover", "ausgabe": 8, "datum": "04.02.2027" },
+    { "vorlage": "radar-meldung", "ring": "welt", "kategorie": "Festival", "ort": "Hasselt, Belgien",
+      "titel": "Festivalankündigungsmarathonwoche mit vier Bühnen",
+      "text": "Das Festival wächst im kommenden Jahr auf zwei Wochenenden. Auf vier Bühnen spielen insgesamt dreißig Acts, darunter mehrere Erstauftritte in Europa. Tickets für beide Wochenenden gibt es ab Anfang Dezember, die Preise sind noch nicht bekannt. Der Veranstalter verspricht außerdem bessere Anreise mit Shuttlebussen und mehr Platz zum Campen.",
+      "wichtig": "Wer mit der Crew hinfahren will, sollte sich den Vorverkaufstermin merken, das letzte Mal war das Festival nach wenigen Stunden ausverkauft.",
+      "quelle": "Veranstalter" },
+    { "vorlage": "radar-meldung", "ring": "lokal", "titel": "Zweite", "text": "Normal.", "quelle": "Q" },
+    { "vorlage": "radar-ende", "frage": "Frage?" }
+  ]
+}

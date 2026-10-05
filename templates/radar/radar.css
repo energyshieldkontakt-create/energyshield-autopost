@@ -147,7 +147,7 @@ body { position: relative; background: var(--nacht); color: var(--weiss); font-f
 .k-titel { font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: calc(80px * var(--hs)); line-height: 1.05; color: var(--weiss); margin-top: 10px; }
 .k-unter { font-weight: 600; font-size: calc(30px * var(--ts)); color: var(--fein); margin-top: 14px; }
 .k-liste { list-style: none; margin-top: 42px; }
-.k-liste li { display: grid; grid-template-columns: 250px 1fr; gap: 26px; padding: 36px 0; border-top: 1px solid var(--linie); }
+.k-liste li { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 26px; padding: 36px 0; border-top: 1px solid var(--linie); }
 .k-liste li:last-child { border-bottom: 1px solid var(--linie); }
 .k-ring { padding-top: 2px; }
 .k-text { font-weight: 600; font-size: calc(34px * var(--ts)); line-height: 1.38; color: var(--weiss); overflow-wrap: break-word; hyphens: manual; }

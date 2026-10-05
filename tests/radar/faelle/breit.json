@@ -1,0 +1,9 @@
+{
+  "erwartet_fehler": [1, 2, 3],
+  "slides": [
+    { "vorlage": "radar-cover", "ausgabe": 7, "datum": "21.01.2027" },
+    { "vorlage": "radar-meldung", "ring": "welt", "kategorie": "Festivalankündigungswochenendeneröffnungsfeierlichkeiten", "ort": "Ort", "titel": "Lange Kategorie", "anriss": "Donaudampfschifffahrtsgesellschaftskapitänsmützenabzeichen", "text": "Text.", "quelle": "Q" },
+    { "vorlage": "radar-meldung", "ring": "lokal", "titel": "Lange Quelle", "text": "Text.", "quelle": "Eine sehr lange Quellenangabe mit Veranstalter, Pressemitteilung, Instagram-Post, Newsletter, Website und noch einem Interview im Radio, damit sie drei Zeilen braucht und in den Inhalt ragt" },
+    { "vorlage": "radar-ende", "frage": "Frage?" }
+  ]
+}

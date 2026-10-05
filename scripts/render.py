@@ -197,7 +197,7 @@ def baue_radar(ordner, slide, w, h):
         "js": relativ(TEMPLATES / "radar" / "radar.js", ordner),
         "w": str(w),
         "h": str(h),
-        "daten": json.dumps(daten, ensure_ascii=False).replace("</", "<\\/"),  # zuletzt, sicher im <script>
+        "daten": json.dumps(daten, ensure_ascii=False).replace("<", "\\u003c"),  # zuletzt; kein "<" roh im <script>
     }
     inhalt = (TEMPLATES / "radar" / "radar.html").read_text(encoding="utf-8")
     for schluessel, wert in werte.items():
@@ -214,7 +214,9 @@ def render_bild(page, ordner, slide, ziel):
         page.set_viewport_size({"width": w, "height": h})
         page.goto(tmp.as_uri(), wait_until="networkidle")
         if FORMATE.get(slide.get("vorlage"), (0, 0, ""))[2] == "radar":
-            fehler = page.evaluate("window.radarFertig")  # wartet auf Schriften, Auto-Fit und Radar
+            # wartet auf Schriften, Auto-Fit und Radar; läuft radar.js gar nicht, bricht es nach 60 s mit Fehler ab
+            page.wait_for_function("document.body && document.body.dataset.fertig === 'ja'", timeout=60000)
+            fehler = page.evaluate("document.body.dataset.fehler")
             if fehler:
                 raise ValueError(f"Shield Radar, Slide '{slide.get('vorlage')}': {fehler}")
         page.evaluate(FIT_JS)

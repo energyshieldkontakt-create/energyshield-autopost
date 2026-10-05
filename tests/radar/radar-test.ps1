@@ -26,7 +26,7 @@ foreach ($datei in Get-ChildItem (Join-Path $hier "faelle\$Fall.json")) {
     $vorl = @($post.slides)[$i - 1].vorlage
     $hoch = if ($vorl -eq "radar-story") { 1920 } else { 1350 }
     $daten = '{"seite": ' + $i + ', "logo": "' + (url "$repo\brand\logo.png") + '", "post": ' + $roh + '}'
-    $daten = $daten.Replace("</", "<\/")
+    $daten = $daten.Replace("<", '\u003c')   # wie render.py: kein "<" roh im <script> (sonst bricht z. B. "<!--<script>" die Seite)
     $html = $html0.Replace("{{css}}", (url "$repo\templates\radar\radar.css")).Replace("{{js}}", (url "$repo\templates\radar\radar.js"))
     $html = $html.Replace("{{w}}", "1080").Replace("{{h}}", "$hoch").Replace("{{daten}}", $daten)
     $name = "$($datei.BaseName)-$i"

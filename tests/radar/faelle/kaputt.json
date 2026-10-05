@@ -1,0 +1,6 @@
+{
+  "erwartet_fehler": [1],
+  "slides": [
+    { "vorlage": "radar-story", "ausgabe": 2, "datum": "29.10.2026", "meldungen": { "ring": "welt", "titel": "Objekt statt Liste" } }
+  ]
+}

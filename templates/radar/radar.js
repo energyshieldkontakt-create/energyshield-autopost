@@ -12,24 +12,32 @@
   let fertig;
   window.radarFertig = new Promise(r => { fertig = r; });
 
-  const daten = JSON.parse(document.getElementById('daten').textContent);
-  const slides = (daten.post && daten.post.slides) || [];
-  const seite = daten.seite;
-  const S = slides[seite - 1] || {};
-  const istStory = S.vorlage === 'radar-story';
-  const coverSlide = slides.find(s => s.vorlage === 'radar-cover') || {};
-  const info = istStory ? { ausgabe: S.ausgabe, datum: S.datum } : { ausgabe: coverSlide.ausgabe, datum: coverSlide.datum };
-  if (!info.ausgabe) fehler.push(istStory ? 'radar-story braucht "ausgabe"' : 'Erste Slide muss radar-cover mit "ausgabe" sein');
-
-  // Meldungen (nummeriert) und Kurzpunkte des ganzen Karussells: daraus entsteht das Radar
-  const meldungen = istStory
-    ? (S.meldungen || []).map((m, i) => ({ nr: i + 1, ring: m.ring, titel: m.titel, anriss: m.anriss || m.titel }))
-    : slides.filter(s => s.vorlage === 'radar-meldung').map((m, i) => ({ nr: i + 1, ring: m.ring, titel: m.titel, anriss: m.anriss || m.titel, slide: m }));
-  const kurzpunkte = istStory ? [] : slides.filter(s => s.vorlage === 'radar-kurz')
-    .flatMap(k => k.punkte || []).map(p => ({ ring: p.ring, titel: p.text, klein: true }));
-  for (const p of [...meldungen, ...kurzpunkte]) {
-    if (!RINGE[p.ring]) fehler.push(`Unbekannter Ring "${p.ring}" (erlaubt: lokal, de, welt)`);
-    if (!p.titel) fehler.push('Meldung ohne Titel/Text');
+  // Daten lesen passiert in los() innerhalb des Fehlerfangs: kaputte Daten werden gemeldet, statt das Rendern aufzuhalten
+  let daten, slides, seite, S, istStory, info, meldungen, kurzpunkte;
+  function liste(wert, name) {
+    if (wert == null) return [];
+    if (!Array.isArray(wert)) throw new Error(`"${name}" muss eine Liste sein`);
+    return wert;
+  }
+  function vorbereiten() {
+    daten = JSON.parse(document.getElementById('daten').textContent);
+    slides = liste(daten.post && daten.post.slides, 'slides');
+    seite = daten.seite;
+    S = slides[seite - 1] || {};
+    istStory = S.vorlage === 'radar-story';
+    const coverSlide = slides.find(s => s.vorlage === 'radar-cover') || {};
+    info = istStory ? { ausgabe: S.ausgabe, datum: S.datum } : { ausgabe: coverSlide.ausgabe, datum: coverSlide.datum };
+    if (!info.ausgabe) fehler.push(istStory ? 'radar-story braucht "ausgabe"' : 'Erste Slide muss radar-cover mit "ausgabe" sein');
+    // Meldungen (nummeriert) und Kurzpunkte des ganzen Karussells: daraus entsteht das Radar
+    meldungen = istStory
+      ? liste(S.meldungen, 'meldungen').map((m, i) => ({ nr: i + 1, ring: m.ring, titel: m.titel, anriss: m.anriss || m.titel }))
+      : slides.filter(s => s.vorlage === 'radar-meldung').map((m, i) => ({ nr: i + 1, ring: m.ring, titel: m.titel, anriss: m.anriss || m.titel, slide: m }));
+    kurzpunkte = istStory ? [] : slides.filter(s => s.vorlage === 'radar-kurz')
+      .flatMap(k => liste(k.punkte, 'punkte')).map(p => ({ ring: p.ring, titel: p.text, klein: true }));
+    for (const p of [...meldungen, ...kurzpunkte]) {
+      if (!RINGE[p.ring]) fehler.push(`Unbekannter Ring "${p.ring}" (erlaubt: lokal, de, welt)`);
+      if (!p.titel) fehler.push('Meldung ohne Titel/Text');
+    }
   }
 
   /* ---------- Helfer ---------- */
@@ -447,15 +455,46 @@
     const zuBreit = () => titel.some(e => e.scrollWidth > e.clientWidth + 1);
     const zuHoch = () => inhalt.scrollHeight > inhalt.clientHeight + 1;
     while (zuBreit() && hs > .5) { hs -= .02; setze(); }
-    while (zuHoch() && (hs > .55 || ts > .89)) { hs = Math.max(.55, hs - .03); ts = Math.max(.89, ts - .015); setze(); }
+    // hs nie wieder anheben, wenn die Breite es schon unter .55 gedrückt hat
+    while (zuHoch() && (hs > .55 || ts > .89)) { hs = Math.max(Math.min(hs, .55), hs - .03); ts = Math.max(.89, ts - .015); setze(); }
     if (zuBreit()) fehler.push('Ein Wort in der Schlagzeile ist zu lang');
     if (zuHoch()) fehler.push('Zu viel Text für die Slide');
     for (const e of document.querySelectorAll('.fit-zeile')) if (e.scrollWidth > e.clientWidth + 1) fehler.push('Begriff zu lang');
+    pruefeRaender(inhalt);
+  }
+
+  // Nichts darf seitlich aus dem Inhalt laufen, unter das Mini-Radar rutschen oder (Quelle) in den Inhalt wachsen
+  function pruefeRaender(inhalt) {
+    const box = inhalt.getBoundingClientRect();
+    for (const e of inhalt.querySelectorAll('*')) {
+      if (e.closest('svg') || e.closest('.radar-box') || e.closest('.mini')) continue;
+      const r = e.getBoundingClientRect();
+      if (r.width && (r.right > box.right + 1 || r.left < box.left - 1 || e.scrollWidth > e.clientWidth + 1)) {
+        fehler.push(`Text läuft seitlich über den Rand (${e.className || e.tagName})`);
+        break;
+      }
+    }
+    const mini = document.querySelector('.mini');
+    if (mini) {
+      const grenze = mini.getBoundingClientRect().left - 8;
+      const textRechts = e => { const b = document.createRange(); b.selectNodeContents(e); return b.getBoundingClientRect().right; };
+      for (const e of document.querySelectorAll('.m-meta .tag, .m-meta .nrtag, .m-meta .m-ort')) {
+        // beim Ort zählt nur der Text (der Block ist breiter), bei Etiketten auch der Rahmen
+        const rechts = e.classList.contains('m-ort') ? textRechts(e) : Math.max(e.getBoundingClientRect().right, textRechts(e));
+        if (rechts > grenze) {
+          fehler.push('Kategorie oder Ort zu lang, ragt unter das Mini-Radar');
+          break;
+        }
+      }
+    }
+    const fuss = document.querySelector('.fuss');
+    if (fuss && fuss.getBoundingClientRect().top < box.bottom) fehler.push('Quelle zu lang für die Fußleiste');
   }
 
   const BAUER = { 'radar-cover': cover, 'radar-meldung': meldung, 'radar-kurz': kurz, 'radar-wissen': wissen, 'radar-ende': ende, 'radar-story': story };
   async function los() {
     try {
+      vorbereiten();
       const bauer = BAUER[S.vorlage];
       if (!bauer) throw new Error(`Unbekannte Vorlage "${S.vorlage}"`);
       const danach = bauer();

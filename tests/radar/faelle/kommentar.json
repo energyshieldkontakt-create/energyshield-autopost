@@ -1,0 +1,8 @@
+{
+  "slides": [
+    { "vorlage": "radar-cover", "ausgabe": 6, "datum": "07.01.2027" },
+    { "vorlage": "radar-meldung", "ring": "welt", "titel": "Kommentar im Text", "text": "Dieser Text enthält <!--<script> und muss trotzdem normal erscheinen.", "quelle": "Test" },
+    { "vorlage": "radar-meldung", "ring": "lokal", "titel": "Zweite Meldung", "text": "Normal.", "quelle": "Q" },
+    { "vorlage": "radar-ende", "frage": "Alles da?" }
+  ]
+}
