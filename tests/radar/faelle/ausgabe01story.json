@@ -1,15 +1,14 @@
 {
   "publish_at": "2026-10-15T20:00:00+02:00",
-  "erstellt_am": "2026-10-05T11:40:00+02:00",
+  "erstellt_am": "2026-10-05T12:35:00+02:00",
   "typ": "story",
   "status": "geplant",
   "slides": [
     {
       "vorlage": "radar-story", "ausgabe": 1, "datum": "15.10.2026",
       "meldungen": [
-        { "ring": "welt", "titel": "Noisia sind zurück: Comeback-Show am 4.12." },
-        { "ring": "de", "titel": "Liquicity am 28.11. in Heidelberg" },
-        { "ring": "lokal", "titel": "Code Red FM: nächste Shows am 17.10. und 7.11." }
+        { "ring": "welt", "titel": "Noisia machen wieder gemeinsam Musik" },
+        { "ring": "lokal", "titel": "Code Red FM: DnB im Freien Radio Stuttgart" }
       ]
     }
   ]
