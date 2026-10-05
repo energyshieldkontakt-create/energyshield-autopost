@@ -1,0 +1,47 @@
+{
+  "publish_at": "2026-10-15T18:30:00+02:00",
+  "erstellt_am": "2026-10-05T11:40:00+02:00",
+  "typ": "karussell",
+  "status": "geplant",
+  "caption": "Noisia sind zurück. Und das ist nur eine der News in SHIELD RADAR #01. 🛡️\n\nAb heute alle zwei Wochen: Drum-and-Bass-News von nebenan bis weltweit. Nur Fakten, immer mit Quelle.\n\n01 Noisia: Comeback-Show am 4.12. in Amsterdam\n02 Liquicity am 28.11. in der halle02 Heidelberg\n03 Code Red FM: DnB auf 99,2, nächste Shows am 17.10. und 7.11.\nDazu: Kurz notiert und Szene-Wissen zu Neurofunk.\n\nWen wollt ihr 2027 unbedingt live sehen? Schreibt es in die Kommentare, Tipps für die nächste Ausgabe gern per DM.\n\nQuellen: NME (17.09.2026), liquicity.com, code-red-fm.de, letitroll.eu, drumandbassuk.com, Paranoyd Magazin, Wikipedia (Neurofunk)\n\n#drumandbass #dnb #dnbnews #neurofunk #liquiddnb #stuttgartdnb #kirchheimteck #shieldradar",
+  "slides": [
+    { "vorlage": "radar-cover", "ausgabe": 1, "datum": "15.10.2026" },
+    {
+      "vorlage": "radar-meldung", "ring": "welt", "kategorie": "Comeback", "ort": "Amsterdam, Niederlande",
+      "titel": "Noisia sind zurück",
+      "anriss": "Noisia sind zurück: Comeback-Show am 4.12.",
+      "text": "Sieben Jahre nachdem sie ihre Trennung angekündigt hatten, haben Nik Roos, Martijn van Sonderen und Thijs de Vlieger am 17. September ihr Comeback verkündet. Die erste Show steigt am 4. Dezember im Melkweg in Amsterdam, neue Tracks wollen sie zuerst live testen. Im Januar spielen sie als Headliner bei Let It Roll Winter in Prag.",
+      "wichtig": "Das Trio aus Groningen gilt als einer der wichtigsten Namen im modernen Neurofunk, entsprechend groß ist das Echo in der Szene.",
+      "quelle": "NME, 17.09.2026; letitroll.eu"
+    },
+    {
+      "vorlage": "radar-meldung", "ring": "de", "kategorie": "Event", "ort": "Heidelberg",
+      "titel": "Liquicity kommt nach Heidelberg",
+      "anriss": "Liquicity am 28.11. in Heidelberg",
+      "text": "Am 28. November lädt Liquicity in die halle02 in Heidelberg, von 21 bis 5 Uhr. Im Line-up stehen unter anderem Fox Stevenson mit DJ-Set, Grafix & Technimatic und Rameses B. Tickets sind bereits im Verkauf.",
+      "wichtig": "Liquicity aus Amsterdam hat Liquid Drum and Bass groß gemacht. Die Ausgabe in Hamburg im September war ausverkauft.",
+      "quelle": "liquicity.com"
+    },
+    {
+      "vorlage": "radar-meldung", "ring": "lokal", "kategorie": "Radio", "ort": "Stuttgart",
+      "titel": "Drum and Bass im Stuttgarter Radio",
+      "anriss": "Code Red FM: nächste Shows am 17.10. und 7.11.",
+      "text": "Die Radioshow Code Red FM sendet Drum and Bass auf Freies Radio für Stuttgart, UKW 99,2 und im Stream. Nach der Jubiläumsshow „10 Years Tobs Turvy“ am 10. Oktober folgen die nächsten Sendungen am 17. Oktober mit outtake und am 7. November mit charisarts, jeweils von 22 bis 1 Uhr.",
+      "wichtig": "Hinter der Show steht eine Crew aus DJs der Region. Hören kann man sie ohne Ticket, im Radio oder im Stream.",
+      "quelle": "code-red-fm.de"
+    },
+    {
+      "vorlage": "radar-kurz", "punkte": [
+        { "ring": "welt", "text": "Let It Roll wird 25: Die Winter-Ausgabe steigt am 22. und 23. Januar in Prag, Zwei-Tages-Tickets ab 78 Euro.", "quelle": "letitroll.eu" },
+        { "ring": "welt", "text": "Netsky und Hannah Boleyn veröffentlichen die gemeinsame Single „Feel Again“ auf Helix Records.", "quelle": "drumandbassuk.com" },
+        { "ring": "lokal", "text": "The Prodigy spielen am 20. November in der Schleyer-Halle in Stuttgart.", "quelle": "Paranoyd Magazin" }
+      ]
+    },
+    {
+      "vorlage": "radar-wissen", "begriff": "Neurofunk", "titel": "Was ist Neurofunk?",
+      "text": "Neurofunk ist die dunkle, technische Seite von Drum and Bass: saubere Produktion, verschachtelte Basslines und Klangfarben, die sich ständig verändern. Den Begriff prägte der Musikkritiker Simon Reynolds 1997, als Meilenstein gilt das Album „Wormhole“ von Ed Rush & Optical aus dem Jahr 1998. Heute stehen Namen wie Noisia, Phace und Mefjus für den Stil.",
+      "quelle": "Wikipedia, Neurofunk"
+    },
+    { "vorlage": "radar-ende", "frage": "Wen wollt ihr 2027 unbedingt live sehen?", "naechste": "29.10." }
+  ]
+}
