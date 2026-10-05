@@ -140,7 +140,7 @@
 
   /* ---------- Radar ---------- */
   // Winkel aus dem Titel (gleich bei jedem Rendern), pro Ring gleichmäßig über den Bogen verteilt
-  function platziere(R) {
+  function platziere(R, g) {
     const out = [];
     for (const ring of Object.keys(BAND)) {
       const liste = [...meldungen, ...kurzpunkte].filter(p => p.ring === ring)
@@ -156,13 +156,37 @@
         out.push({ ...p, a, r: R * (b0 + (b1 - b0) * zufall(p.titel + 'r')) });
       });
     }
+    entzerre(out, g);
     return out;
+  }
+
+  // Punkte, die sich berühren (z. B. lokal und Deutschland in derselben Richtung), ein Stück weiterdrehen.
+  // Kurzmeldungen weichen zuerst aus, dann die Meldung mit der höheren Nummer.
+  function entzerre(punkte, g) {
+    const radius = p => (p.klein ? 7 : 18) * g;
+    const rang = p => (p.klein ? 100 : p.nr);
+    const setze = p => { [p.x, p.y] = pos(p.a, p.r); };
+    punkte.forEach(setze);
+    for (let runde = 0; runde < 60; runde++) {
+      let frei = true;
+      for (let i = 0; i < punkte.length; i++) for (let j = i + 1; j < punkte.length; j++) {
+        const p = punkte[i], q = punkte[j];
+        if (Math.hypot(p.x - q.x, p.y - q.y) >= radius(p) + radius(q) + 4 * g) continue;
+        const weg = rang(p) > rang(q) ? p : q;
+        weg.a += 7;
+        if (weg.a > BOGEN[1] - 3) weg.a = BOGEN[0] + 3 + (weg.a - BOGEN[1]);
+        setze(weg);
+        frei = false;
+      }
+      if (frei) return;
+    }
+    fehler.push('Radar: Punkte überlappen');
   }
 
   // Nummern-Etiketten neben die Punkte setzen, ohne Punkte, Logo, Ring-Namen oder andere Etiketten zu verdecken
   function etiketten(punkte, R, opt) {
-    const g = opt.g, LW = 50 * g, LH = 30 * g, LA = 17 * g;
-    const kreise = punkte.map(p => { const [x, y] = pos(p.a, p.r); p.x = x; p.y = y; return { x, y, r: (p.klein ? 7 : 18) * g, p }; });
+    const g = opt.g, LW = 50 * g, LH = 30 * g, LA = 17 * g, LD = 12 * g;
+    const kreise = punkte.map(p => ({ x: p.x, y: p.y, r: (p.klein ? 7 : 18) * g, p }));
     const schneidet = (a, b) => a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a.y1;
     const trifft = (b, k) => { const nx = Math.max(b.x0, Math.min(k.x, b.x1)), ny = Math.max(b.y0, Math.min(k.y, b.y1)); return (nx - k.x) ** 2 + (ny - k.y) ** 2 < k.r ** 2; };
     const logo = R * .12;
@@ -176,7 +200,8 @@
       const kandidaten = [
         rechts ? [p.x + LA, p.y - LH / 2] : [p.x - LA - LW, p.y - LH / 2],
         rechts ? [p.x - LA - LW, p.y - LH / 2] : [p.x + LA, p.y - LH / 2],
-        [p.x - LW / 2, p.y - LA - LH], [p.x - LW / 2, p.y + LA]];
+        [p.x - LW / 2, p.y - LA - LH], [p.x - LW / 2, p.y + LA],
+        [p.x + LD, p.y - LD - LH], [p.x - LD - LW, p.y - LD - LH], [p.x + LD, p.y + LD], [p.x - LD - LW, p.y + LD]];
       let wahl = null;
       for (const [x0, y0] of kandidaten) {
         const b = { x0, y0, x1: x0 + LW, y1: y0 + LH };
@@ -188,9 +213,6 @@
       }
       if (!wahl) fehler.push(`Radar: Etikett ${zwei(p.nr)} findet keinen freien Platz`);
       else { p.etikett = wahl; belegt.push(wahl); }
-    }
-    for (let i = 0; i < kreise.length; i++) for (let j = i + 1; j < kreise.length; j++) {
-      if (Math.hypot(kreise[i].x - kreise[j].x, kreise[i].y - kreise[j].y) < kreise[i].r + kreise[j].r) fehler.push('Radar: Punkte überlappen');
     }
   }
 
@@ -245,7 +267,12 @@
       const hell = (1 - .5 * hinten / 360) * (opt.hervor && p.nr !== opt.hervor ? .3 : 1);
       t.push(`<g transform="translate(${f1(p.x)} ${f1(p.y)}) scale(${opt.g})" opacity="${hell.toFixed(2)}">`);
       if (!p.klein) t.push('<circle r="18" fill="#2EE6F5" fill-opacity=".14"/><circle r="18" fill="none" stroke="#2EE6F5" stroke-opacity=".45" stroke-width="1.2"/>');
-      t.push(kern(p.ring, !p.klein) + '</g>');
+      t.push(kern(p.ring, !p.klein));
+      if (opt.hervor && p.nr === opt.hervor && !p.klein) {   // Zielmarkierung um die Meldung dieser Slide
+        t.push('<g fill="none" stroke="#2EE6F5" stroke-width="3.5"><path d="M -34 -22 V -34 H -22"/><path d="M 22 -34 H 34 V -22"/>'
+          + '<path d="M 34 22 V 34 H 22"/><path d="M -22 34 H -34 V 22"/></g><circle r="26" fill="none" stroke="#2EE6F5" stroke-opacity=".5" stroke-width="1.5"/>');
+      }
+      t.push('</g>');
     }
     for (const p of punkte.filter(p => p.etikett)) {
       const { x0, y0, x1, y1 } = p.etikett, c = 7 * opt.g;
@@ -263,7 +290,7 @@
     const wrap = el('div', 'radar');
     wrap.style.width = D + 'px';
     wrap.style.height = D + 'px';
-    const punkte = platziere(R);
+    const punkte = platziere(R, opt.g);
     etiketten(punkte, R, opt);
     const ziel = punkte.find(p => !p.klein && p.nr === (opt.hervor || 1));
     const kante = (((ziel ? ziel.a : 120) + 14 + (opt.weiter || 0)) % 360 + 360) % 360;   // Strahl hat Meldung 1 gerade erfasst
@@ -334,7 +361,7 @@
       koerper.appendChild(w);
     }
     inhalt.appendChild(koerper);
-    const opt = { detail: false, skala: true, g: .8, P: 30, hervor: nr, nummern: new Set([nr]) };
+    const opt = { detail: false, skala: true, g: .6, P: 30, hervor: nr, nummern: new Set() };   // Nummer steht im Etikett daneben
     return () => zeichneRadar(mini, radius(mini, opt.P, 110, 80), opt);
   }
 
