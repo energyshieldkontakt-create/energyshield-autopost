@@ -1,0 +1,16 @@
+{
+  "slides": [
+    { "vorlage": "radar-cover", "ausgabe": 3, "datum": "12.11.2026" },
+    { "vorlage": "radar-meldung", "ring": "welt", "kategorie": "Release", "ort": "London", "titel": "Erste Meldung", "text": "Text eins.", "quelle": "Q1" },
+    { "vorlage": "radar-meldung", "ring": "welt", "kategorie": "Label", "ort": "Bristol", "titel": "Zweite Meldung", "text": "Text zwei.", "quelle": "Q2" },
+    { "vorlage": "radar-meldung", "ring": "welt", "kategorie": "Festival", "ort": "Prag", "titel": "Dritte Meldung", "text": "Text drei.", "quelle": "Q3" },
+    { "vorlage": "radar-meldung", "ring": "welt", "kategorie": "Szene", "ort": "Melbourne", "titel": "Vierte Meldung", "text": "Text vier.", "quelle": "Q4" },
+    { "vorlage": "radar-kurz", "punkte": [
+      { "ring": "welt", "text": "Kurz eins.", "quelle": "K1" },
+      { "ring": "welt", "text": "Kurz zwei.", "quelle": "K2" },
+      { "ring": "welt", "text": "Kurz drei.", "quelle": "K3" },
+      { "ring": "welt", "text": "Kurz vier.", "quelle": "K4" }
+    ] },
+    { "vorlage": "radar-ende", "frage": "Frage?", "naechste": "26.11." }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "slides": [
+    { "vorlage": "radar-cover", "ausgabe": 12, "datum": "21.01.2027" },
+    { "vorlage": "radar-meldung", "ring": "welt", "kategorie": "Festivalankündigung", "ort": "Hasselt, Belgien",
+      "titel": "Festivalankündigungsmarathon: Veranstalter bestätigen Doppelwochenende mit vier Bühnen und dreißig Acts",
+      "text": "Das Festival wächst im kommenden Jahr auf zwei Wochenenden. Auf vier Bühnen spielen insgesamt dreißig Acts, darunter mehrere Erstauftritte in Europa. Tickets gibt es ab Anfang Dezember.",
+      "wichtig": "Wer mit der Crew hinfahren will, sollte sich den Vorverkaufstermin merken, das letzte Mal war das Festival nach wenigen Stunden ausverkauft.",
+      "quelle": "Offizielle Website des Veranstalters" },
+    { "vorlage": "radar-kurz", "punkte": [
+      { "ring": "welt", "text": "Ein längerer Kurzmeldungstext, der trotzdem noch auf die Slide passen muss.", "quelle": "Quelle mit einem ziemlich langen Namen" },
+      { "ring": "de", "text": "Zweite Meldung mit Donaudampfschifffahrtsgesellschaftskapitänsmütze.", "quelle": "Quelle" },
+      { "ring": "lokal", "text": "Dritte Meldung.", "quelle": "Quelle" },
+      { "ring": "welt", "text": "Vierte Meldung.", "quelle": "Quelle" }
+    ] },
+    { "vorlage": "radar-wissen", "begriff": "Drum and Bass", "titel": "Warum eigentlich 174 BPM?",
+      "text": "Frühe Jungle-Tracks lagen um 160 BPM. Mit der Zeit wurde das Tempo schneller, bis sich um 2010 herum 172 bis 176 BPM als Standard eingependelt haben. 174 gilt heute als Mitte: schnell genug für Energie, langsam genug für Basslines, die Raum zum Atmen brauchen." },
+    { "vorlage": "radar-ende", "frage": "Fahrt ihr dieses Jahr gemeinsam auf ein Festival, und wenn ja, auf welches und mit wie vielen Leuten aus der Crew?", "naechste": "04.02." }
+  ]
+}

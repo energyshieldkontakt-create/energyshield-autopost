@@ -1,0 +1,12 @@
+{
+  "slides": [
+    { "vorlage": "radar-cover", "ausgabe": 4, "datum": "26.11.2026" },
+    { "vorlage": "radar-meldung", "ring": "de", "kategorie": "Tech & Studio", "ort": "Köln",
+      "titel": "„Bass & Drums“ </script><b>fett?</b> 🔊",
+      "text": "Anführungszeichen \"doppelt\" und 'einfach', Und-Zeichen &amp; & echtes &, spitze Klammern <i>kursiv?</i>\nZweite Zeile nach Umbruch. Umlaute: ÄÖÜ äöü ß.",
+      "wichtig": "Alles muss als Text erscheinen, nichts als HTML.",
+      "quelle": "Quelle <script>alert(1)</script>" },
+    { "vorlage": "radar-meldung", "ring": "lokal", "titel": "Zweite Meldung", "text": "Normal.", "quelle": "Q" },
+    { "vorlage": "radar-ende", "frage": "Läuft's? 😎", "naechste": "10.12." }
+  ]
+}

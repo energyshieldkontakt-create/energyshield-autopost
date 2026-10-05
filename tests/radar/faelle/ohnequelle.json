@@ -1,0 +1,9 @@
+{
+  "erwartet_fehler": [2, 3],
+  "slides": [
+    { "vorlage": "radar-cover", "ausgabe": 5, "datum": "10.12.2026" },
+    { "vorlage": "radar-meldung", "ring": "lokal", "titel": "Meldung ohne Quelle", "text": "Darf so nicht raus." },
+    { "vorlage": "radar-kurz", "punkte": [ { "ring": "welt", "text": "Kurzmeldung ohne Quelle." } ] },
+    { "vorlage": "radar-ende", "frage": "Frage?" }
+  ]
+}

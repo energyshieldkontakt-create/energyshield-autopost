@@ -1,0 +1,8 @@
+{
+  "slides": [
+    { "vorlage": "radar-cover", "ausgabe": 2, "datum": "29.10.2026" },
+    { "vorlage": "radar-meldung", "ring": "lokal", "titel": "Neue Reihe in Stuttgart", "text": "Ein Kollektiv startet eine monatliche Drum-and-Bass-Nacht.", "quelle": "Kollektiv, Instagram" },
+    { "vorlage": "radar-meldung", "ring": "welt", "titel": "Album angekündigt", "text": "Ein bekannter Produzent kündigt sein drittes Album an.", "quelle": "Label" },
+    { "vorlage": "radar-ende", "frage": "Was hören wir als Nächstes?" }
+  ]
+}
