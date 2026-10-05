@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 04.10.2026 08:27. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 05.10.2026 11:28. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -94,33 +94,27 @@ Status: **test**
 
 ---
 
-## Di 06.10. 18:30 · karussell · `2026-10-06_1830_wir-sind-zurueck`
+## Do 01.01. 00:07 · karussell · `2026-01-01_0007_test-radar`
 
-Status: **geplant**
+Status: **test**
 
-> Neuer Look, neue Posts, altes Feuer. 🛡️⚡
-> 
-> Falls wir uns noch nicht kennen: EnergyShield ist ein Drum & Bass-Kollektiv aus der Region – Veranstalter, Label, Crew und Community in einem. Liquid, Deep, Neurofunk, Jump-Up, alles unter einem Dach.
-> 
-> Ab jetzt jeden Sonntag um 18 Uhr ein Mix aus der Crew: die Shield Sessions. Und 2027 haben wir richtig was vor.
-> 
-> Folgt uns, wenn ihr dabei sein wollt.
-> 
-> #drumandbass #dnb #dnbfamily #kirchheimteck #stuttgartdnb #neurofunk #liquiddnb
+⚠️ Fehler: Rendern: Shield Radar, Slide 'radar-meldung': Radar: Etikett 01 findet keinen freien Platz | Radar: Punkte überlappen
 
-<img src="queue/2026-10-06_1830_wir-sind-zurueck/media/1.jpg" width="240"> <img src="queue/2026-10-06_1830_wir-sind-zurueck/media/2.jpg" width="240"> <img src="queue/2026-10-06_1830_wir-sind-zurueck/media/3.jpg" width="240">
+> Test Shield Radar (nur Rendern)
 
-[post.json bearbeiten](queue/2026-10-06_1830_wir-sind-zurueck/post.json)
+<img src="queue/2026-01-01_0007_test-radar/media/1.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-01-01_0007_test-radar/post.json)
 
 ---
 
-## Mi 07.10. 19:00 · story · `2026-10-07_1900_story-vol01-nachhoeren`
+## Do 01.01. 00:08 · story · `2026-01-01_0008_test-radar-story`
 
-Status: **geplant**
+Status: **test**
 
-<img src="queue/2026-10-07_1900_story-vol01-nachhoeren/media/1.jpg" width="240">
+<img src="queue/2026-01-01_0008_test-radar-story/media/1.jpg" width="240">
 
-[post.json bearbeiten](queue/2026-10-07_1900_story-vol01-nachhoeren/post.json)
+[post.json bearbeiten](queue/2026-01-01_0008_test-radar-story/post.json)
 
 ---
 
