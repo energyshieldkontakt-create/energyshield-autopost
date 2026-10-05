@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 05.10.2026 11:28. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 05.10.2026 11:37. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -98,11 +98,9 @@ Status: **test**
 
 Status: **test**
 
-⚠️ Fehler: Rendern: Shield Radar, Slide 'radar-meldung': Radar: Etikett 01 findet keinen freien Platz | Radar: Punkte überlappen
-
 > Test Shield Radar (nur Rendern)
 
-<img src="queue/2026-01-01_0007_test-radar/media/1.jpg" width="240">
+<img src="queue/2026-01-01_0007_test-radar/media/1.jpg" width="240"> <img src="queue/2026-01-01_0007_test-radar/media/2.jpg" width="240"> <img src="queue/2026-01-01_0007_test-radar/media/3.jpg" width="240"> <img src="queue/2026-01-01_0007_test-radar/media/4.jpg" width="240"> <img src="queue/2026-01-01_0007_test-radar/media/5.jpg" width="240"> <img src="queue/2026-01-01_0007_test-radar/media/6.jpg" width="240"> <img src="queue/2026-01-01_0007_test-radar/media/7.jpg" width="240"> <img src="queue/2026-01-01_0007_test-radar/media/8.jpg" width="240">
 
 [post.json bearbeiten](queue/2026-01-01_0007_test-radar/post.json)
 
