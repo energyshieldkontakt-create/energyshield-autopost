@@ -70,6 +70,37 @@ Leere Felder werden einfach weggelassen. Frame und Logo kommen automatisch.
 - `hoerproben`: **Normalfall:** `{ "im_mix": "3:05", "dauer": 30 }` plus auf Post-Ebene `"mix_drive_id": "<Drive-ID des Mixes>"` – GitHub lädt den Mix aus der (per Link freigegebenen) Drive und schneidet ab `im_mix`. Alternativ `audio` (Datei im Post-Ordner, optional `start` in Sekunden); `im_mix` ist dann nur die Anzeige. `dauer` 30, höchstens 59. Design: Hot-Cue-Pad A/B/C, CDJ-Wellenform, BPM aus `"bpm"` im Cover-Slide, Stil-Tag. Werden zu Video-Slides nach den Bild-Slides (3.mp4, 4.mp4, 5.mp4). `"__testbild__"`-artig gibt es `"__testton__"` nur für Tests.
 - Alle Slides eines Shield-Sessions-Karussells sind quadratisch: nur `cover` und `quadrat` verwenden.
 
+## Shield Radar (Szene-News, alle 2 Wochen Do 18:30)
+
+Spec und Regeln: `Automatisierung/shield-radar.md` (nur Fakten mit Quelle, keine fremden Bilder, keine Emojis auf den Slides). Karussell 1080×1350 aus `radar-*`-Vorlagen; das Radar auf dem Cover, Seitenzahlen und das Mini-Radar entstehen automatisch aus den Meldungen.
+
+```json
+{
+  "typ": "karussell",
+  "slides": [
+    { "vorlage": "radar-cover", "ausgabe": 2, "datum": "29.10.2026" },
+    { "vorlage": "radar-meldung", "ring": "welt", "kategorie": "Release", "ort": "London",
+      "titel": "Schlagzeile", "anriss": "Kurzfassung für Cover und Story", "text": "2–3 Sätze.",
+      "wichtig": "Ein Satz Einordnung.", "quelle": "Quelle, Datum" },
+    { "vorlage": "radar-kurz", "punkte": [ { "ring": "lokal", "text": "Ein Satz.", "quelle": "Quelle" } ] },
+    { "vorlage": "radar-wissen", "begriff": "Jungle", "titel": "Was ist Jungle?", "text": "2–4 Sätze.", "quelle": "Quelle" },
+    { "vorlage": "radar-ende", "frage": "Frage an die Community?", "naechste": "12.11." }
+  ]
+}
+```
+
+| Vorlage | Pflicht | Optional |
+|---|---|---|
+| `radar-cover` (immer Slide 1) | `ausgabe` (Zahl), `datum` | – |
+| `radar-meldung` (2–4 Stück, wichtigste zuerst) | `ring` (`lokal`, `de`, `welt`), `titel`, `text`, `quelle` | `kategorie`, `ort`, `anriss`, `wichtig` |
+| `radar-kurz` | `punkte` (2–3, je `ring`, `text`, `quelle`) | – |
+| `radar-wissen` | `begriff` (ein Wort, wird riesig gesetzt), `text` | `titel`, `quelle` |
+| `radar-ende` (immer letzte Slide) | `frage` | `naechste` (Datum der nächsten Ausgabe) |
+| `radar-story` (eigener Post, `typ: story`) | `ausgabe`, `datum`, `meldungen` (je `ring`, `titel`) | – |
+
+- Zu langer Text wird erst verkleinert (Fließtext nie unter 32 px); passt er dann immer noch nicht, bricht das Rendern mit „Zu viel Text für die Slide“ ab (steht als `letzter_fehler` in der post.json). Fehlt eine `quelle`, ebenfalls.
+- Vor dem Push lokal testen: `post.json` nach `tests/radar/faelle/ausgabeNN.json` kopieren, dann `powershell -File tests\radar\radar-test.ps1 -Fall ausgabeNN -Bild` (Bilder in `tests/radar/out/`).
+
 ## Reel (Video)
 
 ```json

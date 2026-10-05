@@ -97,7 +97,7 @@ body { position: relative; background: var(--nacht); color: var(--weiss); font-f
   font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: calc(74px * var(--hs)); line-height: 1.1;
   letter-spacing: -.012em; color: var(--weiss); text-wrap: balance; hyphens: manual;
 }
-.text { font-weight: 500; font-size: calc(36px * var(--ts)); line-height: 1.45; color: var(--text); overflow-wrap: break-word; hyphens: auto; }
+.text { font-weight: 500; font-size: calc(36px * var(--ts)); line-height: 1.45; color: var(--text); overflow-wrap: break-word; hyphens: manual; }
 
 /* ---------- Radar ---------- */
 .radar-box { position: relative; flex: 1 1 auto; min-height: 0; align-self: stretch; }
@@ -123,7 +123,7 @@ body { position: relative; background: var(--nacht); color: var(--weiss); font-f
 .anrisse li:first-child { border-top: 0; padding-top: 0; }
 .anrisse .nrtag { height: 42px; min-width: 60px; font-size: 22px; padding: 0 10px; flex-shrink: 0; }
 .anrisse .punkt { width: 26px; height: 26px; flex-shrink: 0; overflow: visible; }
-.anrisse .anriss { font-weight: 700; font-size: calc(30px * var(--ts)); line-height: 1.25; color: var(--weiss); }
+.anrisse .anriss { font-weight: 700; font-size: calc(30px * var(--ts)); line-height: 1.25; color: var(--weiss); text-wrap: balance; }
 
 /* ---------- Meldung ---------- */
 .meldung { --gx: 82%; --gy: 22%; }
@@ -150,7 +150,7 @@ body { position: relative; background: var(--nacht); color: var(--weiss); font-f
 .k-liste li { display: grid; grid-template-columns: 250px 1fr; gap: 26px; padding: 36px 0; border-top: 1px solid var(--linie); }
 .k-liste li:last-child { border-bottom: 1px solid var(--linie); }
 .k-ring { padding-top: 2px; }
-.k-text { font-weight: 600; font-size: calc(34px * var(--ts)); line-height: 1.38; color: var(--weiss); overflow-wrap: break-word; hyphens: auto; }
+.k-text { font-weight: 600; font-size: calc(34px * var(--ts)); line-height: 1.38; color: var(--weiss); overflow-wrap: break-word; hyphens: manual; }
 .k-quelle { font-weight: 500; font-size: 22px; color: var(--fein); margin-top: 10px; }
 
 /* ---------- Szene-Wissen ---------- */
