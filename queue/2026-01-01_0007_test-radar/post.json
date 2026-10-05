@@ -1,0 +1,86 @@
+{
+    "publish_at":  "2026-01-01T00:07:00+01:00",
+    "erstellt_am":  "2026-10-05T12:00:00+02:00",
+    "typ":  "karussell",
+    "status":  "test",
+    "caption":  "Test Shield Radar (nur Rendern)",
+    "slides":  [
+                   {
+                       "vorlage":  "radar-cover",
+                       "ausgabe":  1,
+                       "datum":  "15.10.2026"
+                   },
+                   {
+                       "vorlage":  "radar-meldung",
+                       "ring":  "lokal",
+                       "kategorie":  "Club",
+                       "ort":  "Kirchheim unter Teck",
+                       "titel":  "Bad Coffee startet in die neue Saison",
+                       "anriss":  "Bad Coffee startet in die Saison",
+                       "text":  "Die Bass-Reihe im Club Bastion läuft seit 2018 und geht am 2. Oktober in die nächste Runde. Eintritt an der Abendkasse, ab 18 Jahren.",
+                       "wichtig":  "Eine der wenigen festen Bass-Reihen in der Region, gemacht von Leuten aus der Szene.",
+                       "quelle":  "Club Bastion, Instagram"
+                   },
+                   {
+                       "vorlage":  "radar-meldung",
+                       "ring":  "de",
+                       "kategorie":  "Festival",
+                       "ort":  "Berlin",
+                       "titel":  "Festival kündigt erste Acts für 2027 an",
+                       "text":  "Das Festival hat die ersten zwölf Namen für den Sommer 2027 bekanntgegeben. Der Vorverkauf startet im November.",
+                       "wichtig":  "Frühe Line-ups zeigen, welche Sounds im nächsten Jahr die großen Bühnen bespielen.",
+                       "quelle":  "Veranstalter, Pressemitteilung"
+                   },
+                   {
+                       "vorlage":  "radar-meldung",
+                       "ring":  "welt",
+                       "kategorie":  "Release",
+                       "ort":  "London",
+                       "titel":  "Label feiert 30 Jahre mit Compilation",
+                       "text":  "Zum Jubiläum erscheint eine Compilation mit neuen Tracks von Künstlerinnen und Künstlern aus drei Generationen.",
+                       "wichtig":  "Kaum ein Label hat Drum and Bass so lange geprägt.",
+                       "quelle":  "Label, Newsletter"
+                   },
+                   {
+                       "vorlage":  "radar-meldung",
+                       "ring":  "de",
+                       "kategorie":  "Tech \u0026 Studio",
+                       "ort":  "Köln",
+                       "titel":  "„Bass \u0026 Drums“ \u003c/script\u003e\u003cb\u003efett?\u003c/b\u003e 🔊",
+                       "text":  "Anführungszeichen \"doppelt\" und \u0027einfach\u0027, Und-Zeichen \u0026amp; \u0026 echtes \u0026, spitze Klammern \u003ci\u003ekursiv?\u003c/i\u003e\nZweite Zeile nach Umbruch. Umlaute: ÄÖÜ äöü ß.",
+                       "wichtig":  "Alles muss als Text erscheinen, nichts als HTML.",
+                       "quelle":  "Quelle \u003cscript\u003ealert(1)\u003c/script\u003e"
+                   },
+                   {
+                       "vorlage":  "radar-kurz",
+                       "punkte":  [
+                                      {
+                                          "ring":  "welt",
+                                          "text":  "Ein großes Festival in Belgien verkauft die Tickets für 2027 ab sofort.",
+                                          "quelle":  "Veranstalter"
+                                      },
+                                      {
+                                          "ring":  "de",
+                                          "text":  "Ein Radiosender startet eine wöchentliche DnB-Show am Freitagabend.",
+                                          "quelle":  "Sender"
+                                      },
+                                      {
+                                          "ring":  "lokal",
+                                          "text":  "Code Red FM sendet weiter jeden Dienstag auf 99,2.",
+                                          "quelle":  "Freies Radio Stuttgart"
+                                      }
+                                  ]
+                   },
+                   {
+                       "vorlage":  "radar-wissen",
+                       "begriff":  "Jump-Up",
+                       "titel":  "Was ist Jump-Up?",
+                       "text":  "Jump-Up ist die energiegeladene, verspielte Seite von Drum and Bass: wobbelnde Basslines, klare Drops und viel Bewegung auf der Tanzfläche. Entstanden ist der Stil Ende der 90er in England."
+                   },
+                   {
+                       "vorlage":  "radar-ende",
+                       "frage":  "Was war euer Szene-Moment der letzten zwei Wochen?",
+                       "naechste":  "29.10."
+                   }
+               ]
+}

@@ -1,0 +1,27 @@
+{
+    "publish_at":  "2026-01-01T00:08:00+01:00",
+    "erstellt_am":  "2026-10-05T12:00:00+02:00",
+    "typ":  "story",
+    "status":  "test",
+    "slides":  [
+                   {
+                       "vorlage":  "radar-story",
+                       "ausgabe":  1,
+                       "datum":  "15.10.2026",
+                       "meldungen":  [
+                                         {
+                                             "ring":  "lokal",
+                                             "titel":  "Bad Coffee startet in die Saison"
+                                         },
+                                         {
+                                             "ring":  "de",
+                                             "titel":  "Festival kündigt erste Acts für 2027 an"
+                                         },
+                                         {
+                                             "ring":  "welt",
+                                             "titel":  "Label feiert 30 Jahre mit Compilation"
+                                         }
+                                     ]
+                   }
+               ]
+}

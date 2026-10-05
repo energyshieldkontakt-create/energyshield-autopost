@@ -5,6 +5,7 @@ Läuft in GitHub Actions. Rendert nur Posts, deren Inhalt sich seit dem letzten
 Rendern geändert hat, und schreibt danach VORSCHAU.md neu.
 """
 import html
+import json
 import os
 import shutil
 import subprocess
@@ -29,6 +30,13 @@ FORMATE = {
     "overlay": (1080, 1920, "overlay transparent"),
     "cover": (1080, 1080, "cover"),  # Shield-Sessions-Cover, eigene Vorlage cover.html
     "quadrat": (1080, 1080, "feed quadrat"),  # quadratische Slide, z. B. DJ-Vorstellung im Shield-Sessions-Karussell
+    # Shield Radar (Szene-News): eigene Vorlage templates/radar/, Layout und Radar baut radar.js
+    "radar-cover": (1080, 1350, "radar"),
+    "radar-meldung": (1080, 1350, "radar"),
+    "radar-kurz": (1080, 1350, "radar"),
+    "radar-wissen": (1080, 1350, "radar"),
+    "radar-ende": (1080, 1350, "radar"),
+    "radar-story": (1080, 1920, "radar"),
 }
 # Farben aus den bisherigen Flyern: Cyan-Neon (Standard), Mint (Talent Night), Violett; dazu Orange und Pink
 AKZENTE = {"blau": "#2EE6F5", "liquid": "#6FF5C2", "neuro": "#9D7BFF", "jumpup": "#FF9A3C", "halftime": "#FF4FA3"}
@@ -103,6 +111,8 @@ def baue_html(ordner, slide):
     w, h, klasse = FORMATE[vorlage]
     if vorlage == "cover":
         return baue_cover(ordner, slide, w, h)
+    if klasse == "radar":
+        return baue_radar(ordner, slide, w, h)
     transparent = "transparent" in klasse
     bild = slide.get("bild")
     if bild and not (ordner / bild).exists():
@@ -176,6 +186,25 @@ def baue_cover(ordner, slide, w, h):
     return inhalt, w, h, False
 
 
+def baue_radar(ordner, slide, w, h):
+    """Shield Radar: übergibt Seite und alle Slides des Posts als JSON, radar.js baut die Slide."""
+    radar = slide.get("_radar") or {"seite": 1, "slides": [slide]}
+    logo_datei = BRAND / "logo.png"
+    daten = {"seite": radar["seite"], "logo": relativ(logo_datei, ordner) if logo_datei.exists() else "",
+             "post": {"slides": radar["slides"]}}
+    werte = {
+        "css": relativ(TEMPLATES / "radar" / "radar.css", ordner),
+        "js": relativ(TEMPLATES / "radar" / "radar.js", ordner),
+        "w": str(w),
+        "h": str(h),
+        "daten": json.dumps(daten, ensure_ascii=False).replace("</", "<\\/"),  # zuletzt, sicher im <script>
+    }
+    inhalt = (TEMPLATES / "radar" / "radar.html").read_text(encoding="utf-8")
+    for schluessel, wert in werte.items():
+        inhalt = inhalt.replace("{{" + schluessel + "}}", wert)
+    return inhalt, w, h, False
+
+
 def render_bild(page, ordner, slide, ziel):
     inhalt, w, h, transparent = baue_html(ordner, slide)
     tmp = ordner / "_render.html"
@@ -184,6 +213,10 @@ def render_bild(page, ordner, slide, ziel):
     try:
         page.set_viewport_size({"width": w, "height": h})
         page.goto(tmp.as_uri(), wait_until="networkidle")
+        if FORMATE.get(slide.get("vorlage"), (0, 0, ""))[2] == "radar":
+            fehler = page.evaluate("window.radarFertig")  # wartet auf Schriften, Auto-Fit und Radar
+            if fehler:
+                raise ValueError(f"Shield Radar, Slide '{slide.get('vorlage')}': {fehler}")
         page.evaluate(FIT_JS)
         page.screenshot(path=str(png), omit_background=transparent)
     finally:
@@ -419,6 +452,8 @@ def rendere_post(page, page_hd, ordner, daten):
     for i, slide in enumerate(slides, 1):
         if sessions and slide.get("vorlage") != "cover":  # Shield Sessions: Folgeslides in der Cover-Schrift
             slide = {**slide, "_sessions": True}
+        if str(slide.get("vorlage", "")).startswith("radar-"):  # Shield Radar: Cover-Radar braucht alle Meldungen
+            slide = {**slide, "_radar": {"seite": i, "slides": slides}}
         render_bild(page, ordner, slide, media / f"{i}.jpg")
         if slide.get("vorlage") == "cover":  # große Fassung für SoundCloud (ohne Ziffer, wird nicht gepostet)
             render_bild(page_hd, ordner, slide, media / "soundcloud.jpg")
