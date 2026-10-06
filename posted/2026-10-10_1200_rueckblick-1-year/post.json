@@ -1,0 +1,42 @@
+{
+  "publish_at": "2026-10-10T12:00:00+02:00",
+  "erstellt_am": "2026-10-04T07:23:56+02:00",
+  "typ": "karussell",
+  "status": "bei_buffer",
+  "caption": "Ein Jahr EnergyShield. Eine Nacht, die wir nicht vergessen. 🛡️\n\nAm 11. April haben wir unseren ersten Geburtstag gefeiert – Drum and Bass all night long, mit euch.\n\nDanke an alle, die dabei waren. Das nächste Kapitel schreiben wir 2027 – mehr verraten wir bald.\n\nWer war dabei? Markiert euch. 👇\n\n#drumandbass #dnb #dnbfamily #kirchheimteck #stuttgartdnb #dnbgermany #jungle",
+  "slides": [
+    {
+      "vorlage": "feed",
+      "bild": "einjahr.jpg",
+      "kicker": "11.04.2026 · Rückblick",
+      "titel": "1 Year\nEnergyShield",
+      "akzent": "blau"
+    },
+    {
+      "vorlage": "feed",
+      "bild": "allnight.jpg",
+      "kicker": "Drum and Bass",
+      "titel": "All night\nlong.",
+      "akzent": "neuro"
+    },
+    {
+      "vorlage": "feed",
+      "bild": "danke.jpg",
+      "kicker": "An alle, die da waren",
+      "titel": "Danke.",
+      "akzent": "halftime"
+    },
+    {
+      "vorlage": "feed",
+      "kicker": "Bald mehr",
+      "titel": "2027 wird\ngroß.",
+      "text": "Folgt uns, damit ihr's zuerst erfahrt.",
+      "fuss": "Folgt @energy.shield.rave",
+      "akzent": "neuro"
+    }
+  ],
+  "ergebnis": {
+    "buffer_id": "6ac4cc2df3da78683bb73f5d",
+    "uebergeben_am": "2026-10-06T10:23:41.262954+00:00"
+  }
+}
