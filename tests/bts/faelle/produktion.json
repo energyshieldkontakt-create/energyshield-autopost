@@ -1,0 +1,11 @@
+{
+  "typ": "karussell",
+  "status": "test",
+  "slides": [
+    { "vorlage": "bts-cover", "resident": "KruXer", "folge": 1, "bild": "hoch.jpg", "fokus": "66% 30%",
+      "stile": ["Liquid", "Dancefloor"], "seit": "2018" },
+    { "vorlage": "bts-tracks", "tracks": ["Rockwell – Comfy (En:vy Remix)", "Latte – Everybody Skank", "Bcee & Degs – Magic Words (Levela Remix)"] },
+    { "vorlage": "bts-produktion", "titel": "Testtitel (Original Mix)" },
+    { "vorlage": "bts-bastion", "set": "Old and New School Jungle and Jump-Up." }
+  ]
+}

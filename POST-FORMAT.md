@@ -131,10 +131,12 @@ Spec und Ablauf: `../Automatisierung/behind-the-shield.md` (Inhalte nur aus dem 
 | `bts-sound` | `worte` (genau 3), `fuer_neue`, `erklaert` | – |
 | `bts-anfang` | `zitat`, `moment` | – |
 | `bts-tracks` | `tracks` (genau 3, „Künstler – Titel“; ohne Trennstrich nur Titel) | – |
+| `bts-produktion` (optional, nach `bts-tracks`) | `titel` (Tracktitel) | `kuenstler` (Standard: Name des Residents) |
 | `bts-abseits` (ganze Slide optional) | `funfact` oder `abseits` | `bild` (Pult-Foto), `fokus` (Standard `"50% 50%"`) |
 | `bts-bastion` (immer letzte Slide) | `set` | `an_neue` |
 
 - Das Cover-Foto wird in der Resident-Farbe eingefärbt, die Fotos auf Steckbrief und Abseits bleiben natürlich. Sitzt das Gesicht schlecht im Schild: `fokus` anpassen.
+- `bts-produktion` (seit 7.10.2026): Video-Slide für einen eigenen Track. Die Grafik hat einen leeren 16:9-Rahmen (936 × 527), in den später das Visualizer-Video aus TouchDesigner (1280 × 720, 30 s) samt Ton eingesetzt wird. **Noch nicht in render.py eingetragen:** Bis der Video-Einbau gebaut ist, lehnt GitHub diese Slide ab, damit sie nicht ohne Video gepostet wird. Lokal ist sie testbar.
 - **Ordnername:** `queue/<JJJJ-MM-TT>_<HHMM>_behind-the-shield-<resident>/` (z. B. `2026-10-20_1830_behind-the-shield-stoned`). Die Samstags-Aufgabe erkennt die Folgen an diesem Namen.
 - Testen direkt aus dem Entwurfsordner (kopiert nur nach `tests/bts/out/`, nichts Versioniertes): `powershell -NoProfile -ExecutionPolicy Bypass -File tests\bts\bts-test.ps1 -Post ..\Content\Behind-the-Shield\<Resident> -Bild`. Die Bilder in `tests/bts/out/` ansehen und Oliver als Vorschau zeigen.
 - Fehlermeldungen und Abhilfe:

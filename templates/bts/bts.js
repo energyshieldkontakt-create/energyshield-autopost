@@ -333,6 +333,28 @@
     return null;
   }
 
+  // Eigene Produktion: leerer 16:9-Rahmen (936 × 527), in den später das Visualizer-Video (1280 × 720) eingesetzt wird.
+  // Noch nicht in render.py eingetragen: Ohne Video-Einbau soll diese Slide nicht gepostet werden.
+  function produktion() {
+    pflicht(S, ['titel']);
+    const inhalt = rahmen('produktion');
+    inhalt.appendChild(el('span', 'tag orb', 'Eigene Produktion'));
+    inhalt.appendChild(el('div', 'titel', S.titel));
+    inhalt.appendChild(el('div', 'von', 'von ' + (S.kuenstler || R.name)));
+    const video = el('div', 'video');
+    for (const e of ['e1', 'e2', 'e3', 'e4']) video.appendChild(el('span', 'ecke ' + e));
+    const platz = el('div', 'platzhalter');
+    platz.appendChild(el('b', '', 'VISUALIZER'));
+    platz.appendChild(el('span', '', '1280 × 720 · 16:9'));
+    video.appendChild(platz);
+    inhalt.appendChild(video);
+    const ton = el('div', 'ton');
+    ton.appendChild(el('span', 'tag voll orb', 'Ton an'));
+    ton.appendChild(el('span', '', '30 Sekunden aus dem Track'));
+    inhalt.appendChild(ton);
+    return null;
+  }
+
   function abseits() {
     if (!S.funfact && !S.abseits) fehler.push('bts-abseits: "funfact" oder "abseits" fehlt');
     const inhalt = rahmen('abseits' + (S.bild ? '' : ' ohne-bild'));
@@ -402,7 +424,7 @@
     if (inhalt) {
       const box = inhalt.getBoundingClientRect();
       for (const e of inhalt.querySelectorAll('*')) {
-        if (e.closest('svg')) continue;
+        if (e.closest('svg') || e.classList.contains('ecke')) continue;   // Deko (HUD-Ecken) darf überstehen
         const r = e.getBoundingClientRect();
         if (r.width && (r.right > box.right + 1 || r.left < box.left - 1)) {
           fehler.push(`Text läuft seitlich über den Rand (${e.className || e.tagName})`);
@@ -413,7 +435,7 @@
   }
 
   const BAUER = { 'bts-cover': coverSlide, 'bts-steckbrief': steckbrief, 'bts-sound': sound, 'bts-anfang': anfang,
-                  'bts-tracks': tracks, 'bts-abseits': abseits, 'bts-bastion': bastion };
+                  'bts-tracks': tracks, 'bts-produktion': produktion, 'bts-abseits': abseits, 'bts-bastion': bastion };
   async function los() {
     try {
       vorbereiten();
