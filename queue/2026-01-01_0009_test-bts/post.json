@@ -2,7 +2,7 @@
   "typ": "karussell",
   "publish_at": "2026-01-01T00:09:00+01:00",
   "erstellt_am": "2026-10-07T09:00:00+02:00",
-  "status": "freigabe",
+  "status": "test",
   "slides": [
     { "vorlage": "bts-cover", "resident": "kruxer", "folge": 1, "bild": "hoch.jpg", "fokus": "66% 22%",
       "stile": ["Deep & Dark", "Liquid"], "seit": "2019" },
