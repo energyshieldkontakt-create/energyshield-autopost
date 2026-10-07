@@ -1,0 +1,8 @@
+{
+  "typ": "karussell",
+  "status": "test",
+  "slides": [
+    { "vorlage": "bts-cover", "resident": "Ranj", "folge": 4, "bild": "hoch.jpg", "fokus": "50% 18%", "stile": ["Jump-Up"], "seit": "2021" },
+    { "vorlage": "bts-bastion", "set": "Springen ist Pflicht." }
+  ]
+}

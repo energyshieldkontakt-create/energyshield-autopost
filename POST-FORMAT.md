@@ -135,7 +135,8 @@ Spec und Ablauf: `../Automatisierung/behind-the-shield.md` (Inhalte nur aus dem 
 | `bts-bastion` (immer letzte Slide) | `set` | `an_neue` |
 
 - Das Cover-Foto wird in der Resident-Farbe eingefärbt, die Fotos auf Steckbrief und Abseits bleiben natürlich. Sitzt das Gesicht schlecht im Schild: `fokus` anpassen.
-- Vor dem Push lokal testen: `post.json` nach `tests/bts/faelle/<name>.json` und die Fotos nach `tests/bts/fotos/` kopieren, dann `powershell -NoProfile -ExecutionPolicy Bypass -File tests\bts\bts-test.ps1 -Fall <name> -Bild` (Bilder in `tests/bts/out/`). Testkopien danach wieder löschen.
+- **Ordnername:** `queue/<JJJJ-MM-TT>_<HHMM>_behind-the-shield-<resident>/` (z. B. `2026-10-20_1830_behind-the-shield-stoned`). Die Samstags-Aufgabe erkennt die Folgen an diesem Namen.
+- Vor dem Push lokal testen, direkt aus dem Ordner der Folge (kopiert nur nach `tests/bts/out/`, nichts Versioniertes): `powershell -NoProfile -ExecutionPolicy Bypass -File tests\bts\bts-test.ps1 -Post <ordner> -Bild`. Die Bilder in `tests/bts/out/` ansehen und Oliver zeigen.
 - Fehlermeldungen und Abhilfe:
   - „Zu viel Text für die Slide“, „Text läuft seitlich über den Rand“: Antwort kürzen, Sinn und Wortlaut des Residents möglichst behalten.
   - „Ein Wort ist zu lang für die Slide“: auf Slide 3 ein kürzeres Wort wählen (mit dem Resident absprechen).

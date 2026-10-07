@@ -2,7 +2,7 @@
   "typ": "karussell",
   "status": "test",
   "slides": [
-    { "vorlage": "bts-cover", "resident": "Jhinx", "folge": 3, "bild": "quer.jpg", "fokus": "90% 15%",
+    { "vorlage": "bts-cover", "resident": "Jhinx", "folge": 3, "bild": "quer.jpg", "fokus": "63% 44%",
       "stile": ["Neurofunk"], "seit": "2020" },
     { "vorlage": "bts-steckbrief", "rolle": "Resident", "name_herkunft": "Kurz für einen Charakter aus einem Spiel." },
     { "vorlage": "bts-sound", "worte": ["Präzise", "Kalt", "Laut"],

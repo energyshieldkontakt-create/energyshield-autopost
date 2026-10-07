@@ -94,11 +94,13 @@
     if (!m) { fehler.push('"fokus" muss so aussehen: "50% 30%"'); return fokus(standard, standard); }
     return [klemme(m[1] / 100, 0, 1), klemme(m[2] / 100, 0, 1)];
   }
-  // Füllt die Fläche bw x bh immer ganz; zoomt (höchstens 1,6-fach) so weit, dass das Gesicht (fx, fy) mittig bzw. auf zielY sitzen kann
+  // Füllt die Fläche bw x bh immer ganz; zoomt (höchstens 1,6-fach) so weit, dass das Gesicht (fx, fy) waagerecht mittig
+  // und senkrecht auf zielY sitzen kann
   function platziereFoto(nw, nh, bw, bh, fx, fy, zielY) {
     const s = Math.max(bw / nw, bh / nh);
     const wMin = bw / (2 * Math.max(Math.min(fx, 1 - fx), 1e-3));
-    const zoom = klemme(wMin / (nw * s), 1, 1.6);
+    const hMin = Math.max(zielY / Math.max(fy, 1e-3), (bh - zielY) / Math.max(1 - fy, 1e-3));
+    const zoom = klemme(Math.max(wMin / (nw * s), hMin / (nh * s)), 1, 1.6);
     const w = nw * s * zoom, h = nh * s * zoom;
     return { w, h, x: klemme(bw / 2 - fx * w, bw - w, 0), y: klemme(zielY - fy * h, bh - h, 0) };
   }
@@ -109,10 +111,12 @@
     Object.assign(e.style, { width: p.w + 'px', height: p.h + 'px', left: p.x + 'px', top: p.y + 'px' });
   }
 
-  // Duotone in der Resident-Farbe: Nacht → Akzent → Weiß
+  // Duotone in der Resident-Farbe: Nacht → Akzent → Weiß, Mitten gedämpft wie im freigegebenen Muster 1B
+  // (Stufen: Nacht, 15 % Akzent, 68 % Akzent, Akzent/Weiß 25/75, Weiß; geprüft mit tests/bts/helligkeit.ps1)
   function duotone(id) {
     const a = R.akzent.match(/\w\w/g).map(h => parseInt(h, 16));
-    const tab = k => [NACHT[k], NACHT[k] * .8 + a[k] * .2, a[k], a[k] * .25 + 255 * .75, 255].map(v => (v / 255).toFixed(3)).join(' ');
+    const ueberNacht = (k, anteil) => NACHT[k] * (1 - anteil) + a[k] * anteil;
+    const tab = k => [NACHT[k], ueberNacht(k, .15), ueberNacht(k, .68), a[k] * .25 + 255 * .75, 255].map(v => (v / 255).toFixed(3)).join(' ');
     const s = svg('', '0 0 0 0',
       `<filter id="${id}" color-interpolation-filters="sRGB">` +
       '<feColorMatrix type="matrix" values=".3 .59 .11 0 0  .3 .59 .11 0 0  .3 .59 .11 0 0  0 0 0 1 0"/>' +
@@ -199,6 +203,11 @@
       setzePosition(img, p);
       b.insertBefore(img, maske);
       pruefeFuellung(p, 1080, 1350);
+      // Gesicht muss im oberen Teil des Schilds landen (innerer Rahmen: 10 % Rand seitlich und oben, bis 70 % der Schildhöhe)
+      const H = SCHILD.b * 520 / 440, gx = p.x + fx * p.w, gy = p.y + fy * p.h;
+      if (gx < SCHILD.x + .1 * SCHILD.b || gx > SCHILD.x + .9 * SCHILD.b || gy < SCHILD.y + .1 * H || gy > SCHILD.y + .7 * H) {
+        fehler.push('Gesicht liegt nicht im Schild: "fokus" prüfen oder ein anderes Foto nehmen');
+      }
     };
   }
 
@@ -259,7 +268,8 @@
     inhalt.appendChild(el('span', 'tag orb', 'So klingt ' + R.name));
     const w = el('div', 'worte');
     worte.slice(0, 3).forEach((x, i) => {
-      const e = el('div', 'wort w' + (i + 1), String(x).trim().replace(/\.$/, '') + '.');
+      const wort = String(x).trim();   // eigenes Satzzeichen („Laut!“) bleibt, sonst kommt ein Punkt dazu
+      const e = el('div', 'wort w' + (i + 1), /[.!?…]$/.test(wort) ? wort : wort + '.');
       e.dataset.fit = '';
       w.appendChild(e);
     });
@@ -361,7 +371,7 @@
     inhalt.appendChild(mitte);
     inhalt.appendChild(el('span', 'tag voll orb plaetze', 'Nur 120 Plätze'));
     const g = el('div', 'infos');
-    for (const [label, wert, zahl] of [['Samstag', '30.01.', true], ['Wo', 'Club Bastion\nKirchheim'], ['Eintritt', 'Abendkasse\nab 18']]) {
+    for (const [label, wert, zahl] of [['Samstag', '30.01.', true], ['Wo', 'Club Bastion\nKirchheim'], ['Eintritt', 'Abendkasse\nab 18 Jahren']]) {
       const c = el('div', 'zelle');
       c.appendChild(el('span', 'z-l', label));
       c.appendChild(el('span', 'z-w' + (zahl ? ' zahl' : ''), wert));
