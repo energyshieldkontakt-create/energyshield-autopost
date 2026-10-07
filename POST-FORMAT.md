@@ -24,7 +24,7 @@ Jeder Post ist ein Ordner in `queue/` mit einer `post.json` und den benötigten 
 | `publish_at` | ja | Veröffentlichungszeit **mit Zeitzone** (Sommerzeit `+02:00` bis 24.10.2026, danach Winterzeit `+01:00`) |
 | `erstellt_am` | ja | Jetzt. Der Post geht frühestens 24 h danach online (Einspruchsfrist) |
 | `typ` | ja | `bild`, `karussell`, `reel` oder `story` |
-| `status` | ja | `geplant` (wird gepostet), `stop` (Einspruch), `test` (wird nur gerendert), `freigabe` (Behind the Shield: wird gerendert, geht erst an Buffer, wenn Claude nach dem OK des Residents auf `geplant` umstellt) |
+| `status` | ja | `geplant` (wird gepostet), `stop` (Einspruch), `test` (wird nur gerendert), `freigabe` (Reserve: wird gerendert, geht nicht an Buffer, bis Claude auf `geplant` umstellt) |
 | `caption` | nein | Text unter dem Post. Nicht bei Stories (die haben keine Caption) |
 | `collaborators` | nein | Instagram-Namen ohne @. **Buffer kann keine Collab-Posts.** Der Post geht normal raus, danach lädt Volkan die Personen in Instagram als Mitwirkende ein. Deshalb jeden Collab-Post auch unter „Manuell für Volkan" notieren |
 | `slides` | bei bild/karussell/story | Liste von Grafiken (siehe unten). Karussell: 2–10 |
@@ -104,12 +104,12 @@ Spec und Regeln: `Automatisierung/shield-radar.md` (nur Fakten mit Quelle, keine
 ## Behind the Shield (Resident-Vorstellungen, im Chat gebaut)
 
 Spec und Ablauf: `../Automatisierung/behind-the-shield.md` (Inhalte nur aus dem Fragebogen, nichts erfinden, keine Emojis auf den Slides). Karussell 1080 × 1350 aus `bts-*`-Vorlagen. Akzentfarbe, Schild, Name und Handle kommen aus `resident` im Cover; Kopfleiste, Fortschritt und Fuß entstehen automatisch.
-**Status `freigabe`**: Die Folge wird gerendert, aber nicht gepostet. Erst nach dem OK des Residents auf `geplant` setzen. Collab-Einladung in `Content/KW<NN>-<JJJJ>.md` unter „Manuell für Volkan“ eintragen.
+**Vor dem OK des Residents nichts in dieses (öffentliche) Repo:** Der Entwurf entsteht in `../Content/Behind-the-Shield/<Resident>/` (post.json, Fotos, Antworten) und wird dort getestet. Erst nach dem OK kommt er nach `queue/` (ohne `antworten.md`), mit Status `geplant`, und wird gepusht. Collab-Einladung in `Content/KW<NN>-<JJJJ>.md` unter „Manuell für Volkan“ eintragen. Der Status `freigabe` (wird gerendert, geht nicht an Buffer) bleibt nur als Reserve.
 
 ```json
 {
   "typ": "karussell",
-  "status": "freigabe",
+  "status": "geplant",
   "collaborators": ["stone_d_97"],
   "slides": [
     { "vorlage": "bts-cover", "resident": "Stone D", "folge": 2, "bild": "portraet.jpg", "fokus": "55% 25%",
@@ -136,7 +136,7 @@ Spec und Ablauf: `../Automatisierung/behind-the-shield.md` (Inhalte nur aus dem 
 
 - Das Cover-Foto wird in der Resident-Farbe eingefärbt, die Fotos auf Steckbrief und Abseits bleiben natürlich. Sitzt das Gesicht schlecht im Schild: `fokus` anpassen.
 - **Ordnername:** `queue/<JJJJ-MM-TT>_<HHMM>_behind-the-shield-<resident>/` (z. B. `2026-10-20_1830_behind-the-shield-stoned`). Die Samstags-Aufgabe erkennt die Folgen an diesem Namen.
-- Vor dem Push lokal testen, direkt aus dem Ordner der Folge (kopiert nur nach `tests/bts/out/`, nichts Versioniertes): `powershell -NoProfile -ExecutionPolicy Bypass -File tests\bts\bts-test.ps1 -Post <ordner> -Bild`. Die Bilder in `tests/bts/out/` ansehen und Oliver zeigen.
+- Testen direkt aus dem Entwurfsordner (kopiert nur nach `tests/bts/out/`, nichts Versioniertes): `powershell -NoProfile -ExecutionPolicy Bypass -File tests\bts\bts-test.ps1 -Post ..\Content\Behind-the-Shield\<Resident> -Bild`. Die Bilder in `tests/bts/out/` ansehen und Oliver als Vorschau zeigen.
 - Fehlermeldungen und Abhilfe:
   - „Zu viel Text für die Slide“, „Text läuft seitlich über den Rand“: Antwort kürzen, Sinn und Wortlaut des Residents möglichst behalten.
   - „Ein Wort ist zu lang für die Slide“: auf Slide 3 ein kürzeres Wort wählen (mit dem Resident absprechen).
