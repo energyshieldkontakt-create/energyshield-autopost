@@ -1,10 +1,12 @@
 # Vorschau: geplante Posts
 
-Stand: 07.10.2026 08:58. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 07.10.2026 09:03. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
 **Einspruch:** Solange ein Post hier steht: auf `post.json` tippen → Stift-Symbol → `"status": "geplant"` in `"status": "stop"` ändern → *Commit changes*. Danach: den Post in der **Buffer-App** löschen.
+
+Status **freigabe**: Behind the Shield, wartet auf das OK des Residents und geht erst nach dem OK an Buffer.
 
 ## Do 01.01. 00:00 · karussell · `2026-01-01_0000_testgrafik`
 
@@ -119,6 +121,8 @@ Status: **test**
 ## Do 01.01. 00:09 · karussell · `2026-01-01_0009_test-bts`
 
 Status: **freigabe**
+
+<img src="queue/2026-01-01_0009_test-bts/media/1.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/2.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/3.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/4.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/5.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/6.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/7.jpg" width="240">
 
 [post.json bearbeiten](queue/2026-01-01_0009_test-bts/post.json)
 
