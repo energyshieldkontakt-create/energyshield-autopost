@@ -1,0 +1,18 @@
+{
+  "typ": "karussell",
+  "status": "test",
+  "slides": [
+    { "vorlage": "bts-cover", "resident": "Ranj", "folge": 4, "bild": "hoch.jpg", "fokus": "66% 22%",
+      "stile": ["Jump-Up", "Neurofunk"], "seit": "2021" },
+    { "vorlage": "bts-steckbrief", "vorname": "Testname", "rolle": "Resident und Promo",
+      "name_herkunft": "Mein Name, nur kürzer." },
+    { "vorlage": "bts-sound", "worte": ["Wild", "Bunt", "Hüpfend"],
+      "fuer_neue": "Musik, bei der niemand still stehen bleibt.",
+      "erklaert": "Jump-Up ist die verspielte, laute Seite von Drum and Bass: wobbelnde Bässe, eingängige Melodien, viel Energie." },
+    { "vorlage": "bts-anfang",
+      "zitat": "Auf einer Hausparty habe ich zum ersten Mal Jump-Up gehört und sofort gesucht, wer das macht.",
+      "moment": "Das Back-to-Back um drei Uhr nachts bei 1 Year EnergyShield." },
+    { "vorlage": "bts-tracks", "tracks": ["Artist Eins – Titel Eins", "Artist Zwei – Titel Zwei", "Artist Drei – Titel Drei"] },
+    { "vorlage": "bts-bastion", "set": "Springen ist Pflicht.", "an_neue": "Bring Freunde mit, es wird laut." }
+  ]
+}

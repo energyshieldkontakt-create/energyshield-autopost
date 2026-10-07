@@ -1,0 +1,22 @@
+{
+  "typ": "karussell",
+  "status": "test",
+  "slides": [
+    { "vorlage": "bts-cover", "resident": "KruXer", "folge": 1, "bild": "hoch.jpg", "fokus": "66% 22%",
+      "stile": ["Deep", "Liquid", "Neuro"], "seit": "2019" },
+    { "vorlage": "bts-steckbrief", "vorname": "Oliver", "rolle": "Gründer, Leitung und die Visuals",
+      "name_herkunft": "Aus einem alten Gamer-Namen. Das große X kam später dazu, als Zeichen für die Kreuzung aus Deep und Neuro." },
+    { "vorlage": "bts-sound", "worte": ["Tief", "Dunkel", "Treibend"],
+      "fuer_neue": "Stell dir einen schnellen Herzschlag vor, und darunter rollt eine Welle aus Bass, die du im Bauch spürst.",
+      "erklaert": "Die ruhigere, dunklere Seite von Drum and Bass: wenig Effekte, viel Raum und ein schwerer Bass." },
+    { "vorlage": "bts-anfang",
+      "zitat": "Mein erster Rave hat mich umgehauen. Danach war klar: Ich will nicht nur davor stehen, sondern dahinter. Erst ein Controller im Kinderzimmer, dann die ersten Sets für Freunde.",
+      "moment": "1 Year EnergyShield im April. Um vier Uhr morgens wollte noch keiner nach Hause." },
+    { "vorlage": "bts-tracks", "tracks": ["Amoss – Frequency of the Universe", "SpectraSoul – Organiser (Circuits Rewire)", "Alibi, Command Strange – Welcome to the Future"] },
+    { "vorlage": "bts-abseits", "bild": "hoch.jpg", "fokus": "70% 85%",
+      "funfact": "Die Visuals auf unseren Events baue ich selbst, in TouchDesigner.",
+      "abseits": "… bin ich im Tonstudio in Fellbach oder am 3D-Drucker." },
+    { "vorlage": "bts-bastion", "set": "Erst tief rein, dann hoch hinaus. Mehr wird nicht verraten.",
+      "an_neue": "Komm früh und sag Hallo. Hier kennt man sich schnell." }
+  ]
+}

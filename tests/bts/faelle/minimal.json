@@ -1,0 +1,14 @@
+{
+  "typ": "karussell",
+  "status": "test",
+  "slides": [
+    { "vorlage": "bts-cover", "resident": "Stone D", "folge": 2, "bild": "hoch.jpg", "stile": ["Halftime"], "seit": "2018" },
+    { "vorlage": "bts-steckbrief", "rolle": "Resident" },
+    { "vorlage": "bts-sound", "worte": ["Schwer", "Langsam", "Wuchtig"],
+      "fuer_neue": "Der Beat lässt sich Zeit, der Bass nicht.",
+      "erklaert": "Halftime betont nur jeden zweiten Schlag und wirkt dadurch schwerer." },
+    { "vorlage": "bts-anfang", "zitat": "Irgendwann stand ich am Pult.", "moment": "Die Talent Night." },
+    { "vorlage": "bts-tracks", "tracks": ["Artist – Titel", "Nur ein Titel ohne Künstler", "Artist – Titel"] },
+    { "vorlage": "bts-bastion", "set": "Viel Bass." }
+  ]
+}

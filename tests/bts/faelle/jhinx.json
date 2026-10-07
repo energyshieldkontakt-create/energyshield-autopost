@@ -1,0 +1,18 @@
+{
+  "typ": "karussell",
+  "status": "test",
+  "slides": [
+    { "vorlage": "bts-cover", "resident": "Jhinx", "folge": 3, "bild": "hoch.jpg", "fokus": "66% 22%",
+      "stile": ["Neurofunk"], "seit": "2020" },
+    { "vorlage": "bts-steckbrief", "vorname": "Testname", "rolle": "Resident",
+      "name_herkunft": "Kurz für einen Charakter aus einem Spiel." },
+    { "vorlage": "bts-sound", "worte": ["Präzise", "Kalt", "Laut"],
+      "fuer_neue": "Wie eine Maschine, die tanzen gelernt hat.",
+      "erklaert": "Neurofunk ist technisch und düster: verzerrte, ständig wechselnde Bässe und sehr exakte Drums." },
+    { "vorlage": "bts-anfang",
+      "zitat": "Ein Freund hat mich auf ein Festival mitgenommen. Seitdem höre ich nichts anderes mehr.",
+      "moment": "Mein erstes Set bei EnergyShield, ich war nervös wie nie." },
+    { "vorlage": "bts-tracks", "tracks": ["Artist Eins – Titel Eins", "Artist Zwei – Titel Zwei", "Artist Drei – Titel Drei"] },
+    { "vorlage": "bts-bastion", "set": "Neuro bis zum Anschlag.", "an_neue": "Ohrstöpsel mitbringen lohnt sich." }
+  ]
+}

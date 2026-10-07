@@ -1,0 +1,14 @@
+{
+  "typ": "karussell",
+  "status": "test",
+  "erwartet_fehler": [1, 2, 3, 4, 5, 6, 7],
+  "slides": [
+    { "vorlage": "bts-cover", "resident": "Nobody", "folge": 9, "bild": "hoch.jpg", "stile": ["Deep"], "seit": "2019" },
+    { "vorlage": "bts-steckbrief", "rolle": "Niemand" },
+    { "vorlage": "bts-sound", "worte": ["Nur", "Zwei"], "fuer_neue": "Satz.", "erklaert": "Satz." },
+    { "vorlage": "bts-anfang", "zitat": "Zitat.", "moment": "Moment." },
+    { "vorlage": "bts-tracks", "tracks": ["A – B", "C – D", "E – F"] },
+    { "vorlage": "bts-abseits", "funfact": "Fakt." },
+    { "vorlage": "bts-bastion", "set": "Set." }
+  ]
+}

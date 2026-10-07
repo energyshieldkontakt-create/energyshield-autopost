@@ -1,0 +1,15 @@
+{
+  "typ": "karussell",
+  "status": "test",
+  "erwartet_fehler": [4, 5],
+  "slides": [
+    { "vorlage": "bts-cover", "resident": "Ranj", "folge": 4, "bild": "hoch.jpg", "stile": ["Jump-Up"], "seit": "2021" },
+    { "vorlage": "bts-steckbrief", "rolle": "Resident" },
+    { "vorlage": "bts-sound", "worte": ["Wild", "Bunt", "Hüpfend"], "fuer_neue": "Musik zum Springen.", "erklaert": "Jump-Up ist laut und verspielt." },
+    { "vorlage": "bts-anfang",
+      "zitat": "Auf einer Hausparty habe ich zum ersten Mal Jump-Up gehört und sofort gesucht, wer das macht. Danach habe ich jeden Abend Mixe gehört, bin auf jedes Event gefahren, das ich erreichen konnte, und habe mir von meinem ersten Gehalt einen Controller gekauft. Die ersten Sets waren furchtbar, aber meine Freunde haben trotzdem getanzt. Irgendwann kam die erste Anfrage für einen echten Slot, dann die zweite, und plötzlich war ich Teil einer Crew, die genau das macht, wovon ich früher nur geträumt habe. Heute stehe ich jedes Wochenende im Studio oder am Pult und kann mir nichts anderes mehr vorstellen. Und weil das noch nicht reicht, erzähle ich hier gleich noch die ganze Geschichte von vorne: Hausparty, Mixe, Events, Controller, die ersten furchtbaren Sets, die Freunde, die trotzdem getanzt haben, die erste Anfrage, die zweite Anfrage, die Crew, das Studio, das Pult und alles, was dazwischen passiert ist, bis heute.",
+      "moment": "Das Back-to-Back um drei Uhr nachts bei 1 Year EnergyShield, als wirklich niemand mehr nach Hause gehen wollte und die Bar schon zu war." },
+    { "vorlage": "bts-tracks", "tracks": ["Artist – Ein extrem langer Tracktitel mit sehr vielen Wörtern, Remix-Angaben, Features und noch mehr Zusatzinfos (VIP Mix)", "Artist – Titel", "Artist – Titel"] },
+    { "vorlage": "bts-bastion", "set": "Springen ist Pflicht." }
+  ]
+}

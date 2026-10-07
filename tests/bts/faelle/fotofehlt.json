@@ -1,0 +1,13 @@
+{
+  "typ": "karussell",
+  "status": "test",
+  "erwartet_fehler": [1, 2],
+  "slides": [
+    { "vorlage": "bts-cover", "resident": "Jhinx", "folge": 3, "bild": "gibtsnicht.jpg", "stile": ["Neurofunk"], "seit": "2020" },
+    { "vorlage": "bts-steckbrief", "rolle": "Resident" },
+    { "vorlage": "bts-sound", "worte": ["Präzise", "Kalt", "Laut"], "fuer_neue": "Wie eine Maschine.", "erklaert": "Neurofunk ist technisch und düster." },
+    { "vorlage": "bts-anfang", "zitat": "Ein Festival hat alles verändert.", "moment": "Mein erstes Set." },
+    { "vorlage": "bts-tracks", "tracks": ["A – B", "C – D", "E – F"] },
+    { "vorlage": "bts-bastion", "set": "Neuro." }
+  ]
+}

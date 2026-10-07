@@ -3,3 +3,4 @@ _render.html
 neuer_token.txt
 *.png.tmp
 tests/radar/out/
+tests/bts/out/

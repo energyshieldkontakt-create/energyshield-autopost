@@ -1,0 +1,18 @@
+{
+  "typ": "karussell",
+  "status": "test",
+  "slides": [
+    { "vorlage": "bts-cover", "resident": "Stone D", "folge": 2, "bild": "hoch.jpg", "fokus": "66% 22%",
+      "stile": ["Halftime", "Deep"], "seit": "2018" },
+    { "vorlage": "bts-steckbrief", "vorname": "Testname", "rolle": "Resident und Technik",
+      "name_herkunft": "Ein Spitzname aus der Schulzeit, das D kam später dazu." },
+    { "vorlage": "bts-sound", "worte": ["Schwer", "Langsam", "Wuchtig"],
+      "fuer_neue": "Halbe Geschwindigkeit, doppelter Druck: Der Beat lässt sich Zeit, der Bass nicht.",
+      "erklaert": "Halftime nimmt das Tempo von Drum and Bass, betont aber nur jeden zweiten Schlag. Dadurch wirkt es langsamer und schwerer." },
+    { "vorlage": "bts-anfang",
+      "zitat": "Angefangen hat es mit den Platten meines Bruders. Irgendwann stand ich selbst am Pult und wollte nicht mehr weg.",
+      "moment": "Die Talent Night im März, als der ganze Raum beim Drop mitgegangen ist." },
+    { "vorlage": "bts-tracks", "tracks": ["Artist Eins – Titel Eins", "Artist Zwei – Ein etwas längerer Titel (VIP)", "Artist Drei – Drei"] },
+    { "vorlage": "bts-bastion", "set": "Viel Bass, wenig Gnade.", "an_neue": "Einfach reinkommen, der Rest ergibt sich." }
+  ]
+}
