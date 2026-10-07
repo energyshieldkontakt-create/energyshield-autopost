@@ -23,9 +23,18 @@
     }
   ],
   "hoerproben": [
-    { "im_mix": "2:20", "dauer": 30 },
-    { "im_mix": "12:20", "dauer": 30 },
-    { "im_mix": "18:09", "dauer": 30 }
+    {
+      "im_mix": "2:20",
+      "dauer": 30
+    },
+    {
+      "im_mix": "12:20",
+      "dauer": 30
+    },
+    {
+      "im_mix": "18:09",
+      "dauer": 30
+    }
   ],
   "tracklist": [
     "Virus Syndicate, Proxima – Back Up",
@@ -39,5 +48,51 @@
     "Amoss – All Out",
     "Enei, Killa P – Nobody Else",
     "Grey Code – Actress"
+  ],
+  "trackid": [
+    [
+      0,
+      "Virus Syndicate, Proxima – Back Up"
+    ],
+    [
+      160,
+      "Malcuth, Facutum – Shaolin"
+    ],
+    [
+      312,
+      "Ivy Lab – Thirsty"
+    ],
+    [
+      414,
+      "Albzzy – Daily Hype (feat. SK) (Patch Notes Remix)"
+    ],
+    [
+      515,
+      "13 – Uppercut"
+    ],
+    [
+      617,
+      "Kumarion – Want It (VIP)"
+    ],
+    [
+      718,
+      "Jake Robertz – It's A Jungle"
+    ],
+    [
+      820,
+      "Chase & Status, Bou – Baddadan (feat. IRAH, Flowdan, Trigga, Takura)"
+    ],
+    [
+      940,
+      "Amoss – All Out"
+    ],
+    [
+      1052,
+      "Enei, Killa P – Nobody Else"
+    ],
+    [
+      1160,
+      "Grey Code – Actress"
+    ]
   ]
 }
