@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 05.10.2026 12:37. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 07.10.2026 08:58. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -116,23 +116,11 @@ Status: **test**
 
 ---
 
-## Sa 10.10. 12:00 · karussell · `2026-10-10_1200_rueckblick-1-year`
+## Do 01.01. 00:09 · karussell · `2026-01-01_0009_test-bts`
 
-Status: **geplant**
+Status: **freigabe**
 
-> Ein Jahr EnergyShield. Eine Nacht, die wir nicht vergessen. 🛡️
-> 
-> Am 11. April haben wir unseren ersten Geburtstag gefeiert – Drum and Bass all night long, mit euch.
-> 
-> Danke an alle, die dabei waren. Das nächste Kapitel schreiben wir 2027 – mehr verraten wir bald.
-> 
-> Wer war dabei? Markiert euch. 👇
-> 
-> #drumandbass #dnb #dnbfamily #kirchheimteck #stuttgartdnb #dnbgermany #jungle
-
-<img src="queue/2026-10-10_1200_rueckblick-1-year/media/1.jpg" width="240"> <img src="queue/2026-10-10_1200_rueckblick-1-year/media/2.jpg" width="240"> <img src="queue/2026-10-10_1200_rueckblick-1-year/media/3.jpg" width="240"> <img src="queue/2026-10-10_1200_rueckblick-1-year/media/4.jpg" width="240">
-
-[post.json bearbeiten](queue/2026-10-10_1200_rueckblick-1-year/post.json)
+[post.json bearbeiten](queue/2026-01-01_0009_test-bts/post.json)
 
 ---
 
