@@ -24,7 +24,7 @@ Jeder Post ist ein Ordner in `queue/` mit einer `post.json` und den benötigten 
 | `publish_at` | ja | Veröffentlichungszeit **mit Zeitzone** (Sommerzeit `+02:00` bis 24.10.2026, danach Winterzeit `+01:00`) |
 | `erstellt_am` | ja | Jetzt. Der Post geht frühestens 24 h danach online (Einspruchsfrist) |
 | `typ` | ja | `bild`, `karussell`, `reel` oder `story` |
-| `status` | ja | `geplant` (wird gepostet), `stop` (Einspruch), `test` (wird nur gerendert) |
+| `status` | ja | `geplant` (wird gepostet), `stop` (Einspruch), `test` (wird nur gerendert), `freigabe` (Behind the Shield: wird gerendert, geht erst an Buffer, wenn Claude nach dem OK des Residents auf `geplant` umstellt) |
 | `caption` | nein | Text unter dem Post. Nicht bei Stories (die haben keine Caption) |
 | `collaborators` | nein | Instagram-Namen ohne @. **Buffer kann keine Collab-Posts.** Der Post geht normal raus, danach lädt Volkan die Personen in Instagram als Mitwirkende ein. Deshalb jeden Collab-Post auch unter „Manuell für Volkan" notieren |
 | `slides` | bei bild/karussell/story | Liste von Grafiken (siehe unten). Karussell: 2–10 |
@@ -100,6 +100,48 @@ Spec und Regeln: `Automatisierung/shield-radar.md` (nur Fakten mit Quelle, keine
 
 - Zu langer Text wird erst verkleinert (Fließtext nie unter 32 px); passt er dann immer noch nicht, bricht das Rendern mit „Zu viel Text für die Slide“ ab (steht als `letzter_fehler` in der post.json). Fehlt eine `quelle`, ebenfalls.
 - Vor dem Push lokal testen: `post.json` nach `tests/radar/faelle/ausgabeNN.json` kopieren, dann `powershell -File tests\radar\radar-test.ps1 -Fall ausgabeNN -Bild` (Bilder in `tests/radar/out/`).
+
+## Behind the Shield (Resident-Vorstellungen, im Chat gebaut)
+
+Spec und Ablauf: `../Automatisierung/behind-the-shield.md` (Inhalte nur aus dem Fragebogen, nichts erfinden, keine Emojis auf den Slides). Karussell 1080 × 1350 aus `bts-*`-Vorlagen. Akzentfarbe, Schild, Name und Handle kommen aus `resident` im Cover; Kopfleiste, Fortschritt und Fuß entstehen automatisch.
+**Status `freigabe`**: Die Folge wird gerendert, aber nicht gepostet. Erst nach dem OK des Residents auf `geplant` setzen. Collab-Einladung in `Content/KW<NN>-<JJJJ>.md` unter „Manuell für Volkan“ eintragen.
+
+```json
+{
+  "typ": "karussell",
+  "status": "freigabe",
+  "collaborators": ["stone_d_97"],
+  "slides": [
+    { "vorlage": "bts-cover", "resident": "Stone D", "folge": 2, "bild": "portraet.jpg", "fokus": "55% 25%",
+      "stile": ["Halftime", "Deep"], "seit": "2018" },
+    { "vorlage": "bts-steckbrief", "vorname": "Max", "rolle": "Resident und Technik", "name_herkunft": "1–2 Sätze." },
+    { "vorlage": "bts-sound", "worte": ["Tief", "Dunkel", "Treibend"], "fuer_neue": "1 Satz.", "erklaert": "1–2 Sätze zum Hauptstil." },
+    { "vorlage": "bts-anfang", "zitat": "2–3 Sätze.", "moment": "1–2 Sätze." },
+    { "vorlage": "bts-tracks", "tracks": ["Artist – Title", "Artist – Title", "Artist – Title"] },
+    { "vorlage": "bts-abseits", "bild": "pult.jpg", "funfact": "1 Satz.", "abseits": "1 Satz." },
+    { "vorlage": "bts-bastion", "set": "1–2 Sätze.", "an_neue": "1 Satz." }
+  ]
+}
+```
+
+| Vorlage | Pflicht | Optional |
+|---|---|---|
+| `bts-cover` (immer Slide 1) | `resident` (KruXer, Stone D, Jhinx, Ranj), `folge` (Zahl), `bild`, `stile` (Liste, der erste ist der Hauptstil), `seit` | `fokus` (Lage des Gesichts, `"x% y%"`, Standard `"50% 30%"`) |
+| `bts-steckbrief` | `rolle` | `vorname` (nur mit Zustimmung), `name_herkunft` |
+| `bts-sound` | `worte` (genau 3), `fuer_neue`, `erklaert` | – |
+| `bts-anfang` | `zitat`, `moment` | – |
+| `bts-tracks` | `tracks` (genau 3, „Künstler – Titel“; ohne Trennstrich nur Titel) | – |
+| `bts-abseits` (ganze Slide optional) | `funfact` oder `abseits` | `bild` (Pult-Foto), `fokus` (Standard `"50% 50%"`) |
+| `bts-bastion` (immer letzte Slide) | `set` | `an_neue` |
+
+- Das Cover-Foto wird in der Resident-Farbe eingefärbt, die Fotos auf Steckbrief und Abseits bleiben natürlich. Sitzt das Gesicht schlecht im Schild: `fokus` anpassen.
+- Vor dem Push lokal testen: `post.json` nach `tests/bts/faelle/<name>.json` und die Fotos nach `tests/bts/fotos/` kopieren, dann `powershell -NoProfile -ExecutionPolicy Bypass -File tests\bts\bts-test.ps1 -Fall <name> -Bild` (Bilder in `tests/bts/out/`). Testkopien danach wieder löschen.
+- Fehlermeldungen und Abhilfe:
+  - „Zu viel Text für die Slide“, „Text läuft seitlich über den Rand“: Antwort kürzen, Sinn und Wortlaut des Residents möglichst behalten.
+  - „Ein Wort ist zu lang für die Slide“: auf Slide 3 ein kürzeres Wort wählen (mit dem Resident absprechen).
+  - „Track-Titel zu lang“: Zusätze wie Remix- oder Feature-Angaben weglassen. „Stile zu lang für das Cover“: höchstens 2–3 Stile.
+  - „Foto „…“ nicht ladbar“ bzw. „Bild '…' fehlt im Post-Ordner“: Dateiname prüfen, Foto in den Post-Ordner kopieren.
+  - „Unbekannter Resident“, „Feld … fehlt“, „braucht genau 3 …“, „Erste Slide muss bts-cover sein“: Format nach dieser Tabelle korrigieren.
 
 ## Reel (Video)
 
