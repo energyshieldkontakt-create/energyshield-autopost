@@ -37,7 +37,19 @@ FORMATE = {
     "radar-wissen": (1080, 1350, "radar"),
     "radar-ende": (1080, 1350, "radar"),
     "radar-story": (1080, 1920, "radar"),
+    # Behind the Shield (Resident-Vorstellungen): eigene Vorlage templates/bts/, Slides baut bts.js
+    "bts-cover": (1080, 1350, "bts"),
+    "bts-steckbrief": (1080, 1350, "bts"),
+    "bts-sound": (1080, 1350, "bts"),
+    "bts-anfang": (1080, 1350, "bts"),
+    "bts-tracks": (1080, 1350, "bts"),
+    "bts-abseits": (1080, 1350, "bts"),
+    "bts-bastion": (1080, 1350, "bts"),
 }
+# Vorlagen, deren Slide ein Skript im Browser baut (templates/<serie>/<serie>.html|.css|.js); Name für Fehlermeldungen
+SKRIPT_SERIEN = {"radar": "Shield Radar", "bts": "Behind the Shield"}
+# Status, die gerendert werden; "freigabe" (Behind the Shield, wartet auf das OK des Residents) geht trotzdem nicht an Buffer
+RENDER_STATUS = ("geplant", "test", "freigabe")
 # Farben aus den bisherigen Flyern: Cyan-Neon (Standard), Mint (Talent Night), Violett; dazu Orange und Pink
 AKZENTE = {"blau": "#2EE6F5", "liquid": "#6FF5C2", "neuro": "#9D7BFF", "jumpup": "#FF9A3C", "halftime": "#FF4FA3"}
 # Shield Sessions: Akzentfarbe nach dem ersten Stil des Mixes
@@ -111,8 +123,8 @@ def baue_html(ordner, slide):
     w, h, klasse = FORMATE[vorlage]
     if vorlage == "cover":
         return baue_cover(ordner, slide, w, h)
-    if klasse == "radar":
-        return baue_radar(ordner, slide, w, h)
+    if klasse in SKRIPT_SERIEN:
+        return baue_skript(ordner, slide, w, h, klasse)
     transparent = "transparent" in klasse
     bild = slide.get("bild")
     if bild and not (ordner / bild).exists():
@@ -186,20 +198,22 @@ def baue_cover(ordner, slide, w, h):
     return inhalt, w, h, False
 
 
-def baue_radar(ordner, slide, w, h):
-    """Shield Radar: übergibt Seite und alle Slides des Posts als JSON, radar.js baut die Slide."""
-    radar = slide.get("_radar") or {"seite": 1, "slides": [slide]}
+def baue_skript(ordner, slide, w, h, serie):
+    """Shield Radar und Behind the Shield: übergibt Seite und alle Slides des Posts als JSON, <serie>.js baut die Slide."""
+    alle = slide.get("_alle") or {"seite": 1, "slides": [slide]}
+    if serie == "bts" and slide.get("bild") and not (ordner / slide["bild"]).exists():
+        raise FileNotFoundError(f"Bild '{slide['bild']}' fehlt im Post-Ordner")
     logo_datei = BRAND / "logo.png"
-    daten = {"seite": radar["seite"], "logo": relativ(logo_datei, ordner) if logo_datei.exists() else "",
-             "post": {"slides": radar["slides"]}}
+    daten = {"seite": alle["seite"], "logo": relativ(logo_datei, ordner) if logo_datei.exists() else "",
+             "post": {"slides": alle["slides"]}}
     werte = {
-        "css": relativ(TEMPLATES / "radar" / "radar.css", ordner),
-        "js": relativ(TEMPLATES / "radar" / "radar.js", ordner),
+        "css": relativ(TEMPLATES / serie / f"{serie}.css", ordner),
+        "js": relativ(TEMPLATES / serie / f"{serie}.js", ordner),
         "w": str(w),
         "h": str(h),
         "daten": json.dumps(daten, ensure_ascii=False).replace("<", "\\u003c"),  # zuletzt; kein "<" roh im <script>
     }
-    inhalt = (TEMPLATES / "radar" / "radar.html").read_text(encoding="utf-8")
+    inhalt = (TEMPLATES / serie / f"{serie}.html").read_text(encoding="utf-8")
     for schluessel, wert in werte.items():
         inhalt = inhalt.replace("{{" + schluessel + "}}", wert)
     return inhalt, w, h, False
@@ -213,12 +227,13 @@ def render_bild(page, ordner, slide, ziel):
     try:
         page.set_viewport_size({"width": w, "height": h})
         page.goto(tmp.as_uri(), wait_until="networkidle")
-        if FORMATE.get(slide.get("vorlage"), (0, 0, ""))[2] == "radar":
-            # wartet auf Schriften, Auto-Fit und Radar; läuft radar.js gar nicht, bricht es nach 60 s mit Fehler ab
+        serie = FORMATE.get(slide.get("vorlage"), (0, 0, ""))[2]
+        if serie in SKRIPT_SERIEN:
+            # wartet auf Schriften, Fotos und Auto-Fit; läuft das Skript gar nicht, bricht es nach 60 s mit Fehler ab
             page.wait_for_function("document.body && document.body.dataset.fertig === 'ja'", timeout=60000)
             fehler = page.evaluate("document.body.dataset.fehler")
             if fehler:
-                raise ValueError(f"Shield Radar, Slide '{slide.get('vorlage')}': {fehler}")
+                raise ValueError(f"{SKRIPT_SERIEN[serie]}, Slide '{slide.get('vorlage')}': {fehler}")
         page.evaluate(FIT_JS)
         page.screenshot(path=str(png), omit_background=transparent)
     finally:
@@ -454,8 +469,8 @@ def rendere_post(page, page_hd, ordner, daten):
     for i, slide in enumerate(slides, 1):
         if sessions and slide.get("vorlage") != "cover":  # Shield Sessions: Folgeslides in der Cover-Schrift
             slide = {**slide, "_sessions": True}
-        if str(slide.get("vorlage", "")).startswith("radar-"):  # Shield Radar: Cover-Radar braucht alle Meldungen
-            slide = {**slide, "_radar": {"seite": i, "slides": slides}}
+        if str(slide.get("vorlage", "")).startswith(("radar-", "bts-")):  # Skript-Vorlagen brauchen alle Slides (Radar-Punkte, Cover-Daten)
+            slide = {**slide, "_alle": {"seite": i, "slides": slides}}
         render_bild(page, ordner, slide, media / f"{i}.jpg")
         if slide.get("vorlage") == "cover":  # große Fassung für SoundCloud (ohne Ziffer, wird nicht gepostet)
             render_bild(page_hd, ordner, slide, media / "soundcloud.jpg")
@@ -500,6 +515,8 @@ def schreibe_vorschau(posts):
         "**Einspruch:** Solange ein Post hier steht: auf `post.json` tippen → Stift-Symbol → `\"status\": \"geplant\"` in `\"status\": \"stop\"` ändern → *Commit changes*. "
         "Danach: den Post in der **Buffer-App** löschen.",
         "",
+        "Status **freigabe**: Behind the Shield, wartet auf das OK des Residents und geht erst nach dem OK an Buffer.",
+        "",
     ]
     if not posts:
         zeilen.append("_Aktuell ist nichts geplant._")
@@ -535,7 +552,7 @@ def schreibe_vorschau(posts):
 
 
 def main():
-    offen = [(o, d) for o, d in lade_posts() if d.get("status", "geplant") in ("geplant", "test")]
+    offen = [(o, d) for o, d in lade_posts() if d.get("status", "geplant") in RENDER_STATUS]
     zu_rendern = [(o, d) for o, d in offen if not ist_aktuell(o, d)]
     fehler = 0
     if zu_rendern:
