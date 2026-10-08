@@ -332,10 +332,12 @@
       ul.appendChild(li);
     });
     inhalt.appendChild(ul);
-    const h = el('div', 'hinweis');
-    h.appendChild(el('span', 'tag orb', 'Shield Sessions'));
-    h.appendChild(el('span', '', 'Meine Mixe in voller Länge, jeden Sonntag um 18 Uhr'));
-    inhalt.appendChild(h);
+    if (S.hinweis) {   // eigener Satz zu den drei Tracks (Oliver, 8.10.), Etikett optional
+      const h = el('div', 'hinweis');
+      h.appendChild(el('span', 'tag orb', S.hinweis_tag || 'Mein Sound'));
+      h.appendChild(el('span', '', S.hinweis));
+      inhalt.appendChild(h);
+    }
     return null;
   }
 
@@ -394,20 +396,26 @@
     };
   }
 
+  // Letzte Slide. Standard ist ein Outro ohne Termin (Oliver, 8.10.: der 30.1. ist noch nicht angekündigt, laut Fahrplan
+  // erst mit dem Save the Date am 1.11.). "ankuendigung": true zeigt die Event-Version mit Datum, Ort und Einlass.
   function bastion() {
     pflicht(S, ['set']);
-    const inhalt = rahmen('bastion');
-    inhalt.appendChild(el('span', 'tag orb', 'Club-Debut'));
-    const titel = el('div', 'titel', 'Am 30.1. live in der ');
-    titel.appendChild(el('em', '', 'Bastion'));
+    const event = S.ankuendigung === true;
+    const inhalt = rahmen('bastion' + (event ? '' : ' outro'), { fuss: event });   // Outro: Handles stehen schon groß in der Leiste
+    inhalt.appendChild(el('span', 'tag orb', event ? 'Club-Debut' : 'Bis bald'));
+    const titel = el('div', 'titel', event ? 'Am 30.1. live in der ' : 'Wir sehen uns auf dem ');
+    titel.appendChild(el('em', '', event ? 'Bastion' : 'Floor.'));
     inhalt.appendChild(titel);
     const mitte = el('div', 'mitte');
-    mitte.appendChild(balken('Was euch bei meinem Set erwartet', S.set));
-    if (S.an_neue) mitte.appendChild(balken('An alle, die zum ersten Mal kommen', S.an_neue));
+    mitte.appendChild(balken(event ? 'Was euch bei meinem Set erwartet' : 'Mein nächstes Set', S.set));
+    if (S.an_neue) mitte.appendChild(balken(event ? 'An alle, die zum ersten Mal kommen' : 'An alle, die neu dabei sind', S.an_neue));
     inhalt.appendChild(mitte);
-    inhalt.appendChild(el('span', 'tag voll orb plaetze', 'Nur 120 Plätze'));
-    const g = el('div', 'infos');
-    for (const [label, wert, zahl] of [['Samstag', '30.01.', true], ['Wo', 'Club Bastion\nKirchheim'], ['Eintritt', 'Abendkasse\nab 18 Jahren']]) {
+    inhalt.appendChild(el('span', 'tag voll orb plaetze', event ? 'Nur 120 Plätze' : 'Nicht verpassen'));
+    const zellen = event
+      ? [['Samstag', '30.01.', true], ['Wo', 'Club Bastion\nKirchheim'], ['Eintritt', 'Abendkasse\nab 18 Jahren']]
+      : [['Resident', R.handle], ['Crew', '@energy.shield.rave']].filter(z => z[1]);
+    const g = el('div', 'infos' + (event ? '' : ' zwei'));
+    for (const [label, wert, zahl] of zellen) {
       const c = el('div', 'zelle');
       c.appendChild(el('span', 'z-l', label));
       c.appendChild(el('span', 'z-w' + (zahl ? ' zahl' : ''), wert));

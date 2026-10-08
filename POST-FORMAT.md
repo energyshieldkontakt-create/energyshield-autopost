@@ -103,7 +103,7 @@ Spec und Regeln: `Automatisierung/shield-radar.md` (nur Fakten mit Quelle, keine
 
 ## Behind the Shield (Resident-Vorstellungen, im Chat gebaut)
 
-Spec und Ablauf: `../Automatisierung/behind-the-shield.md` (Inhalte nur aus dem Fragebogen, nichts erfinden, keine Emojis auf den Slides). Karussell 1080 × 1350 aus `bts-*`-Vorlagen. Akzentfarbe, Schild, Name und Handle kommen aus `resident` im Cover; Kopfleiste, Fortschritt und Fuß entstehen automatisch.
+Spec und Ablauf: `../Automatisierung/behind-the-shield.md` (Inhalte nur aus dem Fragebogen, nichts erfinden, aber **umformulieren statt 1:1 übernehmen**: kurz, lebendig, Ich-Form; keine Emojis auf den Slides). **Der 30.1. ist bis zum Save the Date (laut Fahrplan 1.11.) nicht öffentlich:** weder auf den Slides noch in der Caption. Karussell 1080 × 1350 aus `bts-*`-Vorlagen. Akzentfarbe, Schild, Name und Handle kommen aus `resident` im Cover; Kopfleiste, Fortschritt und Fuß entstehen automatisch.
 **Vor dem OK des Residents nichts in dieses (öffentliche) Repo:** Der Entwurf entsteht in `../Content/Behind-the-Shield/<Resident>/` (post.json, Fotos, Antworten) und wird dort getestet. Erst nach dem OK kommt er nach `queue/`, mit Status `geplant`, und wird gepusht. Kopiert werden nur `post.json`, die Fotos und das fertige Video (`video`), nicht `antworten.md`, das Visualizer-Original und der Ordner `fertig/`. Collab-Einladung in `Content/KW<NN>-<JJJJ>.md` unter „Manuell für Volkan“ eintragen. Der Status `freigabe` (wird gerendert, geht nicht an Buffer) bleibt nur als Reserve.
 
 ```json
@@ -117,7 +117,8 @@ Spec und Ablauf: `../Automatisierung/behind-the-shield.md` (Inhalte nur aus dem 
     { "vorlage": "bts-steckbrief", "vorname": "Max", "rolle": "Resident und Technik", "name_herkunft": "1–2 Sätze." },
     { "vorlage": "bts-sound", "worte": ["Tief", "Dunkel", "Treibend"], "fuer_neue": "1 Satz.", "erklaert": "1–2 Sätze zum Hauptstil." },
     { "vorlage": "bts-anfang", "zitat": "2–3 Sätze.", "moment": "1–2 Sätze." },
-    { "vorlage": "bts-tracks", "tracks": ["Artist – Title", "Artist – Title", "Artist – Title"] },
+    { "vorlage": "bts-tracks", "tracks": ["Artist – Title", "Artist – Title", "Artist – Title"],
+      "hinweis_tag": "Halftime × Deep", "hinweis": "1 Satz zu den drei Tracks." },
     { "vorlage": "bts-abseits", "bild": "pult.jpg", "funfact": "1 Satz.", "abseits": "1 Satz." },
     { "vorlage": "bts-bastion", "set": "1–2 Sätze.", "an_neue": "1 Satz." }
   ]
@@ -130,10 +131,10 @@ Spec und Ablauf: `../Automatisierung/behind-the-shield.md` (Inhalte nur aus dem 
 | `bts-steckbrief` | `rolle` | `vorname` (nur mit Zustimmung), `name_herkunft` |
 | `bts-sound` | `worte` (genau 3), `fuer_neue`, `erklaert` | – |
 | `bts-anfang` | `zitat`, `moment` | – |
-| `bts-tracks` | `tracks` (genau 3, „Künstler – Titel“; ohne Trennstrich nur Titel) | – |
+| `bts-tracks` | `tracks` (genau 3, „Künstler – Titel“; ohne Trennstrich nur Titel) | `hinweis` (ein Satz unten, passend zu den Tracks), `hinweis_tag` (Etikett davor, Standard „Mein Sound“) |
 | `bts-produktion` (optional, nach `bts-tracks`, Video-Slide) | `titel` (Tracktitel), `video` (fertiges MP4, z. B. `produktion.mp4`) | `kuenstler` (Standard: Name des Residents), `visualizer` (Original-Video aus TouchDesigner, nur im Entwurf) |
 | `bts-abseits` (ganze Slide optional) | `funfact` oder `abseits` | `bild` (Pult-Foto), `fokus` (Standard `"50% 50%"`) |
-| `bts-bastion` (immer letzte Slide) | `set` | `an_neue` |
+| `bts-bastion` (immer letzte Slide) | `set` | `an_neue`, `ankuendigung` (`true` = Event-Version „Am 30.1. live in der Bastion“ mit Datum, Ort, Einlass; erst nach dem Save the Date. Ohne: Outro „Wir sehen uns auf dem Floor.“ mit „Mein nächstes Set“ und Handles zum Folgen) |
 
 - Das Cover-Foto wird in der Resident-Farbe eingefärbt, die Fotos auf Steckbrief und Abseits bleiben natürlich. Sitzt das Gesicht schlecht im Schild: `fokus` anpassen.
 - `bts-produktion` (seit 8.10.2026 komplett): Video-Slide für einen eigenen Track. Die Grafik hat Text links und rechts einen 9:16-Rahmen (518 × 920). Das Visualizer-Video aus TouchDesigner (9:16, z. B. 1080 × 1920 oder 720 × 1280, 3–60 s, mit Ton) liegt als `visualizer` im Entwurfsordner. **`tests/bts/bts-fertig.ps1` setzt es lokal in den Rahmen** (Windows-Bordmittel, kein ffmpeg) und speichert das fertige MP4 (1080 × 1350, H.264/AAC, max. 18 MB) unter dem Namen aus `video`. GitHub rendert diese Slide nicht, sondern prüft das MP4 (Größe, 1080 × 1350, Ton, Länge) und übernimmt es als `<n>.mp4` an seiner Stelle im Karussell.

@@ -65,7 +65,10 @@ foreach ($datei in $faelle) {
     if ($txt -match 'data-fehler="([^"]+)"') { if (-not $soll) { $grund += "fehler: $($Matches[1])" } } elseif ($soll) { $grund += "Fehler erwartet, aber nicht gemeldet" }
     if ($ohneDaten -match '<b>fett|<i>kursiv|<script>alert') { $grund += "HTML aus Text wurde ausgefuehrt" }
     if ($ohneDaten -match '[!?…]\.<') { $grund += "Satzzeichen doppelt (z. B. !.)" }
-    if ($vorl -eq 'bts-bastion' -and $ohneDaten -notmatch 'ab 18 Jahren') { $grund += "Altersangabe nicht eindeutig (ab 18 Jahren)" }
+    $ankuendigung = @($fallDaten.slides)[$i - 1].ankuendigung -eq $true
+    if ($vorl -eq 'bts-bastion' -and $ankuendigung -and $ohneDaten -notmatch 'ab 18 Jahren') { $grund += "Altersangabe nicht eindeutig (ab 18 Jahren)" }
+    # Ohne Ankündigung kein Termin, Ort oder Einlass (30.1. ist bis zum Save the Date geheim)
+    if ($vorl -eq 'bts-bastion' -and -not $ankuendigung -and $ohneDaten -cmatch '30\.0?1\.|Abendkasse|Club Bastion|120 Pl') { $grund += "Termin oder Ort ohne Ankuendigung" }
     $geprueft++
     $info = if ($soll -and $txt -match 'data-fehler="([^"]+)"') { " [erwartet: $($Matches[1])]" } else { "" }
     if ($grund) { $fehler++; Write-Output "FAIL $name ($vorl): $($grund -join '; ')" } else { Write-Output "ok   $name ($vorl)$info" }
