@@ -13,6 +13,7 @@
       "erklaert": "Deep heißt: Bässe, die man spürt. <!-- Kommentar -->" },
     { "vorlage": "bts-anfang", "zitat": "\"Ich will dahinter stehen\" – das war 2015 & ich war 16.", "moment": "Über 100 Leute, äußerst laut." },
     { "vorlage": "bts-tracks", "tracks": ["Künstler & Co – Titel <b>fett</b>", "Ä – Ö", "Δ – \"Zitat\""] },
+    { "vorlage": "bts-produktion", "titel": "Test & \"Zeichen\" </script>", "kuenstler": "KruXer & Gäste", "video": "testvideo.mp4" },
     { "vorlage": "bts-abseits", "bild": "hoch.jpg", "funfact": "</script> & mehr.", "abseits": "Ä Ö Ü ß." },
     { "vorlage": "bts-bastion", "set": "<b>fett</b> & \"laut\".", "an_neue": "Grüß Gott & willkommen." }
   ]

@@ -45,6 +45,7 @@ FORMATE = {
     "bts-tracks": (1080, 1350, "bts"),
     "bts-abseits": (1080, 1350, "bts"),
     "bts-bastion": (1080, 1350, "bts"),
+    # "bts-produktion" ist eine Video-Slide: fertiges MP4 aus dem Post-Ordner, siehe uebernimm_video()
 }
 # Vorlagen, deren Slide ein Skript im Browser baut (templates/<serie>/<serie>.html|.css|.js); Name für Fehlermeldungen
 SKRIPT_SERIEN = {"radar": "Shield Radar", "bts": "Behind the Shield"}
@@ -312,6 +313,29 @@ def render_reel(ordner, reel, overlay, ziel):
         raise ValueError(f"Video ist {groesse:.1f} MB groß, maximal 19 MB möglich – Reel kürzen")
 
 
+def uebernimm_video(ordner, slide, ziel):
+    """Behind the Shield, eigene Produktion: Grafik und Visualizer-Video setzt tests/bts/bts-fertig.ps1 lokal zusammen
+    (das Video gehört erst nach dem OK des Residents ins Repo). Hier wird das fertige MP4 nur geprüft und übernommen."""
+    name = str(slide.get("video") or "")
+    if not name.endswith(".mp4") or "/" in name or "\\" in name:
+        raise ValueError('bts-produktion braucht "video": fertiges MP4 im Post-Ordner (gebaut mit tests/bts/bts-fertig.ps1)')
+    datei = ordner / name
+    if not datei.exists():
+        raise FileNotFoundError(f"Video '{name}' fehlt im Post-Ordner")
+    groesse = datei.stat().st_size / 1024 / 1024
+    if groesse > MAX_VIDEO_MB:
+        raise ValueError(f"Video '{name}' ist {groesse:.1f} MB groß, maximal {MAX_VIDEO_MB} MB möglich")
+    format_ = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height",
+                              "-of", "csv=p=0", str(datei)], capture_output=True, text=True).stdout.strip()
+    if format_ != "1080,1350":
+        raise ValueError(f"Video '{name}' hat {format_ or 'kein Bild'} statt 1080,1350")
+    if not hat_audio(datei):
+        raise ValueError(f"Video '{name}' hat keinen Ton")
+    if not 3 <= audio_laenge(datei) <= 60:
+        raise ValueError(f"Video '{name}' muss 3 bis 60 Sekunden lang sein")
+    shutil.copyfile(datei, ziel)
+
+
 def mmss(sekunden):
     sekunden = int(round(sekunden))
     return f"{sekunden // 3600}:{sekunden % 3600 // 60:02d}:{sekunden % 60:02d}" if sekunden >= 3600 else f"{sekunden // 60}:{sekunden % 60:02d}"
@@ -469,6 +493,9 @@ def rendere_post(page, page_hd, ordner, daten):
     for i, slide in enumerate(slides, 1):
         if sessions and slide.get("vorlage") != "cover":  # Shield Sessions: Folgeslides in der Cover-Schrift
             slide = {**slide, "_sessions": True}
+        if slide.get("vorlage") == "bts-produktion":  # Video-Slide an ihrer Stelle im Karussell
+            uebernimm_video(ordner, slide, media / f"{i}.mp4")
+            continue
         if str(slide.get("vorlage", "")).startswith(("radar-", "bts-")):  # Skript-Vorlagen brauchen alle Slides (Radar-Punkte, Cover-Daten)
             slide = {**slide, "_alle": {"seite": i, "slides": slides}}
         render_bild(page, ordner, slide, media / f"{i}.jpg")

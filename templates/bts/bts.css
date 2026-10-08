@@ -111,7 +111,8 @@ body { position: relative; background: var(--nacht); color: var(--weiss); font-f
 .worte { margin-top: 40px; display: flex; flex-direction: column; gap: 4px; }
 .wort { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: calc(132px * var(--hs)); line-height: 1.08; white-space: nowrap; letter-spacing: -.01em; text-transform: uppercase; }
 .wort.w1 { color: #F2FEFF; text-shadow: 0 0 18px color-mix(in srgb, var(--a) 60%, transparent), 0 0 50px color-mix(in srgb, var(--a) 25%, transparent); }
-.wort.w2 { color: transparent; -webkit-text-stroke: 3px var(--a); filter: drop-shadow(0 0 10px color-mix(in srgb, var(--a) 65%, transparent)); }
+/* Kontur per SVG-Filter (#kontur, baut bts.js) statt text-stroke: Unbounded hat überlappende Konturen, die text-stroke als Linien im Buchstaben zeigt */
+.wort.w2 { color: var(--a); filter: url(#kontur) drop-shadow(0 0 10px color-mix(in srgb, var(--a) 65%, transparent)); }
 .wort.w3 { color: var(--a); text-shadow: var(--glow); }
 .eq { height: 46px; margin-top: 30px; display: flex; align-items: flex-end; gap: 6px; }
 .eq i { flex: 1; background: linear-gradient(0deg, var(--a), color-mix(in srgb, var(--a) 20%, transparent)); opacity: .8; }
@@ -146,6 +147,9 @@ body { position: relative; background: var(--nacht); color: var(--weiss); font-f
 .produktion { --gx: 70%; --gy: 55%; }
 .produktion .zeile { flex: 1 1 auto !important; min-height: 0; display: flex; align-items: center; gap: 40px; margin-top: 20px; }
 .produktion .links { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
+/* Tracktitel nie mitten im Wort trennen: zu lange Wörter verkleinert bts.js, sonst meldet es „Ein Wort ist zu lang“
+   (Abhilfe: weiches Trennzeichen ­ im Titel, z. B. "Extra­terrestrial") */
+.produktion .titel { overflow-wrap: normal; }
 .produktion .von { font-weight: 600; font-size: 30px; color: var(--fein); margin-top: 14px; }
 .video { position: relative; height: 820px; aspect-ratio: 9 / 16; flex-shrink: 0; background: #000;
   border: 2px solid var(--a); box-shadow: 0 0 22px color-mix(in srgb, var(--a) 40%, transparent); }

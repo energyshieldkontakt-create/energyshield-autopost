@@ -1,0 +1,10 @@
+{
+  "typ": "karussell",
+  "status": "test",
+  "erwartet_fehler": [2],
+  "slides": [
+    { "vorlage": "bts-cover", "resident": "KruXer", "folge": 1, "bild": "hoch.jpg", "fokus": "66% 30%", "stile": ["Deep"], "seit": "2021" },
+    { "vorlage": "bts-produktion", "titel": "Superkalifragilistischexpialigetisch" },
+    { "vorlage": "bts-bastion", "set": "Jungle und Jump-Up." }
+  ]
+}

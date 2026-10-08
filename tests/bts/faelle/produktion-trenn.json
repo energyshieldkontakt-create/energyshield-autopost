@@ -1,0 +1,9 @@
+{
+  "typ": "karussell",
+  "status": "test",
+  "slides": [
+    { "vorlage": "bts-cover", "resident": "Jhinx", "folge": 3, "bild": "hoch.jpg", "fokus": "66% 30%", "stile": ["Neurofunk"], "seit": "2019" },
+    { "vorlage": "bts-produktion", "titel": "Hyper\u00ADdimensional", "kuenstler": "Jhinx & KruXer" },
+    { "vorlage": "bts-bastion", "set": "Neurofunk." }
+  ]
+}

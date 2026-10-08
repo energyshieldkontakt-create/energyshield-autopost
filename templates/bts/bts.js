@@ -274,6 +274,12 @@
       w.appendChild(e);
     });
     inhalt.appendChild(w);
+    // Kontur für das 2. Wort: 3 px breiter Rand innen an der gefüllten Schrift (Füllung minus geschrumpfte Füllung)
+    const kontur = svg('', '0 0 0 0', '<filter id="kontur" x="-5%" y="-20%" width="110%" height="140%">' +
+      '<feMorphology in="SourceAlpha" operator="erode" radius="3" result="innen"/>' +
+      '<feComposite in="SourceGraphic" in2="innen" operator="out"/></filter>');
+    Object.assign(kontur.style, { position: 'absolute', width: '0', height: '0' });
+    document.body.appendChild(kontur);
     const eq = el('div', 'eq');
     for (let i = 0; i < 64; i++) {
       const b = el('i');
@@ -333,8 +339,8 @@
     return null;
   }
 
-  // Eigene Produktion: Text links, rechts ein leerer 9:16-Rahmen (461 × 820), in den später das Visualizer-Video
-  // (720 × 1280) eingesetzt wird. Noch nicht in render.py eingetragen: Ohne Video-Einbau soll diese Slide nicht gepostet werden.
+  // Eigene Produktion: Text links, rechts ein leerer 9:16-Rahmen (461 × 820). tests/bts/bts-video.ps1 setzt das
+  // Visualizer-Video in die Innenfläche (body[data-video] = "x,y,b,h" in px) und speichert das fertige MP4 als "video".
   function produktion() {
     pflicht(S, ['titel']);
     const inhalt = rahmen('produktion');
@@ -352,11 +358,15 @@
     for (const e of ['e1', 'e2', 'e3', 'e4']) video.appendChild(el('span', 'ecke ' + e));
     const platz = el('div', 'platzhalter');
     platz.appendChild(el('b', '', 'VISUALIZER'));
-    platz.appendChild(el('span', '', '720 × 1280 · 9:16'));
+    platz.appendChild(el('span', '', 'Video · 9:16'));
     video.appendChild(platz);
     zeile.appendChild(video);
     inhalt.appendChild(zeile);
-    return null;
+    return async () => {   // erst nach dem Auto-Fit: dann steht die Lage des Rahmens fest
+      const r = video.getBoundingClientRect();
+      document.body.dataset.video = [r.left + video.clientLeft, r.top + video.clientTop, video.clientWidth, video.clientHeight]
+        .map(v => Math.round(v)).join(',');
+    };
   }
 
   function abseits() {

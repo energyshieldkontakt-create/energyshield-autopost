@@ -104,7 +104,7 @@ Spec und Regeln: `Automatisierung/shield-radar.md` (nur Fakten mit Quelle, keine
 ## Behind the Shield (Resident-Vorstellungen, im Chat gebaut)
 
 Spec und Ablauf: `../Automatisierung/behind-the-shield.md` (Inhalte nur aus dem Fragebogen, nichts erfinden, keine Emojis auf den Slides). Karussell 1080 × 1350 aus `bts-*`-Vorlagen. Akzentfarbe, Schild, Name und Handle kommen aus `resident` im Cover; Kopfleiste, Fortschritt und Fuß entstehen automatisch.
-**Vor dem OK des Residents nichts in dieses (öffentliche) Repo:** Der Entwurf entsteht in `../Content/Behind-the-Shield/<Resident>/` (post.json, Fotos, Antworten) und wird dort getestet. Erst nach dem OK kommt er nach `queue/` (ohne `antworten.md`), mit Status `geplant`, und wird gepusht. Collab-Einladung in `Content/KW<NN>-<JJJJ>.md` unter „Manuell für Volkan“ eintragen. Der Status `freigabe` (wird gerendert, geht nicht an Buffer) bleibt nur als Reserve.
+**Vor dem OK des Residents nichts in dieses (öffentliche) Repo:** Der Entwurf entsteht in `../Content/Behind-the-Shield/<Resident>/` (post.json, Fotos, Antworten) und wird dort getestet. Erst nach dem OK kommt er nach `queue/`, mit Status `geplant`, und wird gepusht. Kopiert werden nur `post.json`, die Fotos und das fertige Video (`video`), nicht `antworten.md`, das Visualizer-Original und der Ordner `fertig/`. Collab-Einladung in `Content/KW<NN>-<JJJJ>.md` unter „Manuell für Volkan“ eintragen. Der Status `freigabe` (wird gerendert, geht nicht an Buffer) bleibt nur als Reserve.
 
 ```json
 {
@@ -131,14 +131,16 @@ Spec und Ablauf: `../Automatisierung/behind-the-shield.md` (Inhalte nur aus dem 
 | `bts-sound` | `worte` (genau 3), `fuer_neue`, `erklaert` | – |
 | `bts-anfang` | `zitat`, `moment` | – |
 | `bts-tracks` | `tracks` (genau 3, „Künstler – Titel“; ohne Trennstrich nur Titel) | – |
-| `bts-produktion` (optional, nach `bts-tracks`) | `titel` (Tracktitel) | `kuenstler` (Standard: Name des Residents) |
+| `bts-produktion` (optional, nach `bts-tracks`, Video-Slide) | `titel` (Tracktitel), `video` (fertiges MP4, z. B. `produktion.mp4`) | `kuenstler` (Standard: Name des Residents), `visualizer` (Original-Video aus TouchDesigner, nur im Entwurf) |
 | `bts-abseits` (ganze Slide optional) | `funfact` oder `abseits` | `bild` (Pult-Foto), `fokus` (Standard `"50% 50%"`) |
 | `bts-bastion` (immer letzte Slide) | `set` | `an_neue` |
 
 - Das Cover-Foto wird in der Resident-Farbe eingefärbt, die Fotos auf Steckbrief und Abseits bleiben natürlich. Sitzt das Gesicht schlecht im Schild: `fokus` anpassen.
-- `bts-produktion` (seit 7.10.2026): Video-Slide für einen eigenen Track. Die Grafik hat Text links und rechts einen leeren 9:16-Rahmen (461 × 820), in den später das Visualizer-Video aus TouchDesigner (720 × 1280, 30 s) samt Ton eingesetzt wird. **Noch nicht in render.py eingetragen:** Bis der Video-Einbau gebaut ist, lehnt GitHub diese Slide ab, damit sie nicht ohne Video gepostet wird. Lokal ist sie testbar.
+- `bts-produktion` (seit 8.10.2026 komplett): Video-Slide für einen eigenen Track. Die Grafik hat Text links und rechts einen 9:16-Rahmen (461 × 820). Das Visualizer-Video aus TouchDesigner (9:16, z. B. 1080 × 1920 oder 720 × 1280, 3–60 s, mit Ton) liegt als `visualizer` im Entwurfsordner. **`tests/bts/bts-fertig.ps1` setzt es lokal in den Rahmen** (Windows-Bordmittel, kein ffmpeg) und speichert das fertige MP4 (1080 × 1350, H.264/AAC, max. 18 MB) unter dem Namen aus `video`. GitHub rendert diese Slide nicht, sondern prüft das MP4 (Größe, 1080 × 1350, Ton, Länge) und übernimmt es als `<n>.mp4` an seiner Stelle im Karussell.
+- Tracktitel werden nie mitten im Wort getrennt. Zu lange Wörter werden verkleinert; reicht das nicht, kommt „Ein Wort ist zu lang für die Slide“. Schöner bei langen Titeln: weiches Trennzeichen an der gewünschten Stelle, in der post.json `"Extra­terrestrial"` (erscheint nur beim Umbruch als Strich).
 - **Ordnername:** `queue/<JJJJ-MM-TT>_<HHMM>_behind-the-shield-<resident>/` (z. B. `2026-10-20_1830_behind-the-shield-stoned`). Die Samstags-Aufgabe erkennt die Folgen an diesem Namen.
 - Testen direkt aus dem Entwurfsordner (kopiert nur nach `tests/bts/out/`, nichts Versioniertes): `powershell -NoProfile -ExecutionPolicy Bypass -File tests\bts\bts-test.ps1 -Post ..\Content\Behind-the-Shield\<Resident> -Bild`. Die Bilder in `tests/bts/out/` ansehen und Oliver als Vorschau zeigen.
+- **Fertiger Beitrag:** `powershell -NoProfile -ExecutionPolicy Bypass -File tests\bts\bts-fertig.ps1 -Post ..\Content\Behind-the-Shield\<Resident>` prüft alle Slides, baut die Video-Slide und legt den Beitrag so ab, wie er gepostet wird: `<Entwurfsordner>\fertig\` mit `1.jpg`, `2.jpg` …, der Video-Slide als `<n>.mp4` und `caption.txt`. Das schickt Oliver dem Resident zur Freigabe.
 - Fehlermeldungen und Abhilfe:
   - „Zu viel Text für die Slide“, „Text läuft seitlich über den Rand“: Antwort kürzen, Sinn und Wortlaut des Residents möglichst behalten.
   - „Ein Wort ist zu lang für die Slide“: auf Slide 3 ein kürzeres Wort wählen (mit dem Resident absprechen).
