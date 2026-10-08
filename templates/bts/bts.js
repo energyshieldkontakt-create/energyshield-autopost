@@ -339,7 +339,7 @@
     return null;
   }
 
-  // Eigene Produktion: Text links, rechts ein leerer 9:16-Rahmen (461 × 820). tests/bts/bts-video.ps1 setzt das
+  // Eigene Produktion: Text links, rechts ein leerer 9:16-Rahmen (518 × 920). tests/bts/bts-fertig.ps1 setzt das
   // Visualizer-Video in die Innenfläche (body[data-video] = "x,y,b,h" in px) und speichert das fertige MP4 als "video".
   function produktion() {
     pflicht(S, ['titel']);
