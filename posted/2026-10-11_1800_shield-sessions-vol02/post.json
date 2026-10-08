@@ -2,7 +2,7 @@
   "publish_at": "2026-10-11T18:00:00+02:00",
   "erstellt_am": "2026-10-07T20:01:23+02:00",
   "typ": "karussell",
-  "status": "geplant",
+  "status": "bei_buffer",
   "caption": "Shield Sessions VOL. 02 🛡️\n\nHalftime trifft Deep: @stone_d_97 pendelt zwischen 90 und 180 BPM – mal schwer und schleppend, mal rollend nach vorn.\n\nJeden Sonntag ein neuer Mix aus der Crew.\n\n🔊 Wischen für 3 Hot Cues aus dem Set\n🎧 Voller Mix auf SoundCloud – Link in Bio\n\n#drumandbass #dnb #halftime #deepdnb #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb",
   "mix_drive_id": "1CS5mmMaQRp3nlNvLqLdG9TkdoHk94jFa",
   "slides": [
@@ -94,5 +94,9 @@
       1160,
       "Grey Code – Actress"
     ]
-  ]
+  ],
+  "ergebnis": {
+    "buffer_id": "6ac7e08c357f26ef519b891a",
+    "uebergeben_am": "2026-10-08T18:27:25.201860+00:00"
+  }
 }
