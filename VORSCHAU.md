@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 07.10.2026 23:35. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 08.10.2026 10:22. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -122,9 +122,9 @@ Status: **test**
 
 Status: **test**
 
-<img src="queue/2026-01-01_0009_test-bts/media/1.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/2.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/3.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/4.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/5.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/6.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/7.jpg" width="240">
+<img src="queue/2026-01-01_0009_test-bts/media/1.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/2.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/3.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/4.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/5.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/7.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/8.jpg" width="240">
 
-[post.json bearbeiten](queue/2026-01-01_0009_test-bts/post.json)
+[Video-Slide 6 ansehen](queue/2026-01-01_0009_test-bts/media/6.mp4) · [post.json bearbeiten](queue/2026-01-01_0009_test-bts/post.json)
 
 ---
 
