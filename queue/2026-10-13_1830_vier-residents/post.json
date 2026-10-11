@@ -1,0 +1,15 @@
+{
+  "publish_at": "2026-10-13T18:30:00+02:00",
+  "erstellt_am": "2026-10-11T07:58:23+02:00",
+  "typ": "karussell",
+  "status": "geplant",
+  "caption": "Vier Residents. Vier Sounds. Ein Schild. 🛡️\n\n@kruxer.dnb geht in die Tiefe, @stone_d_97 pendelt zwischen Halftime und Deep, @jhinx.dnb bringt den Neurofunk und @ranj.dnb sorgt für Jump-Up-Druck.\n\nJeden Sonntag um 18 Uhr ist einer von ihnen dran: die Shield Sessions.\n\nWelcher Sound ist eurer? Schreibt's in die Kommentare. 👇\n\n#drumandbass #dnb #neurofunk #jumpup #halftime #deepdnb #stuttgartdnb #kirchheimteck",
+  "slides": [
+    { "vorlage": "feed", "bild": "crew.jpg", "kicker": "Die Residents", "titel": "Vier\nSounds.", "akzent": "blau" },
+    { "vorlage": "feed", "kicker": "Resident · Deep", "titel": "KruXer", "text": "Dunkel, rollend, tief. Der Gründer.", "fuss": "@kruxer.dnb", "akzent": "blau" },
+    { "vorlage": "feed", "kicker": "Resident · Halftime / Deep", "titel": "Stone D", "text": "Mal schwer und schleppend, mal rollend nach vorn.", "fuss": "@stone_d_97", "akzent": "halftime" },
+    { "vorlage": "feed", "kicker": "Resident · Neurofunk", "titel": "Jhinx", "text": "Dunkel, technisch, druckvoll.", "fuss": "@jhinx.dnb", "akzent": "neuro" },
+    { "vorlage": "feed", "kicker": "Resident · Jump-Up / Neuro", "titel": "Ranj", "text": "Laut, verspielt, voller Energie.", "fuss": "@ranj.dnb", "akzent": "jumpup" },
+    { "vorlage": "feed", "kicker": "Shield Sessions", "titel": "Jeden\nSonntag.", "text": "Ein Mix aus der Crew. 18 Uhr.", "fuss": "Folgt @energy.shield.rave", "akzent": "blau" }
+  ]
+}
