@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 08.10.2026 13:49. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 11.10.2026 08:00. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -128,24 +128,33 @@ Status: **test**
 
 ---
 
-## So 11.10. 18:00 · karussell · `2026-10-11_1800_shield-sessions-vol02`
+## Di 13.10. 18:30 · karussell · `2026-10-13_1830_vier-residents`
 
 Status: **geplant**
 
-> Shield Sessions VOL. 02 🛡️
+> Vier Residents. Vier Sounds. Ein Schild. 🛡️
 > 
-> Halftime trifft Deep: @stone_d_97 pendelt zwischen 90 und 180 BPM – mal schwer und schleppend, mal rollend nach vorn.
+> @kruxer.dnb geht in die Tiefe, @stone_d_97 pendelt zwischen Halftime und Deep, @jhinx.dnb bringt den Neurofunk und @ranj.dnb sorgt für Jump-Up-Druck.
 > 
-> Jeden Sonntag ein neuer Mix aus der Crew.
+> Jeden Sonntag um 18 Uhr ist einer von ihnen dran: die Shield Sessions.
 > 
-> 🔊 Wischen für 3 Hot Cues aus dem Set
-> 🎧 Voller Mix auf SoundCloud – Link in Bio
+> Welcher Sound ist eurer? Schreibt's in die Kommentare. 👇
 > 
-> #drumandbass #dnb #halftime #deepdnb #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb
+> #drumandbass #dnb #neurofunk #jumpup #halftime #deepdnb #stuttgartdnb #kirchheimteck
 
-<img src="queue/2026-10-11_1800_shield-sessions-vol02/media/1.jpg" width="240"> <img src="queue/2026-10-11_1800_shield-sessions-vol02/media/2.jpg" width="240"> <img src="queue/2026-10-11_1800_shield-sessions-vol02/media/soundcloud.jpg" width="240">
+<img src="queue/2026-10-13_1830_vier-residents/media/1.jpg" width="240"> <img src="queue/2026-10-13_1830_vier-residents/media/2.jpg" width="240"> <img src="queue/2026-10-13_1830_vier-residents/media/3.jpg" width="240"> <img src="queue/2026-10-13_1830_vier-residents/media/4.jpg" width="240"> <img src="queue/2026-10-13_1830_vier-residents/media/5.jpg" width="240"> <img src="queue/2026-10-13_1830_vier-residents/media/6.jpg" width="240">
 
-[Video-Slide 3 ansehen](queue/2026-10-11_1800_shield-sessions-vol02/media/3.mp4) · [Video-Slide 4 ansehen](queue/2026-10-11_1800_shield-sessions-vol02/media/4.mp4) · [Video-Slide 5 ansehen](queue/2026-10-11_1800_shield-sessions-vol02/media/5.mp4) · [post.json bearbeiten](queue/2026-10-11_1800_shield-sessions-vol02/post.json)
+[post.json bearbeiten](queue/2026-10-13_1830_vier-residents/post.json)
+
+---
+
+## Mi 14.10. 19:00 · story · `2026-10-14_1900_story-vol02-nachhoeren`
+
+Status: **geplant**
+
+<img src="queue/2026-10-14_1900_story-vol02-nachhoeren/media/1.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-10-14_1900_story-vol02-nachhoeren/post.json)
 
 ---
 
@@ -180,5 +189,23 @@ Status: **geplant**
 <img src="queue/2026-10-15_2000_story-radar-01/media/1.jpg" width="240">
 
 [post.json bearbeiten](queue/2026-10-15_2000_story-radar-01/post.json)
+
+---
+
+## Sa 17.10. 12:00 · karussell · `2026-10-17_1200_community-name`
+
+Status: **geplant**
+
+> Ihr seid mehr als Follower. Ihr braucht einen Namen. 🛡️
+> 
+> Liquicity hat die Liquicitizens, wir haben euch. Wie soll unsere Community heißen?
+> 
+> Schreibt eure Vorschläge in die Kommentare. Wir wählen die besten aus, dann stimmt ihr ab.
+> 
+> #drumandbass #dnb #dnbfamily #dnbcommunity #kirchheimteck #stuttgartdnb #energyshield
+
+<img src="queue/2026-10-17_1200_community-name/media/1.jpg" width="240"> <img src="queue/2026-10-17_1200_community-name/media/2.jpg" width="240"> <img src="queue/2026-10-17_1200_community-name/media/3.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-10-17_1200_community-name/post.json)
 
 ---
