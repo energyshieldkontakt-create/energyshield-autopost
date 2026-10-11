@@ -2,12 +2,19 @@
   "publish_at": "2026-10-15T18:30:00+02:00",
   "erstellt_am": "2026-10-05T12:35:00+02:00",
   "typ": "karussell",
-  "status": "geplant",
+  "status": "bei_buffer",
   "caption": "Noisia sind zurück. Und das ist nur eine der News in SHIELD RADAR #01. 🛡️\n\nAb heute alle zwei Wochen: Drum-and-Bass-News von nebenan bis weltweit. Nur Fakten, immer mit Quelle.\n\n01 Noisia machen wieder gemeinsam Musik\n02 Code Red FM: Drum and Bass im Freien Radio Stuttgart\nDazu: neue Releases von Netsky, Kanine und DJ Zinc und Szene-Wissen zu Neurofunk.\n\nWelcher Track lief bei euch zuletzt in Dauerschleife? Schreibt es in die Kommentare, Tipps für die nächste Ausgabe gern per DM.\n\nQuellen: NME (17.09.2026), code-red-fm.de, drumandbassuk.com, Wikipedia (Neurofunk)\n\n#drumandbass #dnb #dnbnews #neurofunk #noisia #stuttgartdnb #kirchheimteck #shieldradar",
   "slides": [
-    { "vorlage": "radar-cover", "ausgabe": 1, "datum": "15.10.2026" },
     {
-      "vorlage": "radar-meldung", "ring": "welt", "kategorie": "Comeback", "ort": "Groningen, Niederlande",
+      "vorlage": "radar-cover",
+      "ausgabe": 1,
+      "datum": "15.10.2026"
+    },
+    {
+      "vorlage": "radar-meldung",
+      "ring": "welt",
+      "kategorie": "Comeback",
+      "ort": "Groningen, Niederlande",
       "titel": "Noisia sind zurück",
       "anriss": "Noisia machen wieder gemeinsam Musik",
       "text": "Sieben Jahre nachdem sie ihre Trennung angekündigt hatten, sind Nik Roos, Martijn van Sonderen und Thijs de Vlieger wieder zusammen. Am 17. September hat das Trio verkündet, wieder gemeinsam Musik zu machen. Neue Tracks wollen sie zuerst live testen und sich mit Veröffentlichungen Zeit lassen.",
@@ -15,7 +22,10 @@
       "quelle": "NME, 17.09.2026"
     },
     {
-      "vorlage": "radar-meldung", "ring": "lokal", "kategorie": "Hintergrund", "ort": "Stuttgart",
+      "vorlage": "radar-meldung",
+      "ring": "lokal",
+      "kategorie": "Hintergrund",
+      "ort": "Stuttgart",
       "titel": "Drum and Bass im Stuttgarter Radio",
       "anriss": "Code Red FM: DnB im Freien Radio Stuttgart",
       "text": "Code Red FM ist eine Radioshow für Drum and Bass auf Freies Radio für Stuttgart, zu hören auf UKW 99,2 und im Stream. Hinter der Show steht eine Crew aus DJs der Region, darunter Sub:Minus, BEEZD, outtake und CharisArts. Tobs Turvy ist seit zehn Jahren dabei.",
@@ -23,17 +33,40 @@
       "quelle": "code-red-fm.de"
     },
     {
-      "vorlage": "radar-kurz", "punkte": [
-        { "ring": "welt", "text": "Netsky und Hannah Boleyn veröffentlichen die gemeinsame Single „Feel Again“ auf Helix Records.", "quelle": "drumandbassuk.com" },
-        { "ring": "welt", "text": "Kanine bringt mit „Reflections“ eine neue Veröffentlichung auf UKF heraus.", "quelle": "drumandbassuk.com" },
-        { "ring": "welt", "text": "DJ Zinc veröffentlicht „Lightwork“ auf Bingo Bass.", "quelle": "drumandbassuk.com" }
+      "vorlage": "radar-kurz",
+      "punkte": [
+        {
+          "ring": "welt",
+          "text": "Netsky und Hannah Boleyn veröffentlichen die gemeinsame Single „Feel Again“ auf Helix Records.",
+          "quelle": "drumandbassuk.com"
+        },
+        {
+          "ring": "welt",
+          "text": "Kanine bringt mit „Reflections“ eine neue Veröffentlichung auf UKF heraus.",
+          "quelle": "drumandbassuk.com"
+        },
+        {
+          "ring": "welt",
+          "text": "DJ Zinc veröffentlicht „Lightwork“ auf Bingo Bass.",
+          "quelle": "drumandbassuk.com"
+        }
       ]
     },
     {
-      "vorlage": "radar-wissen", "begriff": "Neurofunk", "titel": "Was ist Neurofunk?",
+      "vorlage": "radar-wissen",
+      "begriff": "Neurofunk",
+      "titel": "Was ist Neurofunk?",
       "text": "Neurofunk ist die dunkle, technische Seite von Drum and Bass: saubere Produktion, verschachtelte Basslines und Klangfarben, die sich ständig verändern. Den Begriff prägte der Musikkritiker Simon Reynolds 1997, als Meilenstein gilt das Album „Wormhole“ von Ed Rush & Optical aus dem Jahr 1998. Heute stehen Namen wie Noisia, Phace und Mefjus für den Stil.",
       "quelle": "Wikipedia, Neurofunk"
     },
-    { "vorlage": "radar-ende", "frage": "Welcher Track lief bei euch zuletzt in Dauerschleife?", "naechste": "29.10." }
-  ]
+    {
+      "vorlage": "radar-ende",
+      "frage": "Welcher Track lief bei euch zuletzt in Dauerschleife?",
+      "naechste": "29.10."
+    }
+  ],
+  "ergebnis": {
+    "buffer_id": "6acbc58a7db619a291402eae",
+    "uebergeben_am": "2026-10-11T17:21:14.424446+00:00"
+  }
 }
