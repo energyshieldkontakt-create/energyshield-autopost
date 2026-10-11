@@ -89,7 +89,9 @@ body { position: relative; background: var(--nacht); color: var(--weiss); font-f
   filter: drop-shadow(0 4px 16px rgba(0, 0, 0, .9)) drop-shadow(0 0 10px color-mix(in srgb, var(--a) 80%, transparent)) drop-shadow(0 0 34px color-mix(in srgb, var(--a) 40%, transparent)); }
 .name::before { content: attr(data-name); position: absolute; inset: 0; background: none; -webkit-background-clip: border-box; background-clip: border-box;
   color: var(--a); transform: translateX(-7px); clip-path: inset(18% 0 62% 0); opacity: .9; }
-.ctags { position: absolute; top: 1128px; left: var(--rand); right: var(--rand); display: flex; justify-content: center; gap: 14px; z-index: 4; }
+.ctags { position: absolute; top: 1128px; left: var(--rand); right: var(--rand); display: flex; justify-content: center; gap: calc(14px * var(--ks, 1)); z-index: 4; }
+/* viele Stile: bts.js verkleinert die Cover-Etiketten bis 85 % (--ks), erst danach „Stile zu lang für das Cover“ */
+.ctags .tag { font-size: calc(20px * var(--ks, 1)); padding: 0 calc(22px * var(--ks, 1)); }
 .hook { position: absolute; top: 1208px; left: var(--rand); right: var(--rand); text-align: center; font-weight: 700; font-size: 30px; color: var(--text); z-index: 4; }
 
 /* ---------- 2 Steckbrief ---------- */

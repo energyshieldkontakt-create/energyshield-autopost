@@ -1,0 +1,9 @@
+{
+  "typ": "karussell",
+  "status": "test",
+  "slides": [
+    { "vorlage": "bts-cover", "resident": "Stone D", "folge": 2, "bild": "hoch.jpg", "stile": ["Liquid", "Deep", "Jump-Up", "Jungle"], "seit": "2018" },
+    { "vorlage": "bts-steckbrief", "rolle": "Resident", "name_herkunft": "Ein Satz zum Namen." },
+    { "vorlage": "bts-bastion", "set": "Von allem etwas." }
+  ]
+}

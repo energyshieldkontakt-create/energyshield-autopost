@@ -442,7 +442,9 @@
       if (t.getBoundingClientRect().height > 2.5 * parseFloat(getComputedStyle(t).lineHeight)) { fehler.push('Track-Titel zu lang'); break; }
     }
     const tags = document.querySelector('.ctags');
-    if (tags && tags.scrollWidth > tags.clientWidth + 1) fehler.push('Stile zu lang für das Cover');
+    const tagsZuBreit = () => tags.scrollWidth > tags.clientWidth + 1;
+    for (let ks = 1; tags && tagsZuBreit() && ks > .85; ) { ks -= .01; tags.style.setProperty('--ks', ks.toFixed(2)); }
+    if (tags && tagsZuBreit()) fehler.push('Stile zu lang für das Cover');
     if (inhalt) {
       const box = inhalt.getBoundingClientRect();
       for (const e of inhalt.querySelectorAll('*')) {
