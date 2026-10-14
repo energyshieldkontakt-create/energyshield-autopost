@@ -126,8 +126,8 @@
     document.body.appendChild(s);
   }
 
-  /* ---------- Rahmen: Fläche, Kopfleiste, Fortschritt, Fuß ---------- */
-  function rahmen(klasse, { marke = 'BEHIND THE SHIELD', fuss = true, inhalt = true } = {}) {
+  /* ---------- Rahmen: Fläche, Kopfleiste, Fortschritt (kein Fuß mit Handles mehr, Oliver 14.10.) ---------- */
+  function rahmen(klasse, { marke = 'BEHIND THE SHIELD', inhalt = true } = {}) {
     const b = document.body;
     b.className = 'bts ' + klasse;
     b.appendChild(el('div', 'flaeche'));
@@ -148,12 +148,6 @@
     b.appendChild(p);
     let main = null;
     if (inhalt) { main = el('main', 'inhalt'); b.appendChild(main); }
-    if (fuss) {
-      const u = el('footer', 'fuss');
-      u.appendChild(el('span', 'links', R.handle));
-      u.appendChild(el('span', 'rechts', '@energy.shield.rave'));
-      b.appendChild(u);
-    }
     b.appendChild(el('div', 'grain'));
     b.appendChild(el('div', 'scan'));
     return main;
@@ -163,7 +157,7 @@
   function coverSlide() {
     pflicht(S, ['resident', 'folge', 'bild', 'seit']);
     if (!stile().length) fehler.push('bts-cover: Feld "stile" fehlt');
-    rahmen('cover', { marke: 'ENERGYSHIELD', fuss: false, inhalt: false });
+    rahmen('cover', { marke: 'ENERGYSHIELD', inhalt: false });
     duotone('duo');
     const b = document.body;
     const hud = el('div', 'hud');
@@ -398,10 +392,11 @@
 
   // Letzte Slide. Standard ist ein Outro ohne Termin (Oliver, 8.10.: der 30.1. ist noch nicht angekündigt, laut Fahrplan
   // erst mit dem Save the Date am 1.11.). "ankuendigung": true zeigt die Event-Version mit Datum, Ort und Einlass.
+  // Das Outro endet mit den beiden Antworten, ohne Etikett und Handles darunter (Oliver, 14.10.).
   function bastion() {
     pflicht(S, ['set']);
     const event = S.ankuendigung === true;
-    const inhalt = rahmen('bastion' + (event ? '' : ' outro'), { fuss: event });   // Outro: Handles stehen schon groß in der Leiste
+    const inhalt = rahmen('bastion' + (event ? '' : ' outro'));
     inhalt.appendChild(el('span', 'tag orb', event ? 'Club-Debut' : 'Bis bald'));
     const titel = el('div', 'titel', event ? 'Am 30.1. live in der ' : 'Wir sehen uns auf dem ');
     titel.appendChild(el('em', '', event ? 'Bastion' : 'Floor.'));
@@ -410,12 +405,10 @@
     mitte.appendChild(balken(event ? 'Was euch bei meinem Set erwartet' : 'Mein nächstes Set', S.set));
     if (S.an_neue) mitte.appendChild(balken(event ? 'An alle, die zum ersten Mal kommen' : 'An alle, die neu dabei sind', S.an_neue));
     inhalt.appendChild(mitte);
-    inhalt.appendChild(el('span', 'tag voll orb plaetze', event ? 'Nur 120 Plätze' : 'Nicht verpassen'));
-    const zellen = event
-      ? [['Samstag', '30.01.', true], ['Wo', 'Club Bastion\nKirchheim'], ['Eintritt', 'Abendkasse\nab 18 Jahren']]
-      : [['Resident', R.handle], ['Crew', '@energy.shield.rave']].filter(z => z[1]);
-    const g = el('div', 'infos' + (event ? '' : ' zwei'));
-    for (const [label, wert, zahl] of zellen) {
+    if (!event) return null;
+    inhalt.appendChild(el('span', 'tag voll orb plaetze', 'Nur 120 Plätze'));
+    const g = el('div', 'infos');
+    for (const [label, wert, zahl] of [['Samstag', '30.01.', true], ['Wo', 'Club Bastion\nKirchheim'], ['Eintritt', 'Abendkasse\nab 18 Jahren']]) {
       const c = el('div', 'zelle');
       c.appendChild(el('span', 'z-l', label));
       c.appendChild(el('span', 'z-w' + (zahl ? ' zahl' : ''), wert));
