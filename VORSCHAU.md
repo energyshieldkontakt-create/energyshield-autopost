@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 11.10.2026 14:33. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 14.10.2026 09:32. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -125,87 +125,5 @@ Status: **test**
 <img src="queue/2026-01-01_0009_test-bts/media/1.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/2.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/3.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/4.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/5.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/7.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/8.jpg" width="240">
 
 [Video-Slide 6 ansehen](queue/2026-01-01_0009_test-bts/media/6.mp4) · [post.json bearbeiten](queue/2026-01-01_0009_test-bts/post.json)
-
----
-
-## Di 13.10. 18:30 · karussell · `2026-10-13_1830_vier-residents`
-
-Status: **geplant**
-
-> Vier Residents. Vier Sounds. Ein Schild. 🛡️
-> 
-> @kruxer.dnb geht in die Tiefe, @stone_d_97 pendelt zwischen Halftime und Deep, @jhinx.dnb bringt den Neurofunk und @ranj.dnb sorgt für Jump-Up-Druck.
-> 
-> Jeden Sonntag um 18 Uhr ist einer von ihnen dran: die Shield Sessions.
-> 
-> Welcher Sound ist eurer? Schreibt's in die Kommentare. 👇
-> 
-> #drumandbass #dnb #neurofunk #jumpup #halftime #deepdnb #stuttgartdnb #kirchheimteck
-
-<img src="queue/2026-10-13_1830_vier-residents/media/1.jpg" width="240"> <img src="queue/2026-10-13_1830_vier-residents/media/2.jpg" width="240"> <img src="queue/2026-10-13_1830_vier-residents/media/3.jpg" width="240"> <img src="queue/2026-10-13_1830_vier-residents/media/4.jpg" width="240"> <img src="queue/2026-10-13_1830_vier-residents/media/5.jpg" width="240"> <img src="queue/2026-10-13_1830_vier-residents/media/6.jpg" width="240">
-
-[post.json bearbeiten](queue/2026-10-13_1830_vier-residents/post.json)
-
----
-
-## Mi 14.10. 19:00 · story · `2026-10-14_1900_story-vol02-nachhoeren`
-
-Status: **geplant**
-
-<img src="queue/2026-10-14_1900_story-vol02-nachhoeren/media/1.jpg" width="240">
-
-[post.json bearbeiten](queue/2026-10-14_1900_story-vol02-nachhoeren/post.json)
-
----
-
-## Do 15.10. 18:30 · karussell · `2026-10-15_1830_shield-radar-01`
-
-Status: **geplant**
-
-> Noisia sind zurück. Und das ist nur eine der News in SHIELD RADAR #01. 🛡️
-> 
-> Ab heute alle zwei Wochen: Drum-and-Bass-News von nebenan bis weltweit. Nur Fakten, immer mit Quelle.
-> 
-> 01 Noisia machen wieder gemeinsam Musik
-> 02 Code Red FM: Drum and Bass im Freien Radio Stuttgart
-> Dazu: neue Releases von Netsky, Kanine und DJ Zinc und Szene-Wissen zu Neurofunk.
-> 
-> Welcher Track lief bei euch zuletzt in Dauerschleife? Schreibt es in die Kommentare, Tipps für die nächste Ausgabe gern per DM.
-> 
-> Quellen: NME (17.09.2026), code-red-fm.de, drumandbassuk.com, Wikipedia (Neurofunk)
-> 
-> #drumandbass #dnb #dnbnews #neurofunk #noisia #stuttgartdnb #kirchheimteck #shieldradar
-
-<img src="queue/2026-10-15_1830_shield-radar-01/media/1.jpg" width="240"> <img src="queue/2026-10-15_1830_shield-radar-01/media/2.jpg" width="240"> <img src="queue/2026-10-15_1830_shield-radar-01/media/3.jpg" width="240"> <img src="queue/2026-10-15_1830_shield-radar-01/media/4.jpg" width="240"> <img src="queue/2026-10-15_1830_shield-radar-01/media/5.jpg" width="240"> <img src="queue/2026-10-15_1830_shield-radar-01/media/6.jpg" width="240">
-
-[post.json bearbeiten](queue/2026-10-15_1830_shield-radar-01/post.json)
-
----
-
-## Do 15.10. 20:00 · story · `2026-10-15_2000_story-radar-01`
-
-Status: **geplant**
-
-<img src="queue/2026-10-15_2000_story-radar-01/media/1.jpg" width="240">
-
-[post.json bearbeiten](queue/2026-10-15_2000_story-radar-01/post.json)
-
----
-
-## Sa 17.10. 12:00 · karussell · `2026-10-17_1200_community-name`
-
-Status: **geplant**
-
-> Ihr seid mehr als Follower. Ihr braucht einen Namen. 🛡️
-> 
-> Liquicity hat die Liquicitizens, wir haben euch. Wie soll unsere Community heißen?
-> 
-> Schreibt eure Vorschläge in die Kommentare. Wir wählen die besten aus, dann stimmt ihr ab.
-> 
-> #drumandbass #dnb #dnbfamily #dnbcommunity #kirchheimteck #stuttgartdnb #energyshield
-
-<img src="queue/2026-10-17_1200_community-name/media/1.jpg" width="240"> <img src="queue/2026-10-17_1200_community-name/media/2.jpg" width="240"> <img src="queue/2026-10-17_1200_community-name/media/3.jpg" width="240">
-
-[post.json bearbeiten](queue/2026-10-17_1200_community-name/post.json)
 
 ---
