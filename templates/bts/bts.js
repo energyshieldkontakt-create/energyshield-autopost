@@ -185,7 +185,7 @@
     if (stile().length) tags.appendChild(el('span', 'tag orb', stile().join(' · ')));
     if (S.seit) tags.appendChild(el('span', 'tag leise orb', 'Seit ' + S.seit));
     b.appendChild(tags);
-    b.appendChild(el('div', 'hook', 'Wer steht da eigentlich am Pult? Wisch rüber.'));
+    b.appendChild(el('div', 'hook', 'Wer steht da eigentlich am Pult?'));   // ohne „Wisch rüber.“ (Oliver, 14.10.)
     if (!S.bild) return null;
     return async () => {
       const img = await ladeFoto(S.bild);
