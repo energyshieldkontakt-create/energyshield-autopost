@@ -99,9 +99,11 @@ body { position: relative; background: var(--nacht); color: var(--weiss); font-f
 .mini { width: 236px; height: 279px; flex-shrink: 0; overflow: visible; margin-right: 6px; }
 .mini .umriss { fill: none; stroke: var(--a); stroke-width: 6; stroke-linejoin: round; filter: drop-shadow(0 0 6px var(--a)) drop-shadow(0 0 18px color-mix(in srgb, var(--a) 50%, transparent)); }
 .daten { list-style: none; margin-top: 46px; }
-.daten li { display: grid; grid-template-columns: 300px minmax(0, 1fr); align-items: center; gap: 20px; padding: 24px 0; border-top: 1px solid var(--linie); }
+.daten li { display: grid; grid-template-columns: 310px minmax(0, 1fr); align-items: center; gap: 20px; padding: 24px 0; border-top: 1px solid var(--linie); }
 .daten li:last-child { border-bottom: 1px solid var(--linie); }
-.daten .k { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 19px; letter-spacing: .2em; color: var(--fein); text-transform: uppercase; }
+/* Beschriftungen hervorgehoben in der Resident-Farbe (Oliver, 14.10.) */
+.daten .k { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 22px; letter-spacing: .14em; color: var(--a); text-transform: uppercase;
+  text-shadow: 0 0 12px color-mix(in srgb, var(--a) 55%, transparent); }
 .daten .v { font-weight: 700; font-size: max(32px, calc(34px * var(--ts))); line-height: 1.25; color: var(--weiss); overflow-wrap: break-word; }
 .daten .v.tags { display: flex; gap: 12px; flex-wrap: wrap; }
 .steckbrief .balken { margin-top: auto; }

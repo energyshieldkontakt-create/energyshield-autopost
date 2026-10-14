@@ -5,13 +5,13 @@
   const SVG = 'http://www.w3.org/2000/svg';
   // Farben wie AKZENTE in scripts/render.py, Umrisse = Element mit class "s-umriss" in templates/schilde/<name>.svg
   const RESIDENTS = {
-    'kruxer': { name: 'KruXer', akzent: '#2EE6F5', handle: '@kruxer.dnb',
+    'kruxer': { name: 'KruXer', akzent: '#2EE6F5',
       umriss: 'M30,44 L72,20 H368 L410,44 V250 C410,392 318,468 220,510 C122,468 30,392 30,250 Z' },
-    'stone d': { name: 'Stone D', akzent: '#FF4FA3', handle: '@stone_d_97',
+    'stone d': { name: 'Stone D', akzent: '#FF4FA3',
       umriss: 'M40,64 L118,22 H322 L400,64 L414,262 L336,444 L220,508 L104,444 L26,262 Z' },
-    'jhinx': { name: 'Jhinx', akzent: '#9D7BFF', handle: '@jhinx.dnb',
+    'jhinx': { name: 'Jhinx', akzent: '#9D7BFF',
       umriss: 'M64,20 L376,20 L420,64 L420,282 L300,468 L220,510 L140,468 L20,282 L20,64 Z' },
-    'ranj': { name: 'Ranj', akzent: '#FF9A3C', handle: '@ranj.dnb',
+    'ranj': { name: 'Ranj', akzent: '#FF9A3C',
       umriss: 'M30,70 L70,22 L110,58 L150,14 L190,54 L220,6 L250,54 L290,14 L330,58 L370,22 L410,70 L402,148 L420,180 L398,220 L414,260 L384,330 L340,420 L220,510 L100,420 L56,330 L26,260 L42,220 L20,180 L38,148 Z' },
   };
   const STANDARD_UMRISS = 'M20,44 Q220,4 420,44 V240 C420,382 322,462 220,508 C118,462 20,382 20,240 Z';
@@ -39,7 +39,7 @@
     R = RESIDENTS[String(cover.resident || '').trim().toLowerCase()];
     if (!R) {
       fehler.push(`Unbekannter Resident "${cover.resident || ''}" (erlaubt: KruXer, Stone D, Jhinx, Ranj)`);
-      R = { name: String(cover.resident || '?'), akzent: '#2EE6F5', handle: '', umriss: STANDARD_UMRISS };
+      R = { name: String(cover.resident || '?'), akzent: '#2EE6F5', umriss: STANDARD_UMRISS };
     }
     document.body.style.setProperty('--a', R.akzent);
   }
@@ -234,7 +234,6 @@
     for (const s of stile()) tags.appendChild(el('span', 'tag', s));
     zeile('Sound', tags);
     zeile('Bei EnergyShield', String(S.rolle || ''));
-    if (R.handle) zeile('Instagram', R.handle);
     inhalt.appendChild(ul);
     if (S.name_herkunft) inhalt.appendChild(balken('Woher kommt der Name?', S.name_herkunft));
     else document.body.classList.add('ohne-herkunft');
