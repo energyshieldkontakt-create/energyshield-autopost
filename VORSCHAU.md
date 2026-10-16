@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 14.10.2026 16:54. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 16.10.2026 22:17. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -125,5 +125,26 @@ Status: **test**
 <img src="queue/2026-01-01_0009_test-bts/media/1.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/2.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/3.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/4.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/5.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/7.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/8.jpg" width="240">
 
 [Video-Slide 6 ansehen](queue/2026-01-01_0009_test-bts/media/6.mp4) · [post.json bearbeiten](queue/2026-01-01_0009_test-bts/post.json)
+
+---
+
+## So 18.10. 18:00 · karussell · `2026-10-18_1800_shield-sessions-vol03`
+
+Status: **geplant**
+
+> Shield Sessions VOL. 03 🛡️
+> 
+> Jhinx's erster Mix für die Shieldsession mit super saftigen Blends. Ziehts euch ryan und einen guten Start in die kommende Woche 👊🏼
+> 
+> @jhinx.dnb mit Neurofunk und Dancefloor, 180 BPM.
+> 
+> 🔊 Wischen für 3 Hot Cues aus dem Set
+> 🎧 Voller Mix auf SoundCloud – Link in Bio
+> 
+> #drumandbass #dnb #neurofunk #dancefloordnb #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb
+
+<img src="queue/2026-10-18_1800_shield-sessions-vol03/media/1.jpg" width="240"> <img src="queue/2026-10-18_1800_shield-sessions-vol03/media/2.jpg" width="240"> <img src="queue/2026-10-18_1800_shield-sessions-vol03/media/soundcloud.jpg" width="240">
+
+[Video-Slide 3 ansehen](queue/2026-10-18_1800_shield-sessions-vol03/media/3.mp4) · [Video-Slide 4 ansehen](queue/2026-10-18_1800_shield-sessions-vol03/media/4.mp4) · [Video-Slide 5 ansehen](queue/2026-10-18_1800_shield-sessions-vol03/media/5.mp4) · [post.json bearbeiten](queue/2026-10-18_1800_shield-sessions-vol03/post.json)
 
 ---

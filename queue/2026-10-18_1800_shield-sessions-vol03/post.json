@@ -23,9 +23,18 @@
     }
   ],
   "hoerproben": [
-    { "im_mix": "1:59", "dauer": 30 },
-    { "im_mix": "9:00", "dauer": 30 },
-    { "im_mix": "19:43", "dauer": 30 }
+    {
+      "im_mix": "1:59",
+      "dauer": 30
+    },
+    {
+      "im_mix": "9:00",
+      "dauer": 30
+    },
+    {
+      "im_mix": "19:43",
+      "dauer": 30
+    }
   ],
   "tracklist": [
     "Finalfix – The Prophecy",
@@ -54,5 +63,127 @@
     "Neonlight – Reflexion",
     "Punchman – Minigun",
     "Limp Bizkit – Nookie (Deadstar Bootleg)"
+  ],
+  "trackid": [
+    [
+      0,
+      "Void Division – Dormant Under Ice"
+    ],
+    [
+      32,
+      "Finalfix – The Prophecy"
+    ],
+    [
+      40,
+      "Marie Vaunt – That Acid (Dimension & Subsonic Remix)"
+    ],
+    [
+      180,
+      "Mandidextrous, Tanukichi – Tunnel Vision (Zombie Cats & N-Kore Remix)"
+    ],
+    [
+      212,
+      "ID – ID"
+    ],
+    [
+      360,
+      "Penyair – Bambú - A COLORS SHOW"
+    ],
+    [
+      380,
+      "Top Heavy Ken – Kicking You Out"
+    ],
+    [
+      392,
+      "Mean Teeth – Shut Them Down (Myselor Remix)"
+    ],
+    [
+      420,
+      "Sindicate – Watch Ya Maaf"
+    ],
+    [
+      448,
+      "Stonx – Nothing Bad"
+    ],
+    [
+      476,
+      "Zigi SC – Runnin"
+    ],
+    [
+      504,
+      "Zombie Cats – Move"
+    ],
+    [
+      532,
+      "Task Horizon, Ekwols – Legacy (Ekwols Remix)"
+    ],
+    [
+      560,
+      "The Prodigy, Sub Focus – Smack My Bitch Up (Sub Focus Remix)"
+    ],
+    [
+      652,
+      "Transforma – Ghouls"
+    ],
+    [
+      660,
+      "Donny, Katharsys & Various Artists – Genesis (Finalfix Remix)"
+    ],
+    [
+      760,
+      "Skrimor – Boogie Woogie"
+    ],
+    [
+      772,
+      "Changing Faces – Rave Machine (VIP)"
+    ],
+    [
+      800,
+      "Culture Shock – Bunker"
+    ],
+    [
+      852,
+      "Audio & AENYGMA – Blood On Our Hands"
+    ],
+    [
+      919,
+      "Phyz Drop – Roller Coaster"
+    ],
+    [
+      986,
+      "Kaizen Flow, HighThere – Heavyweight"
+    ],
+    [
+      1053,
+      "7th Sense – Manual (Vertx Remix)"
+    ],
+    [
+      1120,
+      "State of Mind – Shout"
+    ],
+    [
+      1152,
+      "Prdk, Asom – Sanctum (Asom Remix)"
+    ],
+    [
+      1195,
+      "HighThere – The Knights of Ren"
+    ],
+    [
+      1237,
+      "Cyntax – Gully"
+    ],
+    [
+      1280,
+      "Neonlight – Reflexion"
+    ],
+    [
+      1372,
+      "Punchman – Minigun"
+    ],
+    [
+      1457,
+      "Limp Bizkit – Nookie (Deadstar Bootleg)"
+    ]
   ]
 }
