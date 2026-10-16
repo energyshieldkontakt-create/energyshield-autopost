@@ -1,0 +1,58 @@
+{
+  "publish_at": "2026-10-18T18:00:00+02:00",
+  "erstellt_am": "2026-10-16T22:10:31+02:00",
+  "typ": "karussell",
+  "status": "geplant",
+  "caption": "Shield Sessions VOL. 03 🛡️\n\nJhinx's erster Mix für die Shieldsession mit super saftigen Blends. Ziehts euch ryan und einen guten Start in die kommende Woche 👊🏼\n\n@jhinx.dnb mit Neurofunk und Dancefloor, 180 BPM.\n\n🔊 Wischen für 3 Hot Cues aus dem Set\n🎧 Voller Mix auf SoundCloud – Link in Bio\n\n#drumandbass #dnb #neurofunk #dancefloordnb #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb",
+  "mix_drive_id": "1V2SJWz59Vko5-_JAEo0nvFF2dOz5X4m2",
+  "slides": [
+    {
+      "vorlage": "cover",
+      "dj": "Jhinx",
+      "vol": 3,
+      "stil": "Neurofunk, Dancefloor",
+      "bpm": 180
+    },
+    {
+      "vorlage": "quadrat",
+      "bild": "dj.jpg",
+      "akzent": "neuro",
+      "kicker": "Resident · Vol. 03",
+      "titel": "Jhinx",
+      "fuss": "Shield Sessions · Jeden Sonntag"
+    }
+  ],
+  "hoerproben": [
+    { "im_mix": "1:59", "dauer": 30 },
+    { "im_mix": "9:00", "dauer": 30 },
+    { "im_mix": "19:43", "dauer": 30 }
+  ],
+  "tracklist": [
+    "Finalfix – The Prophecy",
+    "Marie Vaunt – That Acid (Dimension & Subsonic Remix)",
+    "Mandidextrous, Tanukichi – Tunnel Vision (Zombie Cats & N-Kore Remix)",
+    "Mean Teeth – Shut Them Down (Myselor Remix)",
+    "Sindicate – Watch Ya Maaf",
+    "Stonx – Nothing Bad",
+    "Zigi SC – Runnin",
+    "Zombie Cats – Move",
+    "Task Horizon, Ekwols – Legacy (Ekwols Remix)",
+    "The Prodigy, Sub Focus – Smack My Bitch Up (Sub Focus Remix)",
+    "Transforma – Ghouls",
+    "Donny, Katharsys & Various Artists – Genesis (Finalfix Remix)",
+    "Skrimor – Boogie Woogie",
+    "Changing Faces – Rave Machine (VIP)",
+    "Culture Shock – Bunker",
+    "Audio & AENYGMA – Blood On Our Hands",
+    "Phyz Drop – Roller Coaster",
+    "Kaizen Flow, HighThere – Heavyweight",
+    "7th Sense – Manual (Vertx Remix)",
+    "State of Mind – Shout",
+    "Prdk, Asom – Sanctum (Asom Remix)",
+    "HighThere – The Knights of Ren",
+    "Cyntax – Gully",
+    "Neonlight – Reflexion",
+    "Punchman – Minigun",
+    "Limp Bizkit – Nookie (Deadstar Bootleg)"
+  ]
+}
