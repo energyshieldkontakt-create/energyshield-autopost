@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 16.10.2026 22:17. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 17.10.2026 10:09. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -146,5 +146,63 @@ Status: **geplant**
 <img src="queue/2026-10-18_1800_shield-sessions-vol03/media/1.jpg" width="240"> <img src="queue/2026-10-18_1800_shield-sessions-vol03/media/2.jpg" width="240"> <img src="queue/2026-10-18_1800_shield-sessions-vol03/media/soundcloud.jpg" width="240">
 
 [Video-Slide 3 ansehen](queue/2026-10-18_1800_shield-sessions-vol03/media/3.mp4) · [Video-Slide 4 ansehen](queue/2026-10-18_1800_shield-sessions-vol03/media/4.mp4) · [Video-Slide 5 ansehen](queue/2026-10-18_1800_shield-sessions-vol03/media/5.mp4) · [post.json bearbeiten](queue/2026-10-18_1800_shield-sessions-vol03/post.json)
+
+---
+
+## Di 20.10. 18:30 · karussell · `2026-10-20_1830_shield-code`
+
+Status: **geplant**
+
+> Bevor es richtig losgeht: unsere Regeln. 🛡️
+> 
+> Der Shield Code gilt für alle, für Gäste, DJs und Crew. Respekt, Konsens, aufeinander achten.
+> 
+> Auf unseren Events sind Awareness-Leute für euch ansprechbar. Wer Hilfe braucht, bekommt sie.
+> 
+> Fehlt euch etwas? Schreibt es uns, der Code wächst mit euch.
+> 
+> #drumandbass #dnb #saferspace #awareness #dnbfamily #kirchheimteck #stuttgartdnb
+
+<img src="queue/2026-10-20_1830_shield-code/media/1.jpg" width="240"> <img src="queue/2026-10-20_1830_shield-code/media/2.jpg" width="240"> <img src="queue/2026-10-20_1830_shield-code/media/3.jpg" width="240"> <img src="queue/2026-10-20_1830_shield-code/media/4.jpg" width="240"> <img src="queue/2026-10-20_1830_shield-code/media/5.jpg" width="240"> <img src="queue/2026-10-20_1830_shield-code/media/6.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-10-20_1830_shield-code/post.json)
+
+---
+
+## Mi 21.10. 19:00 · story · `2026-10-21_1900_story-vol03-nachhoeren`
+
+Status: **geplant**
+
+<img src="queue/2026-10-21_1900_story-vol03-nachhoeren/media/1.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-10-21_1900_story-vol03-nachhoeren/post.json)
+
+---
+
+## Do 22.10. 19:00 · story · `2026-10-22_1900_story-community-name`
+
+Status: **geplant**
+
+<img src="queue/2026-10-22_1900_story-community-name/media/1.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-10-22_1900_story-community-name/post.json)
+
+---
+
+## Sa 24.10. 12:00 · karussell · `2026-10-24_1200_sound-farben`
+
+Status: **geplant**
+
+> Fünf Sounds, fünf Farben. Welche ist eure? 🛡️
+> 
+> Deep in Cyan, Halftime in Pink, Neurofunk in Violett, Jump-Up in Orange, Liquid in Mint. So seht ihr bei uns auf einen Blick, was euch erwartet, von den Shield Sessions bis zum Flyer.
+> 
+> Schreibt eure Farbe in die Kommentare. 👇
+> 
+> #drumandbass #dnb #deepdnb #halftime #neurofunk #jumpup #liquiddnb #stuttgartdnb
+
+<img src="queue/2026-10-24_1200_sound-farben/media/1.jpg" width="240"> <img src="queue/2026-10-24_1200_sound-farben/media/2.jpg" width="240"> <img src="queue/2026-10-24_1200_sound-farben/media/3.jpg" width="240"> <img src="queue/2026-10-24_1200_sound-farben/media/4.jpg" width="240"> <img src="queue/2026-10-24_1200_sound-farben/media/5.jpg" width="240"> <img src="queue/2026-10-24_1200_sound-farben/media/6.jpg" width="240"> <img src="queue/2026-10-24_1200_sound-farben/media/7.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-10-24_1200_sound-farben/post.json)
 
 ---
