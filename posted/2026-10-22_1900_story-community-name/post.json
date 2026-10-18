@@ -1,0 +1,20 @@
+{
+  "publish_at": "2026-10-22T19:00:00+02:00",
+  "erstellt_am": "2026-10-17T10:06:38+02:00",
+  "typ": "story",
+  "status": "bei_buffer",
+  "slides": [
+    {
+      "vorlage": "story",
+      "bild": "pult.jpg",
+      "kicker": "Community",
+      "titel": "Euer\nName?",
+      "text": "Wie soll unsere Community heißen? Vorschläge unter unseren Post vom 17.10.",
+      "akzent": "halftime"
+    }
+  ],
+  "ergebnis": {
+    "buffer_id": "6ad501ab769b457934d21c79",
+    "uebergeben_am": "2026-10-18T17:28:12.053874+00:00"
+  }
+}
