@@ -1,0 +1,63 @@
+{
+  "publish_at": "2026-10-24T12:00:00+02:00",
+  "erstellt_am": "2026-10-17T10:06:38+02:00",
+  "typ": "karussell",
+  "status": "bei_buffer",
+  "caption": "Fünf Sounds, fünf Farben. Welche ist eure? 🛡️\n\nDeep in Cyan, Halftime in Pink, Neurofunk in Violett, Jump-Up in Orange, Liquid in Mint. So seht ihr bei uns auf einen Blick, was euch erwartet, von den Shield Sessions bis zum Flyer.\n\nSchreibt eure Farbe in die Kommentare. 👇\n\n#drumandbass #dnb #deepdnb #halftime #neurofunk #jumpup #liquiddnb #stuttgartdnb",
+  "slides": [
+    {
+      "vorlage": "feed",
+      "bild": "hoodie.jpg",
+      "kicker": "Ein Schild, fünf Farben",
+      "titel": "Welche\nFarbe?",
+      "akzent": "blau"
+    },
+    {
+      "vorlage": "feed",
+      "kicker": "Cyan · Deep",
+      "titel": "Deep.",
+      "text": "Dunkel, rollend, viel Raum für den Bass. Hier ist @kruxer.dnb zu Hause.",
+      "akzent": "blau"
+    },
+    {
+      "vorlage": "feed",
+      "kicker": "Pink · Halftime",
+      "titel": "Halftime.",
+      "text": "Halbes Tempo, doppelt schwer. Das Revier von @stone_d_97.",
+      "akzent": "halftime"
+    },
+    {
+      "vorlage": "feed",
+      "kicker": "Violett · Neurofunk",
+      "titel": "Neurofunk.",
+      "text": "Technisch, verschachtelt, druckvoll. Die Seite von @jhinx.dnb.",
+      "akzent": "neuro"
+    },
+    {
+      "vorlage": "feed",
+      "kicker": "Orange · Jump-Up",
+      "titel": "Jump-Up.",
+      "text": "Laut, verspielt, Bässe zum Springen. Der Druck von @ranj.dnb.",
+      "akzent": "jumpup"
+    },
+    {
+      "vorlage": "feed",
+      "kicker": "Mint · Liquid",
+      "titel": "Liquid.",
+      "text": "Warm, melodisch, mit viel Gefühl. Der ruhige Pol im Mix.",
+      "akzent": "liquid"
+    },
+    {
+      "vorlage": "feed",
+      "kicker": "Shield Sessions",
+      "titel": "Eure\nFarbe?",
+      "text": "Jeden Sonntag um 18 Uhr ein Mix aus der Crew.",
+      "fuss": "Folgt @energy.shield.rave",
+      "akzent": "blau"
+    }
+  ],
+  "ergebnis": {
+    "buffer_id": "6ad74378afbc1740acd5ab25",
+    "uebergeben_am": "2026-10-20T10:33:28.705748+00:00"
+  }
+}
