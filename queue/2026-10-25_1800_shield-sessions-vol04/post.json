@@ -1,0 +1,50 @@
+{
+  "publish_at": "2026-10-25T18:00:00+01:00",
+  "erstellt_am": "2026-10-23T19:07:31+02:00",
+  "typ": "karussell",
+  "status": "geplant",
+  "caption": "Shield Sessions VOL. 04 🛡️\n\nFür euch Leute ein schönes deep set mit Geilen Blends und etwas schönes am ende, einfach reinziehen sag ich.\n\n@ranj.dnb mit Deep Drum & Bass, 175 BPM.\n\n🔊 Wischen für 3 Hot Cues aus dem Set\n🎧 Voller Mix auf SoundCloud – Link in Bio\n\n#drumandbass #dnb #deepdnb #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb",
+  "mix_drive_id": "13Pis2_R-NG8r22PsN2xAtCjdPtPbJvnT",
+  "slides": [
+    {
+      "vorlage": "cover",
+      "dj": "Ranj",
+      "vol": 4,
+      "stil": "Deep",
+      "bpm": 175
+    },
+    {
+      "vorlage": "quadrat",
+      "bild": "dj.jpg",
+      "akzent": "blau",
+      "kicker": "Resident · Vol. 04",
+      "titel": "Ranj",
+      "fuss": "Shield Sessions · Jeden Sonntag"
+    }
+  ],
+  "hoerproben": [
+    { "im_mix": "6:05", "dauer": 30 },
+    { "im_mix": "17:00", "dauer": 30 },
+    { "im_mix": "26:00", "dauer": 30 }
+  ],
+  "tracklist": [
+    "Submorphics, Jolliffe, Nah Eeto – Sema",
+    "Resslek – Panzer",
+    "Waeys, VISLA – se4ntry gun",
+    "Whychek – Spies",
+    "Kolectiv, Minor Forms – Darkest",
+    "Arkala Dre – Axel",
+    "Enei – Routine",
+    "Rift – Unforgiving",
+    "QZB – No Compliance",
+    "QZB – Haste",
+    "QZB, PHAE – Ghost Town (feat. PHAE)",
+    "Sustance – DMF",
+    "Lameduza, Bredren – Acqua (Alibi Remix)",
+    "Rider Shafique, Wingz – Keep Control",
+    "Atmos, SMG – Pond Affair (ATMOS Remix)",
+    "Sota, Pirapus – NO SURRENDER (No Retreat)",
+    "Phace, Blooom – IS IT",
+    "Wingz – Submission"
+  ]
+}
