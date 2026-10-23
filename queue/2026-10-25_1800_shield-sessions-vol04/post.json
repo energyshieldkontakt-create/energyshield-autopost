@@ -3,20 +3,21 @@
   "erstellt_am": "2026-10-23T19:07:31+02:00",
   "typ": "karussell",
   "status": "geplant",
-  "caption": "Shield Sessions VOL. 04 🛡️\n\nFür euch Leute ein schönes deep set mit Geilen Blends und etwas schönes am ende, einfach reinziehen sag ich.\n\n@ranj.dnb mit Deep Drum & Bass, 175 BPM.\n\n🔊 Wischen für 3 Hot Cues aus dem Set\n🎧 Voller Mix auf SoundCloud – Link in Bio\n\n#drumandbass #dnb #deepdnb #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb",
+  "caption": "Shield Sessions VOL. 04 🛡️\n\nFür euch Leute ein schönes deep set mit Geilen Blends und etwas schönes am ende, einfach reinziehen sag ich.\n\n@ranj.dnb mit Deep und Jump-Up, 175 BPM.\n\n🔊 Wischen für 3 Hot Cues aus dem Set\n🎧 Voller Mix auf SoundCloud – Link in Bio\n\n#drumandbass #dnb #deepdnb #jumpup #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb",
   "mix_drive_id": "13Pis2_R-NG8r22PsN2xAtCjdPtPbJvnT",
   "slides": [
     {
       "vorlage": "cover",
       "dj": "Ranj",
       "vol": 4,
-      "stil": "Deep",
+      "stil": "Deep, Jump-Up",
+      "akzent": "jumpup",
       "bpm": 175
     },
     {
       "vorlage": "quadrat",
       "bild": "dj.jpg",
-      "akzent": "blau",
+      "akzent": "jumpup",
       "kicker": "Resident · Vol. 04",
       "titel": "Ranj",
       "fuss": "Shield Sessions · Jeden Sonntag"
