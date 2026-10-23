@@ -23,9 +23,18 @@
     }
   ],
   "hoerproben": [
-    { "im_mix": "6:05", "dauer": 30 },
-    { "im_mix": "17:00", "dauer": 30 },
-    { "im_mix": "26:00", "dauer": 30 }
+    {
+      "im_mix": "6:05",
+      "dauer": 30
+    },
+    {
+      "im_mix": "17:00",
+      "dauer": 30
+    },
+    {
+      "im_mix": "26:00",
+      "dauer": 30
+    }
   ],
   "tracklist": [
     "Submorphics, Jolliffe, Nah Eeto – Sema",
@@ -46,5 +55,79 @@
     "Sota, Pirapus – NO SURRENDER (No Retreat)",
     "Phace, Blooom – IS IT",
     "Wingz – Submission"
+  ],
+  "trackid": [
+    [
+      0,
+      "Submorphics, Jolliffe, Nah Eeto – Sema"
+    ],
+    [
+      92,
+      "Resslek – Panzer"
+    ],
+    [
+      198,
+      "Waeys, VISLA – se4ntry gun"
+    ],
+    [
+      303,
+      "Whychek – Spies"
+    ],
+    [
+      409,
+      "Kolectiv, Minor Forms – Darkest"
+    ],
+    [
+      514,
+      "Arkala Dre – Axel"
+    ],
+    [
+      620,
+      "Enei – Routine"
+    ],
+    [
+      812,
+      "Rift – Unforgiving"
+    ],
+    [
+      876,
+      "QZB – No Compliance"
+    ],
+    [
+      940,
+      "QZB – Haste"
+    ],
+    [
+      1092,
+      "QZB, PHAE – Ghost Town (feat. PHAE)"
+    ],
+    [
+      1146,
+      "Sustance – DMF"
+    ],
+    [
+      1200,
+      "Lameduza, Bredren – Acqua (Alibi Remix)"
+    ],
+    [
+      1292,
+      "Rider Shafique, Wingz – Keep Control"
+    ],
+    [
+      1376,
+      "Atmos, SMG – Pond Affair (ATMOS Remix)"
+    ],
+    [
+      1460,
+      "Sota, Pirapus – NO SURRENDER (No Retreat)"
+    ],
+    [
+      1612,
+      "Phace, Blooom – IS IT"
+    ],
+    [
+      1664,
+      "Wingz – Submission"
+    ]
   ]
 }

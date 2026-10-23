@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 21.10.2026 07:15. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 23.10.2026 19:13. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -125,5 +125,26 @@ Status: **test**
 <img src="queue/2026-01-01_0009_test-bts/media/1.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/2.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/3.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/4.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/5.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/7.jpg" width="240"> <img src="queue/2026-01-01_0009_test-bts/media/8.jpg" width="240">
 
 [Video-Slide 6 ansehen](queue/2026-01-01_0009_test-bts/media/6.mp4) · [post.json bearbeiten](queue/2026-01-01_0009_test-bts/post.json)
+
+---
+
+## So 25.10. 18:00 · karussell · `2026-10-25_1800_shield-sessions-vol04`
+
+Status: **geplant**
+
+> Shield Sessions VOL. 04 🛡️
+> 
+> Für euch Leute ein schönes deep set mit Geilen Blends und etwas schönes am ende, einfach reinziehen sag ich.
+> 
+> @ranj.dnb mit Deep Drum & Bass, 175 BPM.
+> 
+> 🔊 Wischen für 3 Hot Cues aus dem Set
+> 🎧 Voller Mix auf SoundCloud – Link in Bio
+> 
+> #drumandbass #dnb #deepdnb #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb
+
+<img src="queue/2026-10-25_1800_shield-sessions-vol04/media/1.jpg" width="240"> <img src="queue/2026-10-25_1800_shield-sessions-vol04/media/2.jpg" width="240"> <img src="queue/2026-10-25_1800_shield-sessions-vol04/media/soundcloud.jpg" width="240">
+
+[Video-Slide 3 ansehen](queue/2026-10-25_1800_shield-sessions-vol04/media/3.mp4) · [Video-Slide 4 ansehen](queue/2026-10-25_1800_shield-sessions-vol04/media/4.mp4) · [Video-Slide 5 ansehen](queue/2026-10-25_1800_shield-sessions-vol04/media/5.mp4) · [post.json bearbeiten](queue/2026-10-25_1800_shield-sessions-vol04/post.json)
 
 ---
