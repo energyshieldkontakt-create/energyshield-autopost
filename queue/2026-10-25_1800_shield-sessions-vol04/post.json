@@ -25,15 +25,27 @@
   "hoerproben": [
     {
       "im_mix": "6:05",
-      "dauer": 30
+      "dauer": 30,
+      "tracks": [
+        "Whychek – Spies",
+        "Kolectiv, Minor Forms – Darkest"
+      ]
     },
     {
       "im_mix": "17:00",
-      "dauer": 30
+      "dauer": 30,
+      "tracks": [
+        "QZB – Haste",
+        "QZB, PHAE – Ghost Town (feat. PHAE)"
+      ]
     },
     {
       "im_mix": "26:00",
-      "dauer": 30
+      "dauer": 30,
+      "tracks": [
+        "Sota, Pirapus – NO SURRENDER (No Retreat)",
+        "Phace, Blooom – IS IT"
+      ]
     }
   ],
   "tracklist": [
