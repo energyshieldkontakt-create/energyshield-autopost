@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 23.10.2026 19:53. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 23.10.2026 20:05. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -136,12 +136,12 @@ Status: **geplant**
 > 
 > Für euch Leute ein schönes deep set mit Geilen Blends und etwas schönes am ende, einfach reinziehen sag ich.
 > 
-> @ranj.dnb mit Deep Drum & Bass, 175 BPM.
+> @ranj.dnb mit Deep und Jump-Up, 175 BPM.
 > 
 > 🔊 Wischen für 3 Hot Cues aus dem Set
 > 🎧 Voller Mix auf SoundCloud – Link in Bio
 > 
-> #drumandbass #dnb #deepdnb #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb
+> #drumandbass #dnb #deepdnb #jumpup #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb
 
 <img src="queue/2026-10-25_1800_shield-sessions-vol04/media/1.jpg" width="240"> <img src="queue/2026-10-25_1800_shield-sessions-vol04/media/2.jpg" width="240"> <img src="queue/2026-10-25_1800_shield-sessions-vol04/media/soundcloud.jpg" width="240">
 
