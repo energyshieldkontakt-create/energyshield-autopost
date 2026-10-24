@@ -2,7 +2,7 @@
   "publish_at": "2026-10-25T18:00:00+01:00",
   "erstellt_am": "2026-10-23T19:07:31+02:00",
   "typ": "karussell",
-  "status": "geplant",
+  "status": "bei_buffer",
   "caption": "Shield Sessions VOL. 04 🛡️\n\nFür euch Leute ein schönes deep set mit Geilen Blends und etwas schönes am ende, einfach reinziehen sag ich.\n\n@ranj.dnb mit Deep und Jump-Up, 175 BPM.\n\n🔊 Wischen für 3 Hot Cues aus dem Set\n🎧 Voller Mix auf SoundCloud – Link in Bio\n\n#drumandbass #dnb #deepdnb #jumpup #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb",
   "mix_drive_id": "13Pis2_R-NG8r22PsN2xAtCjdPtPbJvnT",
   "slides": [
@@ -142,5 +142,9 @@
       1664,
       "Wingz – Submission"
     ]
-  ]
+  ],
+  "ergebnis": {
+    "buffer_id": "6add0681e4be8a4d8674e7cf",
+    "uebergeben_am": "2026-10-24T19:26:57.875057+00:00"
+  }
 }
