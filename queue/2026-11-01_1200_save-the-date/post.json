@@ -1,0 +1,12 @@
+{
+  "publish_at": "2026-11-01T12:00:00+01:00",
+  "erstellt_am": "2026-10-25T10:46:00+01:00",
+  "typ": "karussell",
+  "status": "geplant",
+  "caption": "Save the Date: Am 30.01.2027 spielen wir zum ersten Mal im Club Bastion. 🛡️\n\nUnser Club-Debut: eine Nacht Drum and Bass mit unseren Residents und Gästen aus der Region.\n\nNur Abendkasse, Einlass ab 18, nur 120 Plätze. Wer zuerst kommt, ist drin.\n\nTragt euch den Termin ein und markiert, wer mitkommt. 👇 Das Line-up zeigen wir ab nächster Woche.\n\n#drumandbass #dnb #savethedate #clubbastion #kirchheimteck #stuttgartdnb #dnbfamily #energyshield",
+  "slides": [
+    { "vorlage": "feed", "bild": "booth.jpg", "kicker": "Save the Date", "titel": "30.01.\nBastion", "text": "Unser Club-Debut.", "fuss": "EVENT", "akzent": "blau" },
+    { "vorlage": "feed", "kicker": "Nur 120 Plätze", "titel": "Früh\nkommen.", "text": "Kein Vorverkauf. Nur Abendkasse, Einlass ab 18. Wer zuerst kommt, ist drin.", "fuss": "EVENT", "akzent": "blau" },
+    { "vorlage": "feed", "kicker": "Line-up", "titel": "Bald.", "text": "Ab nächster Woche zeigen wir euch, wer am 30.01. auflegt.", "fuss": "Folgt @energy.shield.rave", "akzent": "neuro" }
+  ]
+}
