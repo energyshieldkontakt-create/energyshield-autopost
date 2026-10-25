@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 23.10.2026 20:05. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 25.10.2026 10:48. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -128,23 +128,102 @@ Status: **test**
 
 ---
 
-## So 25.10. 18:00 · karussell · `2026-10-25_1800_shield-sessions-vol04`
+## Di 27.10. 18:30 · karussell · `2026-10-27_1830_shield-sessions-runde-1`
 
 Status: **geplant**
 
-> Shield Sessions VOL. 04 🛡️
+> Vier Sonntage, vier Mixe, vier Sounds. Runde 1 der Shield Sessions ist durch. 🛡️
 > 
-> Für euch Leute ein schönes deep set mit Geilen Blends und etwas schönes am ende, einfach reinziehen sag ich.
+> KruXer mit Deep, Stone D mit Halftime, Jhinx mit Neurofunk, Ranj mit Deep und Jump-Up. Alle vier Mixe laufen voll auf SoundCloud, Link in Bio.
 > 
-> @ranj.dnb mit Deep und Jump-Up, 175 BPM.
+> Welche Session lief bei euch am längsten? Schreibt die Nummer in die Kommentare. 👇
+> Am Sonntag um 18 Uhr startet Runde 2 mit VOL. 05.
 > 
-> 🔊 Wischen für 3 Hot Cues aus dem Set
-> 🎧 Voller Mix auf SoundCloud – Link in Bio
-> 
-> #drumandbass #dnb #deepdnb #jumpup #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb
+> #drumandbass #dnb #dnbmix #shieldsessions #neurofunk #halftime #stuttgartdnb #kirchheimteck
 
-<img src="queue/2026-10-25_1800_shield-sessions-vol04/media/1.jpg" width="240"> <img src="queue/2026-10-25_1800_shield-sessions-vol04/media/2.jpg" width="240"> <img src="queue/2026-10-25_1800_shield-sessions-vol04/media/soundcloud.jpg" width="240">
+<img src="queue/2026-10-27_1830_shield-sessions-runde-1/media/1.jpg" width="240"> <img src="queue/2026-10-27_1830_shield-sessions-runde-1/media/2.jpg" width="240"> <img src="queue/2026-10-27_1830_shield-sessions-runde-1/media/3.jpg" width="240"> <img src="queue/2026-10-27_1830_shield-sessions-runde-1/media/4.jpg" width="240"> <img src="queue/2026-10-27_1830_shield-sessions-runde-1/media/5.jpg" width="240"> <img src="queue/2026-10-27_1830_shield-sessions-runde-1/media/6.jpg" width="240">
 
-[Video-Slide 3 ansehen](queue/2026-10-25_1800_shield-sessions-vol04/media/3.mp4) · [Video-Slide 4 ansehen](queue/2026-10-25_1800_shield-sessions-vol04/media/4.mp4) · [Video-Slide 5 ansehen](queue/2026-10-25_1800_shield-sessions-vol04/media/5.mp4) · [post.json bearbeiten](queue/2026-10-25_1800_shield-sessions-vol04/post.json)
+[post.json bearbeiten](queue/2026-10-27_1830_shield-sessions-runde-1/post.json)
+
+---
+
+## Mi 28.10. 19:00 · story · `2026-10-28_1900_story-vol04-nachhoeren`
+
+Status: **geplant**
+
+<img src="queue/2026-10-28_1900_story-vol04-nachhoeren/media/1.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-10-28_1900_story-vol04-nachhoeren/post.json)
+
+---
+
+## Do 29.10. 18:30 · karussell · `2026-10-29_1830_shield-radar-02`
+
+Status: **geplant**
+
+> Drum and Bass füllt jetzt Arenen in Nordamerika. Mehr dazu in SHIELD RADAR #02. 🛡️
+> 
+> 01 WORSHIP bringen Drum and Bass in die US-Arenen
+> 02 Code Red FM: zehn Jahre Tobs Turvy als Best-of zum Nachhören
+> 03 Trigga Fingaz: vom Rucksack-Rave zum eigenen Label
+> Dazu: neue Releases auf Critical, Liquicity und UKF und Szene-Wissen zu Jungle.
+> 
+> Was war euer erster Drum-and-Bass-Moment? Schreibt es in die Kommentare, Tipps für die nächste Ausgabe gern per DM.
+> 
+> Quellen: Dancing Astronaut (23.10.2026), code-red-fm.de (13.10.2026), Drum and Bass UK (14.10.2026), drumandbassuk.com, Wikipedia (Jungle music)
+> 
+> #drumandbass #dnb #dnbnews #jungle #liquiddnb #stuttgartdnb #kirchheimteck #shieldradar
+
+<img src="queue/2026-10-29_1830_shield-radar-02/media/1.jpg" width="240"> <img src="queue/2026-10-29_1830_shield-radar-02/media/2.jpg" width="240"> <img src="queue/2026-10-29_1830_shield-radar-02/media/3.jpg" width="240"> <img src="queue/2026-10-29_1830_shield-radar-02/media/4.jpg" width="240"> <img src="queue/2026-10-29_1830_shield-radar-02/media/5.jpg" width="240"> <img src="queue/2026-10-29_1830_shield-radar-02/media/6.jpg" width="240"> <img src="queue/2026-10-29_1830_shield-radar-02/media/7.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-10-29_1830_shield-radar-02/post.json)
+
+---
+
+## Do 29.10. 20:00 · story · `2026-10-29_2000_story-radar-02`
+
+Status: **geplant**
+
+<img src="queue/2026-10-29_2000_story-radar-02/media/1.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-10-29_2000_story-radar-02/post.json)
+
+---
+
+## Sa 31.10. 12:00 · bild · `2026-10-31_1200_morgen`
+
+Status: **geplant**
+
+> Morgen, 12 Uhr. Darauf arbeiten wir seit Monaten hin. 🛡️
+> 
+> Mehr verraten wir noch nicht. Nur so viel: Es wird unser bisher größter Schritt.
+> 
+> Glocke an, damit ihr es nicht verpasst. ⚡
+> 
+> #drumandbass #dnb #dnbfamily #stuttgartdnb #kirchheimteck #energyshield
+
+<img src="queue/2026-10-31_1200_morgen/media/1.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-10-31_1200_morgen/post.json)
+
+---
+
+## So 01.11. 12:00 · karussell · `2026-11-01_1200_save-the-date`
+
+Status: **geplant**
+
+> Save the Date: Am 30.01.2027 spielen wir zum ersten Mal im Club Bastion. 🛡️
+> 
+> Unser Club-Debut: eine Nacht Drum and Bass mit unseren Residents und Gästen aus der Region.
+> 
+> Nur Abendkasse, Einlass ab 18, nur 120 Plätze. Wer zuerst kommt, ist drin.
+> 
+> Tragt euch den Termin ein und markiert, wer mitkommt. 👇 Das Line-up zeigen wir ab nächster Woche.
+> 
+> #drumandbass #dnb #savethedate #clubbastion #kirchheimteck #stuttgartdnb #dnbfamily #energyshield
+
+<img src="queue/2026-11-01_1200_save-the-date/media/1.jpg" width="240"> <img src="queue/2026-11-01_1200_save-the-date/media/2.jpg" width="240"> <img src="queue/2026-11-01_1200_save-the-date/media/3.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-11-01_1200_save-the-date/post.json)
 
 ---
