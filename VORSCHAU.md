@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 25.10.2026 10:48. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 26.10.2026 08:46. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -194,7 +194,7 @@ Status: **geplant**
 
 Status: **geplant**
 
-> Morgen, 12 Uhr. Darauf arbeiten wir seit Monaten hin. 🛡️
+> Morgen, 15 Uhr. Darauf arbeiten wir seit Monaten hin. 🛡️
 > 
 > Mehr verraten wir noch nicht. Nur so viel: Es wird unser bisher größter Schritt.
 > 
@@ -208,7 +208,7 @@ Status: **geplant**
 
 ---
 
-## So 01.11. 12:00 · karussell · `2026-11-01_1200_save-the-date`
+## So 01.11. 15:00 · karussell · `2026-11-01_1500_save-the-date`
 
 Status: **geplant**
 
@@ -222,8 +222,8 @@ Status: **geplant**
 > 
 > #drumandbass #dnb #savethedate #clubbastion #kirchheimteck #stuttgartdnb #dnbfamily #energyshield
 
-<img src="queue/2026-11-01_1200_save-the-date/media/1.jpg" width="240"> <img src="queue/2026-11-01_1200_save-the-date/media/2.jpg" width="240"> <img src="queue/2026-11-01_1200_save-the-date/media/3.jpg" width="240">
+<img src="queue/2026-11-01_1500_save-the-date/media/1.jpg" width="240"> <img src="queue/2026-11-01_1500_save-the-date/media/2.jpg" width="240"> <img src="queue/2026-11-01_1500_save-the-date/media/3.jpg" width="240">
 
-[post.json bearbeiten](queue/2026-11-01_1200_save-the-date/post.json)
+[post.json bearbeiten](queue/2026-11-01_1500_save-the-date/post.json)
 
 ---
