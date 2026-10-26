@@ -1,0 +1,31 @@
+{
+  "publish_at": "2026-10-29T20:00:00+01:00",
+  "erstellt_am": "2026-10-25T11:00:00+01:00",
+  "typ": "story",
+  "status": "bei_buffer",
+  "slides": [
+    {
+      "vorlage": "radar-story",
+      "ausgabe": 2,
+      "datum": "29.10.2026",
+      "meldungen": [
+        {
+          "ring": "welt",
+          "titel": "WORSHIP bringen DnB in die US-Arenen"
+        },
+        {
+          "ring": "lokal",
+          "titel": "Code Red FM: Best-of aus zehn Jahren Tobs Turvy"
+        },
+        {
+          "ring": "welt",
+          "titel": "Trigga Fingaz: vom Backpacker-Rave zum Label"
+        }
+      ]
+    }
+  ],
+  "ergebnis": {
+    "buffer_id": "6adf4c50acbcbf2dc98c4d10",
+    "uebergeben_am": "2026-10-26T12:49:20.300333+00:00"
+  }
+}

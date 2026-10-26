@@ -2,7 +2,7 @@
   "publish_at": "2026-10-28T19:00:00+01:00",
   "erstellt_am": "2026-10-25T10:46:00+01:00",
   "typ": "story",
-  "status": "geplant",
+  "status": "bei_buffer",
   "slides": [
     {
       "vorlage": "story",
@@ -12,5 +12,9 @@
       "text": "Ranj mit Deep und Jump-Up. Voller Mix auf SoundCloud – Link in Bio.",
       "akzent": "jumpup"
     }
-  ]
+  ],
+  "ergebnis": {
+    "buffer_id": "6adf4c4e322a47148a754c4e",
+    "uebergeben_am": "2026-10-26T12:49:18.988219+00:00"
+  }
 }

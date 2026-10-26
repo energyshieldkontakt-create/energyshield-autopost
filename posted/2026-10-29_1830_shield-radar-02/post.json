@@ -2,12 +2,19 @@
   "publish_at": "2026-10-29T18:30:00+01:00",
   "erstellt_am": "2026-10-25T11:00:00+01:00",
   "typ": "karussell",
-  "status": "geplant",
+  "status": "bei_buffer",
   "caption": "Drum and Bass füllt jetzt Arenen in Nordamerika. Mehr dazu in SHIELD RADAR #02. 🛡️\n\n01 WORSHIP bringen Drum and Bass in die US-Arenen\n02 Code Red FM: zehn Jahre Tobs Turvy als Best-of zum Nachhören\n03 Trigga Fingaz: vom Rucksack-Rave zum eigenen Label\nDazu: neue Releases auf Critical, Liquicity und UKF und Szene-Wissen zu Jungle.\n\nWas war euer erster Drum-and-Bass-Moment? Schreibt es in die Kommentare, Tipps für die nächste Ausgabe gern per DM.\n\nQuellen: Dancing Astronaut (23.10.2026), code-red-fm.de (13.10.2026), Drum and Bass UK (14.10.2026), drumandbassuk.com, Wikipedia (Jungle music)\n\n#drumandbass #dnb #dnbnews #jungle #liquiddnb #stuttgartdnb #kirchheimteck #shieldradar",
   "slides": [
-    { "vorlage": "radar-cover", "ausgabe": 2, "datum": "29.10.2026" },
     {
-      "vorlage": "radar-meldung", "ring": "welt", "kategorie": "Entwicklung", "ort": "USA",
+      "vorlage": "radar-cover",
+      "ausgabe": 2,
+      "datum": "29.10.2026"
+    },
+    {
+      "vorlage": "radar-meldung",
+      "ring": "welt",
+      "kategorie": "Entwicklung",
+      "ort": "USA",
       "titel": "Drum and Bass in der Arena",
       "anriss": "WORSHIP bringen DnB in die US-Arenen",
       "text": "Sub Focus, Dimension, Culture Shock und 1991 sind zusammen WORSHIP. Das Projekt ist gerade zum ersten Mal mit einer Arena-Tour in Nordamerika unterwegs. Als Nächstes wollen die vier nach Asien, Musik auf Spanisch ist in Arbeit.",
@@ -15,7 +22,10 @@
       "quelle": "Dancing Astronaut, 23.10.2026"
     },
     {
-      "vorlage": "radar-meldung", "ring": "lokal", "kategorie": "Radio", "ort": "Stuttgart",
+      "vorlage": "radar-meldung",
+      "ring": "lokal",
+      "kategorie": "Radio",
+      "ort": "Stuttgart",
       "titel": "Zehn Jahre Radio in einer Sendung",
       "anriss": "Code Red FM: Best-of aus zehn Jahren Tobs Turvy",
       "text": "Seit 2016 legt Tobs Turvy bei Code Red FM im Freien Radio für Stuttgart auf. Zum Jubiläum hat er aus über 100 Playlists seine Favoriten gezogen. Das Best-of mit 157 Tracks steht als Mitschnitt zum Download auf der Website.",
@@ -23,7 +33,10 @@
       "quelle": "code-red-fm.de, 13.10.2026"
     },
     {
-      "vorlage": "radar-meldung", "ring": "welt", "kategorie": "Label", "ort": "Australien",
+      "vorlage": "radar-meldung",
+      "ring": "welt",
+      "kategorie": "Label",
+      "ort": "Australien",
       "titel": "Vom Rucksack-Rave zum Label",
       "anriss": "Trigga Fingaz: vom Backpacker-Rave zum Label",
       "text": "Liam Philp und Nico haben sich beim Backpacking in Cairns kennengelernt und dort die ersten Partys gemacht. Daraus ist Trigga Fingaz geworden: Label, Events und Kleidung. Das Label bringt Liquid bis Dancefloor heraus und gibt auch auf Demos Feedback.",
@@ -33,16 +46,38 @@
     {
       "vorlage": "radar-kurz",
       "punkte": [
-        { "ring": "welt", "text": "Simula und Javeon veröffentlichen „Smokescreen“ auf Critical Music.", "quelle": "drumandbassuk.com" },
-        { "ring": "welt", "text": "Natty Lou, MXTR und Lauren L'aimant bringen „White Lies“ auf Liquicity.", "quelle": "drumandbassuk.com" },
-        { "ring": "welt", "text": "„Energy“ von Flava D und Stush bekommt auf UKF Remixe von PEEKABOO und S.P.Y.", "quelle": "drumandbassuk.com" }
+        {
+          "ring": "welt",
+          "text": "Simula und Javeon veröffentlichen „Smokescreen“ auf Critical Music.",
+          "quelle": "drumandbassuk.com"
+        },
+        {
+          "ring": "welt",
+          "text": "Natty Lou, MXTR und Lauren L'aimant bringen „White Lies“ auf Liquicity.",
+          "quelle": "drumandbassuk.com"
+        },
+        {
+          "ring": "welt",
+          "text": "„Energy“ von Flava D und Stush bekommt auf UKF Remixe von PEEKABOO und S.P.Y.",
+          "quelle": "drumandbassuk.com"
+        }
       ]
     },
     {
-      "vorlage": "radar-wissen", "begriff": "Jungle", "titel": "Was ist Jungle?",
+      "vorlage": "radar-wissen",
+      "begriff": "Jungle",
+      "titel": "Was ist Jungle?",
       "text": "Jungle entstand Anfang der 90er in Großbritannien aus der Rave-Szene und der jamaikanischen Soundsystem-Kultur. Typisch sind schnelle, zerhackte Breakbeats wie der Amen Break und tiefe Bässe aus Dub und Reggae. Verbreitet haben ihn vor allem Piratensender. Aus Jungle ging Mitte der 90er Drum and Bass hervor.",
       "quelle": "Wikipedia, Jungle music"
     },
-    { "vorlage": "radar-ende", "frage": "Was war euer erster Drum-and-Bass-Moment?", "naechste": "12.11." }
-  ]
+    {
+      "vorlage": "radar-ende",
+      "frage": "Was war euer erster Drum-and-Bass-Moment?",
+      "naechste": "12.11."
+    }
+  ],
+  "ergebnis": {
+    "buffer_id": "6adf4c4f91e5f51fa0ff164e",
+    "uebergeben_am": "2026-10-26T12:49:19.942175+00:00"
+  }
 }
