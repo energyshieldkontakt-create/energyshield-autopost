@@ -1,0 +1,77 @@
+{
+  "publish_at": "2026-11-01T18:00:00+01:00",
+  "erstellt_am": "2026-10-28T18:03:36+01:00",
+  "typ": "karussell",
+  "status": "geplant",
+  "caption": "Shield Sessions VOL. 05 🛡️\n\nJungle und Jump-Up, 2 Genre die mir besonders am Herzen liegen, was sagt ihr zu der Genre-Kombi und welche Session hat euch am besten gefallen?\n\n@kruxer.dnb mit Jungle und Jump-Up, 175 BPM.\n\n🔊 Wischen für 3 Hot Cues aus dem Set\n🎧 Voller Mix auf SoundCloud – Link in Bio\n\n#drumandbass #dnb #jungle #jumpup #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb",
+  "mix_drive_id": "1w-O2wdvxPN--IOa1ZZzdS2Knfa6uBtuG",
+  "slides": [
+    {
+      "vorlage": "cover",
+      "dj": "KruXer",
+      "vol": 5,
+      "stil": "Jungle, Jump-Up",
+      "akzent": "blau",
+      "bpm": 175
+    },
+    {
+      "vorlage": "quadrat",
+      "bild": "dj.jpg",
+      "akzent": "blau",
+      "kicker": "Resident · Vol. 05",
+      "titel": "KruXer",
+      "fuss": "Shield Sessions · Jeden Sonntag"
+    }
+  ],
+  "hoerproben": [
+    {
+      "im_mix": "6:02",
+      "dauer": 30,
+      "tracks": [
+        "Jak (UK) – Akimbo",
+        "B-Don, Four D – Stand Tall"
+      ]
+    },
+    {
+      "im_mix": "12:59",
+      "dauer": 30,
+      "tracks": [
+        "Harley D – Lanes",
+        "Harley D – Dont Stop Now"
+      ]
+    },
+    {
+      "im_mix": "15:55",
+      "dauer": 30,
+      "tracks": [
+        "GRAY – Bad Boy Flows",
+        "Joey Illah – Got Me"
+      ]
+    }
+  ],
+  "tracklist": [
+    "DJ Hybrid, Haribo – Raised In The Jungle (feat. Haribo) (T>I Remix)",
+    "A-tech – Rush Hour",
+    "Strategy, Pola & Bryson – Anaesthetist",
+    "Logistics – Chant",
+    "Jaydan – Nobody Else",
+    "Jak (UK) – Akimbo",
+    "Chase & Status – Streetlife",
+    "B-Don, Four D – Stand Tall",
+    "B-complex – Beautiful Lies (L-Side Remix)",
+    "Scratchy, Visages, Napes – Steppin On Toes",
+    "Formula – Give Praise",
+    "Harley D – Lanes",
+    "Harley D – Dont Stop Now",
+    "GRAY – Bad Boy Flows",
+    "Joey Illah – Got Me",
+    "Branzh – Shellshock",
+    "Bennie, Clarkey, Haribo – Scatterbrain",
+    "Latte – Sixth Sense",
+    "Bou – SLCTA",
+    "NEONE The Wonderer, FORC3 – Arsonist (feat. NEONE The Wonderer)",
+    "Kanine – The Shadows",
+    "Bully – Stark Contrast",
+    "goddard. – Day 9"
+  ]
+}
