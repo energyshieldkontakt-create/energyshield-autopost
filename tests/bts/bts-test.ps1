@@ -10,15 +10,27 @@ $ErrorActionPreference = "Stop"
 $hier = $PSScriptRoot
 $repo = (Resolve-Path (Join-Path $hier "..\..")).Path
 $vorlage = Join-Path $repo "templates\bts\bts.html"
-$edge = "${env:ProgramFiles(x86)}\Microsoft\Edge\Application\msedge.exe"
-$profil = Join-Path $env:TEMP "es-bts-edgeprofil"
+if ($IsMacOS) {
+  # Mac (pwsh 7): Edge-Pfad, Temp-Ordner, file-URL und Prozesssuche aus den gemeinsamen Mac-Hilfen (Automatisierung/mac/werkzeuge.ps1)
+  . (Join-Path $repo "..\Automatisierung\mac\werkzeuge.ps1")
+  $edge = $MacEdge
+  $profil = Join-Path $MacTemp "es-bts-edgeprofil"
+  function url($p) { MacUrl $p }
+} else {
+  $edge = "${env:ProgramFiles(x86)}\Microsoft\Edge\Application\msedge.exe"
+  $profil = Join-Path $env:TEMP "es-bts-edgeprofil"
+  function url($p) { "file:///" + ($p -replace '\\', '/' -replace ' ', '%20') }
+}
 $utf8 = New-Object System.Text.UTF8Encoding($false)
-function url($p) { "file:///" + ($p -replace '\\', '/' -replace ' ', '%20') }
 # Ein neuer Edge mit demselben Profil hängt sich sonst an einen noch laufenden an und liefert nichts (Fotos dauern länger als beim Radar)
 function warteAufEdge {
   for ($i = 0; $i -lt 60; $i++) {
     # nur der Haupt-Prozess (ohne --type=) hält das Profil; Hilfsprozesse wie crashpad laufen länger und stören nicht
-    if (-not (Get-CimInstance Win32_Process -Filter "Name='msedge.exe'" | Where-Object { $_.CommandLine -match [regex]::Escape($profil) -and $_.CommandLine -notmatch '--type=' })) { return }
+    if ($IsMacOS) {
+      if (-not (MacProzesse $profil | Where-Object { $_ -notmatch '--type=' })) { return }
+    } else {
+      if (-not (Get-CimInstance Win32_Process -Filter "Name='msedge.exe'" | Where-Object { $_.CommandLine -match [regex]::Escape($profil) -and $_.CommandLine -notmatch '--type=' })) { return }
+    }
     Start-Sleep -Milliseconds 250
   }
 }

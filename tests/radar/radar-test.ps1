@@ -8,10 +8,18 @@ $ErrorActionPreference = "Stop"
 $hier = $PSScriptRoot
 $repo = (Resolve-Path (Join-Path $hier "..\..")).Path
 $vorlage = Join-Path $repo "templates\radar\radar.html"
-$edge = "${env:ProgramFiles(x86)}\Microsoft\Edge\Application\msedge.exe"
-$profil = Join-Path $env:TEMP "es-radar-edgeprofil"
+if ($IsMacOS) {
+  # Mac (pwsh 7): Edge-Pfad, Temp-Ordner und file-URL aus den gemeinsamen Mac-Hilfen (Automatisierung/mac/werkzeuge.ps1)
+  . (Join-Path $repo "..\Automatisierung\mac\werkzeuge.ps1")
+  $edge = $MacEdge
+  $profil = Join-Path $MacTemp "es-radar-edgeprofil"
+  function url($p) { MacUrl $p }
+} else {
+  $edge = "${env:ProgramFiles(x86)}\Microsoft\Edge\Application\msedge.exe"
+  $profil = Join-Path $env:TEMP "es-radar-edgeprofil"
+  function url($p) { "file:///" + ($p -replace '\\', '/' -replace ' ', '%20') }
+}
 $utf8 = New-Object System.Text.UTF8Encoding($false)
-function url($p) { "file:///" + ($p -replace '\\', '/' -replace ' ', '%20') }
 
 if (-not (Test-Path $vorlage)) { Write-Output "FAIL: Vorlage fehlt ($vorlage)"; exit 1 }
 $html0 = [IO.File]::ReadAllText($vorlage, $utf8)
