@@ -17,24 +17,33 @@ $MAX_MB = 18   # wie MAX_VIDEO_MB in scripts/render.py: jsDelivr liefert nur Dat
 function stopp($text) { Write-Output "FAIL: $text"; exit 1 }
 
 # 1. Slides prüfen und rendern (eigener Prozess, weil bts-test.ps1 mit exit endet)
-& powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $hier "bts-test.ps1") -Post $Post -Bild
+if ($IsMacOS) {
+  & pwsh -NoProfile -File (Join-Path $hier "bts-test.ps1") -Post $Post -Bild
+} else {
+  & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $hier "bts-test.ps1") -Post $Post -Bild
+}
 if ($LASTEXITCODE) { stopp "Slides melden Fehler, kein fertiger Beitrag" }
 
-# Windows-Media-Schnittstellen (WinRT) für PowerShell 5.1; Listen nur über das .NET-Interface befüllbar
-Add-Type -AssemblyName System.Runtime.WindowsRuntime
-Add-Type -AssemblyName System.Drawing
-$null = [Windows.Storage.StorageFile, Windows.Storage, ContentType = WindowsRuntime]
-$null = [Windows.Storage.StorageFolder, Windows.Storage, ContentType = WindowsRuntime]
-$null = [Windows.Media.Editing.MediaComposition, Windows.Media.Editing, ContentType = WindowsRuntime]
-$null = [Windows.Media.Editing.MediaClip, Windows.Media.Editing, ContentType = WindowsRuntime]
-$null = [Windows.Media.Editing.MediaOverlay, Windows.Media.Editing, ContentType = WindowsRuntime]
-$null = [Windows.Media.Editing.MediaOverlayLayer, Windows.Media.Editing, ContentType = WindowsRuntime]
-$null = [Windows.Media.MediaProperties.MediaEncodingProfile, Windows.Media.MediaProperties, ContentType = WindowsRuntime]
-$null = [Windows.Media.Transcoding.TranscodeFailureReason, Windows.Media.Transcoding, ContentType = WindowsRuntime]
-$null = [Windows.Graphics.Imaging.ImageStream, Windows.Graphics.Imaging, ContentType = WindowsRuntime]
-$methoden = [System.WindowsRuntimeSystemExtensions].GetMethods()
-$alsTask = $methoden | Where-Object { $_.Name -eq 'AsTask' -and $_.GetParameters().Count -eq 1 -and $_.GetParameters()[0].ParameterType.Name -eq 'IAsyncOperation`1' } | Select-Object -First 1
-$alsTaskFortschritt = $methoden | Where-Object { $_.Name -eq 'AsTask' -and $_.GetParameters().Count -eq 1 -and $_.GetParameters()[0].ParameterType.Name -eq 'IAsyncOperationWithProgress`2' } | Select-Object -First 1
+if ($IsMacOS) {
+  # Mac (pwsh 7): ffmpeg und sips statt Windows Media Editing und System.Drawing (setzeVideoMac, pruefeVideoMac, speichereJpegMac)
+  . (Join-Path $hier "bts-fertig.mac.ps1")
+} else {
+  # Windows-Media-Schnittstellen (WinRT) für PowerShell 5.1; Listen nur über das .NET-Interface befüllbar
+  Add-Type -AssemblyName System.Runtime.WindowsRuntime
+  Add-Type -AssemblyName System.Drawing
+  $null = [Windows.Storage.StorageFile, Windows.Storage, ContentType = WindowsRuntime]
+  $null = [Windows.Storage.StorageFolder, Windows.Storage, ContentType = WindowsRuntime]
+  $null = [Windows.Media.Editing.MediaComposition, Windows.Media.Editing, ContentType = WindowsRuntime]
+  $null = [Windows.Media.Editing.MediaClip, Windows.Media.Editing, ContentType = WindowsRuntime]
+  $null = [Windows.Media.Editing.MediaOverlay, Windows.Media.Editing, ContentType = WindowsRuntime]
+  $null = [Windows.Media.Editing.MediaOverlayLayer, Windows.Media.Editing, ContentType = WindowsRuntime]
+  $null = [Windows.Media.MediaProperties.MediaEncodingProfile, Windows.Media.MediaProperties, ContentType = WindowsRuntime]
+  $null = [Windows.Media.Transcoding.TranscodeFailureReason, Windows.Media.Transcoding, ContentType = WindowsRuntime]
+  $null = [Windows.Graphics.Imaging.ImageStream, Windows.Graphics.Imaging, ContentType = WindowsRuntime]
+  $methoden = [System.WindowsRuntimeSystemExtensions].GetMethods()
+  $alsTask = $methoden | Where-Object { $_.Name -eq 'AsTask' -and $_.GetParameters().Count -eq 1 -and $_.GetParameters()[0].ParameterType.Name -eq 'IAsyncOperation`1' } | Select-Object -First 1
+  $alsTaskFortschritt = $methoden | Where-Object { $_.Name -eq 'AsTask' -and $_.GetParameters().Count -eq 1 -and $_.GetParameters()[0].ParameterType.Name -eq 'IAsyncOperationWithProgress`2' } | Select-Object -First 1
+}
 function warte($op, [Type]$typ) { $t = $alsTask.MakeGenericMethod($typ).Invoke($null, @($op)); $t.Wait(-1) | Out-Null; $t.Result }
 function fuegeAn($liste, $wert, [Type]$typ) {
   [System.Collections.Generic.ICollection`1].MakeGenericType($typ).GetMethod("Add").Invoke($liste, @($wert.psobject.BaseObject)) | Out-Null
@@ -98,17 +107,23 @@ $out = Join-Path $hier "out"
 $fertig = Join-Path $Post "fertig"
 New-Item -ItemType Directory -Force $fertig | Out-Null
 Get-ChildItem $fertig -File | Where-Object { $_.Name -match '^\d+\.(jpg|mp4)$' -or $_.Name -eq 'caption.txt' } | Remove-Item
-$jpeg = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object { $_.MimeType -eq 'image/jpeg' }
-$qualitaet = New-Object System.Drawing.Imaging.EncoderParameters 1
-$qualitaet.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter ([System.Drawing.Imaging.Encoder]::Quality), ([long]92)
+if (-not $IsMacOS) {
+  $jpeg = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object { $_.MimeType -eq 'image/jpeg' }
+  $qualitaet = New-Object System.Drawing.Imaging.EncoderParameters 1
+  $qualitaet.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter ([System.Drawing.Imaging.Encoder]::Quality), ([long]92)
+}
 
 for ($i = 1; $i -le $slides.Count; $i++) {
   $s = $slides[$i - 1]
   $png = Join-Path $out "$name-$i.png"
   if ($s.vorlage -ne 'bts-produktion') {   # wie render.py: Bilder als JPEG (Qualität 92)
-    $bild = [System.Drawing.Image]::FromFile($png)
-    $bild.Save((Join-Path $fertig "$i.jpg"), $jpeg, $qualitaet)
-    $bild.Dispose()
+    if ($IsMacOS) {
+      speichereJpegMac $png (Join-Path $fertig "$i.jpg")
+    } else {
+      $bild = [System.Drawing.Image]::FromFile($png)
+      $bild.Save((Join-Path $fertig "$i.jpg"), $jpeg, $qualitaet)
+      $bild.Dispose()
+    }
     continue
   }
   if (-not $s.visualizer) { stopp "bts-produktion: Feld ""visualizer"" (Video aus TouchDesigner im Entwurfsordner) fehlt" }
@@ -120,8 +135,13 @@ for ($i = 1; $i -le $slides.Count; $i++) {
   $r = $Matches
   $ziel = Join-Path $Post $s.video
   Write-Output "Video-Slide $i`: setze '$($s.visualizer)' in den Rahmen ($($r[3]) x $($r[4]) bei $($r[1]), $($r[2])) …"
-  setzeVideo $png $quelle $ziel ([double]$r[1]) ([double]$r[2]) ([double]$r[3]) ([double]$r[4])
-  Write-Output ("ok   Video-Slide $i`: " + (pruefeVideo $ziel (Join-Path $out "$name-$i-video.jpg")))
+  if ($IsMacOS) {
+    setzeVideoMac $png $quelle $ziel ([double]$r[1]) ([double]$r[2]) ([double]$r[3]) ([double]$r[4])
+    Write-Output ("ok   Video-Slide $i`: " + (pruefeVideoMac $ziel (Join-Path $out "$name-$i-video.jpg")))
+  } else {
+    setzeVideo $png $quelle $ziel ([double]$r[1]) ([double]$r[2]) ([double]$r[3]) ([double]$r[4])
+    Write-Output ("ok   Video-Slide $i`: " + (pruefeVideo $ziel (Join-Path $out "$name-$i-video.jpg")))
+  }
   Copy-Item $ziel (Join-Path $fertig "$i.mp4")
 }
 if ($daten.caption) { [IO.File]::WriteAllText((Join-Path $fertig "caption.txt"), [string]$daten.caption, $utf8) }
