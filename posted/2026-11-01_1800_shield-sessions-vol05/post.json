@@ -2,7 +2,7 @@
   "publish_at": "2026-11-01T18:00:00+01:00",
   "erstellt_am": "2026-10-28T18:03:36+01:00",
   "typ": "karussell",
-  "status": "geplant",
+  "status": "bei_buffer",
   "caption": "Shield Sessions VOL. 05 🛡️\n\nJungle und Jump-Up, 2 Genre die mir besonders am Herzen liegen, was sagt ihr zu der Genre-Kombi und welche Session hat euch am besten gefallen?\n\n@kruxer.dnb mit Jungle und Jump-Up, 175 BPM.\n\n🔊 Wischen für 3 Hot Cues aus dem Set\n🎧 Voller Mix auf SoundCloud – Link in Bio\n\n#drumandbass #dnb #jungle #jumpup #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb",
   "mix_drive_id": "1w-O2wdvxPN--IOa1ZZzdS2Knfa6uBtuG",
   "slides": [
@@ -73,5 +73,9 @@
     "Kanine – The Shadows",
     "Bully – Stark Contrast",
     "goddard. – Day 9"
-  ]
+  ],
+  "ergebnis": {
+    "buffer_id": "6ae3a8daafdb9a7581c298d9",
+    "uebergeben_am": "2026-10-29T20:13:14.625463+00:00"
+  }
 }
