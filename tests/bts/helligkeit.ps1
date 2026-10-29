@@ -2,9 +2,14 @@
 # Misst die mittlere Helligkeit im Schild (x 320–760, y 340–800), wo das Foto nicht abgedunkelt ist, in out\normal-1.png und im Muster.
 # Aufruf (nach bts-test.ps1 -Fall normal -Bild): powershell -File tests\bts\helligkeit.ps1
 $ErrorActionPreference = "Stop"
-Add-Type -AssemblyName System.Drawing
 $hier = $PSScriptRoot
+if ($IsMacOS) {
+  . (Join-Path $hier "helligkeit.mac.ps1")   # Mac (pwsh 7): ffmpeg statt System.Drawing, gleiche Messung
+} else {
+  Add-Type -AssemblyName System.Drawing
+}
 function mittel($pfad) {
+  if ($IsMacOS) { return mittelMac $pfad }
   $b = [System.Drawing.Bitmap]::FromFile($pfad)
   $summe = 0; $n = 0
   for ($x = 320; $x -lt 760; $x += 5) { for ($y = 340; $y -lt 800; $y += 5) {
