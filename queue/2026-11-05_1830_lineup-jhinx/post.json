@@ -1,0 +1,11 @@
+{
+  "publish_at": "2026-11-05T18:30:00+01:00",
+  "erstellt_am": "2026-11-03T18:15:00+01:00",
+  "typ": "bild",
+  "status": "geplant",
+  "caption": "Line-up #1 für den 30.01.: Jhinx. 🛡️\n\nUnser Resident für Neurofunk, dunkel, technisch und mit Druck. Wer VOL. 03 der Shield Sessions gehört hat, weiß, was kommt.\n\nClub-Debut im Club Bastion Kirchheim. Nur Abendkasse, Einlass ab 18, nur 120 Plätze.\n\nMarkiert, wen ihr für Jhinx mitnehmt. 👇 @jhinx.dnb\n\n#drumandbass #dnb #neurofunk #lineup #clubbastion #kirchheimteck #stuttgartdnb #energyshield",
+  "collaborators": ["jhinx.dnb"],
+  "slides": [
+    { "vorlage": "lineup", "bild": "jhinx.jpg", "kicker": "Line-up · 30.01. · Bastion", "titel": "Jhinx", "text": "Resident · Neurofunk", "akzent": "neuro" }
+  ]
+}

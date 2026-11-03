@@ -1,0 +1,9 @@
+{
+  "publish_at": "2026-11-04T20:00:00+01:00",
+  "erstellt_am": "2026-11-03T18:15:00+01:00",
+  "typ": "story",
+  "status": "geplant",
+  "slides": [
+    { "vorlage": "story", "bild": "booth.jpg", "kicker": "Save the Date", "titel": "30.01.\nBastion", "text": "Unser Club-Debut. Schon eingetragen?", "fuss": "EVENT", "akzent": "blau" }
+  ]
+}

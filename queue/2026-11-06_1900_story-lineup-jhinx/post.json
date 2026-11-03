@@ -1,0 +1,9 @@
+{
+  "publish_at": "2026-11-06T19:00:00+01:00",
+  "erstellt_am": "2026-11-03T18:15:00+01:00",
+  "typ": "story",
+  "status": "geplant",
+  "slides": [
+    { "vorlage": "story", "bild": "jhinx.jpg", "kicker": "Line-up #1", "titel": "Jhinx", "text": "Neurofunk am 30.01. Morgen um 12 Uhr kommt der Nächste.", "fuss": "EVENT", "akzent": "neuro" }
+  ]
+}
