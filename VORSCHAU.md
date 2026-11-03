@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 03.11.2026 18:04. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 03.11.2026 18:16. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -130,7 +130,7 @@ Status: **test**
 
 ## Mi 04.11. 20:00 · story · `2026-11-04_2000_story-save-the-date`
 
-Status: **geplant**
+Status: **stop**
 
 <img src="queue/2026-11-04_2000_story-save-the-date/media/1.jpg" width="240">
 
@@ -140,7 +140,7 @@ Status: **geplant**
 
 ## Do 05.11. 18:30 · bild · `2026-11-05_1830_lineup-jhinx`
 
-Status: **geplant** · Collab: @jhinx.dnb
+Status: **stop** · Collab: @jhinx.dnb
 
 > Line-up #1 für den 30.01.: Jhinx. 🛡️
 > 
@@ -160,7 +160,7 @@ Status: **geplant** · Collab: @jhinx.dnb
 
 ## Fr 06.11. 19:00 · story · `2026-11-06_1900_story-lineup-jhinx`
 
-Status: **geplant**
+Status: **stop**
 
 <img src="queue/2026-11-06_1900_story-lineup-jhinx/media/1.jpg" width="240">
 
@@ -170,7 +170,7 @@ Status: **geplant**
 
 ## Sa 07.11. 12:00 · bild · `2026-11-07_1200_lineup-ranj`
 
-Status: **geplant** · Collab: @ranj.dnb
+Status: **stop** · Collab: @ranj.dnb
 
 > Line-up #2 für den 30.01.: Ranj. 🛡️
 > 
