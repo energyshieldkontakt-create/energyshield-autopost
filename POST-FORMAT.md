@@ -1,5 +1,7 @@
 # Post-Format (für den Content-Agenten)
 
+> **Seit 3.11.2026 (Oliver): kein Buffer mehr.** Die Übergabe an Buffer ist abgeschaltet (`.github/workflows/buffer.yml` nur noch von Hand startbar). GitHub rendert weiter, Oliver postet selbst. Neue Posts bekommen `"status": "freigabe"`; danach holt `../Automatisierung/zum-posten.ps1 -Post <ordner>` die Medien nach `../Zum-Posten/<ordner>/`. Collabs setzt Oliver beim Hochladen. Was unten über Buffer, Einspruchsfrist und „Manuell für Volkan“ steht, gilt nicht mehr.
+
 Jeder Post ist ein Ordner in `queue/` mit einer `post.json` und den benötigten Rohdateien (Fotos, Clips, Audio).
 
 **Ordnername:** `JJJJ-MM-TT_HHMM_kurzname`, z. B. `2026-10-06_1830_wer-ist-energyshield`
@@ -24,7 +26,7 @@ Jeder Post ist ein Ordner in `queue/` mit einer `post.json` und den benötigten 
 | `publish_at` | ja | Veröffentlichungszeit **mit Zeitzone** (Sommerzeit `+02:00` bis 24.10.2026, danach Winterzeit `+01:00`) |
 | `erstellt_am` | ja | Jetzt. Der Post geht frühestens 24 h danach online (Einspruchsfrist) |
 | `typ` | ja | `bild`, `karussell`, `reel` oder `story` |
-| `status` | ja | `geplant` (wird gepostet), `stop` (Einspruch), `test` (wird nur gerendert), `freigabe` (Reserve: wird gerendert, geht nicht an Buffer, bis Claude auf `geplant` umstellt) |
+| `status` | ja | `geplant` (wird gepostet), `stop` (Einspruch), `test` (wird nur gerendert), `freigabe` (wird gerendert, geht nie an Buffer; seit 3.11.2026 Standard für alle neuen Posts) |
 | `caption` | nein | Text unter dem Post. Nicht bei Stories (die haben keine Caption) |
 | `collaborators` | nein | Instagram-Namen ohne @. **Buffer kann keine Collab-Posts.** Der Post geht normal raus, danach lädt Volkan die Personen in Instagram als Mitwirkende ein. Deshalb jeden Collab-Post auch unter „Manuell für Volkan" notieren |
 | `slides` | bei bild/karussell/story | Liste von Grafiken (siehe unten). Karussell: 2–10 |
