@@ -1,10 +1,9 @@
 name: An Buffer senden
 
-# Stündlich: Posts, die in den nächsten 4 Tagen dran sind (und deren 24-h-Einspruchsfrist
-# abgelaufen ist), an Buffer übergeben. Buffer veröffentlicht sie pünktlich auf Instagram.
+# Abgeschaltet seit 03.11.2026 (Oliver): keine automatischen Posts mehr über Buffer.
+# Oliver lädt alle Posts selbst hoch, Claude legt sie in Zum-Posten/ ab.
+# Früher stündlich ('7 * * * *'): fällige Posts an Buffer übergeben. Nur noch von Hand startbar.
 on:
-  schedule:
-    - cron: '7 * * * *'
   workflow_dispatch:
     inputs:
       testlauf:
