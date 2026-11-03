@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 28.10.2026 18:06. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 03.11.2026 18:04. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -128,23 +128,62 @@ Status: **test**
 
 ---
 
-## So 01.11. 18:00 · karussell · `2026-11-01_1800_shield-sessions-vol05`
+## Mi 04.11. 20:00 · story · `2026-11-04_2000_story-save-the-date`
 
 Status: **geplant**
 
-> Shield Sessions VOL. 05 🛡️
-> 
-> Jungle und Jump-Up, 2 Genre die mir besonders am Herzen liegen, was sagt ihr zu der Genre-Kombi und welche Session hat euch am besten gefallen?
-> 
-> @kruxer.dnb mit Jungle und Jump-Up, 175 BPM.
-> 
-> 🔊 Wischen für 3 Hot Cues aus dem Set
-> 🎧 Voller Mix auf SoundCloud – Link in Bio
-> 
-> #drumandbass #dnb #jungle #jumpup #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb
+<img src="queue/2026-11-04_2000_story-save-the-date/media/1.jpg" width="240">
 
-<img src="queue/2026-11-01_1800_shield-sessions-vol05/media/1.jpg" width="240"> <img src="queue/2026-11-01_1800_shield-sessions-vol05/media/2.jpg" width="240"> <img src="queue/2026-11-01_1800_shield-sessions-vol05/media/soundcloud.jpg" width="240">
+[post.json bearbeiten](queue/2026-11-04_2000_story-save-the-date/post.json)
 
-[Video-Slide 3 ansehen](queue/2026-11-01_1800_shield-sessions-vol05/media/3.mp4) · [Video-Slide 4 ansehen](queue/2026-11-01_1800_shield-sessions-vol05/media/4.mp4) · [Video-Slide 5 ansehen](queue/2026-11-01_1800_shield-sessions-vol05/media/5.mp4) · [post.json bearbeiten](queue/2026-11-01_1800_shield-sessions-vol05/post.json)
+---
+
+## Do 05.11. 18:30 · bild · `2026-11-05_1830_lineup-jhinx`
+
+Status: **geplant** · Collab: @jhinx.dnb
+
+> Line-up #1 für den 30.01.: Jhinx. 🛡️
+> 
+> Unser Resident für Neurofunk, dunkel, technisch und mit Druck. Wer VOL. 03 der Shield Sessions gehört hat, weiß, was kommt.
+> 
+> Club-Debut im Club Bastion Kirchheim. Nur Abendkasse, Einlass ab 18, nur 120 Plätze.
+> 
+> Markiert, wen ihr für Jhinx mitnehmt. 👇 @jhinx.dnb
+> 
+> #drumandbass #dnb #neurofunk #lineup #clubbastion #kirchheimteck #stuttgartdnb #energyshield
+
+<img src="queue/2026-11-05_1830_lineup-jhinx/media/1.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-11-05_1830_lineup-jhinx/post.json)
+
+---
+
+## Fr 06.11. 19:00 · story · `2026-11-06_1900_story-lineup-jhinx`
+
+Status: **geplant**
+
+<img src="queue/2026-11-06_1900_story-lineup-jhinx/media/1.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-11-06_1900_story-lineup-jhinx/post.json)
+
+---
+
+## Sa 07.11. 12:00 · bild · `2026-11-07_1200_lineup-ranj`
+
+Status: **geplant** · Collab: @ranj.dnb
+
+> Line-up #2 für den 30.01.: Ranj. 🛡️
+> 
+> Von Deep bis Jump-Up, laut, verspielt und immer mit Blick auf den Floor. VOL. 04 der Shield Sessions war der Vorgeschmack.
+> 
+> Club-Debut im Club Bastion Kirchheim. Nur Abendkasse, Einlass ab 18, nur 120 Plätze.
+> 
+> Wer ist am 30.01. für Ranj vorne dabei? 👇 @ranj.dnb
+> 
+> #drumandbass #dnb #jumpup #lineup #clubbastion #kirchheimteck #stuttgartdnb #energyshield
+
+<img src="queue/2026-11-07_1200_lineup-ranj/media/1.jpg" width="240">
+
+[post.json bearbeiten](queue/2026-11-07_1200_lineup-ranj/post.json)
 
 ---
