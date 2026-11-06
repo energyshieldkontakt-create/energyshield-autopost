@@ -1,0 +1,65 @@
+{
+  "publish_at": "2026-11-08T18:00:00+01:00",
+  "erstellt_am": "2026-11-06T06:07:53+01:00",
+  "typ": "karussell",
+  "status": "freigabe",
+  "caption": "Shield Sessions VOL. 06 🛡️\n\n@stone_d_97 ist zurück an den Decks: Halftime und Deep, zwischen 87 und 174 BPM.\n\n🔊 Wischen für 3 Hot Cues aus dem Set\n🎧 Voller Mix auf SoundCloud – Link in Bio\n\n#drumandbass #dnb #halftime #deepdnb #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb",
+  "collaborators": ["stone_d_97"],
+  "mix_drive_id": "19YqYWObpBHutCunlIESh6kH1rcUx9q5R",
+  "slides": [
+    {
+      "vorlage": "cover",
+      "dj": "Stone D",
+      "vol": 6,
+      "stil": "Halftime, Deep",
+      "bpm": "87/174"
+    },
+    {
+      "vorlage": "quadrat",
+      "bild": "dj.jpg",
+      "akzent": "halftime",
+      "kicker": "Resident · Vol. 06",
+      "titel": "Stone D",
+      "fuss": "Shield Sessions · Jeden Sonntag"
+    }
+  ],
+  "hoerproben": [
+    {
+      "im_mix": "0:44",
+      "dauer": 30,
+      "tracks": [
+        "Spyne – Mechanical Spider",
+        "Archaea – Pumpin' Groove"
+      ]
+    },
+    {
+      "im_mix": "7:50",
+      "dauer": 30,
+      "tracks": [
+        "Skorpion – Tribal War"
+      ]
+    },
+    {
+      "im_mix": "19:25",
+      "dauer": 30,
+      "tracks": [
+        "QZB – Oppressor",
+        "QZB, Marea – Hollow Seconds"
+      ]
+    }
+  ],
+  "tracklist": [
+    "Spyne – Mechanical Spider",
+    "Archaea – Pumpin' Groove",
+    "Stonx – Bad Robot",
+    "Crimes! – Lords (Ivy Lab Remix)",
+    "Skorpion – Tribal War",
+    "IMANU – Noir",
+    "Cryptochronica – !Kung Fou",
+    "Olivia Rose, 4K – dontletgo",
+    "Submarine – Physical",
+    "QZB – Oppressor",
+    "QZB, Marea – Hollow Seconds",
+    "Craze – Da System"
+  ]
+}
