@@ -1,6 +1,6 @@
 # Vorschau: geplante Posts
 
-Stand: 03.11.2026 18:16. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
+Stand: 06.11.2026 06:11. Jeder Post geht frühestens **24 Stunden nach seiner Erstellung** online.
 
 Posts werden 4 Tage vor ihrem Termin an Buffer übergeben und verschwinden dann von hier.
 
@@ -185,5 +185,24 @@ Status: **stop** · Collab: @ranj.dnb
 <img src="queue/2026-11-07_1200_lineup-ranj/media/1.jpg" width="240">
 
 [post.json bearbeiten](queue/2026-11-07_1200_lineup-ranj/post.json)
+
+---
+
+## So 08.11. 18:00 · karussell · `2026-11-08_1800_shield-sessions-vol06`
+
+Status: **freigabe** · Collab: @stone_d_97
+
+> Shield Sessions VOL. 06 🛡️
+> 
+> @stone_d_97 ist zurück an den Decks: Halftime und Deep, zwischen 87 und 174 BPM.
+> 
+> 🔊 Wischen für 3 Hot Cues aus dem Set
+> 🎧 Voller Mix auf SoundCloud – Link in Bio
+> 
+> #drumandbass #dnb #halftime #deepdnb #dnbmix #shieldsessions #energyshield #kirchheimteck #stuttgartdnb
+
+<img src="queue/2026-11-08_1800_shield-sessions-vol06/media/1.jpg" width="240"> <img src="queue/2026-11-08_1800_shield-sessions-vol06/media/2.jpg" width="240"> <img src="queue/2026-11-08_1800_shield-sessions-vol06/media/soundcloud.jpg" width="240">
+
+[Video-Slide 3 ansehen](queue/2026-11-08_1800_shield-sessions-vol06/media/3.mp4) · [Video-Slide 4 ansehen](queue/2026-11-08_1800_shield-sessions-vol06/media/4.mp4) · [Video-Slide 5 ansehen](queue/2026-11-08_1800_shield-sessions-vol06/media/5.mp4) · [post.json bearbeiten](queue/2026-11-08_1800_shield-sessions-vol06/post.json)
 
 ---
